@@ -1,5 +1,6 @@
 // Project imports
 import carmel1Cover from "@/assets/projects/carmel-1-cover.jpg";
+import carmel2Cover from "@/assets/projects/carmel-2-cover.jpg";
 import project1 from "@/assets/projects/2_After.jpg";
 import project2 from "@/assets/projects/4_After.jpg";
 import project3 from "@/assets/projects/5_After.jpg";
@@ -68,8 +69,8 @@ export const projects: Project[] = [
     location: "Carmel, CA",
     category: "Residential",
     description: "A stunning coastal home showcasing refined craftsmanship and thoughtful design that harmonizes with the natural beauty of the Carmel coastline.",
-    image: project2,
-    images: [project2],
+    image: carmel2Cover,
+    images: [carmel2Cover],
   },
   {
     id: "coastal-hillside-restoration",
