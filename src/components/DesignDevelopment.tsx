@@ -1,6 +1,5 @@
 import React from "react";
 import { CheckCircle } from "lucide-react";
-import developmentImg1 from "@/assets/design-development-1.jpg";
 import developmentImg2 from "@/assets/design-development-2.jpg";
 import developmentImg3 from "@/assets/design-development-3.jpg";
 
@@ -50,24 +49,19 @@ export const DesignDevelopment: React.FC = () => {
         </div>
 
         {/* Image gallery */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <div className="md:col-span-2 opacity-0 animate-fade-in delay-200">
-            <img
-              src={developmentImg1}
-              alt="Design planning and blueprints"
-              className="w-full h-full object-cover rounded-sm hover-lift"
-            />
-          </div>
-          <div className="space-y-6 opacity-0 animate-fade-in delay-300">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+          <div className="opacity-0 animate-fade-in delay-200">
             <img
               src={developmentImg2}
               alt="Construction in progress"
-              className="w-full h-64 object-cover rounded-sm hover-lift"
+              className="w-full h-96 object-cover rounded-sm hover-lift"
             />
+          </div>
+          <div className="opacity-0 animate-fade-in delay-300">
             <img
               src={developmentImg3}
               alt="Material selection and design consultation"
-              className="w-full h-64 object-cover rounded-sm hover-lift"
+              className="w-full h-96 object-cover rounded-sm hover-lift"
             />
           </div>
         </div>
