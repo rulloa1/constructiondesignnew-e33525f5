@@ -32,7 +32,7 @@ export const FlippingPortfolio: React.FC<FlippingPortfolioProps> = ({
       setTimeout(() => {
         setCurrentPage(currentPage + 1);
         setIsFlipping(false);
-      }, 600);
+      }, 800);
     }
   };
 
@@ -43,7 +43,7 @@ export const FlippingPortfolio: React.FC<FlippingPortfolioProps> = ({
       setTimeout(() => {
         setCurrentPage(currentPage - 1);
         setIsFlipping(false);
-      }, 600);
+      }, 800);
     }
   };
 
@@ -107,17 +107,22 @@ export const FlippingPortfolio: React.FC<FlippingPortfolioProps> = ({
           <ChevronRight className="h-12 w-12" />
         </Button>
 
-        {/* Book spread */}
-        <div className="relative w-full h-full flex items-center justify-center">
+      {/* Book spread */}
+        <div className="relative w-full h-full flex items-center justify-center" style={{ perspective: "2500px" }}>
           {/* Book shadow */}
-          <div className="absolute inset-0 bg-black/40 blur-3xl scale-95" />
+          <div className="absolute inset-0 bg-black/40 blur-3xl scale-95 transition-all duration-800" 
+               style={{ 
+                 transform: isFlipping 
+                   ? `translateX(${flipDirection === "forward" ? "-20px" : "20px"}) scale(0.9)` 
+                   : "translateX(0) scale(0.95)" 
+               }} />
           
           {/* Book pages */}
-          <div className={`relative w-full h-full bg-cream rounded-lg shadow-2xl overflow-hidden transition-transform duration-600 ${
+          <div className={`relative w-full h-full bg-cream rounded-lg shadow-2xl overflow-hidden ${
             isFlipping && flipDirection === "forward" ? "animate-flip-forward" : ""
           } ${
             isFlipping && flipDirection === "backward" ? "animate-flip-backward" : ""
-          }`}>
+          }`} style={{ transformStyle: "preserve-3d" }}>
             {/* Page content */}
             {currentProject && (
               <div className="w-full h-full flex">
@@ -177,11 +182,24 @@ export const FlippingPortfolio: React.FC<FlippingPortfolioProps> = ({
             )}
           </div>
 
-          {/* Page curl effect */}
+          {/* Page curl effect with lighting */}
           {isFlipping && (
-            <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none">
-              <div className="w-full h-full bg-gradient-to-l from-black/20 to-transparent" />
-            </div>
+            <>
+              <div className={`absolute top-0 ${flipDirection === "forward" ? "right-0" : "left-0"} w-1/2 h-full pointer-events-none transition-opacity duration-300`}>
+                <div className={`w-full h-full ${
+                  flipDirection === "forward" 
+                    ? "bg-gradient-to-l from-black/30 via-black/10 to-transparent" 
+                    : "bg-gradient-to-r from-black/30 via-black/10 to-transparent"
+                }`} />
+              </div>
+              <div className={`absolute top-0 ${flipDirection === "forward" ? "left-0" : "right-0"} w-1/2 h-full pointer-events-none transition-opacity duration-300`}>
+                <div className={`w-full h-full ${
+                  flipDirection === "forward" 
+                    ? "bg-gradient-to-r from-white/10 to-transparent" 
+                    : "bg-gradient-to-l from-white/10 to-transparent"
+                }`} />
+              </div>
+            </>
           )}
         </div>
 
