@@ -119,16 +119,6 @@ export const PortfolioGrid: React.FC<PortfolioGridProps> = ({ onClose, initialCa
                   </p>
                 </div>
               </div>
-
-              {/* Text below image */}
-              <div className="space-y-1">
-                <h3 className="font-playfair text-xl font-medium text-charcoal transition-colors duration-300 group-hover:text-gold">
-                  {project.title}
-                </h3>
-                <p className="font-inter text-sm text-muted-foreground font-light">
-                  {project.location}
-                </p>
-              </div>
             </Link>
           ))}
         </div>
