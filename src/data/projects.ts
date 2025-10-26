@@ -49,6 +49,8 @@ import lds16 from "@/assets/projects/lds-16.jpg";
 import lds17 from "@/assets/projects/lds-17.jpg";
 import lds18 from "@/assets/projects/lds-18.jpg";
 import lds19 from "@/assets/projects/lds-19.jpg";
+import lds20 from "@/assets/projects/lds-20.jpg";
+import lds21 from "@/assets/projects/lds-21.jpg";
 import project5 from "@/assets/projects/IMGP1303.jpg";
 import project6 from "@/assets/projects/IMGP1305.jpg";
 import lagunaGrandeCover from "@/assets/projects/laguna-cover.jpg";
@@ -139,7 +141,7 @@ export const projects: Project[] = [
     category: "Commercial",
     description: "Specialized commercial finishing work for religious facilities, featuring meticulous attention to detail and high-quality craftsmanship that creates welcoming and inspiring spaces.",
     image: lds7,
-    images: [lds7, lds2, lds3, lds10, lds15, lds4, lds5, lds6, lds1, lds8, lds9, lds11, lds12, lds13, lds14, lds16, lds17, lds18, lds19, project4],
+    images: [lds7, lds2, lds3, lds10, lds15, lds20, lds4, lds5, lds6, lds1, lds8, lds9, lds11, lds12, lds13, lds14, lds16, lds17, lds18, lds19, lds21, project4],
   },
   {
     id: "hillside-cleanup",
