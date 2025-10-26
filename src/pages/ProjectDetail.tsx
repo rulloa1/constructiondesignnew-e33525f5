@@ -26,11 +26,12 @@ const ProjectDetail = () => {
     <div className="min-h-screen bg-cream">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-8 md:py-12">
         <Button 
-          variant="ghost" 
+          variant="outline" 
           onClick={() => navigate("/")}
-          className="mb-6 md:mb-8"
+          className="mb-8 md:mb-12 hover:bg-accent transition-colors"
+          size="lg"
         >
-          <ArrowLeft className="mr-2 h-4 w-4" />
+          <ArrowLeft className="mr-2 h-5 w-5" />
           Back to Portfolio
         </Button>
 
