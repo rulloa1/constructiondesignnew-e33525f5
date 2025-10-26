@@ -76,6 +76,14 @@ import bigsur4 from "@/assets/projects/bigsur-4.jpg";
 import bigsur5 from "@/assets/projects/bigsur-5.jpg";
 import bigsur6 from "@/assets/projects/bigsur-6.jpg";
 import bigsur7 from "@/assets/projects/bigsur-7.jpg";
+import bigsur8 from "@/assets/projects/bigsur-8.jpg";
+import bigsur9 from "@/assets/projects/bigsur-9.jpg";
+import bigsur10 from "@/assets/projects/bigsur-10.jpg";
+import bigsur11 from "@/assets/projects/bigsur-11.jpg";
+import bigsur12 from "@/assets/projects/bigsur-12.jpg";
+import bigsur13 from "@/assets/projects/bigsur-13.jpg";
+import bigsur14 from "@/assets/projects/bigsur-14.jpg";
+import bigsur15 from "@/assets/projects/bigsur-15.jpg";
 
 // Pacific Grove Design Build album
 import pgCover from "@/assets/projects/pg-12-after.jpg";
@@ -193,7 +201,7 @@ export const projects: Project[] = [
     category: "Residential",
     description: "A spectacular coastal property featuring dramatic ocean views and sophisticated site work, including extensive hillside stabilization and custom driveway construction with stone walls.",
     image: bigsurCover,
-    images: [bigsurCover, bigsur1, bigsur2, bigsur3, bigsur4, bigsur5, bigsur6, bigsur7],
+    images: [bigsurCover, bigsur1, bigsur2, bigsur3, bigsur4, bigsur5, bigsur6, bigsur7, bigsur8, bigsur9, bigsur10, bigsur11, bigsur12, bigsur13, bigsur14, bigsur15],
   },
 ];
 
