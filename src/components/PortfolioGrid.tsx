@@ -87,7 +87,7 @@ export const PortfolioGrid: React.FC<PortfolioGridProps> = ({ onClose, initialCa
 
 
         {/* Projects grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {filteredProjects.map((project, index) => (
             <Link
               key={project.id}
