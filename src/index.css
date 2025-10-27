@@ -251,4 +251,31 @@ All colors MUST be HSL.
   .bg-gradient-radial {
     background: radial-gradient(circle, var(--tw-gradient-stops));
   }
+
+  /* Book opening animation */
+  @keyframes bookOpenLeft {
+    0% {
+      transform: rotateY(0deg);
+    }
+    100% {
+      transform: rotateY(-180deg);
+    }
+  }
+
+  @keyframes bookOpenRight {
+    0% {
+      transform: rotateY(0deg);
+    }
+    100% {
+      transform: rotateY(180deg);
+    }
+  }
+
+  .animate-book-open-left {
+    animation: bookOpenLeft 1.5s ease-in-out forwards;
+  }
+
+  .animate-book-open-right {
+    animation: bookOpenRight 1.5s ease-in-out forwards;
+  }
 }
