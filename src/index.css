@@ -251,31 +251,4 @@ All colors MUST be HSL.
   .bg-gradient-radial {
     background: radial-gradient(circle, var(--tw-gradient-stops));
   }
-
-  /* Book flip animations */
-  @keyframes flip-left {
-    0% {
-      transform: rotateY(0deg);
-    }
-    100% {
-      transform: rotateY(-180deg);
-    }
-  }
-
-  @keyframes flip-right {
-    0% {
-      transform: rotateY(0deg);
-    }
-    100% {
-      transform: rotateY(180deg);
-    }
-  }
-
-  .animate-flip-left {
-    animation: flip-left 0.6s ease-in-out;
-  }
-
-  .animate-flip-right {
-    animation: flip-right 0.6s ease-in-out;
-  }
 }
