@@ -66,7 +66,7 @@ export const BookCoverHero: React.FC<BookCoverHeroProps> = ({ onOpenBook }) => {
             </div>
 
             {/* Subtitle */}
-            <p className="font-inter text-cream text-lg md:text-xl font-light tracking-[0.3em] uppercase opacity-0 animate-fade-in delay-400">
+            <p className="font-inter text-cream text-lg md:text-xl font-light tracking-[0.3em] uppercase opacity-0 animate-fade-in delay-400 whitespace-nowrap">
               Fine Construction & Design
             </p>
 
