@@ -19,20 +19,25 @@ export const BookCoverHero: React.FC<BookCoverHeroProps> = ({
 
       {/* Subtle animated particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-gold/5"
-            style={{
-              width: `${Math.random() * 100 + 50}px`,
-              height: `${Math.random() * 100 + 50}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `float-${i % 3} ${15 + i * 2}s ease-in-out infinite`,
-              animationDelay: `${i * 0.5}s`
-            }}
-          />
-        ))}
+        {[...Array(15)].map((_, i) => {
+          const colors = ['bg-gold/5', 'bg-copper/5', 'bg-bronze/5', 'bg-steel-blue/5'];
+          const shapes = ['rounded-full', 'rounded-lg'];
+          return (
+            <div
+              key={i}
+              className={`absolute ${colors[i % colors.length]} ${shapes[i % shapes.length]}`}
+              style={{
+                width: `${Math.random() * 120 + 40}px`,
+                height: `${Math.random() * 120 + 40}px`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animation: `float-${i % 4} ${12 + i * 1.5}s ease-in-out infinite`,
+                animationDelay: `${i * 0.3}s`,
+                transform: `rotate(${Math.random() * 360}deg)`
+              }}
+            />
+          );
+        })}
       </div>
 
       {/* Subtle gradient orbs */}
@@ -55,22 +60,56 @@ export const BookCoverHero: React.FC<BookCoverHeroProps> = ({
             animation: 'float-1 25s ease-in-out infinite reverse'
           }}
         />
+        <div 
+          className="absolute w-72 h-72 rounded-full blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, hsl(var(--copper) / 0.12) 0%, transparent 70%)',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            animation: 'float-2 18s ease-in-out infinite'
+          }}
+        />
+        <div 
+          className="absolute w-64 h-64 rounded-full blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, hsl(var(--bronze) / 0.1) 0%, transparent 70%)',
+            top: '30%',
+            right: '20%',
+            animation: 'float-3 22s ease-in-out infinite'
+          }}
+        />
+        <div 
+          className="absolute w-56 h-56 rounded-full blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, hsl(var(--steel-blue) / 0.08) 0%, transparent 70%)',
+            bottom: '25%',
+            left: '25%',
+            animation: 'float-1 27s ease-in-out infinite reverse'
+          }}
+        />
       </div>
 
       <style>{`
         @keyframes float-0 {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          33% { transform: translate(30px, -30px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
+          0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+          33% { transform: translate(30px, -30px) scale(1.1) rotate(120deg); }
+          66% { transform: translate(-20px, 20px) scale(0.9) rotate(240deg); }
         }
         @keyframes float-1 {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          33% { transform: translate(-40px, 30px) scale(0.9); }
-          66% { transform: translate(30px, -20px) scale(1.1); }
+          0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+          33% { transform: translate(-40px, 30px) scale(0.9) rotate(-120deg); }
+          66% { transform: translate(30px, -20px) scale(1.1) rotate(-240deg); }
         }
         @keyframes float-2 {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(20px, 40px) scale(1.05); }
+          0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+          50% { transform: translate(20px, 40px) scale(1.05) rotate(180deg); }
+        }
+        @keyframes float-3 {
+          0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+          25% { transform: translate(-30px, -25px) scale(1.08) rotate(90deg); }
+          50% { transform: translate(25px, 30px) scale(0.92) rotate(180deg); }
+          75% { transform: translate(-15px, 20px) scale(1.05) rotate(270deg); }
         }
       `}</style>
 
