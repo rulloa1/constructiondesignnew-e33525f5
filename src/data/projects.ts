@@ -185,7 +185,7 @@ export const projects: Project[] = [
     category: "Commercial",
     description: "Comprehensive site preparation and environmental restoration services that transform challenging hillside properties into beautiful, buildable lots.",
     image: cleanup1,
-    images: [cleanup1, cleanup2, cleanup3, cleanup4, cleanup5, cleanup6, cleanupCover],
+    images: [cleanupCover, cleanup1, cleanup2, cleanup3, cleanup4, cleanup5, cleanup6],
   },
   {
     id: "commercial-finish-lds-churches",
@@ -221,7 +221,7 @@ export const projects: Project[] = [
     category: "Residential",
     description: "An elegant coastal residence featuring custom architectural details and high-end finishes that capture the essence of Carmel's sophisticated charm.",
     image: carmel1_1,
-    images: [carmel1_1, carmel1_2, carmel1_3, carmel1_4, carmel1_5, carmel1_6, carmel1_7, carmel1_8, carmel1_9, carmel1_10, carmel1_11, carmel1_12, carmel1_13, carmel1_14, carmel1_15, carmel1_16, carmel1_17, carmel1_18, carmel1_19, carmel1_20],
+    images: [carmel1_1, carmel1_5, carmel1_7, carmel1_9, carmel1_11, carmel1_12, carmel1_14, carmel1_16, carmel1_19, carmel1_2, carmel1_3, carmel1_4, carmel1_6, carmel1_8, carmel1_10, carmel1_13, carmel1_15, carmel1_17, carmel1_18, carmel1_20],
   },
   {
     id: "pacific-grove-design-build",
@@ -232,15 +232,16 @@ export const projects: Project[] = [
     image: pgBefore1,
     images: [
       pgBefore1,
-      pgAfter1,
       pgBefore2,
-      pgAfter2,
       pgBefore3,
+      pgAfter1,
+      pgAfter2,
       pgAfter3,
       pgAfter4,
       pgAfter5,
       pgAfter6,
       pgAfter7,
+      pgCover,
     ],
   },
   {
