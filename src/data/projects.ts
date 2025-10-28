@@ -129,6 +129,7 @@ import links4 from "@/assets/projects/links-4.jpg";
 import links5 from "@/assets/projects/links-5.jpg";
 import links6 from "@/assets/projects/links-6.jpg";
 import links7 from "@/assets/projects/links-7.jpg";
+import links8 from "@/assets/projects/links-8.jpg";
 
 export type ProjectCategory = "Residential" | "Commercial" | "Hospitality" | "Design Build";
 
@@ -260,7 +261,7 @@ export const projects: Project[] = [
     category: "Residential",
     description: "A prestigious residential community featuring elegant estates set among manicured landscapes, tranquil water features, and thoughtfully designed outdoor spaces that create a refined living experience.",
     image: linksCover,
-    images: [linksCover, links1, links2, links3, links4, links5, links6, links7],
+    images: [linksCover, links1, links2, links3, links4, links5, links6, links7, links8],
   },
 ];
 
