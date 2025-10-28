@@ -17,6 +17,63 @@ export const BookCoverHero: React.FC<BookCoverHeroProps> = ({
       }} />
       </div>
 
+      {/* Subtle animated particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-gold/5"
+            style={{
+              width: `${Math.random() * 100 + 50}px`,
+              height: `${Math.random() * 100 + 50}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animation: `float-${i % 3} ${15 + i * 2}s ease-in-out infinite`,
+              animationDelay: `${i * 0.5}s`
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Subtle gradient orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+        <div 
+          className="absolute w-96 h-96 rounded-full blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, hsl(var(--gold) / 0.1) 0%, transparent 70%)',
+            top: '10%',
+            left: '10%',
+            animation: 'float-0 20s ease-in-out infinite'
+          }}
+        />
+        <div 
+          className="absolute w-80 h-80 rounded-full blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, hsl(var(--gold) / 0.08) 0%, transparent 70%)',
+            bottom: '15%',
+            right: '15%',
+            animation: 'float-1 25s ease-in-out infinite reverse'
+          }}
+        />
+      </div>
+
+      <style>{`
+        @keyframes float-0 {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(30px, -30px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        @keyframes float-1 {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(-40px, 30px) scale(0.9); }
+          66% { transform: translate(30px, -20px) scale(1.1); }
+        }
+        @keyframes float-2 {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          50% { transform: translate(20px, 40px) scale(1.05); }
+        }
+      `}</style>
+
       {/* Book cover */}
       <div className={`relative transition-all duration-500 ease-out ${isHovered ? 'scale-105' : 'scale-100'}`} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} style={{
       transform: isHovered ? 'translateY(-20px)' : 'translateY(0)',
