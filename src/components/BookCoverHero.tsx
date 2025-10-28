@@ -20,7 +20,7 @@ export const BookCoverHero: React.FC<BookCoverHeroProps> = ({
       {/* Book cover */}
       <div className={`relative transition-all duration-500 ease-out ${isHovered ? 'scale-105' : 'scale-100'}`} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} style={{
       transform: isHovered ? 'translateY(-20px)' : 'translateY(0)',
-      filter: isHovered ? 'drop-shadow(0 30px 60px rgba(201, 169, 97, 0.3))' : 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5))'
+      filter: isHovered ? 'drop-shadow(0 30px 60px hsl(var(--gold) / 0.3))' : 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5))'
     }}>
         {/* Book texture and border */}
         <div className="relative w-[400px] h-[600px] md:w-[500px] md:h-[700px] bg-gradient-to-br from-charcoal via-charcoal to-charcoal/90 border-4 border-gold/30 rounded-sm overflow-hidden">
