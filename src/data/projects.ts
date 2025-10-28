@@ -109,6 +109,11 @@ import carmelValley1 from "@/assets/projects/carmel-valley-1.jpg";
 // Featured video project
 import featuredVideo from "@/assets/projects/featured-video.mov";
 
+// Pool project album
+import poolCover from "@/assets/projects/pool-cover.jpg";
+import pool1 from "@/assets/projects/pool-1.jpg";
+import pool2 from "@/assets/projects/pool-2.jpg";
+
 // Pacific Grove Design Build album
 import pgCover from "@/assets/projects/pg-12-after.jpg";
 import pgBefore1 from "@/assets/projects/pg-1-before.jpg";
@@ -147,6 +152,15 @@ export const projects: Project[] = [
     images: [pgCover],
     video: featuredVideo,
     featured: true,
+  },
+  {
+    id: "custom-pool-design",
+    title: "Custom Pool Design & Construction",
+    location: "Monterey Peninsula, CA",
+    category: "Design Build",
+    description: "Premium pool design and construction featuring modern aesthetics, quality materials, and expert craftsmanship.",
+    image: poolCover,
+    images: [poolCover, pool1, pool2],
   },
   {
     id: "pacific-grove-design-build",
