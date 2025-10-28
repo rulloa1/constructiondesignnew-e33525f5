@@ -32,7 +32,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onClose }) => {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Construction-themed animated background */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden opacity-30">
+      <div className="fixed inset-0 pointer-events-none overflow-hidden opacity-40 z-0">
         {/* Animated blueprint grid */}
         <div className="absolute inset-0" style={{
           backgroundImage: `
@@ -65,30 +65,25 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onClose }) => {
         {/* Floating construction tool silhouettes */}
         <div className="absolute inset-0">
           {/* Hammers */}
-          <svg className="absolute opacity-5" width="60" height="60" viewBox="0 0 24 24" fill="hsl(var(--gold))"
-            style={{ left: '15%', top: '15%', animation: 'float-tool-1 25s ease-in-out infinite' }}>
+          <svg className="absolute" width="60" height="60" viewBox="0 0 24 24" fill="hsl(var(--gold))" style={{ left: '15%', top: '15%', opacity: 0.12, animation: 'float-tool-1 25s ease-in-out infinite' }}>
             <path d="M20.2 4.4l-.6-.6c-.4-.4-1-.4-1.4 0l-1.4 1.4-1.4-1.4c-.4-.4-1-.4-1.4 0l-.6.6c-.4.4-.4 1 0 1.4l1.4 1.4-8 8c-.4.4-.4 1 0 1.4l2.8 2.8c.4.4 1 .4 1.4 0l8-8 1.4 1.4c.4.4 1 .4 1.4 0l.6-.6c.4-.4.4-1 0-1.4l-1.4-1.4 1.4-1.4c.2-.4.2-1-.2-1.4z"/>
           </svg>
           
-          <svg className="absolute opacity-5" width="50" height="50" viewBox="0 0 24 24" fill="hsl(var(--gold))"
-            style={{ right: '20%', top: '40%', animation: 'float-tool-2 30s ease-in-out infinite' }}>
+          <svg className="absolute" width="50" height="50" viewBox="0 0 24 24" fill="hsl(var(--gold))" style={{ right: '20%', top: '40%', opacity: 0.12, animation: 'float-tool-2 30s ease-in-out infinite' }}>
             <path d="M20.2 4.4l-.6-.6c-.4-.4-1-.4-1.4 0l-1.4 1.4-1.4-1.4c-.4-.4-1-.4-1.4 0l-.6.6c-.4.4-.4 1 0 1.4l1.4 1.4-8 8c-.4.4-.4 1 0 1.4l2.8 2.8c.4.4 1 .4 1.4 0l8-8 1.4 1.4c.4.4 1 .4 1.4 0l.6-.6c.4-.4.4-1 0-1.4l-1.4-1.4 1.4-1.4c.2-.4.2-1-.2-1.4z"/>
           </svg>
 
           {/* Hardhats */}
-          <svg className="absolute opacity-5" width="55" height="55" viewBox="0 0 24 24" fill="hsl(var(--gold))"
-            style={{ left: '70%', top: '25%', animation: 'float-tool-3 28s ease-in-out infinite' }}>
+          <svg className="absolute" width="55" height="55" viewBox="0 0 24 24" fill="hsl(var(--gold))" style={{ left: '70%', top: '25%', opacity: 0.12, animation: 'float-tool-3 28s ease-in-out infinite' }}>
             <path d="M12 2C9.79 2 8 3.79 8 6v5H4v2c0 3.31 2.69 6 6 6h4c3.31 0 6-2.69 6-6v-2h-4V6c0-2.21-1.79-4-4-4zm0 2c1.1 0 2 .9 2 2v5h-4V6c0-1.1.9-2 2-2z"/>
           </svg>
 
-          <svg className="absolute opacity-5" width="45" height="45" viewBox="0 0 24 24" fill="hsl(var(--gold))"
-            style={{ left: '25%', bottom: '30%', animation: 'float-tool-1 27s ease-in-out infinite reverse' }}>
+          <svg className="absolute" width="45" height="45" viewBox="0 0 24 24" fill="hsl(var(--gold))" style={{ left: '25%', bottom: '30%', opacity: 0.12, animation: 'float-tool-1 27s ease-in-out infinite reverse' }}>
             <path d="M12 2C9.79 2 8 3.79 8 6v5H4v2c0 3.31 2.69 6 6 6h4c3.31 0 6-2.69 6-6v-2h-4V6c0-2.21-1.79-4-4-4zm0 2c1.1 0 2 .9 2 2v5h-4V6c0-1.1.9-2 2-2z"/>
           </svg>
 
           {/* Ladders */}
-          <svg className="absolute opacity-5" width="40" height="70" viewBox="0 0 24 24" fill="hsl(var(--gold))"
-            style={{ right: '15%', bottom: '20%', animation: 'float-tool-2 32s ease-in-out infinite' }}>
+          <svg className="absolute" width="40" height="70" viewBox="0 0 24 24" fill="hsl(var(--gold))" style={{ right: '15%', bottom: '20%', opacity: 0.12, animation: 'float-tool-2 32s ease-in-out infinite' }}>
             <path d="M8 2v20M16 2v20M8 6h8M8 10h8M8 14h8M8 18h8"/>
             <rect x="7" y="2" width="2" height="20" />
             <rect x="15" y="2" width="2" height="20" />
@@ -98,8 +93,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onClose }) => {
             <rect x="8" y="17" width="8" height="1.5" />
           </svg>
 
-          <svg className="absolute opacity-5" width="35" height="60" viewBox="0 0 24 24" fill="hsl(var(--gold))"
-            style={{ left: '50%', top: '60%', animation: 'float-tool-3 29s ease-in-out infinite reverse' }}>
+          <svg className="absolute" width="35" height="60" viewBox="0 0 24 24" fill="hsl(var(--gold))" style={{ left: '50%', top: '60%', opacity: 0.12, animation: 'float-tool-3 29s ease-in-out infinite reverse' }}>
             <rect x="7" y="2" width="2" height="20" />
             <rect x="15" y="2" width="2" height="20" />
             <rect x="8" y="5" width="8" height="1.5" />
@@ -110,7 +104,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onClose }) => {
         </div>
 
         {/* Animated construction lines */}
-        <svg className="absolute inset-0 w-full h-full opacity-20">
+        <svg className="absolute inset-0 w-full h-full opacity-30">
           <defs>
             <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" style={{ stopColor: 'hsl(var(--gold))', stopOpacity: 0 }} />
@@ -129,7 +123,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onClose }) => {
         </svg>
 
         {/* Subtle gradient orbs */}
-        <div className="absolute w-96 h-96 rounded-full blur-3xl opacity-10"
+        <div className="absolute w-96 h-96 rounded-full blur-3xl opacity-15"
           style={{
             background: 'radial-gradient(circle, hsl(var(--gold)) 0%, transparent 70%)',
             top: '10%',
@@ -137,7 +131,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onClose }) => {
             animation: 'float-orb-1 30s ease-in-out infinite'
           }}
         />
-        <div className="absolute w-80 h-80 rounded-full blur-3xl opacity-10"
+        <div className="absolute w-80 h-80 rounded-full blur-3xl opacity-15"
           style={{
             background: 'radial-gradient(circle, hsl(var(--steelBlue)) 0%, transparent 70%)',
             bottom: '20%',
