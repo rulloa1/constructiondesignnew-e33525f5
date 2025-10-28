@@ -47,7 +47,9 @@ export const BookCoverHero: React.FC<BookCoverHeroProps> = ({
             </div>
 
             {/* Main title */}
-            
+            <h1 className="font-playfair text-cream text-4xl md:text-5xl font-bold tracking-wider uppercase opacity-0 animate-fade-in delay-200 px-8 py-3 bg-black/25 rounded">
+              Michael Chandler
+            </h1>
 
             {/* Decorative divider */}
             <div className="flex items-center gap-4 opacity-0 animate-fade-in delay-300">
