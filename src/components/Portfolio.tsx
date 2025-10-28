@@ -30,7 +30,107 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onClose }) => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Construction-themed animated background */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden opacity-30">
+        {/* Animated blueprint grid */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            linear-gradient(hsl(var(--gold) / 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, hsl(var(--gold) / 0.03) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+          animation: 'gridMove 60s linear infinite'
+        }} />
+        
+        {/* Floating architectural elements */}
+        <div className="absolute inset-0">
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={`arch-${i}`}
+              className="absolute border border-gold/10"
+              style={{
+                width: `${80 + i * 40}px`,
+                height: `${80 + i * 40}px`,
+                left: `${10 + i * 15}%`,
+                top: `${5 + i * 10}%`,
+                transform: 'rotate(45deg)',
+                animation: `float-arch-${i % 3} ${20 + i * 3}s ease-in-out infinite`,
+                animationDelay: `${i * 1.5}s`
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Animated construction lines */}
+        <svg className="absolute inset-0 w-full h-full opacity-20">
+          <defs>
+            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style={{ stopColor: 'hsl(var(--gold))', stopOpacity: 0 }} />
+              <stop offset="50%" style={{ stopColor: 'hsl(var(--gold))', stopOpacity: 0.3 }} />
+              <stop offset="100%" style={{ stopColor: 'hsl(var(--gold))', stopOpacity: 0 }} />
+            </linearGradient>
+          </defs>
+          <line x1="0" y1="20%" x2="100%" y2="20%" stroke="url(#lineGrad)" strokeWidth="1">
+            <animate attributeName="y1" values="20%;80%;20%" dur="25s" repeatCount="indefinite" />
+            <animate attributeName="y2" values="20%;80%;20%" dur="25s" repeatCount="indefinite" />
+          </line>
+          <line x1="0" y1="60%" x2="100%" y2="60%" stroke="url(#lineGrad)" strokeWidth="1">
+            <animate attributeName="y1" values="60%;20%;60%" dur="30s" repeatCount="indefinite" />
+            <animate attributeName="y2" values="60%;20%;60%" dur="30s" repeatCount="indefinite" />
+          </line>
+        </svg>
+
+        {/* Subtle gradient orbs */}
+        <div className="absolute w-96 h-96 rounded-full blur-3xl opacity-10"
+          style={{
+            background: 'radial-gradient(circle, hsl(var(--gold)) 0%, transparent 70%)',
+            top: '10%',
+            right: '10%',
+            animation: 'float-orb-1 30s ease-in-out infinite'
+          }}
+        />
+        <div className="absolute w-80 h-80 rounded-full blur-3xl opacity-10"
+          style={{
+            background: 'radial-gradient(circle, hsl(var(--steelBlue)) 0%, transparent 70%)',
+            bottom: '20%',
+            left: '15%',
+            animation: 'float-orb-2 35s ease-in-out infinite reverse'
+          }}
+        />
+      </div>
+
+      <style>{`
+        @keyframes gridMove {
+          0% { transform: translate(0, 0); }
+          100% { transform: translate(60px, 60px); }
+        }
+        @keyframes float-arch-0 {
+          0%, 100% { transform: translate(0, 0) rotate(45deg); opacity: 0.1; }
+          33% { transform: translate(20px, -30px) rotate(50deg); opacity: 0.2; }
+          66% { transform: translate(-15px, 20px) rotate(40deg); opacity: 0.15; }
+        }
+        @keyframes float-arch-1 {
+          0%, 100% { transform: translate(0, 0) rotate(45deg); opacity: 0.1; }
+          33% { transform: translate(-25px, 25px) rotate(35deg); opacity: 0.15; }
+          66% { transform: translate(20px, -15px) rotate(55deg); opacity: 0.2; }
+        }
+        @keyframes float-arch-2 {
+          0%, 100% { transform: translate(0, 0) rotate(45deg); opacity: 0.1; }
+          50% { transform: translate(15px, 30px) rotate(48deg); opacity: 0.18; }
+        }
+        @keyframes float-orb-1 {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(50px, -40px) scale(1.1); }
+          66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
+        @keyframes float-orb-2 {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(-40px, 40px) scale(0.9); }
+          66% { transform: translate(40px, -30px) scale(1.1); }
+        }
+      `}</style>
+
       {/* Header with back button */}
       <div className="sticky top-0 z-40 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-6 lg:px-12 py-6">
