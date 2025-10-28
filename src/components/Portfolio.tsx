@@ -197,20 +197,32 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onClose }) => {
           0% { transform: translate(0, 0) scale(1); }
           100% { transform: translate(80px, 140px) scale(1); }
         }
+        
+        /* Hard Hat Animations - Bobbing motion */
         @keyframes float-luxury-0 {
-          0%, 100% { transform: translate(0, 0) rotate(45deg) scale(1); opacity: 0.15; }
-          33% { transform: translate(30px, -40px) rotate(55deg) scale(1.1); opacity: 0.25; }
-          66% { transform: translate(-20px, 30px) rotate(35deg) scale(0.95); opacity: 0.2; }
+          0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.2; }
+          25% { transform: translate(20px, -30px) rotate(5deg) scale(1.05); opacity: 0.25; }
+          50% { transform: translate(40px, -10px) rotate(-5deg) scale(1.1); opacity: 0.3; }
+          75% { transform: translate(20px, 20px) rotate(3deg) scale(0.95); opacity: 0.22; }
         }
+        
+        /* Hammer Animations - Swinging motion */
         @keyframes float-luxury-1 {
-          0%, 100% { transform: translate(0, 0) rotate(45deg) scale(1); opacity: 0.15; }
-          33% { transform: translate(-35px, 35px) rotate(30deg) scale(0.9); opacity: 0.2; }
-          66% { transform: translate(25px, -25px) rotate(60deg) scale(1.05); opacity: 0.25; }
+          0%, 100% { transform: translate(0, 0) rotate(-15deg) scale(1); opacity: 0.18; }
+          20% { transform: translate(-25px, 30px) rotate(-35deg) scale(1.08); opacity: 0.25; }
+          40% { transform: translate(-40px, 60px) rotate(-50deg) scale(1.15); opacity: 0.28; }
+          60% { transform: translate(-30px, 40px) rotate(-25deg) scale(1.05); opacity: 0.22; }
+          80% { transform: translate(-15px, 15px) rotate(-10deg) scale(0.98); opacity: 0.2; }
         }
+        
+        /* Wrench Animations - Spinning motion */
         @keyframes float-luxury-2 {
-          0%, 100% { transform: translate(0, 0) rotate(45deg) scale(1); opacity: 0.15; }
-          50% { transform: translate(20px, 40px) rotate(50deg) scale(1.08); opacity: 0.22; }
+          0%, 100% { transform: translate(0, 0) rotate(25deg) scale(1); opacity: 0.15; }
+          33% { transform: translate(35px, -40px) rotate(145deg) scale(1.12); opacity: 0.22; }
+          66% { transform: translate(50px, 20px) rotate(265deg) scale(1.08); opacity: 0.18; }
         }
+        
+        /* Gradient Orb Animations */
         @keyframes float-luxury-orb-1 {
           0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
           33% { transform: translate(60px, -50px) scale(1.15); opacity: 0.4; }
