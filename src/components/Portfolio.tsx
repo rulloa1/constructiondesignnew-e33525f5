@@ -62,6 +62,53 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onClose }) => {
           ))}
         </div>
 
+        {/* Floating construction tool silhouettes */}
+        <div className="absolute inset-0">
+          {/* Hammers */}
+          <svg className="absolute opacity-5" width="60" height="60" viewBox="0 0 24 24" fill="hsl(var(--gold))"
+            style={{ left: '15%', top: '15%', animation: 'float-tool-1 25s ease-in-out infinite' }}>
+            <path d="M20.2 4.4l-.6-.6c-.4-.4-1-.4-1.4 0l-1.4 1.4-1.4-1.4c-.4-.4-1-.4-1.4 0l-.6.6c-.4.4-.4 1 0 1.4l1.4 1.4-8 8c-.4.4-.4 1 0 1.4l2.8 2.8c.4.4 1 .4 1.4 0l8-8 1.4 1.4c.4.4 1 .4 1.4 0l.6-.6c.4-.4.4-1 0-1.4l-1.4-1.4 1.4-1.4c.2-.4.2-1-.2-1.4z"/>
+          </svg>
+          
+          <svg className="absolute opacity-5" width="50" height="50" viewBox="0 0 24 24" fill="hsl(var(--gold))"
+            style={{ right: '20%', top: '40%', animation: 'float-tool-2 30s ease-in-out infinite' }}>
+            <path d="M20.2 4.4l-.6-.6c-.4-.4-1-.4-1.4 0l-1.4 1.4-1.4-1.4c-.4-.4-1-.4-1.4 0l-.6.6c-.4.4-.4 1 0 1.4l1.4 1.4-8 8c-.4.4-.4 1 0 1.4l2.8 2.8c.4.4 1 .4 1.4 0l8-8 1.4 1.4c.4.4 1 .4 1.4 0l.6-.6c.4-.4.4-1 0-1.4l-1.4-1.4 1.4-1.4c.2-.4.2-1-.2-1.4z"/>
+          </svg>
+
+          {/* Hardhats */}
+          <svg className="absolute opacity-5" width="55" height="55" viewBox="0 0 24 24" fill="hsl(var(--gold))"
+            style={{ left: '70%', top: '25%', animation: 'float-tool-3 28s ease-in-out infinite' }}>
+            <path d="M12 2C9.79 2 8 3.79 8 6v5H4v2c0 3.31 2.69 6 6 6h4c3.31 0 6-2.69 6-6v-2h-4V6c0-2.21-1.79-4-4-4zm0 2c1.1 0 2 .9 2 2v5h-4V6c0-1.1.9-2 2-2z"/>
+          </svg>
+
+          <svg className="absolute opacity-5" width="45" height="45" viewBox="0 0 24 24" fill="hsl(var(--gold))"
+            style={{ left: '25%', bottom: '30%', animation: 'float-tool-1 27s ease-in-out infinite reverse' }}>
+            <path d="M12 2C9.79 2 8 3.79 8 6v5H4v2c0 3.31 2.69 6 6 6h4c3.31 0 6-2.69 6-6v-2h-4V6c0-2.21-1.79-4-4-4zm0 2c1.1 0 2 .9 2 2v5h-4V6c0-1.1.9-2 2-2z"/>
+          </svg>
+
+          {/* Ladders */}
+          <svg className="absolute opacity-5" width="40" height="70" viewBox="0 0 24 24" fill="hsl(var(--gold))"
+            style={{ right: '15%', bottom: '20%', animation: 'float-tool-2 32s ease-in-out infinite' }}>
+            <path d="M8 2v20M16 2v20M8 6h8M8 10h8M8 14h8M8 18h8"/>
+            <rect x="7" y="2" width="2" height="20" />
+            <rect x="15" y="2" width="2" height="20" />
+            <rect x="8" y="5" width="8" height="1.5" />
+            <rect x="8" y="9" width="8" height="1.5" />
+            <rect x="8" y="13" width="8" height="1.5" />
+            <rect x="8" y="17" width="8" height="1.5" />
+          </svg>
+
+          <svg className="absolute opacity-5" width="35" height="60" viewBox="0 0 24 24" fill="hsl(var(--gold))"
+            style={{ left: '50%', top: '60%', animation: 'float-tool-3 29s ease-in-out infinite reverse' }}>
+            <rect x="7" y="2" width="2" height="20" />
+            <rect x="15" y="2" width="2" height="20" />
+            <rect x="8" y="5" width="8" height="1.5" />
+            <rect x="8" y="9" width="8" height="1.5" />
+            <rect x="8" y="13" width="8" height="1.5" />
+            <rect x="8" y="17" width="8" height="1.5" />
+          </svg>
+        </div>
+
         {/* Animated construction lines */}
         <svg className="absolute inset-0 w-full h-full opacity-20">
           <defs>
@@ -118,6 +165,22 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onClose }) => {
         @keyframes float-arch-2 {
           0%, 100% { transform: translate(0, 0) rotate(45deg); opacity: 0.1; }
           50% { transform: translate(15px, 30px) rotate(48deg); opacity: 0.18; }
+        }
+        @keyframes float-tool-1 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          25% { transform: translate(30px, -20px) rotate(5deg); }
+          50% { transform: translate(50px, 10px) rotate(-5deg); }
+          75% { transform: translate(20px, 30px) rotate(3deg); }
+        }
+        @keyframes float-tool-2 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          33% { transform: translate(-40px, 30px) rotate(-8deg); }
+          66% { transform: translate(25px, -25px) rotate(8deg); }
+        }
+        @keyframes float-tool-3 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          40% { transform: translate(35px, 35px) rotate(6deg); }
+          80% { transform: translate(-20px, -15px) rotate(-6deg); }
         }
         @keyframes float-orb-1 {
           0%, 100% { transform: translate(0, 0) scale(1); }
