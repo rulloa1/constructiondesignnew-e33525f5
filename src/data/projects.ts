@@ -138,6 +138,7 @@ import links7 from "@/assets/projects/links-7.jpg";
 import links8 from "@/assets/projects/links-8.jpg";
 
 export type ProjectCategory = "Residential" | "Commercial" | "Hospitality" | "Design Build";
+export type ProjectStatus = "completed" | "in-progress";
 
 export interface Project {
   id: string;
@@ -147,6 +148,7 @@ export interface Project {
   description: string;
   image: string;
   images: string[];
+  status?: ProjectStatus;
 }
 
 export const projects: Project[] = [
@@ -278,4 +280,13 @@ export const getProjectById = (id: string): Project | undefined => {
 export const getProjectsByCategory = (category: ProjectCategory | "All"): Project[] => {
   if (category === "All") return projects;
   return projects.filter(project => project.category === category);
+};
+
+export const getProjectsByStatus = (status: ProjectStatus | "All"): Project[] => {
+  if (status === "All") return projects;
+  return projects.filter(project => (project.status || "completed") === status);
+};
+
+export const getInProgressProjects = (): Project[] => {
+  return projects.filter(project => project.status === "in-progress");
 };

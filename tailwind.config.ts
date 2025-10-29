@@ -57,6 +57,7 @@ export default {
         },
         burgundy: "hsl(var(--burgundy))",
         steelBlue: "hsl(var(--steel-blue))",
+        construction: "hsl(var(--construction))",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

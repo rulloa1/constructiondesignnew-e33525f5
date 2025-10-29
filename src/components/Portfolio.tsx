@@ -1,20 +1,22 @@
 import React, { useState } from "react";
-import { ArrowLeft, HardHat, Hammer, Wrench } from "lucide-react";
+import { ArrowLeft, HardHat, Hammer, Wrench, Construction } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { projects, ProjectCategory } from "@/data/projects";
+import { projects, ProjectCategory, getInProgressProjects } from "@/data/projects";
 import { Link } from "react-router-dom";
+import { Badge } from "@/components/ui/badge";
 
 interface PortfolioProps {
   onClose: () => void;
 }
 
-const categories = ["All", "Residential", "Commercial", "Hospitality", "Design Build"];
+const categories = ["All", "In Progress", "Residential", "Commercial", "Hospitality", "Design Build"];
 
 const categoryColors: Record<string, string> = {
   Residential: "bg-gold text-charcoal",
   Commercial: "bg-steelBlue text-cream",
   Hospitality: "bg-burgundy text-cream",
   "Design Build": "bg-accent text-charcoal",
+  "In Progress": "bg-construction text-cream",
 };
 
 export const Portfolio: React.FC<PortfolioProps> = ({ onClose }) => {
@@ -22,10 +24,13 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onClose }) => {
 
   const filteredProjects = selectedCategory === "All" 
     ? projects 
+    : selectedCategory === "In Progress"
+    ? projects.filter(p => p.status === "in-progress")
     : projects.filter(p => p.category === selectedCategory);
 
   const getCategoryCount = (category: string) => {
     if (category === "All") return projects.length;
+    if (category === "In Progress") return getInProgressProjects().length;
     return projects.filter(p => p.category === category).length;
   };
 
@@ -312,6 +317,16 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onClose }) => {
                 />
                 {/* Subtle overlay on hover */}
                 <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/20 transition-all duration-500" />
+                
+                {/* In Progress Badge */}
+                {project.status === "in-progress" && (
+                  <div className="absolute top-3 right-3 z-10">
+                    <Badge className="bg-construction text-cream border-none shadow-lg animate-pulse-subtle flex items-center gap-1.5 px-3 py-1.5">
+                      <Construction className="h-3.5 w-3.5" />
+                      <span className="text-xs font-semibold uppercase tracking-wider">In Progress</span>
+                    </Badge>
+                  </div>
+                )}
               </div>
 
               {/* Project info below image */}

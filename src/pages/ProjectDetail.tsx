@@ -1,8 +1,9 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Construction } from "lucide-react";
 import { getProjectById } from "@/data/projects";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Badge } from "@/components/ui/badge";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -54,6 +55,14 @@ const ProjectDetail = () => {
 
         {/* Project info */}
         <div className="px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center max-w-2xl">
+          {/* Status Badge */}
+          {project.status === "in-progress" && (
+            <Badge className="bg-construction text-cream border-none shadow-lg mb-4 w-fit animate-pulse-subtle flex items-center gap-2 px-4 py-2">
+              <Construction className="h-4 w-4" />
+              <span className="text-sm font-semibold uppercase tracking-wider">Currently Under Construction</span>
+            </Badge>
+          )}
+          
           <span className="text-xs sm:text-sm text-cream/80 font-light tracking-wide uppercase mb-2">
             {project.category}
           </span>

@@ -42,6 +42,7 @@ All colors MUST be HSL.
     --steel-blue: 215 15% 38%;
     --copper: 25 60% 50%;
     --bronze: 30 45% 45%;
+    --construction: 30 90% 55%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -104,6 +105,7 @@ All colors MUST be HSL.
     --steel-blue: 215 15% 38%;
     --copper: 25 60% 50%;
     --bronze: 30 45% 45%;
+    --construction: 30 90% 55%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 42 15% 96%;
