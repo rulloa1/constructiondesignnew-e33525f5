@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { User, Session } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import Index from "./pages/Index";
-import Portfolio from "./pages/Portfolio";
 import ProjectDetail from "./pages/ProjectDetail";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
@@ -45,7 +44,6 @@ const App: React.FC = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/project/:id" element={<ProjectDetail />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/admin" element={<Admin />} />
