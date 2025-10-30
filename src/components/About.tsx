@@ -56,8 +56,8 @@ export const About = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light mb-8 opacity-0 animate-slide-in-left">
             About
           </h2>
-          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">
-            <div className="lg:col-span-2 space-y-4 md:space-y-6 text-base md:text-lg font-light leading-relaxed text-foreground/80 opacity-0 animate-fade-in-up delay-200">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            <div className="space-y-4 md:space-y-6 text-base md:text-lg font-light leading-relaxed text-foreground/80 opacity-0 animate-fade-in-up delay-200">
               <p className="transition-all duration-300 hover:text-foreground/90">
                 With over a decade of experience in design, I specialize in creating spaces
                 that seamlessly blend functionality with aesthetic excellence. My approach
