@@ -219,20 +219,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({
 
       {/* Header with back button */}
       <div className="sticky top-0 z-40 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="container mx-auto px-6 lg:px-12 py-6">
-          <div className="flex items-center justify-between">
-            <Button onClick={onClose} variant="ghost" className="text-foreground hover:text-accent transition-colors">
-              <ArrowLeft className="mr-2 h-5 w-5" />
-              Back to Cover
-            </Button>
-            
-            <h1 className="font-playfair text-2xl md:text-3xl text-foreground">
-              Portfolio
-            </h1>
-            
-            <div className="w-32" /> {/* Spacer for centering */}
-          </div>
-        </div>
+        
       </div>
 
       {/* Category tabs */}
