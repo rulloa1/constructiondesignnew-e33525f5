@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Hammer, HardHat, Wrench } from "lucide-react";
 import logo from "@/assets/mc-logo-new.png";
 interface BookCoverHeroProps {
   onOpenBook: () => void;
@@ -17,25 +18,28 @@ export const BookCoverHero: React.FC<BookCoverHeroProps> = ({
       }} />
       </div>
 
-      {/* Subtle animated particles */}
+      {/* Floating Construction Icons */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(15)].map((_, i) => {
-          const colors = ['bg-gold/5', 'bg-copper/5', 'bg-bronze/5', 'bg-steel-blue/5'];
-          const shapes = ['rounded-full', 'rounded-lg'];
+          const icons = [Hammer, HardHat, Wrench];
+          const Icon = icons[i % 3];
+          const delay = i * 0.8;
+          const duration = 15 + i % 5 * 3;
+          const size = 24 + i % 3 * 16;
+          const startX = i * 7 % 100;
+          const startY = i * 13 % 100;
           return (
             <div
               key={i}
-              className={`absolute ${colors[i % colors.length]} ${shapes[i % shapes.length]}`}
+              className="absolute opacity-5"
               style={{
-                width: `${Math.random() * 120 + 40}px`,
-                height: `${Math.random() * 120 + 40}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `float-${i % 4} ${12 + i * 1.5}s ease-in-out infinite`,
-                animationDelay: `${i * 0.3}s`,
-                transform: `rotate(${Math.random() * 360}deg)`
+                left: `${startX}%`,
+                top: `${startY}%`,
+                animation: `float-diagonal ${duration}s ease-in-out ${delay}s infinite alternate`
               }}
-            />
+            >
+              <Icon size={size} className="text-gold" />
+            </div>
           );
         })}
       </div>
@@ -91,6 +95,23 @@ export const BookCoverHero: React.FC<BookCoverHeroProps> = ({
       </div>
 
       <style>{`
+        @keyframes float-diagonal {
+          0% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          25% {
+            transform: translate(30px, -40px) rotate(90deg);
+          }
+          50% {
+            transform: translate(-20px, -80px) rotate(180deg);
+          }
+          75% {
+            transform: translate(-40px, -40px) rotate(270deg);
+          }
+          100% {
+            transform: translate(0, 0) rotate(360deg);
+          }
+        }
         @keyframes float-0 {
           0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
           33% { transform: translate(30px, -30px) scale(1.1) rotate(120deg); }
