@@ -94,7 +94,7 @@ export const Services = () => {
               return (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-80 bg-card border border-border rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  className="flex-shrink-0 w-80 bg-card border border-border rounded-lg shadow-md hover:shadow-[0_0_30px_rgba(228,179,33,0.4),0_0_60px_rgba(228,179,33,0.2)] transition-all duration-500 hover:-translate-y-2 hover:border-[#E4B321]/50"
                 >
                   <div className="p-8 h-full flex flex-col">
                     {/* Icon and Title */}
