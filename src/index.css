@@ -283,3 +283,34 @@ All colors MUST be HSL.
     animation: bookOpenRight 1.5s ease-in-out forwards;
   }
 }
+@keyframes book-close-left {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(90deg);
+  }
+}
+
+@keyframes book-close-right {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-90deg);
+  }
+}
+
+.animate-book-close-left {
+  animation: book-close-left 1.5s ease-in-out forwards;
+}
+
+.animate-book-close-right {
+  animation: book-close-right 1.5s ease-in-out forwards;
+}
+```
+
+### **Option B: Add to Tailwind config** (if you prefer)
+Find and open:
+```
+tailwind.config.ts
