@@ -63,17 +63,7 @@ export const About = () => {
             </div>
             
             <div className="space-y-8 opacity-0 animate-fade-in-up delay-400">
-              <div className="p-6 rounded-lg border border-border bg-card/50 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(228,179,33,0.4),0_0_60px_rgba(228,179,33,0.2)] hover:border-[#E4B321]/50">
-                <h3 className="text-sm font-medium tracking-wider text-accent mb-3">
-                  EXPERTISE
-                </h3>
-                <ul className="space-y-2 text-base md:text-lg font-light">
-                  <li className="transition-colors duration-300 hover:text-accent">Residential Design</li>
-                  <li className="transition-colors duration-300 hover:text-accent">Commercial Spaces</li>
-                  <li className="transition-colors duration-300 hover:text-accent">Hospitality Projects</li>
-                  <li className="transition-colors duration-300 hover:text-accent">Interior Architecture</li>
-                </ul>
-              </div>
+              
               
               
             </div>
