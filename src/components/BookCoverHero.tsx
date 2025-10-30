@@ -9,7 +9,7 @@ export const BookCoverHero: React.FC<BookCoverHeroProps> = ({
   onOpenBook
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  return <section className="relative py-24 w-full overflow-hidden bg-charcoal flex items-center justify-center">
+  return <section className="relative py-24 w-full overflow-hidden bg-muted/30 flex items-center justify-center">
       {/* Ambient background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
