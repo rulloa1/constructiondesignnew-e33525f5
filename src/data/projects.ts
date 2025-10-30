@@ -137,6 +137,8 @@ import links6 from "@/assets/projects/links-6.jpg";
 import links7 from "@/assets/projects/links-7.jpg";
 import links8 from "@/assets/projects/links-8.jpg";
 import linksEstate from "@/assets/projects/links-estate.jpg";
+import linksEstate2 from "@/assets/projects/links-estate-2.jpg";
+import linksEstate3 from "@/assets/projects/links-estate-3.jpg";
 
 export type ProjectCategory = "Residential" | "Commercial" | "Hospitality" | "Design Build";
 
@@ -277,7 +279,7 @@ export const projects: Project[] = [
     category: "Residential",
     description: "A stunning Mediterranean-style estate featuring classic architectural details with terra cotta tile roofing, elegant columns, and arched windows. Situated on a serene lakefront property with beautifully landscaped grounds and tranquil water views.",
     image: linksEstate,
-    images: [linksEstate],
+    images: [linksEstate, linksEstate2, linksEstate3],
   },
 ];
 
