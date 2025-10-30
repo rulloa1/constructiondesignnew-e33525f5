@@ -46,7 +46,7 @@ export const About = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-playfair text-center mb-8 opacity-0 animate-slide-in-left">About</h2>
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-4 md:space-y-6 text-base md:text-lg font-light leading-relaxed text-foreground/80 opacity-0 animate-fade-in-up delay-200">
               <p className="transition-all duration-300 hover:text-foreground/90">
                 With over a decade of experience in design, I specialize in creating spaces
