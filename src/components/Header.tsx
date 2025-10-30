@@ -9,7 +9,11 @@ const navigation = [
   { name: "Contact", href: "#contact" },
 ];
 
-export const Header = () => {
+interface HeaderProps {
+  onPortfolioClick?: () => void;
+}
+
+export const Header = ({ onPortfolioClick }: HeaderProps) => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm bg-background/5 transition-all duration-300">
       <nav className="container mx-auto px-6 lg:px-12">
@@ -24,6 +28,12 @@ export const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => {
+                  if (item.name === "Portfolio" && onPortfolioClick) {
+                    e.preventDefault();
+                    onPortfolioClick();
+                  }
+                }}
                 className="relative text-sm font-light tracking-wide text-white transition-all duration-300 drop-shadow-md hover:scale-105 after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
               >
                 {item.name}
@@ -44,6 +54,12 @@ export const Header = () => {
                   <a
                     key={item.name}
                     href={item.href}
+                    onClick={(e) => {
+                      if (item.name === "Portfolio" && onPortfolioClick) {
+                        e.preventDefault();
+                        onPortfolioClick();
+                      }
+                    }}
                     className="text-lg font-light tracking-wide hover:text-accent transition-colors"
                   >
                     {item.name}
