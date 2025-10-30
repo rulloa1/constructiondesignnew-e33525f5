@@ -30,7 +30,7 @@ export const PortfolioSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-cream py-24">
+    <section className="bg-cream pt-40 pb-24">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="text-center mb-16">
