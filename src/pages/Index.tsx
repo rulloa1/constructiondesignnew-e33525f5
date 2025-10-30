@@ -109,7 +109,6 @@ const Index: React.FC = () => {
             </div>
           </div>
 
-          <MusicPlayer />
           <Portfolio onClose={handleCloseBook} />
 
           {/* Contact section in portfolio view */}
