@@ -119,7 +119,7 @@ const Index: React.FC = () => {
         </>}
 
       <Chatbot />
-      <Footer />
+      
     </div>;
 };
 export default Index;
