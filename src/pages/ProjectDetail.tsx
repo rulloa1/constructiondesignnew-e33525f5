@@ -56,7 +56,7 @@ const ProjectDetail = () => {
             <Button 
               variant="outline" 
               onClick={() => navigate("/")}
-              className="bg-cream/10 backdrop-blur-md border-cream/20 text-cream hover:bg-cream/20 transition-colors"
+              className="bg-cream border-cream/30 text-charcoal hover:bg-cream/90 hover:shadow-lg transition-all font-medium"
               size="lg"
             >
               <ArrowLeft className="mr-2 h-5 w-5" />
