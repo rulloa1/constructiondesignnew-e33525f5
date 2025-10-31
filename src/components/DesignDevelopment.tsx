@@ -1,5 +1,4 @@
 import React from "react";
-import { CheckCircle } from "lucide-react";
 import developmentImg1 from "@/assets/projects/1_Before.jpg";
 import developmentImg2 from "@/assets/projects/2_After.jpg";
 import developmentImg3 from "@/assets/projects/3_Before.jpg";
