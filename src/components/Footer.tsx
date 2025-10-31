@@ -5,7 +5,7 @@ export const Footer = () => {
   return <footer id="contact" className="py-8 border-t border-border bg-background">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto mb-6">
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-8 text-center text-foreground">
+          <h2 className="text-2xl md:text-3xl font-light mb-4 text-center">
             Get In Touch
           </h2>
           
