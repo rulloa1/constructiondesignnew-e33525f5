@@ -16,7 +16,7 @@ const categoryColors: Record<string, string> = {
 export const Portfolio: React.FC<PortfolioProps> = ({
   onClose
 }) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [selectedCategory, setSelectedCategory] = useState<string>("Residential");
   const filteredProjects = selectedCategory === "All" ? projects : projects.filter(p => p.category === selectedCategory);
   const getCategoryCount = (category: string) => {
     if (category === "All") return projects.length;
