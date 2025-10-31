@@ -1,4 +1,6 @@
-import { LayoutGrid, Handshake, TrendingUp, CheckCircle } from "lucide-react";
+import { Compass, Pencil, Hammer, ClipboardCheck, Shield, Leaf } from "lucide-react";
+
+import { LayoutGrid, Handshake, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const services = [
