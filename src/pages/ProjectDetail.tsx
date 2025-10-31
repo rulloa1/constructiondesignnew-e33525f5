@@ -55,7 +55,7 @@ const ProjectDetail = () => {
           <div className="p-4 sm:p-6 lg:p-8">
             <Button 
               variant="outline" 
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/", { state: { openPortfolio: true } })}
               className="bg-cream border-cream/30 text-charcoal hover:bg-cream/90 hover:shadow-lg transition-all font-medium"
               size="lg"
             >
