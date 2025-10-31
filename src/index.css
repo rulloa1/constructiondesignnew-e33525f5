@@ -8,8 +8,8 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 42 15% 96%;
-    --foreground: 0 0% 17%;
+    --background: 210 20% 98%; /* Very light, cool off-white */
+    --foreground: 210 10% 15%; /* Deep slate gray */
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 17%;
@@ -17,8 +17,8 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 17%;
 
-    --primary: 0 0% 17%;
-    --primary-foreground: 42 15% 96%;
+    --primary: 210 10% 15%; /* Deep slate gray */
+    --primary-foreground: 210 20% 98%; /* Very light, cool off-white */
 
     --secondary: 42 10% 90%;
     --secondary-foreground: 0 0% 17%;
@@ -26,17 +26,17 @@ All colors MUST be HSL.
     --muted: 42 10% 90%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 42 50% 58%;
-    --accent-foreground: 0 0% 17%;
+    --accent: 25 60% 50%; /* Copper/Bronze for accent */
+    --accent-foreground: 210 20% 98%;
 
-    --gold: 42 50% 58%;
-    --gold-foreground: 0 0% 17%;
+    --gold: 25 60% 50%;
+    --gold-foreground: 210 20% 98%;
 
-    --charcoal: 0 0% 17%;
-    --charcoal-foreground: 42 15% 96%;
+    --charcoal: 210 10% 15%;
+    --charcoal-foreground: 210 20% 98%;
 
-    --cream: 42 15% 96%;
-    --cream-foreground: 0 0% 17%;
+    --cream: 210 20% 98%;
+    --cream-foreground: 210 10% 15%;
 
     --burgundy: 350 35% 42%;
     --steel-blue: 215 15% 38%;
@@ -48,7 +48,7 @@ All colors MUST be HSL.
 
     --border: 42 10% 88%;
     --input: 42 10% 88%;
-    --ring: 42 50% 58%;
+    --ring: 25 60% 50%;
 
     --radius: 0.25rem;
 
@@ -70,8 +70,9 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 0 0% 17%;
-    --foreground: 42 15% 96%;
+    /* Dark mode adjustments for the new palette */
+    --background: 210 10% 10%; /* Very dark slate */
+    --foreground: 210 20% 90%; /* Light gray-blue */
 
     --card: 0 0% 20%;
     --card-foreground: 42 15% 96%;
@@ -79,8 +80,8 @@ All colors MUST be HSL.
     --popover: 0 0% 20%;
     --popover-foreground: 42 15% 96%;
 
-    --primary: 42 15% 96%;
-    --primary-foreground: 0 0% 17%;
+    --primary: 210 20% 90%;
+    --primary-foreground: 210 10% 10%;
 
     --secondary: 0 0% 22%;
     --secondary-foreground: 42 15% 96%;
@@ -88,17 +89,17 @@ All colors MUST be HSL.
     --muted: 0 0% 22%;
     --muted-foreground: 42 10% 65%;
 
-    --accent: 42 50% 58%;
-    --accent-foreground: 0 0% 17%;
+    --accent: 25 60% 50%; /* Copper/Bronze for accent */
+    --accent-foreground: 210 20% 98%;
 
-    --gold: 42 50% 58%;
-    --gold-foreground: 0 0% 17%;
+    --gold: 25 60% 50%;
+    --gold-foreground: 210 20% 98%;
 
-    --charcoal: 0 0% 17%;
-    --charcoal-foreground: 42 15% 96%;
+    --charcoal: 210 10% 15%;
+    --charcoal-foreground: 210 20% 98%;
 
-    --cream: 42 15% 96%;
-    --cream-foreground: 0 0% 17%;
+    --cream: 210 20% 98%;
+    --cream-foreground: 210 10% 15%;
 
     --burgundy: 350 35% 42%;
     --steel-blue: 215 15% 38%;
@@ -110,7 +111,7 @@ All colors MUST be HSL.
 
     --border: 0 0% 22%;
     --input: 0 0% 22%;
-    --ring: 42 50% 58%;
+    --ring: 25 60% 50%;
     --sidebar-background: 30 10% 15%;
     --sidebar-foreground: 35 20% 97%;
     --sidebar-primary: 42 85% 55%;
@@ -256,30 +257,5 @@ All colors MUST be HSL.
     background: radial-gradient(circle, var(--tw-gradient-stops));
   }
 
-  /* Book opening animation */
-  @keyframes bookOpenLeft {
-    0% {
-      transform: rotateY(0deg);
-    }
-    100% {
-      transform: rotateY(-180deg);
-    }
-  }
 
-  @keyframes bookOpenRight {
-    0% {
-      transform: rotateY(0deg);
-    }
-    100% {
-      transform: rotateY(180deg);
-    }
-  }
-
-  .animate-book-open-left {
-    animation: bookOpenLeft 1.5s ease-in-out forwards;
-  }
-
-  .animate-book-open-right {
-    animation: bookOpenRight 1.5s ease-in-out forwards;
-  }
 }
