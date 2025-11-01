@@ -80,13 +80,12 @@ import southcoast7 from "@/assets/projects/southcoast-7.jpg";
 import southcoast8 from "@/assets/projects/southcoast-8.jpg";
 import project5 from "@/assets/projects/IMGP1303.jpg";
 import project6 from "@/assets/projects/IMGP1305.jpg";
-import lagunaGrandeCover from "@/assets/projects/laguna-cover.jpg";
-import laguna1 from "@/assets/projects/laguna-1.jpg";
-import laguna2 from "@/assets/projects/laguna-2.jpg";
-import laguna3 from "@/assets/projects/laguna-3.jpg";
-import laguna4 from "@/assets/projects/laguna-4.jpg";
-import laguna5 from "@/assets/projects/laguna-5.jpg";
-import laguna6 from "@/assets/projects/laguna-6.jpg";
+import lagunaGrandeCover from "@/assets/projects/laguna-grande-cover.png";
+import laguna1 from "@/assets/projects/laguna-grande-1.png";
+import laguna2 from "@/assets/projects/laguna-grande-2.png";
+import laguna3 from "@/assets/projects/laguna-grande-3.png";
+import laguna4 from "@/assets/projects/laguna-grande-4.png";
+import laguna5 from "@/assets/projects/laguna-grande-5.png";
 import bigsurCover from "@/assets/projects/bigsur-cover.jpg";
 import bigsur1 from "@/assets/projects/bigsur-1.jpg";
 import bigsur2 from "@/assets/projects/bigsur-2.jpg";
@@ -293,9 +292,9 @@ export const projects: Project[] = [
     location: "Commercial",
     additionalInfo: "Seaside, CA",
     category: "Commercial",
-    description: "A complete design-build project that delivers custom solutions from concept through completion, featuring modern amenities and quality construction throughout.",
+    description: "A comprehensive commercial design-build project featuring Spanish Colonial Revival architecture. This multi-building complex showcases careful attention to traditional architectural details while creating modern commercial spaces in a strategic coastal location.",
     image: lagunaGrandeCover,
-    images: [lagunaGrandeCover, laguna2, laguna4, laguna5, laguna6, laguna1, laguna3],
+    images: [lagunaGrandeCover, laguna1, laguna2, laguna3, laguna4, laguna5],
   },
   {
     id: "southcoast-remodel-design-build",
