@@ -191,7 +191,7 @@ export const projects: Project[] = [
   {
     id: "pacific-grove-design-build",
     title: "Pacific Grove New Home",
-    location: "Pacific Grove, CA",
+    location: "Design Build",
     category: "Design Build",
     description: "A comprehensive transformation of a historic property, seamlessly blending traditional craftsman character with modern comfort and functionality. This complete design-build project showcases our expertise in preserving neighborhood heritage while creating contemporary living spaces.",
     image: pgCover,
