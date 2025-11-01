@@ -1,6 +1,6 @@
 import { Hammer, HardHat, Wrench } from "lucide-react";
 export const About = () => {
-  return <section id="about" className="relative py-24 overflow-hidden bg-background">
+  return <section id="about" className="relative py-24 overflow-hidden bg-charcoal">
       {/* Animated Construction Icons Background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Floating Icons */}
@@ -17,7 +17,7 @@ export const About = () => {
           top: `${startY}%`,
           animation: `float-diagonal ${duration}s ease-in-out ${delay}s infinite alternate`
         }}>
-              <Icon size={size} className="text-accent" />
+              <Icon size={size} className="text-gold/30" />
             </div>;
       })}
       </div>
@@ -45,10 +45,10 @@ export const About = () => {
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-playfair font-semibold text-center mb-8 text-charcoal opacity-0 animate-slide-in-left">About Me</h2>
+          <h2 className="text-5xl md:text-6xl font-playfair font-semibold text-center mb-8 text-gold opacity-0 animate-slide-in-left [text-shadow:0_0_20px_rgba(228,179,33,0.4),0_0_40px_rgba(228,179,33,0.2)]">About Me</h2>
           <div className="max-w-3xl mx-auto">
-            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.15)] transition-all duration-500 hover:-translate-y-1 opacity-0 animate-fade-in-up delay-200">
-              <div className="space-y-8 text-lg font-inter font-light leading-relaxed text-charcoal/80">
+            <div className="bg-charcoal/80 backdrop-blur-sm rounded-lg p-8 md:p-12 shadow-[0_8px_30px_rgba(228,179,33,0.2)] hover:shadow-[0_12px_40px_rgba(228,179,33,0.3)] border border-gold/20 transition-all duration-500 hover:-translate-y-1 opacity-0 animate-fade-in-up delay-200">
+              <div className="space-y-8 text-lg font-inter font-light leading-relaxed text-cream/90">
                 <p className="transition-all duration-300">
                   I'm Michael, a construction professional who believes that exceptional results come from exceptional teams. My approach is simple: bring together the right people, create an environment built on mutual respect, and stay closely attuned to client feedback throughout every phase of a project.
                 </p>
@@ -57,14 +57,14 @@ export const About = () => {
                 </p>
                 
                 <div className="pt-4">
-                  <h3 className="text-2xl font-playfair font-semibold mb-4 text-charcoal">My Philosophy</h3>
+                  <h3 className="text-2xl font-playfair font-semibold mb-4 text-gold [text-shadow:0_0_15px_rgba(228,179,33,0.3)]">My Philosophy</h3>
                   <p className="transition-all duration-300">
                     Superior construction is accomplished through three core elements: assembling the right group of people, empowering them with the respect and environment they need to thrive, and making thoughtful course corrections based on real-time feedback from project owners and end users. When these elements align, teams don't just meet expectations—they consistently surpass them.
                   </p>
                 </div>
 
                 <div className="pt-4">
-                  <h3 className="text-2xl font-playfair font-semibold mb-4 text-charcoal">My Commitment</h3>
+                  <h3 className="text-2xl font-playfair font-semibold mb-4 text-gold [text-shadow:0_0_15px_rgba(228,179,33,0.3)]">My Commitment</h3>
                   <p className="transition-all duration-300">
                     Every client, every project, every time: I'm dedicated to exceeding expectations under all conditions. It's not just a goal—it's the standard by which I measure success.
                   </p>
