@@ -124,6 +124,7 @@ import pg6 from "@/assets/projects/pg-6.jpg";
 import pg7 from "@/assets/projects/pg-7.jpg";
 import pg8 from "@/assets/projects/pg-8.jpg";
 import pg9 from "@/assets/projects/pg-9.jpg";
+import pg10 from "@/assets/projects/pg-10.jpg";
 
 // The Links Residential Development
 import linksCover from "@/assets/projects/links-cover.jpg";
@@ -205,6 +206,7 @@ export const projects: Project[] = [
       pg7,
       pg8,
       pg9,
+      pg10,
     ],
   },
   {
