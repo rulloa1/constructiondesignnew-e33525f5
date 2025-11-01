@@ -249,7 +249,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({
                 {/* Subtle overlay on hover */}
                 <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/20 transition-all duration-500">
                   <div className="absolute bottom-3 left-3 text-xs font-inter text-white/90 tracking-wider">
-                    {project.category}
+                    {project.category.replace(' ', ' • ')}
                   </div>
                 </div>
               </div>
