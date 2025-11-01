@@ -1,5 +1,4 @@
-import { Hammer, HardHat, Wrench } from "lucide-react";
-import portfolioSketch from "@/assets/portfolio-sketch.png";
+import { Hammer, HardHat, Wrench, ArrowDown } from "lucide-react";
 export const About = () => {
   return <section id="about" className="relative py-24 overflow-hidden bg-background">
       {/* Animated Construction Icons Background */}
@@ -49,12 +48,10 @@ export const About = () => {
           <h2 className="text-5xl md:text-6xl font-playfair font-semibold text-center mb-8 text-charcoal opacity-0 animate-slide-in-left">About Me</h2>
           <div className="max-w-3xl mx-auto">
             <div className="relative bg-white/80 backdrop-blur-sm rounded-lg p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.15)] transition-all duration-500 hover:-translate-y-1 opacity-0 animate-fade-in-up delay-200">
-              {/* Portfolio Sketch Icon */}
-              <img 
-                src={portfolioSketch} 
-                alt="Portfolio sketch" 
-                className="absolute bottom-4 right-4 w-20 h-20 md:w-24 md:h-24 opacity-30 hover:opacity-50 transition-opacity duration-300"
-              />
+              {/* Arrow pointing to Portfolio */}
+              <div className="absolute bottom-4 right-4 opacity-40 hover:opacity-70 transition-opacity duration-300 animate-bounce">
+                <ArrowDown size={48} className="text-accent" strokeWidth={2.5} />
+              </div>
               <div className="space-y-8 text-lg font-inter font-light leading-relaxed text-charcoal/80">
                 <p className="transition-all duration-300">
                   I'm Michael, a construction professional who believes that exceptional results come from exceptional teams. My approach is simple: bring together the right people, create an environment built on mutual respect, and stay closely attuned to client feedback throughout every phase of a project.
