@@ -1,5 +1,5 @@
 import { Hammer, HardHat, Wrench, ArrowDown } from "lucide-react";
-import heroVideo from "@/assets/hero-portfolio-video.mp4";
+import michaelImage from "@/assets/michael-chandler.jpg";
 
 interface AboutProps {
   onPortfolioClick?: () => void;
@@ -54,16 +54,12 @@ export const About = ({ onPortfolioClick }: AboutProps) => {
           <h2 className="text-5xl md:text-6xl font-playfair font-semibold text-center mb-8 text-charcoal opacity-0 animate-slide-in-left">About Me</h2>
           <div className="max-w-3xl mx-auto">
             <div className="relative bg-white/80 backdrop-blur-sm rounded-lg p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.15)] transition-all duration-500 hover:-translate-y-1 opacity-0 animate-fade-in-up delay-200 overflow-hidden">
-              {/* Flipped Video Background */}
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
+              {/* Flipped Image Background */}
+              <img
+                src={michaelImage}
+                alt=""
                 className="absolute inset-0 w-full h-full object-cover opacity-20 -scale-x-100"
-              >
-                <source src={heroVideo} type="video/mp4" />
-              </video>
+              />
               
               {/* Arrow pointing to Portfolio */}
               <button 
