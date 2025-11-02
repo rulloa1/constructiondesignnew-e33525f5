@@ -407,7 +407,7 @@ export const projects: Project[] = [
   },
   {
     id: "carmel-house-remdl-23",
-    title: "Carmel House",
+    title: "Carmel Knolls, CA",
     subtitle: "Remdl No.23",
     location: "Residential",
     additionalInfo: "Carmel, CA",
