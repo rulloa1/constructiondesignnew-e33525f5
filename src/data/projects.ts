@@ -211,7 +211,7 @@ import nfl014 from "@/assets/projects/nfl-014.jpg";
 import nfl015 from "@/assets/projects/nfl-015.jpg";
 
 // Carmel House Remdl No.23
-import carmel3Cover from "@/assets/projects/carmel-3-cover.jpg";
+import carmel3Cover from "@/assets/projects/carmel-3-cover-new.png";
 import carmel3_1 from "@/assets/projects/carmel-3-1.jpg";
 import carmel3_2 from "@/assets/projects/carmel-3-2.jpg";
 import carmel3_3 from "@/assets/projects/carmel-3-3.jpg";
