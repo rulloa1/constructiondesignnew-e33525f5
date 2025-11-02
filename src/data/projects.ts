@@ -93,6 +93,15 @@ import southcoast5 from "@/assets/projects/southcoast-5.jpg";
 import southcoast6 from "@/assets/projects/southcoast-6.jpg";
 import southcoast7 from "@/assets/projects/southcoast-7.jpg";
 import southcoast8 from "@/assets/projects/southcoast-8.jpg";
+import southcoastCover from "@/assets/projects/southcoast-cover.jpg";
+import southcoast9 from "@/assets/projects/southcoast-9.jpg";
+import southcoast10 from "@/assets/projects/southcoast-10.jpg";
+import southcoast11 from "@/assets/projects/southcoast-11.jpg";
+import southcoast12 from "@/assets/projects/southcoast-12.jpg";
+import southcoast13 from "@/assets/projects/southcoast-13.jpg";
+import southcoast14 from "@/assets/projects/southcoast-14.jpg";
+import southcoast15 from "@/assets/projects/southcoast-15.jpg";
+import southcoast16 from "@/assets/projects/southcoast-16.jpg";
 import project5 from "@/assets/projects/IMGP1303.jpg";
 import project6 from "@/assets/projects/IMGP1305.jpg";
 import lagunaGrandeCover from "@/assets/projects/laguna-grande-cover.png";
@@ -315,9 +324,9 @@ export const projects: Project[] = [
     location: "Residential",
     additionalInfo: "South Coast, CA",
     category: "Residential",
-    description: "A comprehensive remodel and design-build project that transforms existing spaces into modern, functional, and aesthetically stunning environments.",
-    image: southcoast4,
-    images: [southcoast4, southcoast3, southcoast1, southcoast2, southcoast5, southcoast6, southcoast7, southcoast8, project1],
+    description: "A comprehensive remodel and design-build project that transforms existing spaces into modern, functional, and aesthetically stunning coastal living featuring ocean views, custom skylights, designer flooring, and sophisticated interior finishes.",
+    image: southcoastCover,
+    images: [southcoastCover, southcoast9, southcoast10, southcoast11, southcoast12, southcoast13, southcoast14, southcoast15, southcoast16, southcoast1, southcoast2, southcoast3, southcoast4, southcoast5, southcoast6, southcoast7, southcoast8, project1],
   },
   {
     id: "carmel-valley-design-build",
