@@ -44,6 +44,22 @@ import cleanup3 from "@/assets/projects/cleanup-3-before.jpg";
 import cleanup4 from "@/assets/projects/cleanup-4-before.jpg";
 import cleanup5 from "@/assets/projects/cleanup-5-during.jpg";
 import cleanup6 from "@/assets/projects/cleanup-6-after.jpg";
+import hillsideCleanupCover from "@/assets/projects/hillside-cleanup-cover.jpg";
+import hillsideCleanup1 from "@/assets/projects/hillside-cleanup-1.jpg";
+import hillsideCleanup2 from "@/assets/projects/hillside-cleanup-2.jpg";
+import hillsideCleanup3 from "@/assets/projects/hillside-cleanup-3.jpg";
+import hillsideCleanup4 from "@/assets/projects/hillside-cleanup-4.jpg";
+import hillsideCleanup5 from "@/assets/projects/hillside-cleanup-5.jpg";
+import hillsideCleanup6 from "@/assets/projects/hillside-cleanup-6.jpg";
+import hillsideCleanup7 from "@/assets/projects/hillside-cleanup-7.jpg";
+import hillsideCleanup8 from "@/assets/projects/hillside-cleanup-8.jpg";
+import hillsideCleanup9 from "@/assets/projects/hillside-cleanup-9.jpg";
+import hillsideCleanup10 from "@/assets/projects/hillside-cleanup-10.jpg";
+import hillsideCleanup11 from "@/assets/projects/hillside-cleanup-11.jpg";
+import hillsideCleanup12 from "@/assets/projects/hillside-cleanup-12.jpg";
+import hillsideCleanup13 from "@/assets/projects/hillside-cleanup-13.jpg";
+import hillsideCleanup14 from "@/assets/projects/hillside-cleanup-14.jpg";
+import hillsideCleanup15 from "@/assets/projects/hillside-cleanup-15.jpg";
 import project1 from "@/assets/projects/2_After.jpg";
 import project2 from "@/assets/projects/4_After.jpg";
 import project3 from "@/assets/projects/5_After.jpg";
@@ -278,14 +294,14 @@ export const projects: Project[] = [
   },
   {
     id: "hillside-cleanup",
-    title: "Hillside",
-    subtitle: "Cleanup",
+    title: "9.0 Hillside Cleanup",
+    subtitle: "After Years of Dumping",
     location: "Commercial",
     additionalInfo: "Monterey Peninsula, CA",
     category: "Commercial",
-    description: "Comprehensive site preparation and environmental restoration services that transform challenging hillside properties into beautiful, buildable lots.",
-    image: cleanup1,
-    images: [cleanup1, cleanup2, cleanup3, cleanup4, cleanup5, cleanup6, cleanupCover],
+    description: "Comprehensive hillside restoration and environmental cleanup project removing years of accumulated dumping and debris to restore the natural landscape.",
+    image: hillsideCleanupCover,
+    images: [hillsideCleanupCover, hillsideCleanup1, hillsideCleanup2, hillsideCleanup3, hillsideCleanup4, hillsideCleanup5, hillsideCleanup6, hillsideCleanup7, hillsideCleanup8, hillsideCleanup9, hillsideCleanup10, hillsideCleanup11, hillsideCleanup12, hillsideCleanup13, hillsideCleanup14, hillsideCleanup15],
   },
   {
     id: "laguna-grande-design-build",
