@@ -71,7 +71,7 @@ const ProjectDetail = () => {
             <div className="max-w-6xl mx-auto">
               <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ${project.category === "Design Build" ? "gap-0.5" : "gap-3"}`}>
                 {project.images.map((image, index) => <button key={index} onClick={() => setSelectedImageIndex(index)} className="relative aspect-square overflow-hidden rounded-lg group cursor-pointer transition-all hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-cream/50">
-                    <img src={image} alt={`${project.title} - Image ${index + 1}`} className="w-full h-full object-cover" />
+                    
                     
                   </button>)}
               </div>
