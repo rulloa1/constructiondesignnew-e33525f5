@@ -264,10 +264,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({
                       {project.subtitle}
                     </>
                   )}
-                </h3>
-                <p className="text-sm font-inter text-muted-foreground font-light tracking-wide transition-all duration-300 group-hover:text-foreground group-hover:translate-x-1">
-                  {project.location}
-                </p>
+                 </h3>
                 {project.additionalInfo && (
                   <p className="text-sm font-inter text-muted-foreground font-light tracking-wide transition-all duration-300 group-hover:text-foreground group-hover:translate-x-1">
                     {project.additionalInfo}
