@@ -20,9 +20,6 @@ import carmel1_18 from "@/assets/projects/carmel1-18-after.jpg";
 import carmel1_19 from "@/assets/projects/carmel1-19-before.jpg";
 import carmel1_20 from "@/assets/projects/carmel1-20-after.jpg";
 import carmel2Cover from "@/assets/projects/carmel-2-cover.jpg";
-import carmel2_1 from "@/assets/projects/carmel-2-1.jpg";
-import carmel2_2 from "@/assets/projects/carmel-2-2.jpg";
-import carmel2_3 from "@/assets/projects/carmel-2-3.jpg";
 import carmel2_4 from "@/assets/projects/carmel-2-4.jpg";
 import carmel2_5 from "@/assets/projects/carmel-2-5.jpg";
 import carmel2_6 from "@/assets/projects/carmel-2-6.jpg";
@@ -307,7 +304,7 @@ export const projects: Project[] = [
     category: "Residential",
     description: "A stunning coastal home showcasing refined craftsmanship and thoughtful design that harmonizes with the natural beauty of the Carmel coastline.",
     image: carmel2Cover,
-    images: [carmel2Cover, carmel2_1, carmel2_2, carmel2_3, carmel2_4, carmel2_5, carmel2_6, carmel2_7, carmel2_8, carmel2_9],
+    images: [carmel2Cover, carmel2_4, carmel2_5, carmel2_6, carmel2_7, carmel2_8, carmel2_9],
   },
   {
     id: "coastal-hillside-restoration",
