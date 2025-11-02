@@ -102,6 +102,15 @@ import southcoast13 from "@/assets/projects/southcoast-13.jpg";
 import southcoast14 from "@/assets/projects/southcoast-14.jpg";
 import southcoast15 from "@/assets/projects/southcoast-15.jpg";
 import southcoast16 from "@/assets/projects/southcoast-16.jpg";
+import southcoast17 from "@/assets/projects/southcoast-17.jpg";
+import southcoast18 from "@/assets/projects/southcoast-18.jpg";
+import southcoast19 from "@/assets/projects/southcoast-19.jpg";
+import southcoast20 from "@/assets/projects/southcoast-20.jpg";
+import southcoast21 from "@/assets/projects/southcoast-21.jpg";
+import southcoast22 from "@/assets/projects/southcoast-22.jpg";
+import southcoast23 from "@/assets/projects/southcoast-23.jpg";
+import southcoast24 from "@/assets/projects/southcoast-24.jpg";
+import southcoast25 from "@/assets/projects/southcoast-25.jpg";
 import project5 from "@/assets/projects/IMGP1303.jpg";
 import project6 from "@/assets/projects/IMGP1305.jpg";
 import lagunaGrandeCover from "@/assets/projects/laguna-grande-cover.png";
@@ -324,9 +333,9 @@ export const projects: Project[] = [
     location: "Residential",
     additionalInfo: "South Coast, CA",
     category: "Residential",
-    description: "A comprehensive remodel and design-build project that transforms existing spaces into modern, functional, and aesthetically stunning coastal living featuring ocean views, custom skylights, designer flooring, and sophisticated interior finishes.",
+    description: "A comprehensive remodel and design-build project that transforms existing spaces into modern, functional, and aesthetically stunning coastal living featuring ocean views, custom skylights, designer flooring, sophisticated interior finishes, and gourmet kitchen.",
     image: southcoastCover,
-    images: [southcoastCover, southcoast9, southcoast10, southcoast11, southcoast12, southcoast13, southcoast14, southcoast15, southcoast16, southcoast1, southcoast2, southcoast3, southcoast4, southcoast5, southcoast6, southcoast7, southcoast8, project1],
+    images: [southcoastCover, southcoast9, southcoast10, southcoast11, southcoast12, southcoast13, southcoast14, southcoast15, southcoast16, southcoast17, southcoast18, southcoast19, southcoast20, southcoast21, southcoast22, southcoast23, southcoast24, southcoast25, southcoast1, southcoast2, southcoast3, southcoast4, southcoast5, southcoast6, southcoast7, southcoast8, project1],
   },
   {
     id: "carmel-valley-design-build",
