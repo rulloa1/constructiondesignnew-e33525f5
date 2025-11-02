@@ -227,6 +227,15 @@ import carmel3_12 from "@/assets/projects/carmel-3-12.jpg";
 import carmel3_13 from "@/assets/projects/carmel-3-13.jpg";
 import carmel3_14 from "@/assets/projects/carmel-3-14.jpg";
 import carmel3_15 from "@/assets/projects/carmel-3-15.jpg";
+import carmel3_16 from "@/assets/projects/carmel-3-16.jpg";
+import carmel3_17 from "@/assets/projects/carmel-3-17.jpg";
+import carmel3_18 from "@/assets/projects/carmel-3-18.jpg";
+import carmel3_19 from "@/assets/projects/carmel-3-19.jpg";
+import carmel3_20 from "@/assets/projects/carmel-3-20.jpg";
+import carmel3_21 from "@/assets/projects/carmel-3-21.jpg";
+import carmel3_22 from "@/assets/projects/carmel-3-22.jpg";
+import carmel3_23 from "@/assets/projects/carmel-3-23.jpg";
+import carmel3_24 from "@/assets/projects/carmel-3-24.jpg";
 
 // Coastal Hillside Restoration
 import coastalRestorationCover from "@/assets/projects/coastal-restoration-cover.jpg";
@@ -414,7 +423,7 @@ export const projects: Project[] = [
     category: "Residential",
     description: "A complete remodel showcasing the transformation from original condition to a beautifully finished home with updated decking, new windows, architectural improvements, and custom exterior details.",
     image: carmel3Cover,
-    images: [carmel3Cover, carmel3_1, carmel3_2, carmel3_3, carmel3_4, carmel3_5, carmel3_6, carmel3_7, carmel3_8, carmel3_9, carmel3_10, carmel3_11, carmel3_12, carmel3_13, carmel3_14, carmel3_15],
+    images: [carmel3Cover, carmel3_1, carmel3_2, carmel3_3, carmel3_4, carmel3_5, carmel3_6, carmel3_7, carmel3_8, carmel3_9, carmel3_10, carmel3_11, carmel3_12, carmel3_13, carmel3_14, carmel3_15, carmel3_16, carmel3_17, carmel3_18, carmel3_19, carmel3_20, carmel3_21, carmel3_22, carmel3_23, carmel3_24],
   },
   {
     id: "coastal-hillside-restoration-2",
