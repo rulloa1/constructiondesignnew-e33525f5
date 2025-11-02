@@ -322,7 +322,7 @@ export const projects: Project[] = [
   },
   {
     id: "carmel-valley-design-build",
-    title: "Carmel Valley",
+    title: "8.0 Car. Vlly House",
     subtitle: "Design Build",
     location: "Design Build",
     additionalInfo: "Carmel Valley, CA",
