@@ -307,17 +307,6 @@ export const projects: Project[] = [
     images: [carmel2Cover, carmel2_4, carmel2_5, carmel2_6, carmel2_7, carmel2_8],
   },
   {
-    id: "coastal-hillside-restoration",
-    title: "Coastal Hillside",
-    subtitle: "Restoration",
-    location: "Residential",
-    additionalInfo: "Monterey Peninsula, CA",
-    category: "Residential",
-    description: "A comprehensive restoration project that revitalizes a hillside property while preserving its architectural integrity and enhancing its connection to the dramatic coastal landscape.",
-    image: hillsideCover,
-    images: [hillsideCover, hillside1, hillside2, hillside3, hillside4, hillside5, hillside6, hillside7],
-  },
-  {
     id: "commercial-finish-lds-churches",
     title: "Commercial Finish",
     subtitle: "LDS Churches",
