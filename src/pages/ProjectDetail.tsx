@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { getProjectById } from "@/data/projects";
 import { useState, useEffect } from "react";
-
 const ProjectDetail = () => {
-  const { id } = useParams();
+  const {
+    id
+  } = useParams();
   const navigate = useNavigate();
   const project = id ? getProjectById(id) : undefined;
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
@@ -13,28 +14,20 @@ const ProjectDetail = () => {
   // Keyboard navigation
   useEffect(() => {
     if (selectedImageIndex === null) return;
-
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setSelectedImageIndex(null);
       } else if (e.key === "ArrowLeft" && project) {
-        setSelectedImageIndex((prev) => 
-          prev === 0 ? project.images.length - 1 : (prev ?? 0) - 1
-        );
+        setSelectedImageIndex(prev => prev === 0 ? project.images.length - 1 : (prev ?? 0) - 1);
       } else if (e.key === "ArrowRight" && project) {
-        setSelectedImageIndex((prev) => 
-          prev === project.images.length - 1 ? 0 : (prev ?? 0) + 1
-        );
+        setSelectedImageIndex(prev => prev === project.images.length - 1 ? 0 : (prev ?? 0) + 1);
       }
     };
-
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedImageIndex, project]);
-
   if (!project) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
+    return <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-light mb-4">Project Not Found</h1>
           <Button onClick={() => navigate("/")}>
@@ -42,23 +35,19 @@ const ProjectDetail = () => {
             Back to Home
           </Button>
         </div>
-      </div>
-    );
+      </div>;
   }
-
-  return (
-    <>
+  return <>
       <div className="relative min-h-screen bg-charcoal">
         {/* Content */}
         <div className="relative z-10 min-h-screen flex flex-col">
           {/* Back button */}
           <div className="p-4 sm:p-6 lg:p-8">
-            <Button 
-              variant="outline" 
-              onClick={() => navigate("/", { state: { openPortfolio: true } })}
-              className="bg-cream border-cream/30 text-charcoal hover:bg-cream/90 hover:shadow-lg transition-all font-medium"
-              size="lg"
-            >
+            <Button variant="outline" onClick={() => navigate("/", {
+            state: {
+              openPortfolio: true
+            }
+          })} className="bg-cream border-cream/30 text-charcoal hover:bg-cream/90 hover:shadow-lg transition-all font-medium" size="lg">
               <ArrowLeft className="mr-2 h-5 w-5" />
               Back to All Projects
             </Button>
@@ -81,20 +70,10 @@ const ProjectDetail = () => {
           <div className="p-4 sm:p-6 lg:p-8">
             <div className="max-w-6xl mx-auto">
               <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ${project.category === "Design Build" ? "gap-0.5" : "gap-3"}`}>
-                {project.images.map((image, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setSelectedImageIndex(index)}
-                    className="relative aspect-square overflow-hidden rounded-lg group cursor-pointer transition-all hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-cream/50"
-                  >
-                    <img
-                      src={image}
-                      alt={`${project.title} - Image ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/20 transition-colors" />
-                  </button>
-                ))}
+                {project.images.map((image, index) => <button key={index} onClick={() => setSelectedImageIndex(index)} className="relative aspect-square overflow-hidden rounded-lg group cursor-pointer transition-all hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-cream/50">
+                    <img src={image} alt={`${project.title} - Image ${index + 1}`} className="w-full h-full object-cover" />
+                    
+                  </button>)}
               </div>
             </div>
           </div>
@@ -102,17 +81,9 @@ const ProjectDetail = () => {
       </div>
 
       {/* Lightbox Modal */}
-      {selectedImageIndex !== null && (
-        <div 
-          className="fixed inset-0 z-50 bg-charcoal/95 backdrop-blur-sm animate-fade-in"
-          onClick={() => setSelectedImageIndex(null)}
-        >
+      {selectedImageIndex !== null && <div className="fixed inset-0 z-50 bg-charcoal/95 backdrop-blur-sm animate-fade-in" onClick={() => setSelectedImageIndex(null)}>
           {/* Close button */}
-          <button
-            onClick={() => setSelectedImageIndex(null)}
-            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-cream/10 hover:bg-cream/20 text-cream transition-colors focus:outline-none focus:ring-2 focus:ring-cream/50"
-            aria-label="Close"
-          >
+          <button onClick={() => setSelectedImageIndex(null)} className="absolute top-4 right-4 z-50 p-2 rounded-full bg-cream/10 hover:bg-cream/20 text-cream transition-colors focus:outline-none focus:ring-2 focus:ring-cream/50" aria-label="Close">
             <X className="h-6 w-6" />
           </button>
 
@@ -122,44 +93,26 @@ const ProjectDetail = () => {
           </div>
 
           {/* Previous button */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setSelectedImageIndex(selectedImageIndex === 0 ? project.images.length - 1 : selectedImageIndex - 1);
-            }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-cream/10 hover:bg-cream/20 text-cream transition-colors focus:outline-none focus:ring-2 focus:ring-cream/50"
-            aria-label="Previous image"
-          >
+          <button onClick={e => {
+        e.stopPropagation();
+        setSelectedImageIndex(selectedImageIndex === 0 ? project.images.length - 1 : selectedImageIndex - 1);
+      }} className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-cream/10 hover:bg-cream/20 text-cream transition-colors focus:outline-none focus:ring-2 focus:ring-cream/50" aria-label="Previous image">
             <ChevronLeft className="h-8 w-8" />
           </button>
 
           {/* Next button */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setSelectedImageIndex(selectedImageIndex === project.images.length - 1 ? 0 : selectedImageIndex + 1);
-            }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-cream/10 hover:bg-cream/20 text-cream transition-colors focus:outline-none focus:ring-2 focus:ring-cream/50"
-            aria-label="Next image"
-          >
+          <button onClick={e => {
+        e.stopPropagation();
+        setSelectedImageIndex(selectedImageIndex === project.images.length - 1 ? 0 : selectedImageIndex + 1);
+      }} className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-cream/10 hover:bg-cream/20 text-cream transition-colors focus:outline-none focus:ring-2 focus:ring-cream/50" aria-label="Next image">
             <ChevronRight className="h-8 w-8" />
           </button>
 
           {/* Image */}
-          <div 
-            className="flex items-center justify-center h-full p-16"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={project.images[selectedImageIndex]}
-              alt={`${project.title} - Image ${selectedImageIndex + 1}`}
-              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl animate-scale-in"
-            />
+          <div className="flex items-center justify-center h-full p-16" onClick={e => e.stopPropagation()}>
+            <img src={project.images[selectedImageIndex]} alt={`${project.title} - Image ${selectedImageIndex + 1}`} className="max-w-full max-h-full object-contain rounded-lg shadow-2xl animate-scale-in" />
           </div>
-        </div>
-      )}
-    </>
-  );
+        </div>}
+    </>;
 };
-
 export default ProjectDetail;
