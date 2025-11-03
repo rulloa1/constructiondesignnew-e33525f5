@@ -272,6 +272,21 @@ import beachfront7 from "@/assets/projects/beachfront-7.jpg";
 // Abaco Development
 import abacoDevelopment1 from "@/assets/projects/abaco-development-1.png";
 
+// Development
+import development1 from "@/assets/projects/development-1.jpg";
+import development2 from "@/assets/projects/development-2.jpg";
+import development3 from "@/assets/projects/development-3.jpg";
+import development4 from "@/assets/projects/development-4.jpg";
+import development5 from "@/assets/projects/development-5.jpg";
+import development6 from "@/assets/projects/development-6.jpg";
+import development7 from "@/assets/projects/development-7.jpg";
+import development8 from "@/assets/projects/development-8.jpg";
+import development9 from "@/assets/projects/development-9.jpg";
+import development10 from "@/assets/projects/development-10.jpg";
+
+// Hospitality Pool
+import hospitalityPool1 from "@/assets/projects/hospitality-pool-1.jpg";
+
 export type ProjectCategory = "Residential" | "Commercial" | "Hospitality" | "Design Build";
 
 export interface Project {
@@ -485,6 +500,28 @@ export const projects: Project[] = [
     description: "Comprehensive development project on the pristine Abaco Islands featuring luxury residential properties.",
     image: abacoDevelopment1,
     images: [abacoDevelopment1],
+  },
+  {
+    id: "development",
+    title: "Development",
+    subtitle: "Project Portfolio",
+    location: "Residential",
+    additionalInfo: "",
+    category: "Residential",
+    description: "A collection of development projects showcasing comprehensive construction and site development work.",
+    image: development1,
+    images: [development1, development2, development3, development4, development5, development6, development7, development8, development9, development10],
+  },
+  {
+    id: "hospitality-pool",
+    title: "Hospitality",
+    subtitle: "Pool",
+    location: "Hospitality",
+    additionalInfo: "",
+    category: "Hospitality",
+    description: "Luxury pool and outdoor living space design featuring custom stone work, pool house structures, and beautifully landscaped entertainment areas.",
+    image: hospitalityPool1,
+    images: [hospitalityPool1],
   },
 ];
 
