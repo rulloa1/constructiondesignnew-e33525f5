@@ -260,6 +260,18 @@ import coastalRestoration15 from "@/assets/projects/coastal-restoration-15.jpg";
 import bakersBay1 from "@/assets/projects/bakers-bay-1.png";
 import bakersBay2 from "@/assets/projects/bakers-bay-2.png";
 
+// Beachfront Estate
+import beachfront1 from "@/assets/projects/beachfront-1.jpg";
+import beachfront2 from "@/assets/projects/beachfront-2.jpg";
+import beachfront3 from "@/assets/projects/beachfront-3.jpg";
+import beachfront4 from "@/assets/projects/beachfront-4.jpg";
+import beachfront5 from "@/assets/projects/beachfront-5.jpg";
+import beachfront6 from "@/assets/projects/beachfront-6.jpg";
+import beachfront7 from "@/assets/projects/beachfront-7.jpg";
+
+// Abaco Development
+import abacoDevelopment1 from "@/assets/projects/abaco-development-1.png";
+
 export type ProjectCategory = "Residential" | "Commercial" | "Hospitality" | "Design Build";
 
 export interface Project {
@@ -460,8 +472,8 @@ export const projects: Project[] = [
     additionalInfo: "Bahamas",
     category: "Residential",
     description: "Premier beachfront estate property development showcasing luxury coastal living in the Bahamas.",
-    image: bakersBay1,
-    images: [],
+    image: beachfront1,
+    images: [beachfront1, beachfront2, beachfront3, beachfront4, beachfront5, beachfront6, beachfront7],
   },
   {
     id: "bahamas-abaco-development",
@@ -471,8 +483,8 @@ export const projects: Project[] = [
     additionalInfo: "Abaco Islands, Bahamas",
     category: "Residential",
     description: "Comprehensive development project on the pristine Abaco Islands featuring luxury residential properties.",
-    image: bakersBay1,
-    images: [],
+    image: abacoDevelopment1,
+    images: [abacoDevelopment1],
   },
 ];
 
