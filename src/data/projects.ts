@@ -340,6 +340,16 @@ import syracuse6 from "@/assets/projects/syracuse-6.webp";
 import syracuse7 from "@/assets/projects/syracuse-7.webp";
 import syracuse8 from "@/assets/projects/syracuse-8.webp";
 import syracuse9 from "@/assets/projects/syracuse-9.webp";
+import syracuse10 from "@/assets/projects/syracuse-10.webp";
+import syracuse11 from "@/assets/projects/syracuse-11.webp";
+import syracuse12 from "@/assets/projects/syracuse-12.webp";
+import syracuse13 from "@/assets/projects/syracuse-13.webp";
+import syracuse14 from "@/assets/projects/syracuse-14.webp";
+import syracuse15 from "@/assets/projects/syracuse-15.webp";
+import syracuse16 from "@/assets/projects/syracuse-16.webp";
+import syracuse17 from "@/assets/projects/syracuse-17.webp";
+import syracuse18 from "@/assets/projects/syracuse-18.webp";
+import syracuse19 from "@/assets/projects/syracuse-19.webp";
 
 export type ProjectCategory = "Residential" | "Commercial" | "Hospitality" | "Design Build";
 
@@ -586,7 +596,7 @@ export const projects: Project[] = [
     category: "Residential",
     description: "Stunning craftsman-style estate featuring professional landscaping, custom stone work, and dramatic evening lighting. This comprehensive project showcases exceptional attention to detail in both architecture and landscape design, with native plantings, decorative rock features, and elegant outdoor spaces.",
     image: syracuseCover,
-    images: [syracuseCover, syracuse1, syracuse2, syracuse3, syracuse4, syracuse5, syracuse6, syracuse7, syracuse8, syracuse9],
+    images: [syracuseCover, syracuse1, syracuse2, syracuse3, syracuse4, syracuse5, syracuse6, syracuse7, syracuse8, syracuse9, syracuse10, syracuse11, syracuse12, syracuse13, syracuse14, syracuse15, syracuse16, syracuse17, syracuse18, syracuse19],
   },
 ];
 
