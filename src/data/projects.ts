@@ -350,6 +350,14 @@ import syracuse16 from "@/assets/projects/syracuse-16.webp";
 import syracuse17 from "@/assets/projects/syracuse-17.webp";
 import syracuse18 from "@/assets/projects/syracuse-18.webp";
 import syracuse19 from "@/assets/projects/syracuse-19.webp";
+import alpineRanchCover from "@/assets/projects/alpine-ranch-cover.jpg";
+import alpineRanch1 from "@/assets/projects/alpine-ranch-1.jpg";
+import alpineRanch2 from "@/assets/projects/alpine-ranch-2.jpg";
+import alpineRanch3 from "@/assets/projects/alpine-ranch-3.jpg";
+import alpineRanch4 from "@/assets/projects/alpine-ranch-4.jpg";
+import alpineRanch5 from "@/assets/projects/alpine-ranch-5.jpg";
+import alpineRanch6 from "@/assets/projects/alpine-ranch-6.jpg";
+import alpineRanch7 from "@/assets/projects/alpine-ranch-7.jpg";
 
 export type ProjectCategory = "Residential" | "Commercial" | "Hospitality" | "Design Build";
 
@@ -597,6 +605,17 @@ export const projects: Project[] = [
     description: "Stunning craftsman-style estate featuring professional landscaping, custom stone work, and dramatic evening lighting. This comprehensive project showcases exceptional attention to detail in both architecture and landscape design, with native plantings, decorative rock features, and elegant outdoor spaces.",
     image: syracuseCover,
     images: [syracuseCover, syracuse1, syracuse2, syracuse3, syracuse4, syracuse5, syracuse6, syracuse7, syracuse8, syracuse9, syracuse10, syracuse11, syracuse12, syracuse13, syracuse14, syracuse15, syracuse16, syracuse17, syracuse18, syracuse19],
+  },
+  {
+    id: "high-alpine-ranch",
+    title: "High Alpine Ranch",
+    subtitle: "Mountain Luxury Retreat",
+    location: "Residential",
+    additionalInfo: "Montana",
+    category: "Residential",
+    description: "Spectacular high-alpine luxury ranch featuring modern mountain architecture with floor-to-ceiling windows, custom stone masonry, and exposed timber construction. This exceptional residence seamlessly blends contemporary design with rustic mountain charm, showcasing breathtaking panoramic views, a gourmet kitchen with natural stone countertops, and luxurious interiors with vaulted ceilings and custom millwork throughout.",
+    image: alpineRanchCover,
+    images: [alpineRanchCover, alpineRanch1, alpineRanch2, alpineRanch3, alpineRanch4, alpineRanch5, alpineRanch6, alpineRanch7],
   },
 ];
 
