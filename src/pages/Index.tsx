@@ -102,6 +102,7 @@ const Index: React.FC = () => {
           <About onPortfolioClick={handleOpenBook} />
           <Services />
           <BookCoverHero onOpenBook={handleOpenBook} />
+          <Footer />
         </> : <>
           {/* Portfolio view with navigation header */}
           <div className="sticky top-0 z-30 bg-charcoal/95 backdrop-blur-sm border-b border-white/10">
