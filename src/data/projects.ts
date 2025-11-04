@@ -321,6 +321,25 @@ import montana7 from "@/assets/projects/montana-7.jpg";
 import montana8 from "@/assets/projects/montana-8.jpg";
 import montana9 from "@/assets/projects/montana-9.jpg";
 import montana10 from "@/assets/projects/montana-10.jpg";
+import miamiBeachCover from "@/assets/projects/miami-beach-cover.jpg";
+import miamiBeach1 from "@/assets/projects/miami-beach-1.png";
+import miamiBeach2 from "@/assets/projects/miami-beach-2.png";
+import miamiBeach3 from "@/assets/projects/miami-beach-3.jpg";
+import miamiBeach4 from "@/assets/projects/miami-beach-4.jpg";
+import miamiBeach5 from "@/assets/projects/miami-beach-5.jpg";
+import miamiBeach6 from "@/assets/projects/miami-beach-6.jpg";
+import miamiBeach7 from "@/assets/projects/miami-beach-7.jpg";
+import miamiBeach8 from "@/assets/projects/miami-beach-8.jpg";
+import syracuseCover from "@/assets/projects/syracuse-cover.webp";
+import syracuse1 from "@/assets/projects/syracuse-1.webp";
+import syracuse2 from "@/assets/projects/syracuse-2.webp";
+import syracuse3 from "@/assets/projects/syracuse-3.webp";
+import syracuse4 from "@/assets/projects/syracuse-4.webp";
+import syracuse5 from "@/assets/projects/syracuse-5.webp";
+import syracuse6 from "@/assets/projects/syracuse-6.webp";
+import syracuse7 from "@/assets/projects/syracuse-7.webp";
+import syracuse8 from "@/assets/projects/syracuse-8.webp";
+import syracuse9 from "@/assets/projects/syracuse-9.webp";
 
 export type ProjectCategory = "Residential" | "Commercial" | "Hospitality" | "Design Build";
 
@@ -546,6 +565,28 @@ export const projects: Project[] = [
     description: "Sophisticated condo renovation featuring contemporary finishes, custom millwork, and luxurious bathroom design. This mountain retreat showcases elegant material selections including dramatic marble, warm wood tones, and refined fixtures that create a seamless blend of modern comfort and mountain living.",
     image: montanaCover,
     images: [montanaCover, montana1, montana2, montana3, montana4, montana5, montana6, montana7, montana8, montana9, montana10],
+  },
+  {
+    id: "miami-beach-condo",
+    title: "Miami Beach Condo",
+    subtitle: "Modern Luxury Residence",
+    location: "Residential",
+    additionalInfo: "Miami Beach, FL",
+    category: "Residential",
+    description: "Contemporary luxury condominium featuring sophisticated interior design, premium finishes, and breathtaking ocean views. This beachfront residence showcases modern aesthetics with clean lines, custom millwork, and elegant material selections that complement the coastal lifestyle.",
+    image: miamiBeachCover,
+    images: [miamiBeachCover, miamiBeach1, miamiBeach2, miamiBeach3, miamiBeach4, miamiBeach5, miamiBeach6, miamiBeach7, miamiBeach8],
+  },
+  {
+    id: "syracuse-house",
+    title: "Syracuse House",
+    subtitle: "Craftsman Estate",
+    location: "Residential",
+    additionalInfo: "Syracuse, UT",
+    category: "Residential",
+    description: "Stunning craftsman-style estate featuring professional landscaping, custom stone work, and dramatic evening lighting. This comprehensive project showcases exceptional attention to detail in both architecture and landscape design, with native plantings, decorative rock features, and elegant outdoor spaces.",
+    image: syracuseCover,
+    images: [syracuseCover, syracuse1, syracuse2, syracuse3, syracuse4, syracuse5, syracuse6, syracuse7, syracuse8, syracuse9],
   },
 ];
 
