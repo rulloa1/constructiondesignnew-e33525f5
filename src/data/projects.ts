@@ -350,17 +350,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "carmel-house-1",
-    title: "Carmel Residence",
-    subtitle: "Coastal Custom Residence",
-    location: "Residential",
-    additionalInfo: "Carmel, CA",
-    category: "Residential",
-    description: "An elegant coastal residence featuring custom architectural details and high-end finishes that capture the essence of Carmel's sophisticated charm.",
-    image: carmel1_1,
-    images: [carmel1_1, carmel1_2, carmel1_3, carmel1_4, carmel1_5, carmel1_6, carmel1_7, carmel1_8, carmel1_9, carmel1_10, carmel1_11, carmel1_12, carmel1_13, carmel1_14, carmel1_15, carmel1_16, carmel1_17, carmel1_18, carmel1_19, carmel1_20],
-  },
-  {
     id: "carmel-house-2",
     title: "Carmel Coastal",
     subtitle: "Custom Coastal Home",
