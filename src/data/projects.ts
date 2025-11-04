@@ -329,7 +329,7 @@ export const projects: Project[] = [
   {
     id: "pacific-grove-design-build",
     title: "Pacific Grove",
-    subtitle: "Historic Home Transformation",
+    subtitle: "Historic Restoration",
     location: "Design Build",
     additionalInfo: "Pacific Grove, CA",
     category: "Design Build",
@@ -363,7 +363,7 @@ export const projects: Project[] = [
   {
     id: "hillside-cleanup",
     title: "Hillside Restoration",
-    subtitle: "Environmental Cleanup & Restoration",
+    subtitle: "Environmental Restoration",
     location: "Commercial",
     additionalInfo: "Monterey Peninsula, CA",
     category: "Commercial",
@@ -374,7 +374,7 @@ export const projects: Project[] = [
   {
     id: "laguna-grande-design-build",
     title: "Laguna Grande",
-    subtitle: "Spanish Colonial Revival Complex",
+    subtitle: "Spanish Colonial Revival",
     location: "Commercial",
     additionalInfo: "Seaside, CA",
     category: "Commercial",
@@ -385,7 +385,7 @@ export const projects: Project[] = [
   {
     id: "southcoast-remodel-design-build",
     title: "South Coast Remodel",
-    subtitle: "Complete Design Build Renovation",
+    subtitle: "Complete Renovation",
     location: "Residential",
     additionalInfo: "South Coast, CA",
     category: "Residential",
@@ -407,7 +407,7 @@ export const projects: Project[] = [
   {
     id: "residential-development-site-plan",
     title: "Southeast Texas",
-    subtitle: "Site Planning & Development",
+    subtitle: "Site Development",
     location: "Design Build",
     additionalInfo: "Southeast Texas",
     category: "Design Build",
@@ -418,7 +418,7 @@ export const projects: Project[] = [
   {
     id: "the-links-residential-development",
     title: "The Links",
-    subtitle: "Prestigious Community Development",
+    subtitle: "Community Development",
     location: "Residential",
     additionalInfo: "Southeast Texas",
     category: "Residential",
@@ -429,7 +429,7 @@ export const projects: Project[] = [
   {
     id: "nfl-des-consult",
     title: "North Florida",
-    subtitle: "Foundation to Finish Construction",
+    subtitle: "Foundation to Finish",
     location: "Design Build",
     additionalInfo: "North Florida",
     category: "Design Build",
@@ -440,7 +440,7 @@ export const projects: Project[] = [
   {
     id: "bigsur-mountain-remodel",
     title: "Big Sur",
-    subtitle: "Site Development & Construction",
+    subtitle: "Coastal Site Work",
     location: "Residential",
     additionalInfo: "Big Sur, CA",
     category: "Residential",
@@ -462,7 +462,7 @@ export const projects: Project[] = [
   {
     id: "coastal-hillside-restoration-2",
     title: "Coastal Restoration",
-    subtitle: "Erosion Repair & Stabilization",
+    subtitle: "Coastal Restoration",
     location: "Residential",
     additionalInfo: "Monterey Peninsula, CA",
     category: "Residential",
@@ -473,7 +473,7 @@ export const projects: Project[] = [
   {
     id: "bahamas-beachfront-estate",
     title: "Beachfront Estate Property",
-    subtitle: "Premier Estate Development",
+    subtitle: "Estate Development",
     location: "Residential",
     additionalInfo: "Bahamas",
     category: "Residential",
@@ -484,7 +484,7 @@ export const projects: Project[] = [
   {
     id: "bahamas-abaco-development",
     title: "Abaco Islands",
-    subtitle: "Comprehensive Development Project",
+    subtitle: "Resort Development",
     location: "Residential",
     additionalInfo: "Abaco Islands, Bahamas",
     category: "Residential",
@@ -495,7 +495,7 @@ export const projects: Project[] = [
   {
     id: "development",
     title: "Development",
-    subtitle: "Project Collection",
+    subtitle: "Development Portfolio",
     location: "Residential",
     additionalInfo: "Abaco Islands, Bahamas",
     category: "Residential",
@@ -506,7 +506,7 @@ export const projects: Project[] = [
   {
     id: "hospitality-pool",
     title: "Pool Design",
-    subtitle: "Luxury Outdoor Living Space",
+    subtitle: "Luxury Pool Design",
     location: "Hospitality",
     additionalInfo: "California",
     category: "Hospitality",
@@ -517,7 +517,7 @@ export const projects: Project[] = [
   {
     id: "civil-engineering",
     title: "Civil Engineering",
-    subtitle: "Infrastructure & Grading Excellence",
+    subtitle: "Civil Engineering",
     location: "Commercial",
     additionalInfo: "Various Locations",
     category: "Commercial",
