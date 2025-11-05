@@ -336,6 +336,13 @@ import miamiBeach5 from "@/assets/projects/miami-beach-5.jpg";
 import miamiBeach6 from "@/assets/projects/miami-beach-6.jpg";
 import miamiBeach7 from "@/assets/projects/miami-beach-7.jpg";
 import miamiBeach8 from "@/assets/projects/miami-beach-8.jpg";
+import miamiBeach9 from "@/assets/projects/miami-beach-9.jpg";
+import miamiBeach10 from "@/assets/projects/miami-beach-10.jpg";
+import miamiBeach11 from "@/assets/projects/miami-beach-11.jpg";
+import miamiBeach12 from "@/assets/projects/miami-beach-12.jpg";
+import miamiBeach13 from "@/assets/projects/miami-beach-13.jpg";
+import miamiBeach14 from "@/assets/projects/miami-beach-14.jpg";
+import miamiBeach15 from "@/assets/projects/miami-beach-15.jpg";
 import syracuseCover from "@/assets/projects/syracuse-cover.webp";
 import syracuse1 from "@/assets/projects/syracuse-1.webp";
 import syracuse2 from "@/assets/projects/syracuse-2.webp";
@@ -392,7 +399,7 @@ export const projects: Project[] = [
     category: "Residential",
     description: "Contemporary luxury condominium featuring sophisticated interior design, premium finishes, and breathtaking ocean views. This beachfront residence showcases modern aesthetics with clean lines, custom millwork, and elegant material selections that complement the coastal lifestyle.",
     image: miamiBeachCover,
-    images: [miamiBeachCover, miamiBeach1, miamiBeach2, miamiBeach3, miamiBeach4, miamiBeach5, miamiBeach6, miamiBeach7, miamiBeach8],
+    images: [miamiBeachCover, miamiBeach1, miamiBeach2, miamiBeach3, miamiBeach4, miamiBeach5, miamiBeach6, miamiBeach7, miamiBeach8, miamiBeach9, miamiBeach10, miamiBeach11, miamiBeach12, miamiBeach13, miamiBeach14, miamiBeach15],
   },
   {
     id: "high-alpine-ranch",
