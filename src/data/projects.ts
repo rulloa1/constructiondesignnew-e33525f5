@@ -273,6 +273,7 @@ import beachfront7 from "@/assets/projects/beachfront-7.jpg";
 import abacoDevelopment1 from "@/assets/projects/abaco-development-1.png";
 
 // Development
+import developmentCover from "@/assets/projects/development-cover.jpg";
 import development1 from "@/assets/projects/development-1.jpg";
 import development2 from "@/assets/projects/development-2.jpg";
 import development3 from "@/assets/projects/development-3.jpg";
@@ -464,8 +465,8 @@ export const projects: Project[] = [
     additionalInfo: "Abaco Islands, Bahamas",
     category: "Residential",
     description: "A collection of development projects showcasing comprehensive construction and site development work.",
-    image: development1,
-    images: [development1, development2, development3, development4, development5, development6, development7, development8, development9, development10, bakersBay1, bakersBay2],
+    image: developmentCover,
+    images: [developmentCover, development1, development2, development3, development4, development5, development6, development7, development8, development9, development10, bakersBay1, bakersBay2],
   },
   {
     id: "pacific-grove-design-build",
