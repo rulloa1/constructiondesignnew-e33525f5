@@ -20,7 +20,7 @@ export const Hero = () => {
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-light text-white mb-4 [text-shadow:0_0_20px_rgba(228,179,33,0.3),0_0_40px_rgba(228,179,33,0.15)] md:text-4xl">&quot;Master Builder | Designer | Problem Solver&quot;</h2>
           <p className="text-lg text-white/90 max-w-3xl mx-auto [text-shadow:0_0_15px_rgba(228,179,33,0.2)]">
-            30+ Years of Quality Craftsmanship
+            Architectural design, landscape restoration, and construction excellence
           </p>
         </div>
       </div>
