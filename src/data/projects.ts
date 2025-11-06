@@ -480,7 +480,7 @@ export const projects: Project[] = [
   {
     id: "hospitality-pool",
     title: "Luxury Pool Design",
-    subtitle: "Luxury Pool Design",
+    subtitle: "Resort Amenity",
     location: "Hospitality",
     additionalInfo: "California",
     category: "Hospitality",
@@ -491,7 +491,7 @@ export const projects: Project[] = [
   {
     id: "bahamas-beachfront-estate",
     title: "Beachfront Estate Property",
-    subtitle: "Estate Development",
+    subtitle: "Luxury Development",
     location: "Residential",
     additionalInfo: "Bahamas",
     category: "Residential",
@@ -502,7 +502,7 @@ export const projects: Project[] = [
   {
     id: "development",
     title: "Development",
-    subtitle: "Development Portfolio",
+    subtitle: "Construction Portfolio",
     location: "Residential",
     additionalInfo: "Abaco Islands, Bahamas",
     category: "Residential",
@@ -624,7 +624,7 @@ export const projects: Project[] = [
   {
     id: "coastal-hillside-restoration-2",
     title: "Coastal Restoration",
-    subtitle: "Coastal Restoration",
+    subtitle: "Erosion Repair",
     location: "Residential",
     additionalInfo: "Monterey Peninsula, CA",
     category: "Residential",
@@ -646,7 +646,7 @@ export const projects: Project[] = [
   {
     id: "civil-engineering",
     title: "Civil Engineering",
-    subtitle: "Civil Engineering",
+    subtitle: "Infrastructure Projects",
     location: "Commercial",
     additionalInfo: "Various Locations",
     category: "Commercial",
