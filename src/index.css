@@ -248,6 +248,20 @@ All colors MUST be HSL.
     animation: pulse-subtle 3s ease-in-out infinite;
   }
 
+  /* Logo glow animation */
+  @keyframes logo-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 8px rgba(208, 165, 102, 0.3)) brightness(110%);
+    }
+    50% {
+      filter: drop-shadow(0 0 20px rgba(208, 165, 102, 0.6)) drop-shadow(0 0 30px rgba(208, 165, 102, 0.4)) brightness(120%);
+    }
+  }
+
+  .animate-logo-glow {
+    animation: logo-glow 2.5s ease-in-out infinite;
+  }
+
   /* Smooth hover transitions */
   .hover-lift {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
