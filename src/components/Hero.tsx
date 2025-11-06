@@ -30,10 +30,14 @@ export const Hero = () => {
         />
       </div>
       
-      {/* Edge Fade Effect */}
-      <div className="absolute inset-0 pointer-events-none" style={{
-      background: 'radial-gradient(ellipse 75% 70% at 50% 40%, transparent 0%, transparent 40%, hsl(var(--background) / 0.3) 65%, hsl(var(--background)) 100%)'
-    }} />
+      {/* Edge Fade Effect with Parallax */}
+      <div 
+        className="absolute inset-0 pointer-events-none transition-transform duration-100 ease-out" 
+        style={{
+          background: 'radial-gradient(ellipse 75% 70% at 50% 40%, transparent 0%, transparent 40%, hsl(var(--background) / 0.3) 65%, hsl(var(--background)) 100%)',
+          transform: `translateY(${scrollY * 0.15}px)`
+        }} 
+      />
       
       {/* Text Overlay */}
       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent py-8 md:py-16 px-4 md:px-6">
