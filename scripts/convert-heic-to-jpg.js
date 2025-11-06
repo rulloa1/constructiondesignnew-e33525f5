@@ -1,5 +1,7 @@
 // Script to convert HEIC images to JPG
-// Run with: node scripts/convert-heic-to-jpg.js
+// Run with: node scripts/convert-heic-to-jpg.js <source-directory>
+// Example: node scripts/convert-heic-to-jpg.js "C:\Users\username\OneDrive\POOL FINAL"
+// Or use environment variable: SOURCE_DIR="path/to/dir" node scripts/convert-heic-to-jpg.js
 
 import fs from 'fs';
 import path from 'path';
@@ -9,7 +11,25 @@ import convert from 'heic-convert';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const sourceDir = 'C:\\Users\\roryu\\OneDrive\\POOL FINAL';
+// Get source directory from command-line argument or environment variable
+const sourceDir = process.argv[2] || process.env.SOURCE_DIR || process.env.POOL_SOURCE_DIR;
+
+if (!sourceDir) {
+  console.error('❌ Error: Source directory not specified');
+  console.error('\nUsage:');
+  console.error('  node scripts/convert-heic-to-jpg.js <source-directory>');
+  console.error('  Example: node scripts/convert-heic-to-jpg.js "C:\\Users\\username\\OneDrive\\POOL FINAL"');
+  console.error('\nOr set environment variable:');
+  console.error('  SOURCE_DIR="path/to/dir" node scripts/convert-heic-to-jpg.js');
+  console.error('  POOL_SOURCE_DIR="path/to/dir" node scripts/convert-heic-to-jpg.js');
+  process.exit(1);
+}
+
+if (!fs.existsSync(sourceDir)) {
+  console.error(`❌ Error: Source directory does not exist: ${sourceDir}`);
+  process.exit(1);
+}
+
 const outputDir = path.join(__dirname, '../src/assets/projects');
 
 async function convertHeicToJpg() {
