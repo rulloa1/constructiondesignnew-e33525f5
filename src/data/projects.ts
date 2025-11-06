@@ -176,7 +176,6 @@ import carmelValley1 from "@/assets/projects/carmel-valley-1.jpg";
 import carmelValley2 from "@/assets/projects/carmel-valley-2.jpg";
 import carmelValley3 from "@/assets/projects/carmel-valley-3.jpg";
 import carmelValley4 from "@/assets/projects/carmel-valley-4.jpg";
-import siteMap from "@/assets/projects/site-map.jpg";
 
 // Pacific Grove Design Build album
 import pgCover from "@/assets/projects/pg-cover.jpg";
@@ -190,20 +189,6 @@ import pg7 from "@/assets/projects/pg-7.jpg";
 import pg8 from "@/assets/projects/pg-8.jpg";
 import pg9 from "@/assets/projects/pg-9.jpg";
 import pg10 from "@/assets/projects/pg-10.jpg";
-
-// The Links Residential Development
-import linksCover from "@/assets/projects/links-cover.jpg";
-import links1 from "@/assets/projects/links-1.jpg";
-import links2 from "@/assets/projects/links-2.jpg";
-import links3 from "@/assets/projects/links-3.jpg";
-import links4 from "@/assets/projects/links-4.jpg";
-import links5 from "@/assets/projects/links-5.jpg";
-import links6 from "@/assets/projects/links-6.jpg";
-import links7 from "@/assets/projects/links-7.jpg";
-import links8 from "@/assets/projects/links-8.jpg";
-import linksEstate from "@/assets/projects/links-estate.jpg";
-import linksEstate2 from "@/assets/projects/links-estate-2.jpg";
-import linksEstate3 from "@/assets/projects/links-estate-3.jpg";
 
 // N. FL Des Consult
 import nfl001 from "@/assets/projects/nfl-001-cover.webp";
@@ -587,28 +572,6 @@ export const projects: Project[] = [
     description: "A stunning custom design-build residence featuring elegant architectural details and seamless integration with the natural landscape of Carmel Valley.",
     image: carmelValleyCover,
     images: [carmelValleyCover, carmelValley1, carmelValley2, carmelValley3, carmelValley4],
-  },
-  {
-    id: "residential-development-site-plan",
-    title: "Southeast Texas",
-    subtitle: "Site Development",
-    location: "Design Build",
-    additionalInfo: "Southeast Texas",
-    category: "Design Build",
-    description: "Comprehensive site planning and development layout for a master-planned residential community, featuring over 100 lots with thoughtful integration of natural water features, green spaces, and infrastructure. This master-planned community includes beautifully built Mediterranean-style lakefront estates.",
-    image: linksEstate,
-    images: [siteMap, linksEstate, linksEstate2, linksEstate3],
-  },
-  {
-    id: "the-links-residential-development",
-    title: "The Links",
-    subtitle: "Community Development",
-    location: "Residential",
-    additionalInfo: "Southeast Texas",
-    category: "Residential",
-    description: "A prestigious residential community featuring elegant estates set among manicured landscapes, tranquil water features, and thoughtfully designed outdoor spaces that create a refined living experience.",
-    image: linksCover,
-    images: [linksCover, links1, links2, links3, links4, links5, links6, links7, links8],
   },
   {
     id: "nfl-des-consult",
