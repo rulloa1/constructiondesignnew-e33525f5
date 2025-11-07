@@ -611,7 +611,7 @@ export const projects: Project[] = [
   },
   {
     id: "coastal-hillside-restoration-2",
-    title: "Coastal Restoration",
+    title: "Coastal Hillside Restoration",
     subtitle: "Erosion Repair",
     location: "Residential",
     additionalInfo: "Monterey Peninsula, CA",
