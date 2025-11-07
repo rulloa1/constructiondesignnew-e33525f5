@@ -168,7 +168,6 @@ import carmelValley4 from "@/assets/projects/carmel-valley-4.jpg";
 // Pacific Grove Design Build album
 import pgCover from "@/assets/projects/pg-cover.jpg";
 import pg1 from "@/assets/projects/pg-1.jpg";
-import pg3 from "@/assets/projects/pg-3.png";
 import pg4 from "@/assets/projects/pg-4.jpg";
 import pg5 from "@/assets/projects/pg-5.jpg";
 import pg6 from "@/assets/projects/pg-6.jpg";
@@ -528,7 +527,7 @@ export const projects: Project[] = [
     category: "Design Build",
     description: "A comprehensive transformation of a historic property, seamlessly blending traditional craftsman character with modern comfort and functionality. This complete design-build project showcases our expertise in preserving neighborhood heritage while creating contemporary living spaces.",
     image: pgCover,
-    images: [pgCover, pg1, pg3, pg4, pg5, pg6, pg7, pg8, pg9, pg10],
+    images: [pgCover, pg1, pg4, pg5, pg6, pg7, pg8, pg9, pg10],
   },
   {
     id: "carmel-house-2",
