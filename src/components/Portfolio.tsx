@@ -237,10 +237,10 @@ export const Portfolio: React.FC<PortfolioProps> = ({
         </div>
       </div>
 
-      {/* Project grid with 3D Gallery Effect */}
+      {/* Project grid */}
       <div className="container mx-auto px-6 lg:px-12 py-12">
-        <div className="gallery-3d grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-          {filteredProjects.map((project, index) => <Link key={project.id} to={`/project/${project.id}`} className="card group opacity-0 animate-fade-in-up" style={{
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          {filteredProjects.map((project, index) => <Link key={project.id} to={`/project/${project.id}`} className="group opacity-0 animate-fade-in-up" style={{
           animationDelay: `${index * 50}ms`
         }}>
               {/* Project image */}
