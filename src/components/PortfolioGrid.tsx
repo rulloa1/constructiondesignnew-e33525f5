@@ -6,10 +6,10 @@ import { ProjectCardCarousel } from "@/components/ProjectCardCarousel";
 
 type Category = "All" | ProjectCategory;
 
-const categories: Category[] = ["All", "Residential * Construction", "Commercial", "Hospitality", "Design Build"];
+const categories: Category[] = ["All", "Residential Construction", "Commercial", "Hospitality", "Design Build"];
 
 const categoryColors: Record<string, string> = {
-  "Residential * Construction": "bg-gold text-charcoal",
+  "Residential Construction": "bg-gold text-charcoal",
   Commercial: "bg-steelBlue text-white",
   Hospitality: "bg-burgundy text-white",
   "Design Build": "bg-gold text-charcoal",

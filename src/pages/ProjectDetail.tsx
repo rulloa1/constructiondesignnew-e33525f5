@@ -85,7 +85,7 @@ const ProjectDetail = () => {
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg border border-charcoal/10">
               <div className="mb-3">
                 <span className="text-xs text-charcoal/60 font-light tracking-widest uppercase block">
-                  {project.category.replace(" * Construction", "")}
+                  {project.category.replace(" Construction", "")}
                 </span>
                 <span className="text-xs text-charcoal/60 font-light tracking-widest uppercase block">
                   Construction

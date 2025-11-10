@@ -8,7 +8,7 @@ import designBuildImg from "@/assets/category-design-build.jpg";
 import pacificGroveImg from "@/assets/category-pacific-grove.jpg";
 const categories = [{
   id: "residential",
-  title: "Residential * Construction",
+  title: "Residential Construction",
   description: "Luxury homes and sophisticated living spaces designed for modern lifestyles",
   image: residentialImg,
   color: "gold"
