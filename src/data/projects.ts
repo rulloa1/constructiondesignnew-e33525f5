@@ -466,6 +466,40 @@ import syracuse24 from "@/assets/projects/syracuse-24.png";
 import syracuse25 from "@/assets/projects/syracuse-25.png";
 import syracuse26 from "@/assets/projects/syracuse-26.png";
 import syracuse27 from "@/assets/projects/syracuse-27.png";
+import syracuse28 from "@/assets/projects/syracuse-28.jpg";
+import syracuse29 from "@/assets/projects/syracuse-29.jpg";
+import syracuse30 from "@/assets/projects/syracuse-30.jpg";
+import syracuse31 from "@/assets/projects/syracuse-31.jpg";
+import syracuse32 from "@/assets/projects/syracuse-32.jpg";
+import syracuse33 from "@/assets/projects/syracuse-33.jpg";
+import syracuse34 from "@/assets/projects/syracuse-34.jpg";
+import syracuse35 from "@/assets/projects/syracuse-35.jpg";
+import syracuse36 from "@/assets/projects/syracuse-36.jpg";
+import syracuse37 from "@/assets/projects/syracuse-37.jpg";
+import syracuse38 from "@/assets/projects/syracuse-38.jpg";
+import syracuse39 from "@/assets/projects/syracuse-39.jpg";
+import syracuse40 from "@/assets/projects/syracuse-40.jpg";
+import syracuse41 from "@/assets/projects/syracuse-41.jpg";
+import syracuse42 from "@/assets/projects/syracuse-42.jpg";
+import syracuse43 from "@/assets/projects/syracuse-43.jpg";
+import syracuse44 from "@/assets/projects/syracuse-44.jpg";
+import syracuse45 from "@/assets/projects/syracuse-45.jpg";
+import syracuse46 from "@/assets/projects/syracuse-46.jpg";
+import syracuse47 from "@/assets/projects/syracuse-47.jpg";
+import syracuse48 from "@/assets/projects/syracuse-48.jpg";
+import syracuse49 from "@/assets/projects/syracuse-49.jpg";
+import syracuse50 from "@/assets/projects/syracuse-50.jpg";
+import syracuse51 from "@/assets/projects/syracuse-51.jpg";
+import syracuse52 from "@/assets/projects/syracuse-52.jpg";
+import syracuse53 from "@/assets/projects/syracuse-53.jpg";
+import syracuse54 from "@/assets/projects/syracuse-54.jpg";
+import syracuse55 from "@/assets/projects/syracuse-55.jpg";
+import syracuse56 from "@/assets/projects/syracuse-56.jpg";
+import syracuse57 from "@/assets/projects/syracuse-57.jpg";
+import syracuse58 from "@/assets/projects/syracuse-58.jpg";
+import syracuse59 from "@/assets/projects/syracuse-59.jpg";
+import syracuse60 from "@/assets/projects/syracuse-60.jpg";
+import syracuse61 from "@/assets/projects/syracuse-61.jpg";
 import alpineRanchCover from "@/assets/projects/alpine-ranch-cover.jpg";
 import alpineRanch1 from "@/assets/projects/alpine-ranch-1.jpg";
 import alpineRanch2 from "@/assets/projects/alpine-ranch-2.jpg";
@@ -526,7 +560,7 @@ export const projects: Project[] = [
     category: "Residential Construction",
     description: "Stunning craftsman-style estate featuring professional landscaping, custom stone work, and dramatic evening lighting. This comprehensive project showcases exceptional attention to detail in both architecture and landscape design, with native plantings, decorative rock features, and elegant outdoor spaces.",
     image: syracuseCover,
-    images: [syracuseCover, syracuse1, syracuse2, syracuse3, syracuse4, syracuse5, syracuse6, syracuse7, syracuse8, syracuse9, syracuse10, syracuse11, syracuse12, syracuse13, syracuse14, syracuse15, syracuse16, syracuse17, syracuse18, syracuse19, syracuse20, syracuse21, syracuse22, syracuse23, syracuse24, syracuse25, syracuse26, syracuse27],
+    images: [syracuseCover, syracuse1, syracuse2, syracuse3, syracuse4, syracuse5, syracuse6, syracuse7, syracuse8, syracuse9, syracuse10, syracuse11, syracuse12, syracuse13, syracuse14, syracuse15, syracuse16, syracuse17, syracuse18, syracuse19, syracuse20, syracuse21, syracuse22, syracuse23, syracuse24, syracuse25, syracuse26, syracuse27, syracuse28, syracuse29, syracuse30, syracuse31, syracuse32, syracuse33, syracuse34, syracuse35, syracuse36, syracuse37, syracuse38, syracuse39, syracuse40, syracuse41, syracuse42, syracuse43, syracuse44, syracuse45, syracuse46, syracuse47, syracuse48, syracuse49, syracuse50, syracuse51, syracuse52, syracuse53, syracuse54, syracuse55, syracuse56, syracuse57, syracuse58, syracuse59, syracuse60, syracuse61],
   },
   {
     id: "montana-condo",
