@@ -39,7 +39,7 @@ export const Header = ({ onPortfolioClick }: HeaderProps) => {
       <nav className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
           <a href="#" className="flex items-center group">
-            <img src={logo} alt="Michael Chandler logo" className="h-16 w-auto transition-all duration-300 group-hover:scale-110" />
+            <img src={logo} alt="Michael Chandler logo" className="h-16 w-auto transition-all duration-300 group-hover:scale-110 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]" />
           </a>
 
           {/* Desktop Navigation */}

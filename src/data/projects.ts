@@ -514,7 +514,7 @@ import alpineRanch10 from "@/assets/projects/alpine-ranch-10.jpg";
 import alpineRanch11 from "@/assets/projects/alpine-ranch-11.jpg";
 import alpineRanch12 from "@/assets/projects/alpine-ranch-12.jpg";
 
-export type ProjectCategory = "Residential Construction" | "Commercial" | "Hospitality" | "Design Build";
+export type ProjectCategory = "Residential Construction" | "Residential Development" | "Commercial" | "Hospitality" | "Design Build";
 
 export interface Project {
   id: string;
