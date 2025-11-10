@@ -67,9 +67,7 @@ export const About = ({
             <Card className="bg-card/80 backdrop-blur-sm border-border shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1">
               <CardContent className="p-8 md:p-12">
                 <div className="space-y-6 text-lg font-inter font-light leading-relaxed text-foreground/90">
-                  <p className="text-xl md:text-2xl font-medium text-foreground">
-                    I am Michael Chandler, and I've been a construction professional who believes that exceptional results come from exceptional teams.
-                  </p>
+                  <p className="text-xl md:text-2xl font-medium text-foreground">I am Michael Chandler, and have been a construction professional who believes that exceptional results come from exceptional teams.</p>
                   <p>
                     My approach is simple: bring together the right people, create an environment built on mutual respect, and stay closely attuned to client feedback throughout every phase of a project.
                   </p>
@@ -111,14 +109,9 @@ export const About = ({
                     My Commitment
                   </h3>
                 </div>
-                <div className="space-y-4 text-base md:text-lg font-inter font-light leading-relaxed text-foreground/80">
-                  <p>
-                    Every client, every project, every time: I'm dedicated to exceeding expectations under all conditions. It's not just a goal—it's the standard by which I measure success.
-                  </p>
-                  <p>
-                    Exceeding the Clients expectations every time.
-                  </p>
-                </div>
+                <p className="text-base md:text-lg font-inter font-light leading-relaxed text-foreground/80">
+                  Every client, every project, every time: I'm dedicated to exceeding expectations under all conditions. It's not just a goal—it's the standard by which I measure success.
+                </p>
               </CardContent>
             </Card>
           </div>
