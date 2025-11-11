@@ -66,13 +66,13 @@ const ProjectDetail = () => {
     fetchImages();
   }, [id]);
 
-  // Combine database images with static images (database images first to respect display_order)
+  // Use only database images to respect display_order from admin panel
   // Filter out invalid/relative URLs from database (static import paths that were migrated incorrectly)
   const validDbImages = dbImages.filter(img => 
     img.image_url && 
     (img.image_url.startsWith('http') || img.image_url.startsWith('https://'))
   );
-  const allImages = [...validDbImages.map(img => img.image_url), ...project?.images || []];
+  const allImages = validDbImages.map(img => img.image_url);
 
   // Helper function to get image label
   const getImageLabel = (imageUrl: string, index: number): string | null => {
