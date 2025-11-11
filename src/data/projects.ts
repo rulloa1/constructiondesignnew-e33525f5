@@ -466,40 +466,31 @@ import syracuse24 from "@/assets/projects/syracuse-24.png";
 import syracuse25 from "@/assets/projects/syracuse-25.png";
 import syracuse26 from "@/assets/projects/syracuse-26.png";
 import syracuse27 from "@/assets/projects/syracuse-27.png";
-import syracuse28 from "@/assets/projects/syracuse-28.jpg";
-import syracuse29 from "@/assets/projects/syracuse-29.jpg";
-import syracuse30 from "@/assets/projects/syracuse-30.jpg";
-import syracuse31 from "@/assets/projects/syracuse-31.jpg";
-import syracuse32 from "@/assets/projects/syracuse-32.jpg";
-import syracuse33 from "@/assets/projects/syracuse-33.jpg";
-import syracuse34 from "@/assets/projects/syracuse-34.jpg";
-import syracuse35 from "@/assets/projects/syracuse-35.jpg";
-import syracuse36 from "@/assets/projects/syracuse-36.jpg";
-import syracuse37 from "@/assets/projects/syracuse-37.jpg";
-import syracuse38 from "@/assets/projects/syracuse-38.jpg";
-import syracuse39 from "@/assets/projects/syracuse-39.jpg";
-import syracuse40 from "@/assets/projects/syracuse-40.jpg";
-import syracuse41 from "@/assets/projects/syracuse-41.jpg";
-import syracuse42 from "@/assets/projects/syracuse-42.jpg";
-import syracuse43 from "@/assets/projects/syracuse-43.jpg";
-import syracuse44 from "@/assets/projects/syracuse-44.jpg";
-import syracuse45 from "@/assets/projects/syracuse-45.jpg";
-import syracuse46 from "@/assets/projects/syracuse-46.jpg";
-import syracuse47 from "@/assets/projects/syracuse-47.jpg";
-import syracuse48 from "@/assets/projects/syracuse-48.jpg";
-import syracuse49 from "@/assets/projects/syracuse-49.jpg";
-import syracuse50 from "@/assets/projects/syracuse-50.jpg";
-import syracuse51 from "@/assets/projects/syracuse-51.jpg";
-import syracuse52 from "@/assets/projects/syracuse-52.jpg";
-import syracuse53 from "@/assets/projects/syracuse-53.jpg";
-import syracuse54 from "@/assets/projects/syracuse-54.jpg";
-import syracuse55 from "@/assets/projects/syracuse-55.jpg";
-import syracuse56 from "@/assets/projects/syracuse-56.jpg";
-import syracuse57 from "@/assets/projects/syracuse-57.jpg";
-import syracuse58 from "@/assets/projects/syracuse-58.jpg";
-import syracuse59 from "@/assets/projects/syracuse-59.jpg";
-import syracuse60 from "@/assets/projects/syracuse-60.jpg";
-import syracuse61 from "@/assets/projects/syracuse-61.jpg";
+import syracuse28 from "@/assets/projects/syracuse-28.png";
+import syracuse29 from "@/assets/projects/syracuse-29.png";
+import syracuse30 from "@/assets/projects/syracuse-30.png";
+import syracuse31 from "@/assets/projects/syracuse-31.png";
+import syracuse32 from "@/assets/projects/syracuse-32.png";
+import syracuse33 from "@/assets/projects/syracuse-33.png";
+import syracuse34 from "@/assets/projects/syracuse-34.png";
+import syracuse35 from "@/assets/projects/syracuse-35.png";
+import syracuse36 from "@/assets/projects/syracuse-36.png";
+import syracuse37 from "@/assets/projects/syracuse-37.png";
+import syracuse38 from "@/assets/projects/syracuse-38.png";
+import syracuse39 from "@/assets/projects/syracuse-39.png";
+import syracuse40 from "@/assets/projects/syracuse-40.png";
+import syracuse41 from "@/assets/projects/syracuse-41.png";
+import syracuse42 from "@/assets/projects/syracuse-42.png";
+import syracuse43 from "@/assets/projects/syracuse-43.png";
+import syracuse44 from "@/assets/projects/syracuse-44.png";
+import syracuse45 from "@/assets/projects/syracuse-45.png";
+import syracuse46 from "@/assets/projects/syracuse-46.png";
+import syracuse47 from "@/assets/projects/syracuse-47.png";
+import syracuse48 from "@/assets/projects/syracuse-48.png";
+import syracuse49 from "@/assets/projects/syracuse-49.png";
+import syracuse50 from "@/assets/projects/syracuse-50.png";
+import syracuse51 from "@/assets/projects/syracuse-51.png";
+import syracuse52 from "@/assets/projects/syracuse-52.png";
 import alpineRanchCover from "@/assets/projects/alpine-ranch-cover.jpg";
 import alpineRanch1 from "@/assets/projects/alpine-ranch-1.jpg";
 import alpineRanch2 from "@/assets/projects/alpine-ranch-2.jpg";
@@ -544,7 +535,7 @@ export const projects: Project[] = [
     id: "high-alpine-ranch",
     title: "High Alpine Mtn.",
     subtitle: "Ranch Luxe Retreat",
-    location: "Resid. Construction",
+    location: "Residential • Construction",
     additionalInfo: "Montana",
     category: "Residential Construction",
     description: "Spectacular high-alpine luxury ranch featuring modern mountain architecture with floor-to-ceiling windows, custom stone masonry, and exposed timber construction. This exceptional residence seamlessly blends contemporary design with rustic mountain charm, showcasing breathtaking panoramic views, a gourmet kitchen with natural stone countertops, and luxurious interiors with vaulted ceilings and custom millwork throughout.",
@@ -555,12 +546,36 @@ export const projects: Project[] = [
     id: "syracuse-house",
     title: "Syracuse House",
     subtitle: "N. Utah Craftsman Estate",
-    location: "Resid. Design/Build",
+    location: "Residential • Design",
     additionalInfo: "N. Utah",
     category: "Residential Construction",
     description: "Stunning craftsman-style estate featuring professional landscaping, custom stone work, and dramatic evening lighting. This comprehensive project showcases exceptional attention to detail in both architecture and landscape design, with native plantings, decorative rock features, and elegant outdoor spaces.",
     image: syracuseCover,
-    images: [syracuseCover, syracuse1, syracuse2, syracuse3, syracuse4, syracuse5, syracuse6, syracuse7, syracuse8, syracuse9, syracuse10, syracuse11, syracuse12, syracuse13, syracuse14, syracuse15, syracuse16, syracuse17, syracuse18, syracuse19, syracuse20, syracuse21, syracuse22, syracuse23, syracuse24, syracuse25, syracuse26, syracuse27, syracuse28, syracuse29, syracuse30, syracuse31, syracuse32, syracuse33, syracuse34, syracuse35, syracuse36, syracuse37, syracuse38, syracuse39, syracuse40, syracuse41, syracuse42, syracuse43, syracuse44, syracuse45, syracuse46, syracuse47, syracuse48, syracuse49, syracuse50, syracuse51, syracuse52, syracuse53, syracuse54, syracuse55, syracuse56, syracuse57, syracuse58, syracuse59, syracuse60, syracuse61],
+    images: [
+      syracuseCover, // Cover/Exterior
+      // Entryway/Foyer
+      syracuse11, syracuse12,
+      // Main Living Rooms (fireplace, sofas, piano)
+      syracuse1, syracuse2, syracuse13, syracuse14, syracuse15, syracuse16, syracuse17, syracuse18, syracuse19, syracuse20, syracuse21, syracuse22, syracuse23, syracuse24, syracuse25, syracuse26,
+      // Kitchen
+      syracuse9,
+      // Dining Areas
+      syracuse27, syracuse28,
+      // Bedrooms
+      syracuse3, syracuse4, syracuse5, syracuse6, syracuse7, syracuse8, syracuse29, syracuse30, syracuse31, syracuse32, syracuse33, syracuse34, syracuse35, syracuse36, syracuse37, syracuse38,
+      // Bathrooms
+      syracuse10, syracuse39, syracuse40,
+      // Hallways
+      syracuse41, syracuse42,
+      // Office/Study
+      syracuse43,
+      // Laundry
+      syracuse44,
+      // Attic/Bonus Rooms
+      syracuse45, syracuse46, syracuse47, syracuse48, syracuse49,
+      // Basement
+      syracuse50, syracuse51, syracuse52
+    ],
   },
   {
     id: "montana-condo",
@@ -588,7 +603,7 @@ export const projects: Project[] = [
     id: "southcoast-remodel-design-build",
     title: "South Coast Renovation",
     subtitle: "Complete Remodel",
-    location: "Design/Build",
+    location: "Design Build",
     additionalInfo: "Big Sur, CA",
     category: "Design Build",
     description: "A comprehensive remodel and design-build project that transforms existing spaces into modern, functional, and aesthetically stunning coastal living featuring ocean views, custom skylights, designer flooring, sophisticated interior finishes, gourmet kitchen, luxury master suite, spa-quality bathrooms, and complete structural renovations with custom architectural details.",
@@ -743,7 +758,7 @@ export const projects: Project[] = [
     id: "laguna-grande-design-build",
     title: "Laguna Grande",
     subtitle: "Spanish Revival Commercial",
-    location: "Design/Build • Commercial",
+    location: "Design • Commercial",
     additionalInfo: "Seaside, CA",
     category: "Civil",
     description: "A comprehensive commercial design-build project featuring Spanish Colonial Revival architecture. This multi-building complex showcases careful attention to traditional architectural details while creating modern commercial spaces in a strategic coastal location.",
