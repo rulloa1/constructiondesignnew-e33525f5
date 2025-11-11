@@ -562,33 +562,14 @@ export const projects: Project[] = [
     description: "Stunning craftsman-style estate featuring professional landscaping, custom stone work, and dramatic evening lighting. This comprehensive project showcases exceptional attention to detail in both architecture and landscape design, with native plantings, decorative rock features, and elegant outdoor spaces.",
     image: syracuse27,
     images: [
-      syracuseCover, // Cover/Exterior
-      // Exterior Views
-      syracuse54, syracuse56, syracuse57, syracuse58, syracuse59, syracuse60,
-      // Entryway/Foyer
-      syracuse11, syracuse12,
-      // Main Living Rooms (fireplace, sofas, piano)
-      syracuse1, syracuse2, syracuse13, syracuse14, syracuse15, syracuse16, syracuse17, syracuse18, syracuse19, syracuse20, syracuse21, syracuse22, syracuse23, syracuse24, syracuse25, syracuse26,
-      // Kitchen
-      syracuse9, syracuse55,
-      // Dining Areas
-      syracuse27, syracuse28, syracuse53,
-      // Bedrooms
-      syracuse3, syracuse4, syracuse5, syracuse6, syracuse7, syracuse8, syracuse29, syracuse30, syracuse31, syracuse32, syracuse33, syracuse34, syracuse35, syracuse36, syracuse37, syracuse38,
-      // Bathrooms
-      syracuse10, syracuse39, syracuse40,
-      // Hallways
-      syracuse41, syracuse42,
-      // Office/Study
-      syracuse43,
-      // Laundry
-      syracuse44,
-      // Attic/Bonus Rooms
-      syracuse45, syracuse46, syracuse47, syracuse48, syracuse49,
-      // Basement
-      syracuse50, syracuse51, syracuse52,
-      // Additional Images
-      syracuse53, syracuse54, syracuse55, syracuse56, syracuse57, syracuse58, syracuse59, syracuse60, syracuse62
+      syracuseCover,
+      syracuse1, syracuse2, syracuse3, syracuse4, syracuse5, syracuse6, syracuse7, syracuse8, syracuse9, syracuse10,
+      syracuse11, syracuse12, syracuse13, syracuse14, syracuse15, syracuse16, syracuse17, syracuse18, syracuse19, syracuse20,
+      syracuse21, syracuse22, syracuse23, syracuse24, syracuse25, syracuse26, syracuse27, syracuse28, syracuse29, syracuse30,
+      syracuse31, syracuse32, syracuse33, syracuse34, syracuse35, syracuse36, syracuse37, syracuse38, syracuse39, syracuse40,
+      syracuse41, syracuse42, syracuse43, syracuse44, syracuse45, syracuse46, syracuse47, syracuse48, syracuse49, syracuse50,
+      syracuse51, syracuse52, syracuse53, syracuse54, syracuse55, syracuse56, syracuse57, syracuse58, syracuse59, syracuse60,
+      syracuse62
     ],
   },
   {
