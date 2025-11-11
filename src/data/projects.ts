@@ -560,7 +560,7 @@ export const projects: Project[] = [
     additionalInfo: "N. Utah",
     category: "Residential Construction",
     description: "Stunning craftsman-style estate featuring professional landscaping, custom stone work, and dramatic evening lighting. This comprehensive project showcases exceptional attention to detail in both architecture and landscape design, with native plantings, decorative rock features, and elegant outdoor spaces.",
-    image: syracuse28,
+    image: syracuse27,
     images: [
       syracuseCover, // Cover/Exterior
       // Exterior Views
