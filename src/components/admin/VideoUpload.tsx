@@ -32,48 +32,21 @@ export const VideoUpload = ({ projectId, onUploadComplete }: VideoUploadProps) =
 
     setUploading(true);
     try {
-      console.log('Starting video upload for project:', projectId);
-      
-      // Check if user is authenticated and has admin role
-      const { data: { session } } = await supabase.auth.getSession();
-      console.log('Current session:', session ? 'exists' : 'no session');
-      
-      if (!session) {
-        throw new Error('You must be logged in to upload videos');
-      }
-
-      const { data: roles } = await supabase
-        .from('user_roles')
-        .select('role')
-        .eq('user_id', session.user.id)
-        .eq('role', 'admin');
-      
-      console.log('User roles check:', roles);
-      
-      if (!roles || roles.length === 0) {
-        throw new Error('You must have admin privileges to upload videos');
-      }
-
       const fileExt = file.name.split('.').pop();
       const fileName = `${projectId}/${Date.now()}.${fileExt}`;
-      console.log('Uploading file:', fileName);
 
       const { error: uploadError } = await supabase.storage
         .from('project-videos')
         .upload(fileName, file);
 
       if (uploadError) {
-        console.error('Storage upload error:', uploadError);
-        throw uploadError;
+        console.error('Storage upload error details:', uploadError);
+        throw new Error(`Upload failed: ${uploadError.message}`);
       }
-
-      console.log('File uploaded to storage successfully');
 
       const { data: { publicUrl } } = supabase.storage
         .from('project-videos')
         .getPublicUrl(fileName);
-
-      console.log('Public URL:', publicUrl);
 
       const { error: dbError } = await supabase
         .from('project_videos')
@@ -85,20 +58,20 @@ export const VideoUpload = ({ projectId, onUploadComplete }: VideoUploadProps) =
         });
 
       if (dbError) {
-        console.error('Database insert error:', dbError);
-        throw dbError;
+        console.error('Database error details:', dbError);
+        throw new Error(`Database error: ${dbError.message}`);
       }
 
-      console.log('Video metadata saved to database');
-      toast.success("Video uploaded successfully");
+      toast.success("Video uploaded successfully!");
       setTitle("");
       setDescription("");
       onUploadComplete();
       
       if (event.target) event.target.value = '';
     } catch (error: any) {
-      console.error('Video upload failed:', error);
-      toast.error(error.message || "Failed to upload video");
+      console.error('Full error:', error);
+      const errorMessage = error.message || "Failed to upload video";
+      toast.error(errorMessage, { duration: 5000 });
     } finally {
       setUploading(false);
     }
