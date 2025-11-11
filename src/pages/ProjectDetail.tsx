@@ -66,11 +66,16 @@ const ProjectDetail = () => {
   }, [id]);
 
   // Combine static images with database images
-  const allImages = [...project?.images || [], ...dbImages.map(img => img.image_url)];
+  // Filter out invalid/relative URLs from database (static import paths that were migrated incorrectly)
+  const validDbImages = dbImages.filter(img => 
+    img.image_url && 
+    (img.image_url.startsWith('http') || img.image_url.startsWith('https://'))
+  );
+  const allImages = [...project?.images || [], ...validDbImages.map(img => img.image_url)];
 
   // Helper function to get image label
   const getImageLabel = (imageUrl: string, index: number): string | null => {
-    const dbImage = dbImages.find(img => img.image_url === imageUrl);
+    const dbImage = validDbImages.find(img => img.image_url === imageUrl);
     if (dbImage?.is_before) return "Before";
     if (dbImage?.is_after) return "After";
     
