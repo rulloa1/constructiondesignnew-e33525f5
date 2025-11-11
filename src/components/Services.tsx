@@ -78,17 +78,17 @@ export const Services = () => {
   return (
     <section 
       ref={elementRef as React.RefObject<HTMLElement>}
-      className={`py-16 bg-background overflow-hidden transition-all duration-1000 ${
+      className={`py-12 sm:py-16 bg-background overflow-hidden transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}
     >
-      <div className="container mx-auto px-6 lg:px-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-3 sm:mb-4 px-2">
             Comprehensive Construction & Development Services
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-2">
             End-to-end expertise for projects of any scale or complexity
           </p>
         </div>
@@ -101,19 +101,19 @@ export const Services = () => {
               return (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-80 bg-card border border-border rounded-lg shadow-md hover:shadow-[0_0_30px_rgba(228,179,33,0.4),0_0_60px_rgba(228,179,33,0.2)] transition-all duration-500 hover:-translate-y-2 hover:border-[#E4B321]/50"
+                  className="flex-shrink-0 w-72 sm:w-80 bg-card border border-border rounded-lg shadow-md hover:shadow-[0_0_30px_rgba(228,179,33,0.4),0_0_60px_rgba(228,179,33,0.2)] transition-all duration-500 hover:-translate-y-2 hover:border-[#E4B321]/50"
                 >
-                  <div className="p-8 h-full flex flex-col">
+                  <div className="p-6 sm:p-8 h-full flex flex-col">
                     {/* Icon and Title */}
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className="flex-shrink-0 p-3 rounded-lg bg-[#E4B321]/10">
-                        <Icon className="w-6 h-6 text-[#E4B321]" />
+                    <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+                      <div className="flex-shrink-0 p-2 sm:p-3 rounded-lg bg-[#E4B321]/10">
+                        <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#E4B321]" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold tracking-tight mb-2">
+                        <h3 className="text-lg sm:text-xl font-semibold tracking-tight mb-1 sm:mb-2">
                           {service.title}
                         </h3>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-xs sm:text-sm text-muted-foreground">
                           {service.description}
                         </p>
                       </div>

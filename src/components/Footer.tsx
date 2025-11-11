@@ -2,7 +2,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
-  return <footer id="contact" className="py-8 border-t border-white/10 bg-charcoal shadow-2xl">
+  return <footer id="contact" className="py-8 border-t border-white/10 bg-charcoal/70 shadow-2xl">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto mb-4">
           <h2 className="text-2xl md:text-3xl font-light mb-4 text-center text-cream">

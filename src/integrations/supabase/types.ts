@@ -92,6 +92,45 @@ export type Database = {
         }
         Relationships: []
       }
+      project_images: {
+        Row: {
+          created_at: string
+          description: string | null
+          display_order: number
+          id: string
+          image_url: string
+          is_after: boolean | null
+          is_before: boolean | null
+          project_id: string
+          title: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          id?: string
+          image_url: string
+          is_after?: boolean | null
+          is_before?: boolean | null
+          project_id: string
+          title?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          id?: string
+          image_url?: string
+          is_after?: boolean | null
+          is_before?: boolean | null
+          project_id?: string
+          title?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       project_videos: {
         Row: {
           created_at: string | null

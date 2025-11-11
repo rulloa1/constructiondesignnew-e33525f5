@@ -182,6 +182,7 @@ import carmelValleyNew3 from "@/assets/projects/carmel-valley-new-3.png";
 import carmelValleyNew4 from "@/assets/projects/carmel-valley-new-4.png";
 
 // North Florida Renovation/Addition
+import veroBeachCover from "@/assets/vero-beach-cover.jpeg";
 import northFloridaCover from "@/assets/projects/north-florida-cover.jpg";
 import northFlorida1 from "@/assets/projects/north-florida-1.jpg";
 import northFlorida2 from "@/assets/projects/north-florida-2.jpg";
@@ -499,6 +500,7 @@ import syracuse57 from "@/assets/projects/syracuse-57.jpg";
 import syracuse58 from "@/assets/projects/syracuse-58.jpg";
 import syracuse59 from "@/assets/projects/syracuse-59.jpg";
 import syracuse60 from "@/assets/projects/syracuse-60.jpg";
+import syracuse62 from "@/assets/projects/syracuse-62.jpg";
 import alpineRanchCover from "@/assets/projects/alpine-ranch-cover.jpg";
 import alpineRanch1 from "@/assets/projects/alpine-ranch-1.jpg";
 import alpineRanch2 from "@/assets/projects/alpine-ranch-2.jpg";
@@ -561,14 +563,16 @@ export const projects: Project[] = [
     image: syracuseCover,
     images: [
       syracuseCover, // Cover/Exterior
+      // Exterior Views
+      syracuse54, syracuse56, syracuse57, syracuse58, syracuse59, syracuse60,
       // Entryway/Foyer
       syracuse11, syracuse12,
       // Main Living Rooms (fireplace, sofas, piano)
       syracuse1, syracuse2, syracuse13, syracuse14, syracuse15, syracuse16, syracuse17, syracuse18, syracuse19, syracuse20, syracuse21, syracuse22, syracuse23, syracuse24, syracuse25, syracuse26,
       // Kitchen
-      syracuse9,
+      syracuse9, syracuse55,
       // Dining Areas
-      syracuse27, syracuse28,
+      syracuse27, syracuse28, syracuse53,
       // Bedrooms
       syracuse3, syracuse4, syracuse5, syracuse6, syracuse7, syracuse8, syracuse29, syracuse30, syracuse31, syracuse32, syracuse33, syracuse34, syracuse35, syracuse36, syracuse37, syracuse38,
       // Bathrooms
@@ -584,7 +588,7 @@ export const projects: Project[] = [
       // Basement
       syracuse50, syracuse51, syracuse52,
       // Additional Images
-      syracuse53, syracuse54, syracuse55, syracuse56, syracuse57, syracuse58, syracuse59, syracuse60
+      syracuse53, syracuse54, syracuse55, syracuse56, syracuse57, syracuse58, syracuse59, syracuse60, syracuse62
     ],
   },
   {
@@ -639,8 +643,8 @@ export const projects: Project[] = [
     additionalInfo: "N. Florida",
     category: "Residential Construction",
     description: "Comprehensive renovation and addition project featuring thoughtful design updates and estate management services. This project showcases professional renovation work with attention to detail and quality craftsmanship.",
-    image: northFloridaCover,
-    images: [northFloridaCover, northFlorida1, northFlorida2, northFlorida3, northFlorida4, northFlorida5, northFlorida6, northFlorida7, northFlorida8, northFlorida9, northFlorida10, northFlorida11, northFlorida12],
+    image: veroBeachCover,
+    images: [veroBeachCover, northFloridaCover, northFlorida1, northFlorida2, northFlorida3, northFlorida4, northFlorida5, northFlorida6, northFlorida7, northFlorida8, northFlorida9, northFlorida10, northFlorida11, northFlorida12],
   },
   {
     id: "coastal-hillside-restoration-2",

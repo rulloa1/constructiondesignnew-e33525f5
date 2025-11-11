@@ -56,18 +56,18 @@ export const About = ({
         }
       `}</style>
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-playfair font-semibold text-center mb-16 text-foreground opacity-0 animate-slide-in-left">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-semibold text-center mb-12 sm:mb-16 text-foreground opacity-0 animate-slide-in-left">
             About Me
           </h2>
           
           {/* Main intro section */}
-          <div className="max-w-4xl mx-auto mb-16 opacity-0 animate-fade-in-up delay-200">
+          <div className="max-w-4xl mx-auto mb-12 sm:mb-16 opacity-0 animate-fade-in-up delay-200">
             <Card className="bg-card/80 backdrop-blur-sm border-border shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1">
-              <CardContent className="p-8 md:p-12">
-                <div className="space-y-6 text-lg font-inter font-light leading-relaxed text-foreground/90">
-                  <p className="text-xl md:text-2xl font-medium text-foreground">I am Michael Chandler, and have been a construction professional who believes that exceptional results come from exceptional teams.</p>
+              <CardContent className="p-6 sm:p-8 md:p-12">
+                <div className="space-y-4 sm:space-y-6 text-base sm:text-lg font-inter font-light leading-relaxed text-foreground/90">
+                  <p className="text-lg sm:text-xl md:text-2xl font-medium text-foreground">I am Michael Chandler, and have been a construction professional who believes that exceptional results come from exceptional teams.</p>
                   <p>
                     My approach is simple: bring together the right people, create an environment built on mutual respect, and stay closely attuned to client feedback throughout every phase of a project.
                   </p>
@@ -83,16 +83,16 @@ export const About = ({
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* Philosophy Card */}
             <Card className="opacity-0 animate-fade-in-up delay-300 bg-card/80 backdrop-blur-sm border-border shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1">
-              <CardContent className="p-8">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="p-3 rounded-lg bg-accent/10">
-                    <Target className="w-8 h-8 text-accent" />
+              <CardContent className="p-6 sm:p-8">
+                <div className="flex items-start gap-3 sm:gap-4 mb-4">
+                  <div className="p-2 sm:p-3 rounded-lg bg-accent/10">
+                    <Target className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-playfair font-semibold text-foreground mt-2">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-playfair font-semibold text-foreground mt-1 sm:mt-2">
                     My Philosophy
                   </h3>
                 </div>
-                <p className="text-base md:text-lg font-inter font-light leading-relaxed text-foreground/80">
+                <p className="text-sm sm:text-base md:text-lg font-inter font-light leading-relaxed text-foreground/80">
                   Superior construction is accomplished through three core elements: assembling the right group of people, empowering them with the respect and environment they need to thrive, and through supportive leadership, thoughtful course corrections based on real-time feedback from project owners and end users. When these elements align, teams don't just meet expectations—they consistently surpass them.
                 </p>
               </CardContent>
@@ -100,16 +100,16 @@ export const About = ({
 
             {/* Commitment Card */}
             <Card className="opacity-0 animate-fade-in-up delay-400 bg-card/80 backdrop-blur-sm border-border shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1">
-              <CardContent className="p-8">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="p-3 rounded-lg bg-accent/10">
-                    <Award className="w-8 h-8 text-accent" />
+              <CardContent className="p-6 sm:p-8">
+                <div className="flex items-start gap-3 sm:gap-4 mb-4">
+                  <div className="p-2 sm:p-3 rounded-lg bg-accent/10">
+                    <Award className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-playfair font-semibold text-foreground mt-2">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-playfair font-semibold text-foreground mt-1 sm:mt-2">
                     My Commitment
                   </h3>
                 </div>
-                <div className="space-y-4 text-base md:text-lg font-inter font-light leading-relaxed text-foreground/80">
+                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base md:text-lg font-inter font-light leading-relaxed text-foreground/80">
                   <p>
                     Every client, every project, every time: I'm dedicated to exceeding expectations under all conditions. It's not just a goal—it's the standard by which I measure success.
                   </p>

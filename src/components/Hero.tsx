@@ -40,10 +40,10 @@ export const Hero = () => {
       />
       
       {/* Text Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent py-8 md:py-16 px-4 md:px-6">
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent py-6 sm:py-10 md:py-16 px-4 sm:px-6 md:px-8">
         <div className="container mx-auto text-center">
-          <h2 className="text-2xl md:text-4xl font-light text-white mb-2 md:mb-4 [text-shadow:0_0_20px_rgba(228,179,33,0.3),0_0_40px_rgba(228,179,33,0.15)]">30+ Years of Quality Craftsmanship</h2>
-          <p className="text-base md:text-lg text-white/90 max-w-3xl mx-auto [text-shadow:0_0_15px_rgba(228,179,33,0.2)]">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-white mb-2 sm:mb-3 md:mb-4 [text-shadow:0_0_20px_rgba(228,179,33,0.3),0_0_40px_rgba(228,179,33,0.15)]">30+ Years of Quality Craftsmanship</h2>
+          <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-3xl mx-auto [text-shadow:0_0_15px_rgba(228,179,33,0.2)] px-2">
             Architectural design, landscape restoration, and construction excellence
           </p>
         </div>

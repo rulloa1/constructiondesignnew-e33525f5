@@ -225,11 +225,11 @@ export const Portfolio: React.FC<PortfolioProps> = ({
 
       {/* Category tabs */}
       <div className="sticky top-[73px] z-30 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="container mx-auto px-6 lg:px-12 py-4">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map(category => <button key={category} onClick={() => setSelectedCategory(category)} className={`px-6 py-2 text-sm font-inter uppercase tracking-wider transition-all duration-300 relative ${selectedCategory === category ? "text-accent font-medium" : "text-muted-foreground hover:text-foreground"}`}>
-                {category}
-                <span className="ml-2 text-xs opacity-60">
+        <div className="container mx-auto px-3 sm:px-6 lg:px-12 py-3 sm:py-4">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 justify-center">
+            {categories.map(category => <button key={category} onClick={() => setSelectedCategory(category)} className={`px-3 sm:px-4 md:px-6 py-2 text-xs sm:text-sm font-inter uppercase tracking-wider transition-all duration-300 relative touch-manipulation ${selectedCategory === category ? "text-accent font-medium" : "text-muted-foreground hover:text-foreground"}`}>
+                <span className="block sm:inline">{category}</span>
+                <span className="ml-1 sm:ml-2 text-[10px] sm:text-xs opacity-60">
                   ({getCategoryCount(category)})
                 </span>
                 {selectedCategory === category && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gold" />}
@@ -239,17 +239,17 @@ export const Portfolio: React.FC<PortfolioProps> = ({
       </div>
 
       {/* Project grid */}
-      <div className="container mx-auto px-6 lg:px-12 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div className="container mx-auto px-3 sm:px-6 lg:px-12 py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6">
           {filteredProjects.map((project, index) => <Link key={project.id} to={`/project/${project.id}`} className="group opacity-0 animate-fade-in-up" style={{
           animationDelay: `${index * 50}ms`
         }}>
               {/* Project image */}
-              <div className="aspect-[3/4] overflow-hidden bg-muted rounded-sm mb-4 relative">
+              <div className="aspect-[3/4] overflow-hidden bg-muted rounded-sm mb-3 sm:mb-4 relative">
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-75" loading="lazy" />
                 {/* Subtle overlay on hover */}
                 <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/20 transition-all duration-500">
-                  <div className="absolute bottom-3 left-3 text-xs font-inter text-white tracking-wider whitespace-nowrap" style={{
+                  <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 text-[10px] sm:text-xs font-inter text-white tracking-wider whitespace-nowrap" style={{
                     textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.9)'
                   }}>
                     {project.category.replace(' ', ' • ')}
@@ -258,8 +258,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({
               </div>
 
               {/* Project info below image */}
-              <div className="space-y-1">
-                <h3 className="font-playfair text-xl text-foreground transition-colors duration-300 group-hover:text-gold">
+              <div className="space-y-0.5 sm:space-y-1">
+                <h3 className="font-playfair text-base sm:text-lg md:text-xl text-foreground transition-colors duration-300 group-hover:text-gold leading-tight">
                   {project.title}
                   {project.subtitle && (
                     <>
@@ -269,7 +269,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({
                   )}
                  </h3>
                 {project.additionalInfo && (
-                  <p className="text-sm font-inter text-muted-foreground font-light tracking-wide transition-all duration-300 group-hover:text-foreground group-hover:translate-x-1">
+                  <p className="text-xs sm:text-sm font-inter text-muted-foreground font-light tracking-wide transition-all duration-300 group-hover:text-foreground group-hover:translate-x-1">
                     {project.additionalInfo}
                   </p>
                 )}
