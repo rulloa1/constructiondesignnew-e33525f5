@@ -1,23 +1,28 @@
 import { ReactNode } from "react";
+import logo from "@/assets/mc-logo.png";
 
 interface ImageWithWatermarkProps {
   children: ReactNode;
-  watermarkText?: string;
 }
 
-export const ImageWithWatermark = ({ 
-  children, 
-  watermarkText = "PORTFOLIO" 
-}: ImageWithWatermarkProps) => {
+export const ImageWithWatermark = ({ children }: ImageWithWatermarkProps) => {
   return (
     <div className="relative">
       {children}
-      <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div 
-          className="text-[8rem] font-bold text-foreground/[0.03] whitespace-nowrap select-none"
-          style={{ transform: 'rotate(-45deg)' }}
+          className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-8 p-8"
+          style={{ transform: 'rotate(-30deg) scale(1.5)' }}
         >
-          {watermarkText}
+          {[...Array(9)].map((_, i) => (
+            <div key={i} className="flex items-center justify-center">
+              <img 
+                src={logo} 
+                alt="" 
+                className="w-24 h-24 object-contain opacity-[0.12] select-none"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>
