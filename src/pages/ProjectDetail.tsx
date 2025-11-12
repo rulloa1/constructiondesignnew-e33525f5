@@ -165,7 +165,11 @@ const ProjectDetail = () => {
                 const label = getImageLabel(image, index);
                 return <ImageWithWatermark key={`${image}-${index}`}>
                       <button onClick={() => setSelectedImageIndex(index)} className="relative aspect-square overflow-hidden rounded-lg bg-white border border-charcoal/10 group cursor-pointer transition-all hover:scale-[1.02] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-charcoal/30 w-full">
-                        
+                        <img 
+                          src={image} 
+                          alt={`${project.title} - Image ${index + 1}`}
+                          className="w-full h-full object-cover"
+                        />
                         {label && <span className={`absolute top-2 right-2 px-2 py-1 text-xs font-semibold text-white rounded ${label === "Before" ? "bg-amber-500/90" : "bg-emerald-500/90"}`}>
                             {label}
                           </span>}
