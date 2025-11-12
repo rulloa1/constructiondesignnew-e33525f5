@@ -92,6 +92,45 @@ export type Database = {
         }
         Relationships: []
       }
+      project_documents: {
+        Row: {
+          created_at: string
+          description: string | null
+          display_order: number
+          document_url: string
+          file_name: string
+          file_size: number | null
+          id: string
+          project_id: string
+          title: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          document_url: string
+          file_name: string
+          file_size?: number | null
+          id?: string
+          project_id: string
+          title?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          document_url?: string
+          file_name?: string
+          file_size?: number | null
+          id?: string
+          project_id?: string
+          title?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       project_images: {
         Row: {
           created_at: string
