@@ -255,7 +255,7 @@ export const UploadSyracuseImages = () => {
 
   const handleClearDatabaseImages = async () => {
     const confirm = window.confirm(
-      "This will delete all Syracuse House images from the database and Supabase storage. This action cannot be undone. The static images will still be available. Continue?"
+      "This will delete ALL Syracuse House images from the database and Supabase storage. This action cannot be undone. Continue?"
     );
     if (!confirm) return;
 
@@ -278,24 +278,58 @@ export const UploadSyracuseImages = () => {
         return;
       }
 
-      // Delete from Supabase storage
-      const filesToDelete = images
-        .map(img => {
-          // Extract filename from URL
-          const urlParts = img.image_url.split('/');
+      console.log(`Found ${images.length} images to delete`);
+
+      // Delete from Supabase storage - improved path extraction
+      const filesToDelete: string[] = [];
+      
+      for (const img of images) {
+        const urlParts = img.image_url.split('/');
+        const pathIndex = urlParts.findIndex(part => part === PROJECT_ID);
+        
+        if (pathIndex !== -1) {
+          // Extract the full path from PROJECT_ID onwards
+          const path = urlParts.slice(pathIndex).join('/');
+          filesToDelete.push(path);
+        } else {
+          // Fallback: try to extract filename and construct path
           const fileName = urlParts[urlParts.length - 1];
-          return `${PROJECT_ID}/${fileName}`;
-        })
-        .filter(path => path.includes(PROJECT_ID));
+          if (fileName) {
+            filesToDelete.push(`${PROJECT_ID}/${fileName}`);
+          }
+        }
+      }
+
+      // Also try to list and delete all files in the syracuse-house folder
+      const { data: listData } = await supabase.storage
+        .from('project-images')
+        .list(PROJECT_ID);
+
+      if (listData) {
+        const listedFiles = listData.map(file => `${PROJECT_ID}/${file.name}`);
+        listedFiles.forEach(file => {
+          if (!filesToDelete.includes(file)) {
+            filesToDelete.push(file);
+          }
+        });
+      }
+
+      console.log(`Files to delete: ${filesToDelete.length}`);
 
       if (filesToDelete.length > 0) {
-        const { error: storageError } = await supabase.storage
-          .from('project-images')
-          .remove(filesToDelete);
+        // Delete in batches of 100
+        const batchSize = 100;
+        for (let i = 0; i < filesToDelete.length; i += batchSize) {
+          const batch = filesToDelete.slice(i, i + batchSize);
+          const { error: storageError } = await supabase.storage
+            .from('project-images')
+            .remove(batch);
 
-        if (storageError) {
-          console.error("Error deleting from storage:", storageError);
-          // Continue even if storage deletion fails
+          if (storageError) {
+            console.error(`Error deleting batch ${Math.floor(i / batchSize) + 1}:`, storageError);
+          } else {
+            console.log(`Deleted batch ${Math.floor(i / batchSize) + 1} (${batch.length} files)`);
+          }
         }
       }
 
@@ -309,7 +343,7 @@ export const UploadSyracuseImages = () => {
         throw deleteError;
       }
 
-      toast.success(`Successfully cleared ${images.length} database images! Static images will now be used.`);
+      toast.success(`Successfully cleared ${images.length} database images and ${filesToDelete.length} storage files!`);
       setTimeout(() => window.location.reload(), 1500);
     } catch (error: any) {
       console.error("Error clearing images:", error);

@@ -72,10 +72,13 @@ const ProjectDetail = () => {
     (img.image_url.startsWith('http') || img.image_url.startsWith('https://'))
   );
   
-  // Prioritize database images if they exist, otherwise use static images
-  const allImages = validDbImages.length > 0 
-    ? validDbImages.map(img => img.image_url)
-    : (project?.images || []);
+  // Prioritize database images if they exist and are valid, otherwise use static images
+  // For syracuse-house, always prefer static images if they exist
+  const allImages = (id === 'syracuse-house' && project?.images && project.images.length > 0)
+    ? project.images
+    : (validDbImages.length > 0 
+      ? validDbImages.map(img => img.image_url)
+      : (project?.images || []));
 
   // Helper function to get image label
   const getImageLabel = (imageUrl: string, index: number): string | null => {
