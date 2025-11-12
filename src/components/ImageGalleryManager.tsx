@@ -56,42 +56,61 @@ export const ImageGalleryManager = () => {
     }
 
     setUploading(true);
+    let successCount = 0;
+    let failCount = 0;
 
     for (const file of Array.from(e.target.files)) {
       const fileExt = file.name.split('.').pop();
       const fileName = `${selectedProject}/${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
 
+      console.log('Attempting to upload:', fileName);
+      
       const { error: uploadError, data } = await supabase.storage
         .from('project-images')
         .upload(fileName, file);
 
       if (uploadError) {
-        toast.error(`Failed to upload ${file.name}`);
+        console.error('Storage upload error:', uploadError);
+        toast.error(`Upload failed: ${uploadError.message || 'Permission denied. Please ensure you are logged in as an admin.'}`);
+        failCount++;
         continue;
       }
 
+      console.log('Upload successful, getting public URL...');
       const { data: { publicUrl } } = supabase.storage
         .from('project-images')
         .getPublicUrl(fileName);
 
+      console.log('Saving to database:', publicUrl);
       const { error: dbError } = await supabase
         .from('project_images')
         .insert({
           project_id: selectedProject,
           image_url: publicUrl,
-          display_order: images.length,
+          display_order: images.length + successCount,
           is_before: false,
           is_after: false,
         });
 
       if (dbError) {
-        toast.error("Failed to save image metadata");
+        console.error('Database insert error:', dbError);
+        toast.error(`Database error: ${dbError.message}`);
+        failCount++;
+      } else {
+        successCount++;
       }
     }
 
     setUploading(false);
-    toast.success("Images uploaded successfully");
-    fetchImages();
+    
+    if (successCount > 0) {
+      toast.success(`${successCount} image(s) uploaded successfully`);
+      fetchImages();
+    }
+    
+    if (failCount > 0) {
+      toast.error(`${failCount} image(s) failed to upload. Check console for details.`);
+    }
   };
 
   const handleDelete = async (image: ProjectImage) => {
