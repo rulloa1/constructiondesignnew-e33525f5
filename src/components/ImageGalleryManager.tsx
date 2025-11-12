@@ -10,6 +10,7 @@ import { projects } from "@/data/projects";
 import { Checkbox } from "@/components/ui/checkbox";
 import { StaticImageMigration } from "@/components/admin/StaticImageMigration";
 import { BulkStaticImageMigration } from "@/components/admin/BulkStaticImageMigration";
+import { UploadSyracuseImages } from "@/components/admin/UploadSyracuseImages";
 
 interface ProjectImage {
   id: string;
@@ -165,6 +166,7 @@ export const ImageGalleryManager = () => {
 
   return (
     <div className="space-y-6">
+      <UploadSyracuseImages />
       <BulkStaticImageMigration />
       
       <div className="bg-white p-6 rounded-lg shadow-md border border-charcoal/10">
