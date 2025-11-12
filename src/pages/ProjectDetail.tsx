@@ -62,8 +62,8 @@ const ProjectDetail = () => {
     fetchImages();
   }, [id]);
 
-  // Filter out invalid/relative URLs from database (static import paths that were migrated incorrectly)
-  const validDbImages = dbImages.filter(img => img.image_url && (img.image_url.startsWith('http') || img.image_url.startsWith('https://')));
+  // Filter out invalid URLs from database - allow both absolute URLs and relative paths starting with /
+  const validDbImages = dbImages.filter(img => img.image_url && (img.image_url.startsWith('http') || img.image_url.startsWith('https://') || img.image_url.startsWith('/')));
 
   // Prioritize database images if they exist and are valid, otherwise use static images
   // For syracuse-house, always prefer static images if they exist
