@@ -478,6 +478,15 @@ import syracuse34 from "@/assets/projects/syracuse-34.jpg";
 import syracuse35 from "@/assets/projects/syracuse-35.jpg";
 import syracuse36 from "@/assets/projects/syracuse-36.jpg";
 import syracuse37 from "@/assets/projects/syracuse-37.jpg";
+import syracuse38 from "@/assets/projects/syracuse-38.jpg";
+import syracuse39 from "@/assets/projects/syracuse-39.jpg";
+import syracuse40 from "@/assets/projects/syracuse-40.jpg";
+import syracuse41 from "@/assets/projects/syracuse-41.jpg";
+import syracuse42 from "@/assets/projects/syracuse-42.jpg";
+import syracuse43 from "@/assets/projects/syracuse-43.jpg";
+import syracuse44 from "@/assets/projects/syracuse-44.jpg";
+import syracuse45 from "@/assets/projects/syracuse-45.jpg";
+import syracuse46 from "@/assets/projects/syracuse-46.jpg";
 import alpineRanchCover from "@/assets/projects/alpine-ranch-cover.jpg";
 import alpineRanch1 from "@/assets/projects/alpine-ranch-1.jpg";
 import alpineRanch2 from "@/assets/projects/alpine-ranch-2.jpg";
@@ -547,7 +556,8 @@ export const projects: Project[] = [
       syracuse19, syracuse20, syracuse21, syracuse22, syracuse23, syracuse24,
       syracuse25, syracuse26, syracuse27, syracuse28, syracuse29, syracuse30,
       syracuse31, syracuse32, syracuse33, syracuse34, syracuse35, syracuse36,
-      syracuse37
+      syracuse37, syracuse38, syracuse39, syracuse40, syracuse41, syracuse42,
+      syracuse43, syracuse44, syracuse45, syracuse46
     ],
   },
   {
