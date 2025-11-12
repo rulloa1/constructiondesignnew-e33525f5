@@ -62,17 +62,17 @@ const ProjectDetail = () => {
     fetchImages();
   }, [id]);
 
-  // Filter out invalid URLs from database - allow both absolute URLs and relative paths starting with /
+  // Filter out valid database image URLs - allow both absolute URLs and relative paths starting with /
   const validDbImages = dbImages.filter(img => img.image_url && (img.image_url.startsWith('http') || img.image_url.startsWith('https://') || img.image_url.startsWith('/')));
 
-  // Prioritize database images for all projects (they're managed via admin panel)
-  // Only use static images as fallback when no database images exist
-  // Exception: syracuse-house always uses static images
+  // For projects with database images, ONLY use database images (never fall back to static)
+  // For syracuse-house, always use static images
+  // For other projects without database images, use static images as fallback
   const allImages = id === 'syracuse-house' && project?.images && project.images.length > 0 
     ? project.images 
     : validDbImages.length > 0 
       ? validDbImages.map(img => img.image_url) 
-      : project?.images || [];
+      : (dbImages.length === 0 ? project?.images || [] : []);
 
   // Helper function to get image label
   const getImageLabel = (imageUrl: string, index: number): string | null => {
