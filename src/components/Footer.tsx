@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/mc-logo-new.png";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -19,9 +20,11 @@ export const Footer = () => {
           {/* Left Column - Brand */}
           <div>
             <div className="mb-4">
-              <div className="bg-white px-3 py-1 inline-block mb-3">
-                <span className="text-[#1a1f2e] font-bold text-sm">MICHAEL CHANDLER</span>
-              </div>
+              <img 
+                src={logo} 
+                alt="Michael Chandler Logo" 
+                className="h-12 w-auto mb-3"
+              />
               <h3 className="text-xl font-playfair text-white mb-2">Michael Chandler</h3>
               <p className="text-gray-400 text-sm mb-4">Fine Construction & Design</p>
             </div>
