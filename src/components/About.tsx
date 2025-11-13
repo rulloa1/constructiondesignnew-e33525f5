@@ -13,11 +13,11 @@ export const About = ({
   } = useScrollAnimation({
     threshold: 0.15
   });
-  return <section id="about" ref={elementRef as React.RefObject<HTMLElement>} className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-background">
+  return <section id="about" ref={elementRef as React.RefObject<HTMLElement>} className="relative py-16 sm:py-20 md:py-24 overflow-hidden bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-playfair font-semibold text-center mb-12 sm:mb-16 text-foreground">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-playfair font-semibold text-center mb-14 sm:mb-16 md:mb-20 text-foreground">
             About Me
           </h2>
           
@@ -30,7 +30,7 @@ export const About = ({
                   Through my experience of <span className="font-semibold text-foreground">37 years</span> as a Business, Design, and Construction professional, I have found that exceptional results come from exceptional teams.
                 </p>
                 <p>
-                  My approach is simple: bring together the right people, create an environment built on mutual respect, and stay closely attuned to client feedback throughout every phase of a project.  I've built my career on the universal business principle that quality construction isn't just about meeting standards—it's about exceeding them by combining rigorous processes with forward-thinking design and fostering a collaborative team culture excellence is no longer simply a goal, but an inevitable result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                  My approach is simple: bring together the right people, create an environment built on mutual respect, and stay closely attuned to client feedback throughout every phase of a project. I've built my career on the universal business principle that quality construction isn't just about meeting standards—it's about exceeding them by combining rigorous processes with forward-thinking design and fostering a collaborative team culture excellence is no longer simply a goal, but an inevitable result.
                 </p>
                 <p className="italic text-foreground/70">
                   -Michael Chandler

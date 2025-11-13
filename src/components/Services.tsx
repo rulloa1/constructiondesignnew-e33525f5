@@ -45,15 +45,17 @@ export const Services = () => {
   } = useScrollAnimation({
     threshold: 0.1
   });
-  return <section id="services" ref={elementRef as React.RefObject<HTMLElement>} className="relative py-12 sm:py-16 md:py-20 bg-muted/30">
+  return <section id="services" ref={elementRef as React.RefObject<HTMLElement>} className="relative py-16 sm:py-20 md:py-24 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
-          <div className="text-center mb-16 sm:mb-20">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-playfair font-light mb-6 text-foreground tracking-tight">
+          <div className="text-center mb-14 sm:mb-16 md:mb-20">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-playfair font-semibold mb-5 text-foreground text-center">
               Comprehensive Construction & Development Services
             </h2>
-            <p className="text-lg text-foreground/70 max-w-3xl mx-auto sm:text-lg text-center">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              End-to-end expertise for projects of any scale or complexity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </p>
+            <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto">
+              End-to-end expertise for projects of any scale or complexity
+            </p>
           </div>
 
           {/* Services Grid */}
