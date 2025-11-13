@@ -78,14 +78,14 @@ export const Services = () => {
   return (
     <section 
       ref={elementRef as React.RefObject<HTMLElement>}
-      className={`py-12 sm:py-16 bg-background overflow-hidden transition-all duration-1000 ${
+      className={`py-8 sm:py-12 bg-background overflow-hidden transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-3 sm:mb-4 px-2">
+        <div className="text-center mb-8 sm:mb-10">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-2 sm:mb-3 px-2">
             Comprehensive Construction & Development Services
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-2">
@@ -103,9 +103,9 @@ export const Services = () => {
                   key={index}
                   className="flex-shrink-0 w-72 sm:w-80 bg-card border border-border rounded-lg shadow-md hover:shadow-[0_0_30px_rgba(228,179,33,0.4),0_0_60px_rgba(228,179,33,0.2)] transition-all duration-500 hover:-translate-y-2 hover:border-[#E4B321]/50"
                 >
-                  <div className="p-6 sm:p-8 h-full flex flex-col">
+                  <div className="p-5 sm:p-6 h-full flex flex-col">
                     {/* Icon and Title */}
-                    <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className="flex items-start gap-3 mb-3 sm:mb-4">
                       <div className="flex-shrink-0 p-2 sm:p-3 rounded-lg bg-[#E4B321]/10">
                         <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#E4B321]" />
                       </div>
@@ -120,7 +120,7 @@ export const Services = () => {
                     </div>
 
                     {/* Items List */}
-                    <ul className="flex-grow space-y-3">
+                    <ul className="flex-grow space-y-2">
                       {service.items.map((item, itemIndex) => (
                         <li key={itemIndex} className="flex items-start gap-3 text-sm text-muted-foreground">
                           <span className="text-[#E4B321] font-bold flex-shrink-0 mt-1">✓</span>
