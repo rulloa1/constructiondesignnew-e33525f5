@@ -3,6 +3,7 @@ import { ArrowLeft, HardHat, Hammer, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { projects, ProjectCategory } from "@/data/projects";
 import { Link } from "react-router-dom";
+import { LiquidBackground } from "@/components/LiquidBackground";
 interface PortfolioProps {
   onClose: () => void;
 }
@@ -24,148 +25,11 @@ export const Portfolio: React.FC<PortfolioProps> = ({
     return projects.filter(p => p.category === category).length;
   };
   return <div className="min-h-screen bg-background relative">
-      {/* Luxurious animated background */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{
-      zIndex: -1
-    }}>
-        {/* Rich gradient base */}
-        <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-background to-charcoal/95" />
-        
-        {/* Elegant art deco pattern */}
-        <div className="absolute inset-0 opacity-[0.15]" style={{
-        backgroundImage: `
-            radial-gradient(circle at 20% 50%, hsl(var(--gold) / 0.2) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, hsl(var(--burgundy) / 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 40% 20%, hsl(var(--steelBlue) / 0.1) 0%, transparent 50%)
-          `
-      }} />
-        
-        {/* Luxury geometric pattern */}
-        <div className="absolute inset-0 opacity-20" style={{
-        backgroundImage: `
-            linear-gradient(30deg, hsl(var(--gold) / 0.05) 12%, transparent 12.5%, transparent 87%, hsl(var(--gold) / 0.05) 87.5%, hsl(var(--gold) / 0.05)),
-            linear-gradient(150deg, hsl(var(--gold) / 0.05) 12%, transparent 12.5%, transparent 87%, hsl(var(--gold) / 0.05) 87.5%, hsl(var(--gold) / 0.05)),
-            linear-gradient(30deg, hsl(var(--gold) / 0.05) 12%, transparent 12.5%, transparent 87%, hsl(var(--gold) / 0.05) 87.5%, hsl(var(--gold) / 0.05)),
-            linear-gradient(150deg, hsl(var(--gold) / 0.05) 12%, transparent 12.5%, transparent 87%, hsl(var(--gold) / 0.05) 87.5%, hsl(var(--gold) / 0.05))
-          `,
-        backgroundSize: '80px 140px',
-        backgroundPosition: '0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px',
-        animation: 'luxuryPatternMove 120s linear infinite'
-      }} />
-        
-        {/* Floating construction tools */}
-        <div className="absolute inset-0">
-          {/* Hard Hats */}
-          {[...Array(3)].map((_, i) => <div key={`hardhat-${i}`} className="absolute" style={{
-          left: `${10 + i * 30}%`,
-          top: `${15 + i * 25}%`,
-          animation: `float-luxury-${i % 3} ${25 + i * 3}s ease-in-out infinite`,
-          animationDelay: `${i * 1}s`,
-          opacity: 0.2
-        }}>
-              <HardHat size={40 + i * 10} className="text-gold" style={{
-            filter: `drop-shadow(0 0 20px hsl(var(--gold) / ${0.3 + i * 0.1}))`
-          }} />
-            </div>)}
-          
-          {/* Hammers */}
-          {[...Array(3)].map((_, i) => <div key={`hammer-${i}`} className="absolute" style={{
-          left: `${20 + i * 25}%`,
-          top: `${20 + i * 20}%`,
-          animation: `float-luxury-${(i + 1) % 3} ${28 + i * 2}s ease-in-out infinite`,
-          animationDelay: `${i * 1.2}s`,
-          opacity: 0.18,
-          transform: 'rotate(-15deg)'
-        }}>
-              <Hammer size={35 + i * 12} className="text-steelBlue" style={{
-            filter: `drop-shadow(0 0 20px hsl(var(--steelBlue) / ${0.3 + i * 0.1}))`
-          }} />
-            </div>)}
-          
-          {/* Wrenches (as ladder substitute) */}
-          {[...Array(2)].map((_, i) => <div key={`wrench-${i}`} className="absolute" style={{
-          left: `${60 + i * 20}%`,
-          top: `${30 + i * 30}%`,
-          animation: `float-luxury-${(i + 2) % 3} ${30 + i * 4}s ease-in-out infinite`,
-          animationDelay: `${i * 1.5}s`,
-          opacity: 0.15,
-          transform: 'rotate(25deg)'
-        }}>
-              <Wrench size={45 + i * 15} className="text-burgundy" style={{
-            filter: `drop-shadow(0 0 20px hsl(var(--burgundy) / ${0.3 + i * 0.1}))`
-          }} />
-            </div>)}
-        </div>
-
-        {/* Premium gradient orbs */}
-        <div className="absolute w-[600px] h-[600px] rounded-full blur-[120px] opacity-30" style={{
-        background: 'radial-gradient(circle, hsl(var(--gold) / 0.4) 0%, hsl(var(--gold) / 0.1) 40%, transparent 70%)',
-        top: '-10%',
-        right: '-5%',
-        animation: 'float-luxury-orb-1 35s ease-in-out infinite'
-      }} />
-        <div className="absolute w-[500px] h-[500px] rounded-full blur-[100px] opacity-25" style={{
-        background: 'radial-gradient(circle, hsl(var(--burgundy) / 0.3) 0%, hsl(var(--burgundy) / 0.1) 40%, transparent 70%)',
-        bottom: '-5%',
-        left: '-8%',
-        animation: 'float-luxury-orb-2 40s ease-in-out infinite reverse'
-      }} />
-        <div className="absolute w-[450px] h-[450px] rounded-full blur-[90px] opacity-20" style={{
-        background: 'radial-gradient(circle, hsl(var(--steelBlue) / 0.3) 0%, hsl(var(--steelBlue) / 0.1) 40%, transparent 70%)',
-        top: '40%',
-        right: '15%',
-        animation: 'float-luxury-orb-3 45s ease-in-out infinite'
-      }} />
-
-        {/* Shimmering light rays */}
-        <svg className="absolute inset-0 w-full h-full opacity-[0.15]">
-          <defs>
-            <linearGradient id="luxuryRay" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{
-              stopColor: 'hsl(var(--gold))',
-              stopOpacity: 0
-            }} />
-              <stop offset="50%" style={{
-              stopColor: 'hsl(var(--gold))',
-              stopOpacity: 0.4
-            }} />
-              <stop offset="100%" style={{
-              stopColor: 'hsl(var(--gold))',
-              stopOpacity: 0
-            }} />
-            </linearGradient>
-            <linearGradient id="burgundyRay" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style={{
-              stopColor: 'hsl(var(--burgundy))',
-              stopOpacity: 0
-            }} />
-              <stop offset="50%" style={{
-              stopColor: 'hsl(var(--burgundy))',
-              stopOpacity: 0.3
-            }} />
-              <stop offset="100%" style={{
-              stopColor: 'hsl(var(--burgundy))',
-              stopOpacity: 0
-            }} />
-            </linearGradient>
-          </defs>
-          <line x1="0%" y1="0%" x2="100%" y2="50%" stroke="url(#luxuryRay)" strokeWidth="2">
-            <animate attributeName="x2" values="100%;50%;100%" dur="30s" repeatCount="indefinite" />
-            <animate attributeName="y2" values="50%;80%;50%" dur="30s" repeatCount="indefinite" />
-          </line>
-          <line x1="100%" y1="30%" x2="0%" y2="80%" stroke="url(#burgundyRay)" strokeWidth="2">
-            <animate attributeName="x1" values="100%;80%;100%" dur="35s" repeatCount="indefinite" />
-            <animate attributeName="y1" values="30%;60%;30%" dur="35s" repeatCount="indefinite" />
-          </line>
-        </svg>
-
-        {/* Metallic shine effect */}
-        <div className="absolute inset-0 opacity-[0.08]" style={{
-        background: 'linear-gradient(110deg, transparent 0%, hsl(var(--gold)) 45%, transparent 50%, transparent 100%)',
-        animation: 'luxuryShine 8s ease-in-out infinite',
-        backgroundSize: '200% 100%'
-      }} />
-      </div>
+      {/* Liquid animated background */}
+      <LiquidBackground />
+      
+      {/* Dark gradient overlay for readability */}
+      <div className="fixed inset-0 bg-gradient-to-br from-charcoal/80 via-background/90 to-charcoal/85 pointer-events-none" style={{ zIndex: -1 }} />
 
       <style>{`
         @keyframes luxuryPatternMove {
