@@ -19,41 +19,41 @@ export const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           {/* Left Column - Brand */}
           <div>
-            <div className="mb-4">
+            <div className="mb-6">
               <img 
                 src={logo} 
                 alt="Michael Chandler Logo" 
-                className="h-12 w-auto mb-3"
+                className="h-12 w-auto mb-4"
               />
-              <h3 className="text-xl font-playfair text-white mb-2">Michael Chandler</h3>
-              <p className="text-gray-400 text-sm mb-4">Fine Construction & Design</p>
+              <h3 className="text-2xl font-playfair font-light text-white mb-2 tracking-tight">Michael Chandler</h3>
+              <p className="text-gray-400 text-base mb-4">Fine Construction & Design</p>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-gray-400 text-base leading-relaxed">
               37+ years of construction excellence in Spring, Texas. Delivering quality craftsmanship and exceptional service for residential and commercial projects.
             </p>
           </div>
 
           {/* Middle Column - Services */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Services</h3>
-            <ul className="space-y-2">
+            <h3 className="text-2xl font-playfair font-light mb-6 tracking-tight">Services</h3>
+            <ul className="space-y-3">
               <li>
-                <a href="#services" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }} className="text-gray-400 hover:text-amber-500 transition-colors text-sm">
+                <a href="#services" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }} className="text-gray-400 hover:text-accent transition-colors text-base">
                   Architectural Design
                 </a>
               </li>
               <li>
-                <a href="#services" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }} className="text-gray-400 hover:text-amber-500 transition-colors text-sm">
+                <a href="#services" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }} className="text-gray-400 hover:text-accent transition-colors text-base">
                   Construction Management
                 </a>
               </li>
               <li>
-                <a href="#services" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }} className="text-gray-400 hover:text-amber-500 transition-colors text-sm">
+                <a href="#services" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }} className="text-gray-400 hover:text-accent transition-colors text-base">
                   Project Planning
                 </a>
               </li>
               <li>
-                <a href="#services" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }} className="text-gray-400 hover:text-amber-500 transition-colors text-sm">
+                <a href="#services" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }} className="text-gray-400 hover:text-accent transition-colors text-base">
                   Quality Assurance
                 </a>
               </li>
@@ -62,21 +62,21 @@ export const Footer = () => {
 
           {/* Right Column - Contact */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Contact</h3>
-            <div className="space-y-3">
+            <h3 className="text-2xl font-playfair font-light mb-6 tracking-tight">Contact</h3>
+            <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-400 text-sm">Spring, Texas</span>
+                <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <span className="text-gray-400 text-base">Spring, Texas</span>
               </div>
               <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
-                <a href="tel:+14352377373" className="text-gray-400 hover:text-amber-500 transition-colors text-sm">
+                <Phone className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <a href="tel:+14352377373" className="text-gray-400 hover:text-accent transition-colors text-base">
                   +1 (435) 237-7373
                 </a>
               </div>
               <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
-                <a href="mailto:mike.rcccon@yahoo.com" className="text-gray-400 hover:text-amber-500 transition-colors text-sm break-all">
+                <Mail className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <a href="mailto:mike.rcccon@yahoo.com" className="text-gray-400 hover:text-accent transition-colors text-base break-all">
                   mike.rcccon@yahoo.com
                 </a>
               </div>
