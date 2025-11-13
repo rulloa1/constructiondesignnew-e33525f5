@@ -33,7 +33,10 @@ export const About = ({ onPortfolioClick }: AboutProps) => {
                   Through my experience of <span className="font-semibold text-foreground">37 years</span> as a Business, Design, and Construction professional, I have found that exceptional results come from exceptional teams.
                 </p>
                 <p>
-                  My approach is simple: bring together the right people, create an environment built on mutual respect, and stay closely attuned to client feedback throughout every phase of a project. I've built my career on the universal business principle that quality construction isn't just about meeting standards—it's about exceeding them. <span className="italic">-Michael Chandler</span>
+                  My approach is simple: bring together the right people, create an environment built on mutual respect, and stay closely attuned to client feedback throughout every phase of a project. I've built my career on the universal business principle that quality construction isn't just about meeting standards—it's about exceeding them.
+                </p>
+                <p className="italic text-foreground/70">
+                  -Michael Chandler
                 </p>
               </div>
             </div>
