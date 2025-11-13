@@ -87,9 +87,9 @@ export const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-700">
-        <div className="container mx-auto px-6 lg:px-12 py-4">
+        <div className="container mx-auto px-6 lg:px-12 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-base">
               © {currentYear} Michael Chandler Fine Construction & Design. All rights reserved.
             </p>
             
@@ -98,21 +98,21 @@ export const Footer = () => {
                 <a 
                   href="#about" 
                   onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}
-                  className="text-gray-400 hover:text-amber-500 transition-colors text-sm"
+                  className="text-gray-400 hover:text-accent transition-colors text-base"
                 >
                   About
                 </a>
                 <a 
                   href="#services" 
                   onClick={(e) => { e.preventDefault(); scrollToSection('services'); }}
-                  className="text-gray-400 hover:text-amber-500 transition-colors text-sm"
+                  className="text-gray-400 hover:text-accent transition-colors text-base"
                 >
                   Services
                 </a>
                 <a 
                   href="#contact" 
                   onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
-                  className="text-gray-400 hover:text-amber-500 transition-colors text-sm"
+                  className="text-gray-400 hover:text-accent transition-colors text-base"
                 >
                   Contact
                 </a>
