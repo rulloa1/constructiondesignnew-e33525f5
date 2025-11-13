@@ -7,7 +7,7 @@ import { ImageGalleryManager } from "@/components/ImageGalleryManager";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { projects } from "@/data/projects";
-import { LogOut } from "lucide-react";
+import { LogOut, Users } from "lucide-react";
 import { toast } from "sonner";
 
 export default function Admin() {
@@ -63,10 +63,16 @@ export default function Admin() {
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-foreground">Project Management</h1>
-          <Button variant="outline" onClick={handleLogout}>
-            <LogOut className="mr-2 h-4 w-4" />
-            Logout
-          </Button>
+          <div className="flex gap-2">
+            <Button variant="outline" onClick={() => navigate("/admin/users")}>
+              <Users className="mr-2 h-4 w-4" />
+              Manage Users
+            </Button>
+            <Button variant="outline" onClick={handleLogout}>
+              <LogOut className="mr-2 h-4 w-4" />
+              Logout
+            </Button>
+          </div>
         </div>
 
         <Tabs defaultValue="images" className="w-full">

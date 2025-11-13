@@ -11,6 +11,7 @@ import Index from "./pages/Index";
 import ProjectDetail from "./pages/ProjectDetail";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
+import AdminUsers from "./pages/AdminUsers";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <Admin />,
+  },
+  {
+    path: "/admin/users",
+    element: <AdminUsers />,
   },
   {
     path: "/login",
