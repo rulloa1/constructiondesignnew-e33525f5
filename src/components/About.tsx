@@ -17,15 +17,15 @@ export const About = ({
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-playfair font-semibold text-center mb-12 sm:mb-16 text-foreground">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-playfair font-light text-center mb-16 sm:mb-20 md:mb-24 text-foreground tracking-tight">
             About Me
           </h2>
           
           {/* Main Content Grid */}
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
             {/* Left Column - Main Text with Border */}
-            <div className="border-l-4 border-amber-500 pl-6 sm:pl-8 py-4">
-              <div className="space-y-6 text-base sm:text-lg leading-relaxed text-foreground/90">
+            <div className="border-l-4 border-accent pl-6 sm:pl-8 py-4">
+              <div className="space-y-7 text-lg sm:text-xl leading-relaxed text-foreground/90 font-light">
                 <p>
                   Through my experience of <span className="font-semibold text-foreground">37 years</span> as a Business, Design, and Construction professional, I have found that exceptional results come from exceptional teams.
                 </p>
@@ -50,7 +50,7 @@ export const About = ({
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-xl font-playfair font-semibold text-foreground mb-3">
+                      <h3 className="text-2xl font-playfair font-light text-foreground mb-4 tracking-tight">
                         My Philosophy
                       </h3>
                       <p className="text-foreground/80 leading-relaxed">

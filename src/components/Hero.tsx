@@ -39,10 +39,12 @@ export const Hero = () => {
       />
       
       {/* Text Overlay - Fixed positioning */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent py-4 sm:py-6 md:py-8 px-4 sm:px-6 md:px-8 z-10">
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 z-10">
         <div className="container mx-auto text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-white mb-2 sm:mb-3 md:mb-4 drop-shadow-lg [text-shadow:0_2px_10px_rgba(0,0,0,0.8),0_0_20px_rgba(228,179,33,0.3)]">30+ Years of Quality Craftsmanship</h2>
-          <p className="text-sm sm:text-base md:text-lg text-white max-w-3xl mx-auto drop-shadow-md [text-shadow:0_2px_8px_rgba(0,0,0,0.8)] px-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-light text-white mb-4 sm:mb-5 md:mb-6 drop-shadow-lg [text-shadow:0_2px_10px_rgba(0,0,0,0.8),0_0_20px_rgba(228,179,33,0.3)] tracking-tight">
+            30+ Years of Quality Craftsmanship
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto drop-shadow-md [text-shadow:0_2px_8px_rgba(0,0,0,0.8)] px-2 font-light tracking-wide">
             Architectural design, landscape restoration, and construction excellence
           </p>
         </div>
