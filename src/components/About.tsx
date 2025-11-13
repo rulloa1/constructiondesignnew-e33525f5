@@ -71,10 +71,10 @@ export const About = ({
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-xl font-playfair font-semibold text-foreground mb-3">
+                      <h3 className="text-2xl font-playfair font-light text-foreground mb-4 tracking-tight">
                         My Commitment
                       </h3>
-                      <p className="text-foreground/80 leading-relaxed">
+                      <p className="text-base text-foreground/80 leading-relaxed">
                         Every client, every project, every time: I'm dedicated to exceeding expectations under all conditions. It's not just a goal—it's the standard by which I measure success.
                       </p>
                     </div>
