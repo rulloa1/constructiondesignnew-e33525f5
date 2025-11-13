@@ -49,7 +49,7 @@ export const Header = ({ onPortfolioClick }: HeaderProps) => {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleSmoothScroll(e, item.href, item.name)}
-                className="relative text-sm font-light tracking-wide text-white transition-all duration-300 drop-shadow-md hover:scale-105 after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+                className="relative text-sm font-inter font-light tracking-wide text-white transition-all duration-300 drop-shadow-md hover:scale-105 after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-accent after:transition-all after:duration-300 hover:after:w-full leading-relaxed"
               >
                 {item.name}
               </a>
@@ -70,7 +70,7 @@ export const Header = ({ onPortfolioClick }: HeaderProps) => {
                     key={item.name}
                     href={item.href}
                     onClick={(e) => handleSmoothScroll(e, item.href, item.name)}
-                    className="text-lg font-light tracking-wide hover:text-accent transition-colors"
+                    className="text-lg font-inter font-light tracking-wide hover:text-accent transition-colors leading-relaxed"
                   >
                     {item.name}
                   </a>

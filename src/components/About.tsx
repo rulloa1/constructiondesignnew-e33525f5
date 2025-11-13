@@ -13,7 +13,7 @@ export const About = ({
   } = useScrollAnimation({
     threshold: 0.15
   });
-  return <section id="about" ref={elementRef as React.RefObject<HTMLElement>} className={`relative py-24 overflow-hidden bg-background transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+  return <section id="about" ref={elementRef as React.RefObject<HTMLElement>} className={`relative py-16 sm:py-20 md:py-24 overflow-hidden bg-background transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
       {/* Animated Construction Icons Background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Floating Icons */}
@@ -56,22 +56,22 @@ export const About = ({
         }
       `}</style>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-semibold text-center mb-12 sm:mb-16 text-foreground opacity-0 animate-slide-in-left">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-semibold text-center mb-8 sm:mb-12 md:mb-16 text-foreground opacity-0 animate-slide-in-left leading-tight">
             About Me
           </h2>
           
           {/* Main intro section */}
-          <div className="max-w-4xl mx-auto mb-12 sm:mb-16 opacity-0 animate-fade-in-up delay-200">
+          <div className="max-w-4xl mx-auto mb-8 sm:mb-12 md:mb-16 opacity-0 animate-fade-in-up delay-200">
             <Card className="bg-card/80 backdrop-blur-sm border-border shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1">
               <CardContent className="p-6 sm:p-8 md:p-12">
-                <div className="space-y-4 sm:space-y-6 text-base sm:text-lg font-inter font-light leading-relaxed text-foreground/90">
-                  <p className="text-lg sm:text-xl md:text-2xl font-medium text-foreground">I am Michael Chandler, and have been a construction professional who believes that exceptional results come from exceptional teams.</p>
-                  <p>
+                <div className="space-y-4 sm:space-y-5 text-base sm:text-lg font-inter font-light leading-relaxed text-foreground/90">
+                  <p className="text-lg sm:text-xl md:text-2xl font-medium text-foreground leading-relaxed">I am Michael Chandler, and have been a construction professional who believes that exceptional results come from exceptional teams.</p>
+                  <p className="leading-relaxed">
                     My approach is simple: bring together the right people, create an environment built on mutual respect, and stay closely attuned to client feedback throughout every phase of a project.
                   </p>
-                  <p>
+                  <p className="leading-relaxed">
                     I've built my career on the principle that quality construction isn't just about meeting standards—it's about exceeding them. By combining rigorous processes with forward-thinking design and fostering a collaborative team culture, I've found that excellence becomes not just achievable, but inevitable.
                   </p>
                 </div>
@@ -80,7 +80,7 @@ export const About = ({
           </div>
 
           {/* Philosophy and Commitment Cards */}
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
             {/* Philosophy Card */}
             <Card className="opacity-0 animate-fade-in-up delay-300 bg-card/80 backdrop-blur-sm border-border shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1">
               <CardContent className="p-6 sm:p-8">
@@ -88,11 +88,11 @@ export const About = ({
                   <div className="p-2 sm:p-3 rounded-lg bg-accent/10">
                     <Target className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
                   </div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-playfair font-semibold text-foreground mt-1 sm:mt-2">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-playfair font-semibold text-foreground mt-1 sm:mt-2 leading-tight">
                     My Philosophy
                   </h3>
                 </div>
-                <p className="text-sm sm:text-base md:text-lg font-inter font-light leading-relaxed text-foreground/80">
+                <p className="text-sm sm:text-base md:text-lg font-inter font-light leading-relaxed text-foreground/80 mt-2">
                   Superior construction is accomplished through three core elements: assembling the right group of people, empowering them with the respect and environment they need to thrive, and through supportive leadership, thoughtful course corrections based on real-time feedback from project owners and end users. When these elements align, teams don't just meet expectations—they consistently surpass them.
                 </p>
               </CardContent>
@@ -105,11 +105,11 @@ export const About = ({
                   <div className="p-2 sm:p-3 rounded-lg bg-accent/10">
                     <Award className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
                   </div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-playfair font-semibold text-foreground mt-1 sm:mt-2">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-playfair font-semibold text-foreground mt-1 sm:mt-2 leading-tight">
                     My Commitment
                   </h3>
                 </div>
-                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base md:text-lg font-inter font-light leading-relaxed text-foreground/80">
+                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base md:text-lg font-inter font-light leading-relaxed text-foreground/80 mt-2">
                   <p>
                     Every client, every project, every time: I'm dedicated to exceeding expectations under all conditions. It's not just a goal—it's the standard by which I measure success.
                   </p>
@@ -122,9 +122,9 @@ export const About = ({
           </div>
 
           {/* Arrow pointing to Portfolio */}
-          <div className="flex justify-center opacity-0 animate-fade-in delay-500">
-            <button onClick={onPortfolioClick} className="flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-all duration-300 cursor-pointer group" aria-label="View Portfolio">
-              <span className="text-lg font-playfair font-semibold text-accent">View My Work</span>
+          <div className="flex justify-center mt-8 sm:mt-10 md:mt-12 opacity-0 animate-fade-in delay-500">
+            <button onClick={onPortfolioClick} className="flex flex-col items-center gap-3 opacity-60 hover:opacity-100 transition-all duration-300 cursor-pointer group" aria-label="View Portfolio">
+              <span className="text-lg sm:text-xl font-playfair font-semibold text-accent leading-relaxed">View My Work</span>
               <ArrowDown size={48} className="text-accent animate-bounce group-hover:animate-none" strokeWidth={2.5} />
             </button>
           </div>

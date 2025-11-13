@@ -122,15 +122,9 @@ const Index: React.FC = () => {
           </div>
 
           <Portfolio onClose={handleCloseBook} />
-
-          {/* Contact section in portfolio view */}
-          <div className="bg-charcoal">
-            
-          </div>
         </>}
 
       <Chatbot />
-      
     </div>;
 };
 export default Index;

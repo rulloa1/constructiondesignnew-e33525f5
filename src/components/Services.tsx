@@ -78,17 +78,17 @@ export const Services = () => {
   return (
     <section 
       ref={elementRef as React.RefObject<HTMLElement>}
-      className={`py-12 sm:py-16 bg-background overflow-hidden transition-all duration-1000 ${
+      className={`py-16 sm:py-20 md:py-24 bg-background overflow-hidden transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-3 sm:mb-4 px-2">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-playfair font-semibold tracking-tight mb-4 sm:mb-5 md:mb-6 px-2 leading-tight">
             Comprehensive Construction & Development Services
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-2">
+          <p className="text-base sm:text-lg font-inter text-muted-foreground max-w-3xl mx-auto px-2 leading-relaxed">
             End-to-end expertise for projects of any scale or complexity
           </p>
         </div>
@@ -105,25 +105,25 @@ export const Services = () => {
                 >
                   <div className="p-6 sm:p-8 h-full flex flex-col">
                     {/* Icon and Title */}
-                    <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className="flex items-start gap-3 sm:gap-4 mb-5 sm:mb-6">
                       <div className="flex-shrink-0 p-2 sm:p-3 rounded-lg bg-[#E4B321]/10">
                         <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#E4B321]" />
                       </div>
                       <div>
-                        <h3 className="text-lg sm:text-xl font-semibold tracking-tight mb-1 sm:mb-2">
+                        <h3 className="text-lg sm:text-xl font-playfair font-semibold tracking-tight mb-2 sm:mb-3 leading-tight">
                           {service.title}
                         </h3>
-                        <p className="text-xs sm:text-sm text-muted-foreground">
+                        <p className="text-xs sm:text-sm font-inter text-muted-foreground leading-relaxed">
                           {service.description}
                         </p>
                       </div>
                     </div>
 
                     {/* Items List */}
-                    <ul className="flex-grow space-y-3">
+                    <ul className="flex-grow space-y-2.5 sm:space-y-3">
                       {service.items.map((item, itemIndex) => (
-                        <li key={itemIndex} className="flex items-start gap-3 text-sm text-muted-foreground">
-                          <span className="text-[#E4B321] font-bold flex-shrink-0 mt-1">✓</span>
+                        <li key={itemIndex} className="flex items-start gap-3 text-sm font-inter text-muted-foreground leading-relaxed">
+                          <span className="text-[#E4B321] font-bold flex-shrink-0 mt-0.5">✓</span>
                           <span>{item}</span>
                         </li>
                       ))}

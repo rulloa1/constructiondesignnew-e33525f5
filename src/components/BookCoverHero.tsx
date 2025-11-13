@@ -9,7 +9,7 @@ export const BookCoverHero: React.FC<BookCoverHeroProps> = ({
   onOpenBook
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  return <section className="relative py-24 w-full overflow-hidden bg-muted/30 flex items-center justify-center">
+  return <section className="relative py-16 sm:py-20 md:py-24 w-full overflow-hidden bg-muted/30 flex items-center justify-center">
       {/* Ambient background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -155,9 +155,6 @@ export const BookCoverHero: React.FC<BookCoverHeroProps> = ({
             <div className="mb-8 flex justify-center">
               <img src={logo} alt="MC Logo" className="h-56 w-auto opacity-100" />
             </div>
-
-            {/* Main title */}
-            
 
             {/* Decorative divider */}
             <div className="flex items-center gap-4 opacity-0 animate-fade-in delay-300">
