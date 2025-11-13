@@ -45,8 +45,9 @@ export const SignupForm = () => {
 
       toast.success("Account created successfully");
       navigate("/admin");
-    } catch (error: any) {
-      toast.error(error.message || "Failed to sign up");
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "Failed to sign up";
+      toast.error(errorMessage);
     } finally {
       setIsLoading(false);
     }

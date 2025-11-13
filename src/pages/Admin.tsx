@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { VideoUpload } from "@/components/admin/VideoUpload";
@@ -16,17 +16,13 @@ export default function Admin() {
   const [refreshTrigger, setRefreshTrigger] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    checkAuth();
-  }, []);
-
-  const checkAuth = async () => {
+  const checkAuth = useCallback(async () => {
     const { data: { session } } = await supabase.auth.getSession();
     if (!session) {
       navigate("/login");
       return;
     }
-    
+
     // Verify user has admin role
     const { data: roles, error } = await supabase
       .from('user_roles')
@@ -34,15 +30,19 @@ export default function Admin() {
       .eq('user_id', session.user.id)
       .eq('role', 'admin')
       .single();
-      
+
     if (error || !roles) {
       toast.error("Unauthorized: Admin access required");
       navigate("/");
       return;
     }
-    
+
     setLoading(false);
-  };
+  }, [navigate]);
+
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();

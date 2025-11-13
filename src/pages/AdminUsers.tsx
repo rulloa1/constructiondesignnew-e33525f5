@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -26,34 +26,7 @@ export default function AdminUsers() {
   const [loading, setLoading] = useState(true);
   const [processingUserId, setProcessingUserId] = useState<string | null>(null);
 
-  useEffect(() => {
-    checkAuthAndFetchUsers();
-  }, []);
-
-  const checkAuthAndFetchUsers = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-      navigate("/login");
-      return;
-    }
-    
-    const { data: roles, error } = await supabase
-      .from('user_roles')
-      .select('role')
-      .eq('user_id', session.user.id)
-      .eq('role', 'admin')
-      .maybeSingle();
-      
-    if (error || !roles) {
-      toast.error("Unauthorized: Admin access required");
-      navigate("/admin");
-      return;
-    }
-    
-    await fetchUsers();
-  };
-
-  const fetchUsers = async () => {
+  const fetchUsers = useCallback(async () => {
     try {
       setLoading(true);
       const { data: { session } } = await supabase.auth.getSession();
@@ -79,7 +52,34 @@ export default function AdminUsers() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  const checkAuthAndFetchUsers = useCallback(async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+      navigate("/login");
+      return;
+    }
+
+    const { data: roles, error } = await supabase
+      .from('user_roles')
+      .select('role')
+      .eq('user_id', session.user.id)
+      .eq('role', 'admin')
+      .maybeSingle();
+
+    if (error || !roles) {
+      toast.error("Unauthorized: Admin access required");
+      navigate("/admin");
+      return;
+    }
+
+    await fetchUsers();
+  }, [navigate, fetchUsers]);
+
+  useEffect(() => {
+    checkAuthAndFetchUsers();
+  }, [checkAuthAndFetchUsers]);
 
   const toggleAdminRole = async (userId: string, currentlyAdmin: boolean) => {
     setProcessingUserId(userId);

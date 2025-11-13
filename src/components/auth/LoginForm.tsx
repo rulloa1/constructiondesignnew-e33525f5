@@ -40,8 +40,9 @@ export const LoginForm = () => {
 
       toast.success("Logged in successfully");
       navigate("/admin");
-    } catch (error: any) {
-      toast.error(error.message || "Failed to login");
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "Failed to login";
+      toast.error(errorMessage);
     } finally {
       setIsLoading(false);
     }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
@@ -35,27 +35,7 @@ const Index: React.FC = () => {
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
-  // Handle escape key to close portfolio
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && bookOpened && !animating) {
-        handleCloseBook();
-      }
-    };
-    window.addEventListener("keydown", handleEscape);
-    return () => window.removeEventListener("keydown", handleEscape);
-  }, [bookOpened, animating]);
-
-  // Scroll to top when opening/closing portfolio
-  useEffect(() => {
-    if (!animating) {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
-  }, [bookOpened, animating]);
-  const handleOpenBook = () => {
+  const handleOpenBook = useCallback(() => {
     if (animating) return; // Prevent double-clicks
 
     setAnimating(true);
@@ -70,8 +50,9 @@ const Index: React.FC = () => {
       setBookOpened(true);
       setAnimating(false);
     }, 1500);
-  };
-  const handleCloseBook = () => {
+  }, [animating, prefersReducedMotion]);
+
+  const handleCloseBook = useCallback(() => {
     if (animating) return; // Prevent double-clicks
 
     setAnimating(true);
@@ -88,7 +69,28 @@ const Index: React.FC = () => {
       setBookOpened(false);
       setAnimating(false);
     }, 1500);
-  };
+  }, [animating, prefersReducedMotion]);
+
+  // Handle escape key to close portfolio
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && bookOpened && !animating) {
+        handleCloseBook();
+      }
+    };
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [bookOpened, animating, handleCloseBook]);
+
+  // Scroll to top when opening/closing portfolio
+  useEffect(() => {
+    if (!animating) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  }, [bookOpened, animating]);
   return <div className="min-h-screen bg-background">
       {/* Book animation overlay */}
       {animating && !prefersReducedMotion && <div className="fixed inset-0 z-50 flex" role="presentation" aria-hidden="true">

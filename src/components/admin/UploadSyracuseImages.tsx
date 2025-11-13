@@ -345,9 +345,10 @@ export const UploadSyracuseImages = () => {
 
       toast.success(`Successfully cleared ${images.length} database images and ${filesToDelete.length} storage files!`);
       setTimeout(() => window.location.reload(), 1500);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error clearing images:", error);
-      toast.error(`Failed to clear images: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      toast.error(`Failed to clear images: ${errorMessage}`);
     } finally {
       setClearing(false);
     }

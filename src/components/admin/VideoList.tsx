@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -23,11 +23,7 @@ export const VideoList = ({ projectId, refreshTrigger }: VideoListProps) => {
   const [videos, setVideos] = useState<Video[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchVideos();
-  }, [projectId, refreshTrigger]);
-
-  const fetchVideos = async () => {
+  const fetchVideos = useCallback(async () => {
     try {
       const { data, error } = await supabase
         .from('project_videos')
@@ -37,12 +33,17 @@ export const VideoList = ({ projectId, refreshTrigger }: VideoListProps) => {
 
       if (error) throw error;
       setVideos(data || []);
-    } catch (error: any) {
-      toast.error(error.message || "Failed to fetch videos");
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "Failed to fetch videos";
+      toast.error(errorMessage);
     } finally {
       setLoading(false);
     }
-  };
+  }, [projectId]);
+
+  useEffect(() => {
+    fetchVideos();
+  }, [projectId, refreshTrigger, fetchVideos]);
 
   const handleDelete = async (video: Video) => {
     if (!confirm("Are you sure you want to delete this video?")) return;
@@ -57,8 +58,9 @@ export const VideoList = ({ projectId, refreshTrigger }: VideoListProps) => {
 
       toast.success("Video deleted successfully");
       fetchVideos();
-    } catch (error: any) {
-      toast.error(error.message || "Failed to delete video");
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "Failed to delete video";
+      toast.error(errorMessage);
     }
   };
 

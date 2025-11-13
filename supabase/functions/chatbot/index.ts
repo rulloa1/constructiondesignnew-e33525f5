@@ -232,7 +232,7 @@ Only include the LEAD_DATA when you have at least name and email.`;
     const assistantMessage = data.choices[0].message.content;
 
     // Check if lead data is present
-    let leadData: any = null;
+    let leadData: z.infer<typeof LeadSchema> | null = null;
     let cleanMessage = assistantMessage;
     
     if (assistantMessage.includes("LEAD_DATA:")) {

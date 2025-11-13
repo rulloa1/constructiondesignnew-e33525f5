@@ -80,8 +80,8 @@ export const VideoUpload = ({ projectId, onUploadComplete }: VideoUploadProps) =
       setTitle("");
       setDescription("");
       onUploadComplete();
-    } catch (error: any) {
-      const errorMessage = error.message || "Failed to add video";
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "Failed to add video";
       toast.error(errorMessage, { duration: 5000 });
     } finally {
       setUploading(false);

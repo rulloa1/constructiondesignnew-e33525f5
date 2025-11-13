@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -26,13 +26,7 @@ export const ImageGalleryManager = () => {
   const [uploading, setUploading] = useState(false);
   const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
 
-  useEffect(() => {
-    if (selectedProject) {
-      fetchImages();
-    }
-  }, [selectedProject]);
-
-  const fetchImages = async () => {
+  const fetchImages = useCallback(async () => {
     const { data, error } = await supabase
       .from('project_images')
       .select('*')
@@ -44,7 +38,13 @@ export const ImageGalleryManager = () => {
     } else {
       setImages(data || []);
     }
-  };
+  }, [selectedProject]);
+
+  useEffect(() => {
+    if (selectedProject) {
+      fetchImages();
+    }
+  }, [selectedProject, fetchImages]);
 
   const [imageUrl, setImageUrl] = useState("");
   const [imageTitle, setImageTitle] = useState("");
