@@ -167,7 +167,7 @@ export const BookCoverHero: React.FC<BookCoverHeroProps> = ({
             </div>
 
             {/* Subtitle */}
-            <p className="font-inter text-cream text-lg md:text-xl font-light tracking-[0.3em] uppercase opacity-0 animate-fade-in delay-400 whitespace-nowrap">
+            <p className="font-inter text-cream text-base md:text-lg font-light tracking-[0.25em] uppercase opacity-0 animate-fade-in delay-400 whitespace-nowrap">
               Fine Construction & Design
             </p>
 
