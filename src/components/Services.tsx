@@ -66,24 +66,24 @@ export const Services = () => {
             }}>
                   <CardContent className="p-6">
                     {/* Icon */}
-                    <div className="mb-4">
-                      <div className="w-14 h-14 rounded-full bg-amber-500/10 flex items-center justify-center">
-                        <Icon className="w-7 h-7 text-amber-600" />
+                    <div className="mb-5">
+                      <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center">
+                        <Icon className="w-7 h-7 text-accent" />
                       </div>
                     </div>
 
                     {/* Title & Description */}
-                    <h3 className="text-xl font-playfair font-semibold text-foreground mb-2">
+                    <h3 className="text-2xl font-playfair font-light text-foreground mb-3 tracking-tight">
                       {service.title}
                     </h3>
-                    <p className="text-foreground/70 mb-4 text-sm">
+                    <p className="text-foreground/70 mb-5 text-base leading-relaxed">
                       {service.description}
                     </p>
 
                     {/* Service Items */}
-                    <ul className="space-y-2">
-                      {service.items.map(item => <li key={item} className="flex items-start gap-2 text-foreground/80 text-sm">
-                          <Check className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                    <ul className="space-y-2.5">
+                      {service.items.map(item => <li key={item} className="flex items-start gap-2.5 text-foreground/80 text-base">
+                          <Check className="w-4 h-4 text-accent flex-shrink-0 mt-1" />
                           <span>{item}</span>
                         </li>)}
                     </ul>
