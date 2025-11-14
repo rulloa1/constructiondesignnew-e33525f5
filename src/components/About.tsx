@@ -16,6 +16,13 @@ export const About = ({
     threshold: 0.15
   });
 
+  const {
+    elementRef: headingRef,
+    isVisible: headingVisible
+  } = useScrollAnimation({
+    threshold: 0.3
+  });
+
   return (
     <section 
       id="about" 
@@ -25,7 +32,12 @@ export const About = ({
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-semibold text-center mb-10 sm:mb-12 md:mb-16 text-foreground leading-tight">
+          <h2 
+            ref={headingRef as React.RefObject<HTMLHeadingElement>}
+            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-semibold text-center mb-10 sm:mb-12 md:mb-16 text-foreground leading-tight transition-all duration-1000 ${
+              headingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
             About Me
           </h2>
           

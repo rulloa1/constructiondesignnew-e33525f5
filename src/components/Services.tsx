@@ -49,6 +49,13 @@ export const Services = () => {
     threshold: 0.1
   });
 
+  const {
+    elementRef: headingRef,
+    isVisible: headingVisible
+  } = useScrollAnimation({
+    threshold: 0.3
+  });
+
   return (
     <section 
       id="services" 
@@ -58,7 +65,12 @@ export const Services = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
-          <div className="text-center mb-12 sm:mb-16 md:mb-20">
+          <div 
+            ref={headingRef as React.RefObject<HTMLDivElement>}
+            className={`text-center mb-12 sm:mb-16 md:mb-20 transition-all duration-1000 ${
+              headingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-semibold mb-4 sm:mb-5 md:mb-6 text-foreground tracking-tight leading-tight">
               Comprehensive Construction & Development Services
             </h2>

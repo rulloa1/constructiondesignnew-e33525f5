@@ -3,6 +3,7 @@ import { X, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { projects, getProjectsByCategory, type ProjectCategory } from "@/data/projects";
 import { ProjectCardCarousel } from "@/components/ProjectCardCarousel";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 type Category = "All" | ProjectCategory;
 
@@ -24,6 +25,13 @@ interface PortfolioGridProps {
 export const PortfolioGrid: React.FC<PortfolioGridProps> = ({ onClose, initialCategory = "All" }) => {
   const [selectedCategory, setSelectedCategory] = useState<Category>(initialCategory as Category);
   const [isClosing, setIsClosing] = useState(false);
+
+  const {
+    elementRef: headingRef,
+    isVisible: headingVisible
+  } = useScrollAnimation({
+    threshold: 0.3
+  });
 
   const filteredProjects = getProjectsByCategory(selectedCategory);
 
@@ -85,7 +93,12 @@ export const PortfolioGrid: React.FC<PortfolioGridProps> = ({ onClose, initialCa
         )}
 
         {/* Header with enhanced styling */}
-        <div className="mb-20 text-center opacity-0 animate-fade-in">
+        <div 
+          ref={headingRef as React.RefObject<HTMLDivElement>}
+          className={`mb-20 text-center transition-all duration-1000 ${
+            headingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <div className="inline-block mb-6">
             <div className="h-px w-20 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8" />
           </div>
