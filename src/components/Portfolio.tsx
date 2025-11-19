@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 interface PortfolioProps {
   onClose: () => void;
 }
-const categories = ["All", "Residential Construction", "Residential Development", "Civil", "Hospitality", "Design Build"];
+const categories = ["All", "Residential Construction", "Residential Development", "Civil", "Hospitality", "Design/Build"];
 const categoryColors: Record<string, string> = {
   "Residential Construction": "bg-gold text-charcoal",
   "Residential Development": "bg-steelBlue text-cream",
   Civil: "bg-steelBlue text-cream",
   Hospitality: "bg-burgundy text-cream",
-  "Design Build": "bg-accent text-charcoal"
+  "Design/Build": "bg-accent text-charcoal"
 };
 export const Portfolio: React.FC<PortfolioProps> = ({
   onClose

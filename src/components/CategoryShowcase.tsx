@@ -26,7 +26,7 @@ const categories = [{
   color: "burgundy"
 }, {
   id: "design-build",
-  title: "Design Build",
+  title: "Design/Build",
   description: "Comprehensive design-build solutions combining creative vision with expert construction",
   image: designBuildImg,
   color: "gold"
