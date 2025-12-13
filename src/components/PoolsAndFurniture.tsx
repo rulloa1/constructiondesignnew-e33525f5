@@ -1,85 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { supabase } from "@/integrations/supabase/client";
 import { Loader2 } from "lucide-react";
 import { ProjectGallery } from "./ProjectGallery";
-
-interface ProjectImage {
-  id: string;
-  image_url: string;
-  rotation_angle: number;
-}
-
-interface Project {
-  id: string;
-  title: string;
-  description: string | null;
-  image_url?: string;
-  rotation_angle?: number;
-  images?: ProjectImage[];
-}
+import { useProjects, type Project } from "@/hooks/useProjects";
 
 export const PoolsAndFurniture = () => {
-  const [poolProjects, setPoolProjects] = useState<Project[]>([]);
-  const [furnitureProjects, setFurnitureProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { projects: poolProjects, loading: poolLoading } = useProjects({ 
+    category: "Pools", 
+    includeAllImages: true 
+  });
+  const { projects: furnitureProjects, loading: furnitureLoading } = useProjects({ 
+    category: "Custom Furniture", 
+    includeAllImages: true 
+  });
+  const loading = poolLoading || furnitureLoading;
+
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [galleryOpen, setGalleryOpen] = useState(false);
-
-  useEffect(() => {
-    fetchProjects();
-  }, []);
-
-  const fetchProjects = async () => {
-    try {
-      // Fetch Pool projects
-      const {
-        data: poolData,
-        error: poolError
-      } = await supabase.from("projects").select("*").eq("category", "Pools").order("display_order");
-      if (poolError) throw poolError;
-
-      // Fetch Custom Furniture projects
-      const {
-        data: furnitureData,
-        error: furnitureError
-      } = await supabase.from("projects").select("*").eq("category", "Custom Furniture").order("display_order");
-      if (furnitureError) throw furnitureError;
-
-      const poolWithImages = await Promise.all((poolData || []).map(async project => {
-        const {
-          data: allImages
-        } = await supabase.from("project_images").select("id, image_url, rotation_angle").eq("project_id", project.id).order("display_order");
-        const images = allImages || [];
-        return {
-          ...project,
-          image_url: images[0]?.image_url,
-          rotation_angle: images[0]?.rotation_angle || 0,
-          images: images
-        };
-      }));
-
-      const furnitureWithImages = await Promise.all((furnitureData || []).map(async project => {
-        const {
-          data: allImages
-        } = await supabase.from("project_images").select("id, image_url, rotation_angle").eq("project_id", project.id).order("display_order");
-        const images = allImages || [];
-        return {
-          ...project,
-          image_url: images[0]?.image_url,
-          rotation_angle: images[0]?.rotation_angle || 0,
-          images: images
-        };
-      }));
-
-      setPoolProjects(poolWithImages);
-      setFurnitureProjects(furnitureWithImages);
-    } catch (error) {
-      console.error("Error fetching projects:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleProjectClick = (project: Project) => {
     setSelectedProject(project);

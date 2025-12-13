@@ -8,19 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-const authSchema = z.object({
-  email: z.string()
-    .trim()
-    .email({ message: "Invalid email address" })
-    .max(255, { message: "Email must be less than 255 characters" }),
-  password: z.string()
-    .min(8, { message: "Password must be at least 8 characters" })
-    .max(72, { message: "Password must be less than 72 characters" })
-    .regex(/[A-Z]/, { message: "Password must contain an uppercase letter" })
-    .regex(/[a-z]/, { message: "Password must contain a lowercase letter" })
-    .regex(/[0-9]/, { message: "Password must contain a number" })
-});
+import { loginSchema, signupSchema } from "@/lib/validations/auth";
 
 export default function Auth() {
   const navigate = useNavigate();
@@ -42,9 +30,10 @@ export default function Auth() {
     e.preventDefault();
 
     // Validate input before submission
-    const result = authSchema.safeParse({ 
+    const result = signupSchema.safeParse({ 
       email: email.trim(), 
-      password 
+      password,
+      confirmPassword: password // For basic validation
     });
 
     if (!result.success) {

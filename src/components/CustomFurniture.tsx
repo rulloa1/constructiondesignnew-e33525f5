@@ -1,59 +1,9 @@
-import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { supabase } from "@/integrations/supabase/client";
 import { Loader2 } from "lucide-react";
-
-interface Project {
-  id: string;
-  title: string;
-  description: string | null;
-  image_url?: string;
-  rotation_angle?: number;
-}
+import { useProjects } from "@/hooks/useProjects";
 
 export const CustomFurniture = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchProjects();
-  }, []);
-
-  const fetchProjects = async () => {
-    try {
-      const { data: projectsData, error: projectsError } = await supabase
-        .from("projects")
-        .select("*")
-        .eq("category", "Custom Furniture")
-        .order("display_order");
-
-      if (projectsError) throw projectsError;
-
-      const projectsWithImages = await Promise.all(
-        (projectsData || []).map(async (project) => {
-          const { data: images } = await supabase
-            .from("project_images")
-            .select("image_url, rotation_angle")
-            .eq("project_id", project.id)
-            .order("display_order")
-            .limit(1)
-            .maybeSingle();
-
-          return {
-            ...project,
-            image_url: images?.image_url,
-            rotation_angle: images?.rotation_angle || 0,
-          };
-        })
-      );
-
-      setProjects(projectsWithImages);
-    } catch (error) {
-      console.error("Error fetching projects:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const { projects, loading } = useProjects({ category: "Custom Furniture" });
 
   return (
     <section id="custom-furniture" className="relative py-16 sm:py-20 md:py-24 bg-muted/30">
