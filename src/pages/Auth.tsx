@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { loginSchema, signupSchema } from "@/lib/validations/auth";
+import { loginSchema } from "@/lib/validations/auth";
 
 export default function Auth() {
   const navigate = useNavigate();
@@ -30,10 +29,9 @@ export default function Auth() {
     e.preventDefault();
 
     // Validate input before submission
-    const result = signupSchema.safeParse({ 
+    const result = loginSchema.safeParse({ 
       email: email.trim(), 
-      password,
-      confirmPassword: password // For basic validation
+      password
     });
 
     if (!result.success) {
@@ -74,12 +72,16 @@ export default function Auth() {
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate email format and trim whitespace
-    const trimmedEmail = email.trim();
-    if (!z.string().email().safeParse(trimmedEmail).success) {
+    // Validate using shared schema
+    const result = loginSchema.safeParse({ 
+      email: email.trim(), 
+      password
+    });
+
+    if (!result.success) {
       toast({
         title: "Validation Error",
-        description: "Invalid email address",
+        description: result.error.errors[0].message,
         variant: "destructive",
       });
       return;
@@ -88,8 +90,8 @@ export default function Auth() {
     setLoading(true);
 
     const { error } = await supabase.auth.signInWithPassword({
-      email: trimmedEmail,
-      password,
+      email: result.data.email,
+      password: result.data.password,
     });
 
     setLoading(false);
