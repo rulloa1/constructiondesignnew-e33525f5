@@ -35,7 +35,7 @@ export const useProjects = (options: UseProjectsOptions = {}) => {
   useEffect(() => {
     fetchProjects();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [options.category, options.categories?.join(',')]);
+  }, [options.category, options.categories?.join(','), options.includeAllImages]);
 
   const fetchProjects = async () => {
     try {
