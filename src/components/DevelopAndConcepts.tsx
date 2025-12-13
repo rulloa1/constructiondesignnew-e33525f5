@@ -1,6 +1,7 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Loader2 } from "lucide-react";
 import { useProjects } from "@/hooks/useProjects";
+import { ProjectCard } from "@/components/shared/ProjectCard";
+import { LoadingState } from "@/components/shared/LoadingState";
+import { EmptyState } from "@/components/shared/EmptyState";
 
 export const DevelopAndConcepts = () => {
   const { projects, loading } = useProjects({ categories: ["Development", "Concepts"] });
@@ -14,41 +15,18 @@ export const DevelopAndConcepts = () => {
           </h2>
 
           {loading ? (
-            <div className="flex justify-center py-12">
-              <Loader2 className="h-8 w-8 animate-spin text-primary" />
-            </div>
+            <LoadingState />
           ) : projects.length === 0 ? (
-            <div className="text-center py-12 text-muted-foreground">
-              No development or concept projects available yet.
-            </div>
+            <EmptyState message="No development or concept projects available yet." />
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {projects.map((project) => (
-                <Card
+                <ProjectCard
                   key={project.id}
-                  className="overflow-hidden bg-card border-border hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-                >
-                  {project.image_url && (
-                    <div className="relative aspect-[4/3] overflow-hidden">
-                      <img
-                        src={project.image_url}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                        style={{ transform: `rotate(${project.rotation_angle || 0}deg)` }}
-                      />
-                    </div>
-                  )}
-                  <CardContent className="p-6">
-                    <h3 className="text-xl sm:text-2xl font-playfair font-semibold mb-3 text-foreground">
-                      {project.title}
-                    </h3>
-                    {project.description && (
-                      <p className="text-sm sm:text-base font-inter font-light text-muted-foreground leading-relaxed">
-                        {project.description}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
+                  project={project}
+                  aspectRatio="video"
+                  titleSize="md"
+                />
               ))}
             </div>
           )}
