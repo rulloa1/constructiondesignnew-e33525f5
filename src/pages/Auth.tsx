@@ -31,7 +31,7 @@ export default function Auth() {
     // Validate input before submission
     const result = loginSchema.safeParse({ 
       email: email.trim(), 
-      password
+      password,
     });
 
     if (!result.success) {
@@ -75,7 +75,7 @@ export default function Auth() {
     // Validate using shared schema
     const result = loginSchema.safeParse({ 
       email: email.trim(), 
-      password
+      password,
     });
 
     if (!result.success) {

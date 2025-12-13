@@ -39,6 +39,16 @@ export const ProjectCard = ({
     md: "p-6",
   };
 
+  const titleMarginClasses = {
+    sm: "mb-2",
+    md: "mb-3",
+  };
+
+  const descriptionClasses = {
+    sm: "text-sm line-clamp-2",
+    md: "text-sm sm:text-base",
+  };
+
   return (
     <Card
       onClick={() => onClick?.(project)}
@@ -66,16 +76,14 @@ export const ProjectCard = ({
       )}
       <CardContent className={contentPaddingClasses[contentPadding]}>
         <h3
-          className={`${titleSizeClasses[titleSize]} font-playfair font-semibold mb-${
-            contentPadding === "sm" ? "2" : "3"
+          className={`${titleSizeClasses[titleSize]} font-playfair font-semibold ${
+            titleMarginClasses[contentPadding]
           } text-foreground group-hover:text-accent transition-colors`}
         >
           {project.title}
         </h3>
         {project.description && (
-          <p className={`text-sm ${titleSize !== "sm" ? "sm:text-base" : ""} font-inter font-light text-muted-foreground leading-relaxed ${
-            contentPadding === "sm" ? "line-clamp-2" : ""
-          }`}>
+          <p className={`${descriptionClasses[contentPadding]} font-inter font-light text-muted-foreground leading-relaxed`}>
             {project.description}
           </p>
         )}
