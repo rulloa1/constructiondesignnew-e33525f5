@@ -14,7 +14,7 @@ export const BookCoverHero: React.FC<BookCoverHeroProps> = ({ onOpenBook }) => {
   return (
     <section 
       ref={elementRef as React.RefObject<HTMLElement>}
-      className="relative py-20 lg:py-32 bg-[#FAF9F7]"
+      className="relative py-20 lg:py-32 bg-cream"
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

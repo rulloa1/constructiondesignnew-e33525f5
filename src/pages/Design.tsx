@@ -62,7 +62,7 @@ const Design = () => {
   const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <div className="min-h-screen bg-[#FAF9F7]">
+    <div className="min-h-screen bg-cream">
       {/* Hero Section */}
       <section 
         ref={heroRef as React.RefObject<HTMLElement>}
@@ -92,7 +92,7 @@ const Design = () => {
         </div>
 
         {/* Right Side - Content */}
-        <div className={`bg-[#FAF9F7] p-8 lg:p-16 flex flex-col justify-center transition-all duration-1000 delay-300 ${
+        <div className={`bg-cream p-8 lg:p-16 flex flex-col justify-center transition-all duration-1000 delay-300 ${
           heroVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
         }`}>
           <Button
@@ -212,9 +212,9 @@ const Design = () => {
       </section>
 
       {/* Skills & Services */}
-      <section 
+      <section
         ref={skillsRef as React.RefObject<HTMLElement>}
-        className="py-16 lg:py-24 px-4 lg:px-8 bg-[#FAF9F7]"
+        className="py-16 lg:py-24 px-4 lg:px-8 bg-cream"
       >
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">

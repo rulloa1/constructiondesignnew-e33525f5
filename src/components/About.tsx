@@ -11,10 +11,10 @@ export const About = ({ onPortfolioClick }: AboutProps) => {
   const { elementRef: contentRef, isVisible: contentVisible } = useScrollAnimation({ threshold: 0.15 });
 
   return (
-    <section 
-      id="about" 
-      ref={elementRef as React.RefObject<HTMLElement>} 
-      className="relative py-20 lg:py-32 bg-[#FAF9F7]"
+    <section
+      id="about"
+      ref={elementRef as React.RefObject<HTMLElement>}
+      className="relative py-20 lg:py-32 bg-cream"
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
