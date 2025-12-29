@@ -100,7 +100,7 @@ const Index: React.FC = () => {
   }, [bookOpened, animating]);
 
   return (
-    <div className="min-h-screen bg-[#FAF9F7]">
+    <div className="min-h-screen bg-cream">
       {/* Book animation overlay */}
       {animating && !prefersReducedMotion && (
         <div className="fixed inset-0 z-50 flex" role="presentation" aria-hidden="true">
