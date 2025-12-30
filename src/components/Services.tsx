@@ -1,6 +1,5 @@
 import { Compass, PenLine, HardHat, ListChecks, BadgeCheck, Sprout } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { ToolboxMotif } from "@/components/ui/architectural-motifs";
 
 interface Service {
   icon: typeof Compass;
@@ -56,9 +55,9 @@ export const Services = () => {
         <div className={`mb-16 lg:mb-20 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="w-20 h-20 lg:w-28 lg:h-28 text-gold/25 -mb-4 lg:-mb-8">
-            <ToolboxMotif className="w-full h-full" />
-          </div>
+          <span className="font-playfair text-8xl lg:text-[10rem] text-gold/20 font-light leading-none block -mb-6 lg:-mb-12">
+            03
+          </span>
           <p className="font-inter text-xs tracking-[0.3em] text-background/60 uppercase mb-3">Services</p>
           <h2 className="font-playfair text-3xl lg:text-4xl text-background mb-4">What I Do</h2>
           <p className="font-inter text-background/70 max-w-xl">

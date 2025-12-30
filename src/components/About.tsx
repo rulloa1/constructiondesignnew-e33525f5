@@ -1,7 +1,6 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { PortraitMotif } from "@/components/ui/architectural-motifs";
 
 interface AboutProps {
   onPortfolioClick?: () => void;
@@ -12,19 +11,19 @@ export const About = ({ onPortfolioClick }: AboutProps) => {
   const { elementRef: contentRef, isVisible: contentVisible } = useScrollAnimation({ threshold: 0.15 });
 
   return (
-    <section 
-      id="about" 
-      ref={elementRef as React.RefObject<HTMLElement>} 
-      className="relative py-20 lg:py-32 bg-[#FAF9F7]"
+    <section
+      id="about"
+      ref={elementRef as React.RefObject<HTMLElement>}
+      className="relative py-20 lg:py-32 bg-cream"
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className={`mb-16 lg:mb-20 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="w-20 h-20 lg:w-28 lg:h-28 text-gold/15 -mb-4 lg:-mb-8">
-            <PortraitMotif className="w-full h-full" />
-          </div>
+          <span className="font-playfair text-8xl lg:text-[10rem] text-gold/10 font-light leading-none block -mb-6 lg:-mb-12">
+            02
+          </span>
           <p className="font-inter text-xs tracking-[0.3em] text-muted-foreground uppercase mb-3">About</p>
           <h2 className="font-playfair text-3xl lg:text-4xl text-foreground">Who I Am</h2>
         </div>
@@ -79,7 +78,7 @@ export const About = ({ onPortfolioClick }: AboutProps) => {
             {/* CTA */}
             <div className="pt-4">
               <Button asChild className="bg-foreground hover:bg-foreground/90 text-background w-full py-3">
-                <Link to="/portfolio">View My Work</Link>
+                <Link to="/portfolio">View Portfolio</Link>
               </Button>
             </div>
           </div>

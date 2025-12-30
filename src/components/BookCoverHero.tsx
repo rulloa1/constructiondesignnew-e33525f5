@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import logo from "@/assets/mc-logo-new.png";
-import { GalleryMotif } from "@/components/ui/architectural-motifs";
 
 interface BookCoverHeroProps {
   onOpenBook: () => void;
@@ -15,17 +14,17 @@ export const BookCoverHero: React.FC<BookCoverHeroProps> = ({ onOpenBook }) => {
   return (
     <section 
       ref={elementRef as React.RefObject<HTMLElement>}
-      className="relative py-20 lg:py-32 bg-[#FAF9F7]"
+      className="relative py-20 lg:py-32 bg-cream"
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className={`mb-16 text-center transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="w-20 h-20 lg:w-28 lg:h-28 text-gold/15 mx-auto -mb-4 lg:-mb-8">
-            <GalleryMotif className="w-full h-full" />
-          </div>
-          <p className="font-inter text-xs tracking-[0.3em] text-muted-foreground uppercase mb-3">
+          <span className="font-playfair text-8xl lg:text-[10rem] text-gold/10 font-light leading-none block">
+            04
+          </span>
+          <p className="font-inter text-xs tracking-[0.3em] text-muted-foreground uppercase mb-3 -mt-8 lg:-mt-16">
             Portfolio
           </p>
           <h2 className="font-playfair text-3xl lg:text-4xl text-foreground">Explore My Work</h2>

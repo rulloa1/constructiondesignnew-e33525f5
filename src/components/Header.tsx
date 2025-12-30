@@ -2,14 +2,14 @@ import React, { useCallback } from "react";
 import { AlignJustify } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import logo from "@/assets/mc-logo-new.png";
 
 const navigation = [
-  { name: "Portfolio", href: "#portfolio" },
+  { name: "Portfolio", href: "/portfolio" },
   { name: "Design", href: "/design" },
   { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Contact", href: "/contact" },
 ];
 
 interface HeaderProps {
@@ -21,9 +21,10 @@ export const Header = React.memo(({ onPortfolioClick }: HeaderProps) => {
   const location = useLocation();
 
   const handleSmoothScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string, itemName: string) => {
-    if (itemName === "Portfolio" && onPortfolioClick) {
+    // If clicking Portfolio, navigate to portfolio page
+    if (itemName === "Portfolio") {
       e.preventDefault();
-      onPortfolioClick();
+      navigate('/portfolio');
       return;
     }
 
@@ -35,9 +36,16 @@ export const Header = React.memo(({ onPortfolioClick }: HeaderProps) => {
     }
 
     // If clicking Contact, navigate to contact page
-    if (itemName === "Contact" && !location.pathname.includes('contact')) {
+    if (itemName === "Contact") {
       e.preventDefault();
       navigate('/contact');
+      return;
+    }
+
+    // If clicking About from non-home page, navigate home first
+    if (itemName === "About" && location.pathname !== "/") {
+      e.preventDefault();
+      navigate("/", { state: { scrollTo: "about" } });
       return;
     }
 
@@ -52,15 +60,15 @@ export const Header = React.memo(({ onPortfolioClick }: HeaderProps) => {
         behavior: 'smooth'
       });
     }
-  }, [onPortfolioClick, navigate, location]);
+  }, [navigate, location]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-charcoal/80 shadow-lg transition-all duration-300 border-b border-white/5">
       <nav className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          <a href="#" className="flex items-center group">
+          <Link to="/" className="flex items-center group">
             <img src={logo} alt="Michael Chandler logo" className="h-16 w-auto transition-all duration-300 group-hover:scale-110 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]" />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">

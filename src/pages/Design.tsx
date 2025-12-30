@@ -3,444 +3,365 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import {
-  BlueprintCorner,
-  BuildingSilhouette,
-  TreeMotif,
-  CompassMotif,
-  ChandelierMotif,
-  BedMotif,
-  ChefHatMotif,
-} from "@/components/ui/architectural-motifs";
 
-// Detail images for the bento grid
-import detailTimberBeams from "@/assets/details/detail-timber-beams.jpg";
-import detailSpaVanity from "@/assets/details/detail-spa-vanity.jpg";
-import detailLimestoneFireplace from "@/assets/details/detail-limestone-fireplace.jpg";
+// Detail images
+import detailBronzeBase from "@/assets/details/detail-bronze-base.jpg";
+import detailBronzeHardware from "@/assets/details/detail-bronze-hardware.jpg";
+import detailFloatingVanity from "@/assets/details/detail-floating-vanity.jpg";
 import detailLeatherCabinetry from "@/assets/details/detail-leather-cabinetry.jpg";
+import detailLimestoneFireplace from "@/assets/details/detail-limestone-fireplace.jpg";
 import detailMarbleBath from "@/assets/details/detail-marble-bath.jpg";
-import detailProRange from "@/assets/details/detail-pro-range.jpg";
+import detailMarbleCounter from "@/assets/details/detail-marble-counter.jpg";
 import detailOceanviewFraming from "@/assets/details/detail-oceanview-framing.jpg";
+import detailPendantLighting from "@/assets/details/detail-pendant-lighting.jpg";
+import detailProRange from "@/assets/details/detail-pro-range.jpg";
+import detailSculpturalChandelier from "@/assets/details/detail-sculptural-chandelier.jpg";
+import detailSkiStorage from "@/assets/details/detail-ski-storage.jpg";
+import detailSpaVanity from "@/assets/details/detail-spa-vanity.jpg";
+import detailTimberBeams from "@/assets/details/detail-timber-beams.jpg";
+import detailVanityNiche from "@/assets/details/detail-vanity-niche.jpg";
+import detailWallFaucet from "@/assets/details/detail-wall-faucet.jpg";
 
-/** 
- * Gradient placeholder component for image cards
- */
-const GradientPlaceholder: React.FC<{ label: string; className?: string }> = ({ label, className = "" }) => (
-  <div 
-    className={`w-full h-full flex items-center justify-center ${className}`}
-    style={{ background: "linear-gradient(135deg, hsl(var(--charcoal)) 0%, hsl(var(--stone)) 50%, hsl(var(--gold)) 100%)" }}
-  >
-    <span className="text-white font-playfair text-lg tracking-wider">{label}</span>
-  </div>
-);
+const moodBoardImages = [
+  { num: "01", image: detailSpaVanity, caption: "Spa-inspired primary suites" },
+  { num: "02", image: detailBronzeBase, caption: "Custom bronze details" },
+  { num: "03", image: detailMarbleBath, caption: "Natural stone selection" },
+  { num: "04", image: detailPendantLighting, caption: "Sculptural lighting" },
+];
 
-/**
- * Bento card component with hover effects
- */
-interface BentoCardProps {
-  image?: string;
-  label: string;
-  motif?: React.ReactNode;
-  subtitle?: string;
-  tags?: string[];
-  className?: string;
-  aspectRatio?: string;
-  showOverlay?: boolean;
-}
+const projectShowcase = [
+  { num: "01", image: detailOceanviewFraming, title: "Coastal Modern", subtitle: "Oceanfront living" },
+  { num: "02", image: detailLimestoneFireplace, title: "Hill Country", subtitle: "Native limestone" },
+  { num: "03", image: detailTimberBeams, title: "Mountain Lodge", subtitle: "Heavy timber" },
+  { num: "04", image: detailSculpturalChandelier, title: "Resort Living", subtitle: "Hospitality-inspired" },
+];
 
-const BentoCard: React.FC<BentoCardProps> = ({ 
-  image, 
-  label, 
-  motif, 
-  subtitle,
-  tags,
-  className = "",
-  aspectRatio = "aspect-[4/3]",
-  showOverlay = false
-}) => (
-  <div className={`group relative overflow-hidden rounded-lg bg-offWhite border border-cream transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${className}`}>
-    <div className={`relative ${aspectRatio} overflow-hidden`}>
-      {image ? (
-        <img 
-          src={image} 
-          alt={label} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-        />
-      ) : (
-        <GradientPlaceholder label={label} />
-      )}
-      
-      {/* Hover overlay with description */}
-      {showOverlay && (
-        <div className="absolute inset-0 bg-charcoal/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-          <p className="text-white text-sm font-inter text-center">{subtitle}</p>
-        </div>
-      )}
-    </div>
-    
-    {/* Architectural motif */}
-    {motif && (
-      <div className="absolute top-4 left-4 w-8 h-8 lg:w-10 lg:h-10 text-gold transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(201,169,97,0.5)]">
-        {motif}
-      </div>
-    )}
-    
-    {/* Label */}
-    <div className="p-4">
-      <h3 className="font-playfair text-lg text-charcoal">{label}</h3>
-      {subtitle && !showOverlay && (
-        <p className="font-inter text-xs text-stone mt-1">{subtitle}</p>
-      )}
-    </div>
-    
-    {/* Tags */}
-    {tags && tags.length > 0 && (
-      <div className="px-4 pb-4">
-        <p className="font-inter text-xs text-stone">
-          {tags.join(" • ")}
-        </p>
-      </div>
-    )}
-  </div>
-);
+const services = [
+  { title: "ARCHITECTURE", description: "Site-responsive design, structural coordination, and smart home integration." },
+  { title: "INTERIORS", description: "Custom millwork, lighting design, and curated material selections." },
+  { title: "DEVELOPMENT", description: "Feasibility analysis, entitlement processing, and construction management." },
+];
 
-/**
- * Development concept card for Section 3
- */
-interface ConceptCardProps {
-  title: string;
-  tags: string[];
-  delay: number;
-  isVisible: boolean;
-}
-
-const ConceptCard: React.FC<ConceptCardProps> = ({ title, tags, delay, isVisible }) => (
-  <div 
-    className={`bg-offWhite border border-cream rounded-lg p-6 transition-all duration-700 hover:-translate-y-1 hover:shadow-lg ${
-      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-    }`}
-    style={{ transitionDelay: isVisible ? `${delay}ms` : '0ms' }}
-  >
-    <h4 className="font-playfair text-lg text-charcoal mb-3">{title}</h4>
-    <div className="flex flex-wrap gap-2">
-      {tags.map((tag) => (
-        <span 
-          key={tag} 
-          className="font-inter text-xs text-stone bg-cream px-2 py-1 rounded"
-        >
-          {tag}
-        </span>
-      ))}
-    </div>
-  </div>
-);
+const processSteps = [
+  { num: "01", title: "Discovery", description: "Understanding vision, site conditions, and project requirements." },
+  { num: "02", title: "Design", description: "Collaborative development with architects and interior designers." },
+  { num: "03", title: "Development", description: "Detailed planning, budgeting, and construction scheduling." },
+  { num: "04", title: "Delivery", description: "Meticulous construction execution and quality assurance." },
+];
 
 const Design = () => {
   const navigate = useNavigate();
   
   // Scroll animations for each section
-  const { elementRef: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.1 });
-  const { elementRef: section1Ref, isVisible: section1Visible } = useScrollAnimation({ threshold: 0.1 });
-  const { elementRef: section2Ref, isVisible: section2Visible } = useScrollAnimation({ threshold: 0.1 });
-  const { elementRef: section3Ref, isVisible: section3Visible } = useScrollAnimation({ threshold: 0.1 });
-  const { elementRef: bannerRef, isVisible: bannerVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { elementRef: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { elementRef: moodBoardRef, isVisible: moodBoardVisible } = useScrollAnimation({ threshold: 0.15 });
+  const { elementRef: showcaseRef, isVisible: showcaseVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { elementRef: skillsRef, isVisible: skillsVisible } = useScrollAnimation({ threshold: 0.15 });
+  const { elementRef: philosophyRef, isVisible: philosophyVisible } = useScrollAnimation({ threshold: 0.15 });
+  const { elementRef: processRef, isVisible: processVisible } = useScrollAnimation({ threshold: 0.15 });
   const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
     <div className="min-h-screen bg-cream">
-      {/* HEADER */}
-      <header 
-        ref={headerRef as React.RefObject<HTMLElement>}
-        className={`px-6 lg:px-12 py-8 lg:py-12 transition-all duration-700 ${
-          headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      {/* Hero Section */}
+      <section 
+        ref={heroRef as React.RefObject<HTMLElement>}
+        className={`relative min-h-[70vh] grid grid-cols-1 lg:grid-cols-2 transition-all duration-1000 ${
+          heroVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="max-w-7xl mx-auto">
-          {/* Back link */}
+        {/* Left Side - Hero Image */}
+        <div className={`relative h-[50vh] lg:h-auto overflow-hidden transition-all duration-1000 delay-200 ${
+          heroVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+        }`}>
+          <img 
+            src={detailLeatherCabinetry} 
+            alt="Portfolio" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
+          
+          {/* Vertical Portfolio Text */}
+          <div className={`absolute left-6 top-1/2 -translate-y-1/2 hidden lg:block transition-all duration-1000 delay-500 ${
+            heroVisible ? 'opacity-100 translate-y-[-50%]' : 'opacity-0 translate-y-[-40%]'
+          }`}>
+            <h1 className="font-playfair text-6xl text-white tracking-[0.5em] [writing-mode:vertical-lr] rotate-180">
+              PORTFOLIO
+            </h1>
+          </div>
+        </div>
+
+        {/* Right Side - Content */}
+        <div className={`bg-cream p-8 lg:p-16 flex flex-col justify-center transition-all duration-1000 delay-300 ${
+          heroVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+        }`}>
           <Button
             variant="ghost"
-            className="mb-8 text-stone hover:text-gold hover:bg-transparent -ml-4 font-inter text-sm"
+            className="self-start mb-8 text-muted-foreground hover:text-gold hover:bg-transparent -ml-4"
             onClick={() => navigate("/")}
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back
           </Button>
-          
-          {/* Title */}
-          <h1 className="font-playfair text-5xl lg:text-7xl text-charcoal tracking-tight mb-4">
-            INTERIOR DESIGN
+
+          <h1 className="font-playfair text-4xl lg:text-5xl text-foreground mb-6 lg:hidden">
+            PORTFOLIO
           </h1>
-          
-          {/* Subtitle */}
-          <p className="font-inter text-stone text-base lg:text-lg tracking-wide">
-            Architecture • Interiors • Custom Environments
-          </p>
-          
-          {/* Gold divider */}
-          <div className="w-16 h-[2px] bg-gold mt-6" />
+
+          <div className="space-y-4 text-sm text-muted-foreground">
+            <p className="font-inter">Michael Chandler</p>
+            <p className="font-inter">Design • Build • Develop</p>
+            <div className="w-12 h-[1px] bg-gold my-6" />
+            <p className="font-inter leading-relaxed max-w-sm">
+              37 years of creating exceptional residential environments through thoughtful design and meticulous craftsmanship.
+            </p>
+          </div>
         </div>
-      </header>
+      </section>
 
-      {/* SECTION 1: Architecture + Interiors Bento Grid */}
+      {/* Mood Board Section */}
       <section 
-        ref={section1Ref as React.RefObject<HTMLElement>}
-        className="px-6 lg:px-12 py-8"
+        ref={moodBoardRef as React.RefObject<HTMLElement>}
+        className="py-16 lg:py-24 px-4 lg:px-8 bg-white"
       >
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-            {/* LEFT COLUMN - Architecture (60%) */}
-            <div 
-              className={`lg:col-span-7 transition-all duration-700 ${
-                section1Visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-              }`}
-            >
-              <div className="group relative overflow-hidden rounded-lg bg-offWhite border border-cream h-full">
-                <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full overflow-hidden">
-                  <img 
-                    src={detailTimberBeams} 
-                    alt="Architecture" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  />
-                  
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-charcoal/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-8">
-                    <p className="text-white text-sm lg:text-base font-inter text-center max-w-md">
-                      Site-responsive design, structural coordination, smart home integration
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Architectural motif */}
-                <div className="absolute top-6 left-6 w-10 h-10 lg:w-12 lg:h-12 text-gold transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(201,169,97,0.5)]">
-                  <BlueprintCorner className="w-full h-full" />
-                </div>
-                
-                {/* Label */}
-                <div className="absolute bottom-6 left-6">
-                  <h2 className="font-playfair text-2xl lg:text-3xl text-white drop-shadow-lg">ARCHITECTURE</h2>
-                </div>
-              </div>
-            </div>
+        <div className="container mx-auto max-w-7xl">
+          <div className={`text-center mb-12 transition-all duration-700 ${
+            moodBoardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <p className="font-inter text-xs tracking-[0.3em] text-muted-foreground uppercase mb-3">Design Concepts</p>
+            <h2 className="font-playfair text-3xl lg:text-4xl text-foreground">MOOD BOARD</h2>
+          </div>
 
-            {/* RIGHT COLUMN - Interiors (40%) */}
-            <div className="lg:col-span-5 space-y-4">
-              {/* Interiors header */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            {moodBoardImages.map((item, idx) => (
               <div 
-                className={`transition-all duration-700 delay-100 ${
-                  section1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                key={item.num} 
+                className={`group relative transition-all duration-700 ${
+                  moodBoardVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-12'
                 }`}
+                style={{ transitionDelay: moodBoardVisible ? `${200 + idx * 100}ms` : '0ms' }}
               >
-                <h3 className="font-playfair text-xl text-charcoal mb-4">INTERIORS</h3>
-              </div>
-              
-              {/* Stacked interior cards */}
-              {[
-                { label: "Great Rooms", image: detailSpaVanity, motif: <ChandelierMotif className="w-full h-full" /> },
-                { label: "Primary Suites", image: detailMarbleBath, motif: <BedMotif className="w-full h-full" /> },
-                { label: "Chef's Kitchens", image: detailProRange, motif: <ChefHatMotif className="w-full h-full" /> },
-              ].map((item, idx) => (
-                <div 
-                  key={item.label}
-                  className={`group relative overflow-hidden rounded-lg bg-offWhite border border-cream transition-all duration-700 hover:-translate-y-1 hover:shadow-xl ${
-                    section1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                  }`}
-                  style={{ transitionDelay: section1Visible ? `${200 + idx * 100}ms` : '0ms' }}
-                >
-                  <div className="relative aspect-[3/2] overflow-hidden">
-                    <img 
-                      src={item.image} 
-                      alt={item.label} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    />
-                    {/* Motif overlay */}
-                    <div className="absolute top-3 left-3 w-6 h-6 text-gold/90 transition-all duration-300 group-hover:drop-shadow-[0_0_6px_rgba(201,169,97,0.6)]">
-                      {item.motif}
-                    </div>
-                  </div>
-                  <div className="p-4">
-                    <h4 className="font-playfair text-lg text-charcoal">{item.label}</h4>
-                  </div>
+                <div className="aspect-[3/4] overflow-hidden bg-muted">
+                  <img 
+                    src={item.image} 
+                    alt={item.caption} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
                 </div>
-              ))}
-            </div>
+                <span className="absolute top-4 right-4 font-playfair text-4xl lg:text-5xl text-white/80 font-light">
+                  {item.num}
+                </span>
+                <p className="font-inter text-xs text-muted-foreground mt-3 text-center">{item.caption}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: Exterior Spaces & Custom Furniture (50/50 Split) */}
+      {/* Project Showcase - Full Width */}
       <section 
-        ref={section2Ref as React.RefObject<HTMLElement>}
-        className="px-6 lg:px-12 py-8"
+        ref={showcaseRef as React.RefObject<HTMLElement>}
+        className="relative"
       >
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            {/* Exterior Spaces */}
-            <div 
-              className={`transition-all duration-700 ${
-                section2Visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-              }`}
-            >
-              <BentoCard 
-                image={detailLimestoneFireplace}
-                label="EXTERIOR SPACES & LANDSCAPE"
-                motif={<TreeMotif className="w-full h-full" />}
-                tags={["Outdoor Living", "Pool & Spa", "Motor Courts", "Native Landscape"]}
-                aspectRatio="aspect-[4/3]"
-              />
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          {/* Large Feature Image */}
+          <div className={`relative h-[60vh] lg:h-[80vh] overflow-hidden transition-all duration-1000 ${
+            showcaseVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+          }`}>
+            <img 
+              src={detailProRange} 
+              alt="Featured Project" 
+              className="w-full h-full object-cover"
+            />
+            <span className={`absolute bottom-8 right-8 font-playfair text-8xl lg:text-[12rem] text-white/20 font-light leading-none transition-all duration-1000 delay-300 ${
+              showcaseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              01
+            </span>
+          </div>
+
+          {/* Right Side Grid */}
+          <div className="grid grid-cols-2 grid-rows-2">
+            {projectShowcase.slice(0, 4).map((item, idx) => (
+              <div 
+                key={item.num} 
+                className={`relative h-[30vh] lg:h-[40vh] group overflow-hidden transition-all duration-700 ${
+                  showcaseVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-110'
+                }`}
+                style={{ transitionDelay: showcaseVisible ? `${200 + idx * 150}ms` : '0ms' }}
+              >
+                <img 
+                  src={item.image} 
+                  alt={item.title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <span className="absolute top-4 right-4 font-playfair text-3xl lg:text-4xl text-white/60 font-light">
+                  0{idx + 1}
+                </span>
+                <div className="absolute bottom-4 left-4">
+                  <p className="font-playfair text-white text-lg">{item.title}</p>
+                  <p className="font-inter text-white/70 text-xs">{item.subtitle}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills & Services */}
+      <section
+        ref={skillsRef as React.RefObject<HTMLElement>}
+        className="py-16 lg:py-24 px-4 lg:px-8 bg-cream"
+      >
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+            {/* Left Image */}
+            <div className={`lg:col-span-5 relative transition-all duration-1000 ${
+              skillsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+            }`}>
+              <div className="aspect-[4/5] overflow-hidden">
+                <img 
+                  src={detailSkiStorage} 
+                  alt="Skills" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className={`absolute -bottom-4 -right-4 lg:-bottom-8 lg:-right-8 font-playfair text-8xl lg:text-[10rem] text-gold/10 font-light leading-none transition-all duration-1000 delay-300 ${
+                skillsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+              }`}>
+                02
+              </span>
             </div>
 
-            {/* Custom Furniture */}
-            <div 
-              className={`transition-all duration-700 delay-150 ${
-                section2Visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
-              }`}
-            >
-              <BentoCard 
-                image={detailLeatherCabinetry}
-                label="CUSTOM FURNITURE"
-                motif={<BuildingSilhouette className="w-full h-full" />}
-                tags={["Statement Tables", "Built-Ins", "Vanities", "Specialty Storage"]}
-                aspectRatio="aspect-[4/3]"
-              />
+            {/* Right Content */}
+            <div className={`lg:col-span-7 flex flex-col justify-center transition-all duration-1000 delay-200 ${
+              skillsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+            }`}>
+              <p className="font-inter text-xs tracking-[0.3em] text-muted-foreground uppercase mb-3">Capabilities</p>
+              <h2 className="font-playfair text-3xl lg:text-4xl text-foreground mb-10">SKILLS & SERVICES</h2>
+
+              <div className="space-y-8">
+                {services.map((service, idx) => (
+                  <div 
+                    key={service.title} 
+                    className={`border-l-2 border-gold/30 pl-6 transition-all duration-700 ${
+                      skillsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+                    }`}
+                    style={{ transitionDelay: skillsVisible ? `${400 + idx * 150}ms` : '0ms' }}
+                  >
+                    <h3 className="font-inter text-sm font-medium text-foreground tracking-wide mb-2">{service.title}</h3>
+                    <p className="font-inter text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 3: Development & Concepts (Hierarchy with 4-column grid) */}
+      {/* Design Philosophy */}
       <section 
-        ref={section3Ref as React.RefObject<HTMLElement>}
-        className="px-6 lg:px-12 py-12"
+        ref={philosophyRef as React.RefObject<HTMLElement>}
+        className="py-16 lg:py-24 bg-foreground text-background"
       >
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div 
-            className={`text-center mb-8 transition-all duration-700 ${
-              section3Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
-            <div className="flex justify-center mb-2">
-              <CompassMotif className="w-10 h-10 text-gold" />
+        <div className="container mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            {/* Content */}
+            <div className="order-2 lg:order-1">
+              <span className={`font-playfair text-8xl lg:text-[10rem] text-gold/20 font-light leading-none block mb-4 transition-all duration-1000 ${
+                philosophyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}>03</span>
+              <div className={`transition-all duration-1000 delay-200 ${
+                philosophyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}>
+                <p className="font-inter text-xs tracking-[0.3em] text-background/60 uppercase mb-3">Philosophy</p>
+                <h2 className="font-playfair text-3xl lg:text-4xl text-background mb-6">DESIGN PHILOSOPHY</h2>
+                <blockquote className="font-playfair text-xl lg:text-2xl text-background/90 italic leading-relaxed">
+                  "We don't simply build structures—we craft environments that enhance how people live, work, and experience their world."
+                </blockquote>
+              </div>
             </div>
-            <h2 className="font-playfair text-2xl lg:text-3xl text-charcoal mt-2">DEVELOPMENT & CONCEPTS</h2>
-            
-            {/* Connector line */}
-            <div className="flex justify-center mt-6">
-              <div className="w-[2px] h-12 bg-gold/40" />
-            </div>
-          </div>
-          
-          {/* Horizontal connector line */}
-          <div 
-            className={`hidden lg:block relative h-[2px] bg-gold/40 mx-auto max-w-4xl mb-8 transition-all duration-700 delay-200 ${
-              section3Visible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
-            }`}
-          >
-            {/* Vertical drops */}
-            <div className="absolute left-[12.5%] top-0 w-[2px] h-6 bg-gold/40" />
-            <div className="absolute left-[37.5%] top-0 w-[2px] h-6 bg-gold/40" />
-            <div className="absolute left-[62.5%] top-0 w-[2px] h-6 bg-gold/40" />
-            <div className="absolute left-[87.5%] top-0 w-[2px] h-6 bg-gold/40" />
-          </div>
 
-          {/* 4-Column Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-6 lg:mt-10">
-            <ConceptCard 
-              title="Land Development"
-              tags={["Entitlements", "Infrastructure", "Planning"]}
-              delay={300}
-              isVisible={section3Visible}
-            />
-            <ConceptCard 
-              title="Residential Communities"
-              tags={["Master Plan", "Amenities", "HOA"]}
-              delay={400}
-              isVisible={section3Visible}
-            />
-            <ConceptCard 
-              title="Resort & Hospitality"
-              tags={["Mixed-Use", "Golf", "Private Clubs"]}
-              delay={500}
-              isVisible={section3Visible}
-            />
-            <ConceptCard 
-              title="Renovation & Repositioning"
-              tags={["Historic", "Adaptive Reuse", "Restoration"]}
-              delay={600}
-              isVisible={section3Visible}
-            />
+            {/* Image */}
+            <div className={`order-1 lg:order-2 transition-all duration-1000 delay-300 ${
+              philosophyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+            }`}>
+              <div className="aspect-[4/3] overflow-hidden">
+                <img 
+                  src={detailVanityNiche} 
+                  alt="Design Philosophy" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 4: Custom Furniture Banner */}
+      {/* Process Section */}
       <section 
-        ref={bannerRef as React.RefObject<HTMLElement>}
-        className={`bg-charcoal py-16 lg:py-20 transition-all duration-700 ${
-          bannerVisible ? 'opacity-100' : 'opacity-0'
-        }`}
+        ref={processRef as React.RefObject<HTMLElement>}
+        className="py-16 lg:py-24 px-4 lg:px-8 bg-white"
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
-          <h2 
-            className={`font-playfair text-3xl lg:text-4xl text-gold mb-4 transition-all duration-700 delay-200 ${
-              bannerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
-            CUSTOM FURNITURE
-          </h2>
-          <p 
-            className={`font-inter text-offWhite/80 mb-8 transition-all duration-700 delay-300 ${
-              bannerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
-            Bespoke craftsmanship for discerning clients
-          </p>
-          <Button
-            variant="outline"
-            className={`border-gold text-gold hover:bg-gold hover:text-charcoal px-8 py-3 font-inter transition-all duration-700 delay-400 ${
-              bannerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-            onClick={() => navigate("/portfolio")}
-          >
-            Explore Collection
-          </Button>
+        <div className="container mx-auto max-w-7xl">
+          <div className={`text-center mb-16 transition-all duration-1000 ${
+            processVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <span className="font-playfair text-8xl lg:text-[10rem] text-gold/10 font-light leading-none block">04</span>
+            <p className="font-inter text-xs tracking-[0.3em] text-muted-foreground uppercase mb-3 -mt-8 lg:-mt-16">Our Approach</p>
+            <h2 className="font-playfair text-3xl lg:text-4xl text-foreground">DESIGN PROCESS</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {processSteps.map((step, idx) => (
+              <div 
+                key={step.num} 
+                className={`text-center transition-all duration-700 ${
+                  processVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                }`}
+                style={{ transitionDelay: processVisible ? `${300 + idx * 150}ms` : '0ms' }}
+              >
+                <span className="font-playfair text-5xl lg:text-6xl text-gold/30 font-light block mb-4">{step.num}</span>
+                <h3 className="font-playfair text-xl text-foreground mb-2">{step.title}</h3>
+                <p className="font-inter text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Final CTA with Image */}
       <section 
         ref={ctaRef as React.RefObject<HTMLElement>}
-        className={`bg-charcoal py-20 lg:py-28 transition-all duration-700 ${
-          ctaVisible ? 'opacity-100' : 'opacity-0'
-        }`}
+        className="relative min-h-[60vh] flex items-center"
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
-          <h2 
-            className={`font-playfair text-3xl lg:text-5xl text-offWhite mb-4 transition-all duration-700 delay-200 ${
-              ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+        <div className={`absolute inset-0 transition-all duration-1000 ${
+          ctaVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+        }`}>
+          <img 
+            src={detailWallFaucet} 
+            alt="Contact" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+        
+        <div className={`relative container mx-auto max-w-7xl px-4 lg:px-8 text-center transition-all duration-1000 delay-300 ${
+          ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          <h2 className="font-playfair text-3xl lg:text-5xl text-white mb-4">Ready to Begin?</h2>
+          <p className="font-inter text-white/80 mb-8 max-w-lg mx-auto">
+            Every exceptional project starts with a conversation. Let's discuss your vision.
+          </p>
+          <Button
+            onClick={() => navigate("/contact")}
+            className="bg-gold hover:bg-gold/90 text-white px-8 py-3"
           >
-            Ready to Discuss Your Vision?
-          </h2>
-          <div 
-            className={`flex flex-col sm:flex-row gap-4 justify-center mt-8 transition-all duration-700 delay-400 ${
-              ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
-            <Button
-              onClick={() => navigate("/contact")}
-              className="bg-gold hover:bg-gold/90 text-charcoal px-8 py-3 font-inter"
-            >
-              Schedule Consultation
-            </Button>
-            <Button
-              variant="outline"
-              onClick={() => navigate("/portfolio")}
-              className="border-offWhite text-offWhite hover:bg-offWhite hover:text-charcoal px-8 py-3 font-inter"
-            >
-              View Portfolio
-            </Button>
-          </div>
+            Schedule Consultation
+          </Button>
         </div>
       </section>
     </div>

@@ -1,18 +1,27 @@
 import React, { useMemo, useCallback } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { AtSign, Smartphone, Navigation } from "lucide-react";
 import logo from "@/assets/mc-logo-new.png";
 
 export const Footer = React.memo(() => {
   const currentYear = useMemo(() => new Date().getFullYear(), []);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToSection = useCallback((sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth'
-      });
+    // If on home page, scroll directly
+    if (location.pathname === "/") {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // Navigate to home with state to scroll after
+      navigate("/", { state: { scrollTo: sectionId } });
     }
-  }, []);
+  }, [location.pathname, navigate]);
 
   return (
     <footer id="contact" className="bg-charcoal text-cream">

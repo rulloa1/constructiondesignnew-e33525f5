@@ -1,11 +1,11 @@
 import React, { useState, useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import { GalleryMotif, CompassMotif } from "@/components/ui/architectural-motifs";
 import { Button } from "@/components/ui/button";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { projects, getProjectsByCategory, type ProjectCategory } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 type Category = "All" | ProjectCategory;
 
@@ -19,193 +19,115 @@ const categoryColors: Record<string, string> = {
   "Design/Build": "bg-gold text-charcoal",
 };
 
-const Portfolio = () => {
+const Portfolio: React.FC = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState<Category>("All");
 
-  // Scroll animations
-  const { elementRef: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.1 });
-  const { elementRef: gridRef, isVisible: gridVisible } = useScrollAnimation({ threshold: 0.05 });
-
+  // Memoize filtered projects to prevent recalculation on every render
   const filteredProjects = useMemo(() => {
     return getProjectsByCategory(selectedCategory);
   }, [selectedCategory]);
 
+  // Memoize getCategoryCount to prevent recreation
   const getCategoryCount = useCallback((category: Category) => {
     if (category === "All") return projects.length;
     return getProjectsByCategory(category).length;
   }, []);
 
-  // Get first project image for hero
-  const heroImage = projects[0]?.images?.[0];
-
   return (
-    <div className="min-h-screen bg-[#FAF9F7]">
-      {/* Hero Section */}
-      <section 
-        ref={heroRef as React.RefObject<HTMLElement>}
-        className="relative min-h-[60vh] lg:min-h-[70vh] grid grid-cols-1 lg:grid-cols-2"
-      >
-        {/* Left Side - Hero Image */}
-        <div className={`relative h-[40vh] lg:h-auto overflow-hidden transition-all duration-1000 delay-200 ${
-          heroVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-        }`}>
-          {heroImage && (
-            <img 
-              src={heroImage} 
-              alt="Portfolio" 
-              className="w-full h-full object-cover"
-            />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
-          
-          {/* Vertical Portfolio Text */}
-          <div className={`absolute left-6 top-1/2 -translate-y-1/2 hidden lg:block transition-all duration-1000 delay-500 ${
-            heroVisible ? 'opacity-100' : 'opacity-0'
-          }`}>
-            <h1 className="font-playfair text-5xl xl:text-6xl text-white tracking-[0.4em] [writing-mode:vertical-lr] rotate-180">
-              PORTFOLIO
-            </h1>
-          </div>
+    <div className="min-h-screen bg-cream">
+      <Header />
 
-          {/* Large decorative motif */}
-          <div className={`absolute bottom-6 right-6 transition-all duration-1000 delay-400 ${
-            heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <GalleryMotif className="w-20 h-20 lg:w-28 lg:h-28 text-white/15" />
-          </div>
-        </div>
-
-        {/* Right Side - Content */}
-        <div className={`bg-[#FAF9F7] p-8 lg:p-12 xl:p-16 flex flex-col justify-center transition-all duration-1000 delay-300 ${
-          heroVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
-        }`}>
-          <Button
-            variant="ghost"
-            className="self-start mb-8 text-muted-foreground hover:text-gold hover:bg-transparent -ml-4"
-            onClick={() => navigate("/")}
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back
-          </Button>
-
-          <h1 className="font-playfair text-4xl lg:text-5xl text-foreground mb-4 lg:hidden">
-            PORTFOLIO
-          </h1>
-
-          <p className="font-inter text-xs tracking-[0.3em] text-muted-foreground uppercase mb-3">Our Work</p>
-          <h2 className="font-playfair text-3xl lg:text-4xl text-foreground mb-6">Project Collection</h2>
-          
-          <div className="w-12 h-[1px] bg-gold mb-6" />
-          
-          <p className="font-inter text-muted-foreground leading-relaxed max-w-md mb-8">
-            A curated selection of residential, commercial, and hospitality projects showcasing 37 years of design excellence and meticulous craftsmanship.
-          </p>
-
-          {/* Stats */}
-          <div className="flex gap-8">
-            <div>
-              <span className="font-playfair text-3xl lg:text-4xl text-gold">{projects.length}</span>
-              <p className="font-inter text-xs text-muted-foreground uppercase tracking-wider mt-1">Projects</p>
-            </div>
-            <div>
-              <span className="font-playfair text-3xl lg:text-4xl text-gold">37</span>
-              <p className="font-inter text-xs text-muted-foreground uppercase tracking-wider mt-1">Years</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Category Navigation */}
-      <section className="sticky top-16 z-30 bg-[#FAF9F7]/95 backdrop-blur-sm border-y border-border/30">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
-          <nav className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
-            {categories.map((category) => {
-              const isActive = selectedCategory === category;
-              return (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full font-inter text-sm transition-all whitespace-nowrap ${
-                    isActive
-                      ? "bg-foreground text-background"
-                      : "bg-transparent text-muted-foreground hover:text-foreground border border-border"
-                  }`}
-                >
-                  {category} ({getCategoryCount(category)})
-                </button>
-              );
-            })}
-          </nav>
-        </div>
-      </section>
-
-      {/* Projects Grid Section */}
-      <section 
-        ref={gridRef as React.RefObject<HTMLElement>}
-        className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8"
-      >
-        <div className="container mx-auto max-w-7xl">
-          {/* Section Header */}
-          <div className={`mb-12 transition-all duration-700 ${
-            gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <div className="flex items-end justify-between">
-              <div className="flex items-end gap-4">
-                <GalleryMotif className="w-12 h-12 lg:w-16 lg:h-16 text-gold/20 -mb-1" />
-                <h2 className="font-playfair text-2xl lg:text-3xl text-foreground">
-                  {selectedCategory === "All" ? "All Projects" : selectedCategory}
-                </h2>
-              </div>
-              <p className="font-inter text-sm text-muted-foreground hidden sm:block">
-                {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'}
+      <div className="pt-20">
+        {/* Hero Section */}
+        <section className="py-16 lg:py-24 bg-charcoal">
+          <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <span className="font-playfair text-8xl lg:text-[10rem] text-gold/20 font-light leading-none block -mb-12">
+                01
+              </span>
+              <p className="font-inter text-xs tracking-[0.3em] text-cream/60 uppercase mb-3">
+                Our Work
+              </p>
+              <h1 className="font-playfair text-4xl lg:text-5xl text-cream mb-4">
+                Portfolio
+              </h1>
+              <p className="font-inter text-cream/70 max-w-2xl mx-auto text-lg">
+                Explore {projects.length} exceptional projects across residential, commercial, civil, and hospitality sectors.
               </p>
             </div>
           </div>
+        </section>
 
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {filteredProjects.map((project, index) => (
-              <div 
-                key={project.id}
-                className={`transition-all duration-700 ${
-                  gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                }`}
-                style={{ transitionDelay: gridVisible ? `${200 + (index % 6) * 100}ms` : '0ms' }}
-              >
+        {/* Portfolio Grid Section */}
+        <section className="py-16 lg:py-24">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+            {/* Back button */}
+            {selectedCategory !== "All" && (
+              <div className="mb-10 md:mb-12">
+                <Button
+                  onClick={() => setSelectedCategory("All")}
+                  variant="outline"
+                  className="bg-white/70 backdrop-blur-sm border-gold/25 text-charcoal hover:bg-white hover:border-gold/40 hover:shadow-md transition-all duration-300 font-medium text-sm"
+                >
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Back to All Projects
+                </Button>
+              </div>
+            )}
+
+            {/* Category filters */}
+            <div className="mb-10 md:mb-12 border-b border-charcoal/10">
+              <nav className="flex flex-wrap justify-center gap-6 md:gap-10 font-inter text-[10px] md:text-xs tracking-[0.18em] uppercase">
+                {categories.map((category) => {
+                  const isActive = selectedCategory === category;
+                  return (
+                    <button
+                      key={category}
+                      onClick={() => setSelectedCategory(category)}
+                      className={`relative pb-3 transition-colors duration-200 ${
+                        isActive
+                          ? "text-gold"
+                          : "text-charcoal/40 hover:text-charcoal/70"
+                      }`}
+                    >
+                      <span className="whitespace-nowrap font-medium">
+                        {category}{" "}
+                        <span className="opacity-70">({getCategoryCount(category)})</span>
+                      </span>
+                      {isActive && (
+                        <span className="pointer-events-none absolute inset-x-0 -bottom-[1px] mx-auto h-[2px] w-full max-w-[80px] bg-gold" />
+                      )}
+                    </button>
+                  );
+                })}
+              </nav>
+            </div>
+
+            {/* Projects grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6 lg:gap-7 xl:gap-8">
+              {filteredProjects.map((project, index) => (
                 <ProjectCard
+                  key={project.id}
                   project={project}
                   categoryColor={categoryColors[project.category]}
                   index={index}
                 />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              ))}
+            </div>
 
-      {/* Bottom CTA Section */}
-      <section className="py-16 lg:py-24 bg-foreground text-background">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <CompassMotif className="w-16 h-16 lg:w-20 lg:h-20 text-gold/30 mb-4" />
-              <h2 className="font-playfair text-3xl lg:text-4xl text-background mb-4">Start Your Project</h2>
-              <p className="font-inter text-background/70 leading-relaxed max-w-md">
-                Every exceptional project begins with a conversation. Let's discuss how we can bring your vision to life.
+            {/* Results count */}
+            <div className="mt-16 text-center">
+              <p className="font-inter text-sm text-muted-foreground">
+                Showing {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'}
+                {selectedCategory !== "All" && ` in ${selectedCategory}`}
               </p>
             </div>
-            <div className="lg:text-right">
-              <Button
-                onClick={() => navigate("/contact")}
-                className="bg-gold hover:bg-gold/90 text-white px-8 py-3"
-              >
-                Schedule Consultation
-              </Button>
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
+
+      <Footer />
     </div>
   );
 };

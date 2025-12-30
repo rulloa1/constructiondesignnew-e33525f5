@@ -26,10 +26,8 @@ All colors MUST be HSL.
     --muted: 42 10% 90%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 15 65% 59%;
+    --accent: 25 75% 47%;
     --accent-foreground: 0 0% 100%;
-    
-    --terracotta: 15 65% 59%;
 
     --gold: 25 75% 47%;
     --gold-foreground: 0 0% 100%;
@@ -39,12 +37,6 @@ All colors MUST be HSL.
 
     --cream: 42 15% 96%;
     --cream-foreground: 0 0% 17%;
-
-    --off-white: 40 20% 99%;
-    --off-white-foreground: 0 0% 17%;
-
-    --stone: 30 5% 53%;
-    --stone-foreground: 0 0% 100%;
 
     --burgundy: 350 35% 42%;
     --steel-blue: 215 15% 38%;
@@ -99,10 +91,8 @@ All colors MUST be HSL.
     --muted: 0 0% 22%;
     --muted-foreground: 42 10% 65%;
 
-    --accent: 15 65% 59%;
+    --accent: 25 75% 47%;
     --accent-foreground: 0 0% 100%;
-    
-    --terracotta: 15 65% 59%;
 
     --gold: 25 75% 47%;
     --gold-foreground: 0 0% 100%;
@@ -112,12 +102,6 @@ All colors MUST be HSL.
 
     --cream: 42 15% 96%;
     --cream-foreground: 0 0% 17%;
-
-    --off-white: 40 20% 99%;
-    --off-white-foreground: 0 0% 17%;
-
-    --stone: 30 5% 53%;
-    --stone-foreground: 0 0% 100%;
 
     --burgundy: 350 35% 42%;
     --steel-blue: 215 15% 38%;

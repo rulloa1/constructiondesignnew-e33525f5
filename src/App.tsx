@@ -8,12 +8,12 @@ import { AuthProvider } from "@/contexts/AuthContext";
 
 // Lazy load all route components for better code splitting
 const Index = lazy(() => import("./pages/Index"));
+const Portfolio = lazy(() => import("./pages/Portfolio"));
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const Auth = lazy(() => import("./pages/Auth"));
 const Admin = lazy(() => import("./pages/Admin"));
 const AdminUsers = lazy(() => import("./pages/AdminUsers"));
 const Login = lazy(() => import("./pages/Login"));
-const Portfolio = lazy(() => import("./pages/Portfolio"));
 const Design = lazy(() => import("./pages/Design"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -34,12 +34,12 @@ const router = createBrowserRouter([
     element: <Index />,
   },
   {
-    path: "/projects/:id",
-    element: <ProjectDetail />,
-  },
-  {
     path: "/portfolio",
     element: <Portfolio />,
+  },
+  {
+    path: "/projects/:id",
+    element: <ProjectDetail />,
   },
   {
     path: "/auth",

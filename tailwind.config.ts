@@ -56,17 +56,8 @@ export default {
           DEFAULT: "hsl(var(--cream))",
           foreground: "hsl(var(--cream-foreground))",
         },
-        offWhite: {
-          DEFAULT: "hsl(var(--off-white))",
-          foreground: "hsl(var(--off-white-foreground))",
-        },
-        stone: {
-          DEFAULT: "hsl(var(--stone))",
-          foreground: "hsl(var(--stone-foreground))",
-        },
         burgundy: "hsl(var(--burgundy))",
         steelBlue: "hsl(var(--steel-blue))",
-        terracotta: "hsl(var(--terracotta))",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

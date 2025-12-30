@@ -1,12 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, X, ChevronLeft, ChevronRight, Square, Bed, Droplets, Check, CalendarDays, Award, Wallet, Key } from "lucide-react";
+import { ArrowLeft, X, ChevronLeft, ChevronRight, Square, Bed, Droplets, Check, CalendarDays, Award, Wallet } from "lucide-react";
 import { getProjectById } from "@/data/projects";
 import { useState, useEffect, useMemo, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { ImageWithWatermark } from "@/components/ImageWithWatermark";
-import { BlueprintCorner, GalleryMotif } from "@/components/ui/architectural-motifs";
 interface ProjectVideo {
   id: string;
   video_url: string;
@@ -190,102 +189,80 @@ const ProjectDetail = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           
           {/* Project Details Section */}
-          <div className="mb-16 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-10 lg:py-12 bg-secondary/50 rounded-xl">
-            {/* Section Header */}
-            <div className="mb-10">
-              <p className="font-inter text-[11px] tracking-[0.3em] text-muted-foreground/70 uppercase mb-3">Project Details</p>
-              <h2 className="font-playfair text-3xl lg:text-4xl text-foreground font-light">Overview</h2>
+          <div className="mb-16">
+            {/* Section Header with Decorative Number */}
+            <div className="mb-8">
+              <span className="font-playfair text-7xl lg:text-8xl text-accent/10 font-light leading-none block -mb-4 lg:-mb-6">01</span>
+              <p className="font-inter text-xs tracking-[0.3em] text-muted-foreground uppercase mb-2">Project Details</p>
+              <h2 className="font-playfair text-2xl lg:text-3xl text-foreground">Overview</h2>
             </div>
 
-            {/* Category & Design Style - 2 columns with accent border */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
-              <div className="border-l-[3px] border-accent pl-6">
-                <p className="font-inter text-[10px] tracking-[0.25em] text-muted-foreground/60 uppercase mb-2">Category</p>
-                <p className="font-playfair text-xl text-foreground">{project.category}</p>
+            <div className="w-12 h-[1px] bg-accent mb-8" />
+
+            {/* Category & Design Style */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+              <div className="border-l-2 border-accent/30 pl-6">
+                <p className="font-inter text-xs tracking-[0.2em] text-muted-foreground uppercase mb-2">Category</p>
+                <p className="font-playfair text-lg text-foreground">{project.category}</p>
               </div>
-              {project.subtitle && (
-                <div className="border-l-[3px] border-accent pl-6">
-                  <p className="font-inter text-[10px] tracking-[0.25em] text-muted-foreground/60 uppercase mb-2">Design Style</p>
-                  <p className="font-playfair text-xl text-foreground">{project.subtitle}</p>
-                </div>
-              )}
+              {project.subtitle && <div className="border-l-2 border-accent/30 pl-6">
+                  <p className="font-inter text-xs tracking-[0.2em] text-muted-foreground uppercase mb-2">Design Style</p>
+                  <p className="font-playfair text-lg text-foreground">{project.subtitle}</p>
+                </div>}
             </div>
 
-            {/* Stats Grid - 2x2 centered layout */}
-            {hasStats && (
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10 py-8 border-y border-border/40">
-                {project.duration && (
-                  <div className="text-center">
-                    <CalendarDays className="h-6 w-6 text-accent mx-auto mb-3" strokeWidth={1.5} />
-                    <p className="font-playfair text-xl text-foreground mb-1">{project.duration}</p>
-                    <p className="font-inter text-[10px] text-muted-foreground/60 uppercase tracking-[0.2em]">Duration</p>
-                  </div>
-                )}
-                {project.sqft && (
-                  <div className="text-center">
-                    <Square className="h-6 w-6 text-accent mx-auto mb-3" strokeWidth={1.5} />
-                    <p className="font-playfair text-xl text-foreground mb-1">{project.sqft.toLocaleString()}</p>
-                    <p className="font-inter text-[10px] text-muted-foreground/60 uppercase tracking-[0.2em]">Sq Ft</p>
-                  </div>
-                )}
-                {project.bedrooms && (
-                  <div className="text-center">
-                    <Bed className="h-6 w-6 text-accent mx-auto mb-3" strokeWidth={1.5} />
-                    <p className="font-playfair text-xl text-foreground mb-1">{project.bedrooms}</p>
-                    <p className="font-inter text-[10px] text-muted-foreground/60 uppercase tracking-[0.2em]">Bedrooms</p>
-                  </div>
-                )}
-                {project.baths && (
-                  <div className="text-center">
-                    <Droplets className="h-6 w-6 text-accent mx-auto mb-3" strokeWidth={1.5} />
-                    <p className="font-playfair text-xl text-foreground mb-1">{project.baths}</p>
-                    <p className="font-inter text-[10px] text-muted-foreground/60 uppercase tracking-[0.2em]">Baths</p>
-                  </div>
-                )}
-                {project.budget && (
-                  <div className="text-center">
-                    <Wallet className="h-6 w-6 text-accent mx-auto mb-3" strokeWidth={1.5} />
-                    <p className="font-playfair text-xl text-foreground mb-1">{project.budget}</p>
-                    <p className="font-inter text-[10px] text-muted-foreground/60 uppercase tracking-[0.2em]">Budget</p>
-                  </div>
-                )}
-              </div>
-            )}
+            {/* Stats Row */}
+            {hasStats && <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 mb-8 py-6 border-y border-border/30">
+                {project.duration && <div className="text-center">
+                    <CalendarDays className="h-5 w-5 text-accent mx-auto mb-2" />
+                    <p className="font-playfair text-lg text-foreground">{project.duration}</p>
+                    <p className="font-inter text-xs text-muted-foreground uppercase tracking-wider">Duration</p>
+                  </div>}
+                {project.sqft && <div className="text-center">
+                    <Square className="h-5 w-5 text-accent mx-auto mb-2" />
+                    <p className="font-playfair text-lg text-foreground">{project.sqft.toLocaleString()}</p>
+                    <p className="font-inter text-xs text-muted-foreground uppercase tracking-wider">Sq Ft</p>
+                  </div>}
+                {project.bedrooms && <div className="text-center">
+                    <Bed className="h-5 w-5 text-accent mx-auto mb-2" />
+                    <p className="font-playfair text-lg text-foreground">{project.bedrooms}</p>
+                    <p className="font-inter text-xs text-muted-foreground uppercase tracking-wider">Bedrooms</p>
+                  </div>}
+                {project.baths && <div className="text-center">
+                    <Droplets className="h-5 w-5 text-accent mx-auto mb-2" />
+                    <p className="font-playfair text-lg text-foreground">{project.baths}</p>
+                    <p className="font-inter text-xs text-muted-foreground uppercase tracking-wider">Baths</p>
+                  </div>}
+                {project.budget && <div className="text-center">
+                    <Wallet className="h-5 w-5 text-accent mx-auto mb-2" />
+                    <p className="font-playfair text-lg text-foreground">{project.budget}</p>
+                    <p className="font-inter text-xs text-muted-foreground uppercase tracking-wider">Budget</p>
+                  </div>}
+              </div>}
 
             {/* My Role Section */}
-            {hasRole && (
-              <div className="mb-10">
-                <div className="flex items-center gap-2 mb-5">
-                  <Key className="h-4 w-4 text-accent" strokeWidth={1.5} />
-                  <p className="font-inter text-[10px] tracking-[0.25em] text-muted-foreground/60 uppercase">My Role</p>
+            {hasRole && <div className="mb-8">
+                <div className="flex items-center gap-2 mb-4">
+                  <Award className="h-4 w-4 text-accent" />
+                  <p className="font-inter text-xs tracking-[0.2em] text-muted-foreground uppercase">My Role</p>
                 </div>
-                <div className="flex flex-wrap gap-3">
-                  {project.roles!.split(',').map((role, index) => (
-                    <span 
-                      key={index} 
-                      className="inline-flex items-center px-5 py-2.5 text-sm font-inter text-foreground bg-background/80 border border-accent/20 rounded-full"
-                    >
+                <div className="flex flex-wrap gap-2">
+                  {project.roles!.split(',').map((role, index) => <span key={index} className="inline-flex items-center px-4 py-2 rounded-full text-sm font-inter bg-accent/5 text-foreground border border-accent/20">
                       {role.trim()}
-                    </span>
-                  ))}
+                    </span>)}
                 </div>
-              </div>
-            )}
+              </div>}
 
-            {/* Feature Highlights - 2 column layout */}
-            {hasFeatures && (
-              <div className="pt-8 border-t border-border/40">
-                <p className="font-inter text-[10px] tracking-[0.25em] text-muted-foreground/60 uppercase mb-5">Feature Highlights</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4">
-                  {project.features!.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-4">
-                      <Check className="h-5 w-5 text-accent flex-shrink-0" strokeWidth={2} />
+            {/* Feature Highlights */}
+            {hasFeatures && <div className="pt-6 border-t border-border/30">
+                <p className="font-inter text-xs tracking-[0.2em] text-muted-foreground uppercase mb-4">Feature Highlights</p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-3">
+                  {project.features!.map((feature, index) => <div key={index} className="flex items-center gap-3">
+                      <Check className="h-4 w-4 text-accent flex-shrink-0" />
                       <span className="font-inter text-sm text-muted-foreground">{feature}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
-              </div>
-            )}
+              </div>}
           </div>
 
           {/* Project Description */}
@@ -297,12 +274,10 @@ const ProjectDetail = () => {
 
           {/* Videos Section */}
           {videos.length > 0 && <div className="mb-16">
-              <div className="mb-8 flex items-end gap-4">
-                <GalleryMotif className="w-12 h-12 lg:w-16 lg:h-16 text-accent/20" />
-                <div>
-                  <p className="font-inter text-xs tracking-[0.3em] text-muted-foreground uppercase mb-2">Media</p>
-                  <h3 className="font-playfair text-2xl lg:text-3xl text-foreground">Project Videos</h3>
-                </div>
+              <div className="mb-8">
+                <span className="font-playfair text-7xl lg:text-8xl text-accent/10 font-light leading-none block -mb-4 lg:-mb-6">02</span>
+                <p className="font-inter text-xs tracking-[0.3em] text-muted-foreground uppercase mb-2">Media</p>
+                <h3 className="font-playfair text-2xl lg:text-3xl text-foreground">Project Videos</h3>
               </div>
               <div className="w-12 h-[1px] bg-accent mb-8" />
               <div className="grid md:grid-cols-2 gap-6">
@@ -316,18 +291,31 @@ const ProjectDetail = () => {
               </div>
             </div>}
 
-          {/* Gallery Grid - Skip first image since it's already shown as hero */}
-          {allImages.length > 1 && <div className="mb-16">
-              <div className="mb-8 flex items-end gap-4">
-                <GalleryMotif className="w-12 h-12 lg:w-16 lg:h-16 text-accent/20" />
-                <div>
-                  <p className="font-inter text-xs tracking-[0.3em] text-muted-foreground uppercase mb-2">Photography</p>
-                  <h3 className="font-playfair text-2xl lg:text-3xl text-foreground">Gallery</h3>
-                </div>
+          {/* Gallery Grid */}
+          {allImages.length > 0 && <div className="mb-16">
+              <div className="mb-8">
+                <span className="font-playfair text-7xl lg:text-8xl text-accent/10 font-light leading-none block -mb-4 lg:-mb-6">{videos.length > 0 ? '03' : '02'}</span>
+                <p className="font-inter text-xs tracking-[0.3em] text-muted-foreground uppercase mb-2">Photography</p>
+                <h3 className="font-playfair text-2xl lg:text-3xl text-foreground">Gallery</h3>
               </div>
               <div className="w-12 h-[1px] bg-accent mb-8" />
               
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+              {/* Cover Photo - First Image */}
+              {allImages.length > 0 && <ImageWithWatermark key={`${allImages[0]}-cover`}>
+                  <button 
+                    onClick={() => setSelectedImageIndex(0)} 
+                    className="relative w-full aspect-[16/9] overflow-hidden rounded-lg bg-card border border-border group cursor-pointer transition-all hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 mb-6"
+                  >
+                    <img 
+                      src={allImages[0]} 
+                      alt={`${project.title} - Cover`} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 gallery-image" 
+                    />
+                  </button>
+                </ImageWithWatermark>}
+
+              {/* Remaining Gallery Images */}
+              {allImages.length > 1 && <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                   {allImages.slice(1).map((image, index) => {
               const actualIndex = index + 1;
               const label = getImageLabel(image, actualIndex);
@@ -340,7 +328,7 @@ const ProjectDetail = () => {
                         </button>
                       </ImageWithWatermark>;
             })}
-                </div>
+                </div>}
             </div>}
         </div>
       </div>
