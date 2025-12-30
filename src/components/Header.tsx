@@ -6,7 +6,7 @@ import { useNavigate, useLocation, Link } from "react-router-dom";
 import logo from "@/assets/mc-logo-new.png";
 
 const navigation = [
-  { name: "Portfolio", href: "#portfolio" },
+  { name: "Portfolio", href: "/portfolio" },
   { name: "Design", href: "/design" },
   { name: "About", href: "#about" },
   { name: "Contact", href: "/contact" },
@@ -21,13 +21,10 @@ export const Header = React.memo(({ onPortfolioClick }: HeaderProps) => {
   const location = useLocation();
 
   const handleSmoothScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string, itemName: string) => {
+    // If clicking Portfolio, navigate to portfolio page
     if (itemName === "Portfolio") {
       e.preventDefault();
-      if (location.pathname === "/" && onPortfolioClick) {
-        onPortfolioClick();
-      } else {
-        navigate("/", { state: { openPortfolio: true } });
-      }
+      navigate('/portfolio');
       return;
     }
 
@@ -63,7 +60,7 @@ export const Header = React.memo(({ onPortfolioClick }: HeaderProps) => {
         behavior: 'smooth'
       });
     }
-  }, [onPortfolioClick, navigate, location]);
+  }, [navigate, location]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-charcoal/80 shadow-lg transition-all duration-300 border-b border-white/5">
