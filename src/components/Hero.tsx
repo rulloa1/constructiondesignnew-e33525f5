@@ -21,64 +21,64 @@ export const Hero = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return <section ref={elementRef as React.RefObject<HTMLElement>} className="relative min-h-screen w-full overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img src={heroImage} alt="Michael Chandler - 37 years of quality craftsmanship" width={1920} height={1080} className="w-full h-full object-cover object-center transition-transform duration-100 ease-out" style={{
-          transform: `translateY(${scrollY * 0.3}px)`
-        }} loading="eager" fetchPriority="high" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
-      </div>
-      
-      {/* Hero Content */}
-      <div className="relative h-screen flex items-center">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            {/* Large decorative number */}
-            <span className={`font-playfair text-[8rem] lg:text-[12rem] text-white/10 font-light leading-none block -mb-16 lg:-mb-24 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              01
-            </span>
+    {/* Background Image */}
+    <div className="absolute inset-0">
+      <img src={heroImage} alt="Michael Chandler - 37 years of quality craftsmanship" width={1920} height={1080} className="w-full h-full object-cover object-center transition-transform duration-100 ease-out" style={{
+        transform: `translateY(${scrollY * 0.3}px)`
+      }} loading="eager" fetchPriority="high" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/20" />
+    </div>
 
-            {/* Main heading */}
-            <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <p className="font-inter text-xs tracking-[0.3em] text-white/60 uppercase mb-4">
-                Design • Build • Develop
-              </p>
-              <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight">
-                Michael Chandler
-              </h1>
-              <div className="w-16 h-[2px] bg-gold mb-6" />
-              <p className="font-inter text-lg text-white/80 leading-relaxed max-w-lg mb-8">
-                37 years of creating exceptional residential environments through thoughtful design and meticulous craftsmanship.
-              </p>
-            </div>
+    {/* Hero Content */}
+    <div className="relative h-screen flex items-center">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl">
+          {/* Large decorative number */}
+          <span className={`font-playfair text-[8rem] lg:text-[12rem] text-white/10 font-light leading-none block -mb-16 lg:-mb-24 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ textShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
+            01
+          </span>
 
-            {/* CTAs */}
-            <div className={`flex flex-wrap gap-4 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <Button 
-                onClick={() => {
-                  const portfolioSection = document.getElementById('portfolio-trigger');
-                  if (portfolioSection) {
-                    portfolioSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                className="bg-gold hover:bg-gold/90 text-white px-8 py-3 cursor-pointer"
-              >
-                View Portfolio
-              </Button>
-              <Button asChild variant="outline" className="border-white/30 text-white hover:bg-white/10 px-8 py-3">
-                <Link to="/contact" className="bg-secondary opacity-85 text-zinc-950">Get in Touch</Link>
-              </Button>
-            </div>
+          {/* Main heading */}
+          <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <p className="font-inter text-xs tracking-[0.35em] text-white/70 uppercase mb-5 font-light">
+              Design • Build • Develop
+            </p>
+            <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight font-light" style={{ textShadow: '0 2px 30px rgba(0,0,0,0.5), 0 4px 60px rgba(0,0,0,0.3)' }}>
+              Michael Chandler
+            </h1>
+            <div className="w-20 h-[2px] bg-gradient-to-r from-gold to-gold/40 mb-7 shadow-gold-glow" />
+            <p className="font-inter text-lg text-white/90 leading-relaxed max-w-lg mb-10 font-light" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+              37 years of creating exceptional residential environments through thoughtful design and meticulous craftsmanship.
+            </p>
+          </div>
+
+          {/* CTAs */}
+          <div className={`flex flex-wrap gap-4 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <Button
+              onClick={() => {
+                const portfolioSection = document.getElementById('portfolio-trigger');
+                if (portfolioSection) {
+                  portfolioSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="bg-gradient-to-r from-gold to-copper hover:from-gold/90 hover:to-copper/90 text-white px-10 py-6 text-base cursor-pointer shadow-premium hover:shadow-luxury transition-all duration-300 hover:-translate-y-1"
+            >
+              View Portfolio
+            </Button>
+            <Button asChild variant="outline" className="border-white/40 bg-white/5 backdrop-blur-sm text-white hover:bg-white/15 hover:border-white/60 px-10 py-6 text-base shadow-elegant transition-all duration-300 hover:-translate-y-1">
+              <Link to="/contact">Get in Touch</Link>
+            </Button>
           </div>
         </div>
       </div>
+    </div>
 
-      {/* Scroll indicator */}
-      <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="flex flex-col items-center gap-2">
-          <span className="font-inter text-xs text-white/50 uppercase tracking-widest">Scroll</span>
-          <div className="w-px h-12 bg-gradient-to-b from-white/50 to-transparent" />
-        </div>
+    {/* Scroll indicator */}
+    <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <div className="flex flex-col items-center gap-2 animate-pulse-subtle">
+        <span className="font-inter text-xs text-white/60 uppercase tracking-[0.3em] font-light">Scroll</span>
+        <div className="w-px h-16 bg-gradient-to-b from-white/60 via-gold/40 to-transparent" />
       </div>
-    </section>;
+    </div>
+  </section>;
 };

@@ -63,21 +63,21 @@ export const Header = React.memo(({ onPortfolioClick }: HeaderProps) => {
   }, [navigate, location]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-charcoal/80 shadow-lg transition-all duration-300 border-b border-white/5">
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-charcoal/85 shadow-premium transition-all duration-300 border-b border-white/10">
       <nav className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center group">
-            <img src={logo} alt="Michael Chandler logo" className="h-16 w-auto transition-all duration-300 group-hover:scale-110 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] group-hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]" />
+            <img src={logo} alt="Michael Chandler logo" className="h-16 w-auto transition-all duration-500 group-hover:scale-110 drop-shadow-[0_2px_12px_rgba(208,165,102,0.4)] group-hover:drop-shadow-[0_4px_20px_rgba(208,165,102,0.7)]" />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleSmoothScroll(e, item.href, item.name)}
-                className="relative text-sm font-inter font-light tracking-wide text-white transition-all duration-300 drop-shadow-md hover:scale-105 after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-accent after:transition-all after:duration-300 hover:after:w-full leading-relaxed"
+                className="relative text-sm font-inter font-light tracking-[0.08em] text-white/90 transition-all duration-300 drop-shadow-md hover:text-white hover:scale-105 after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-gold after:to-copper after:transition-all after:duration-300 hover:after:w-full leading-relaxed"
               >
                 {item.name}
               </a>
@@ -87,18 +87,18 @@ export const Header = React.memo(({ onPortfolioClick }: HeaderProps) => {
           {/* Mobile Navigation */}
           <Sheet>
             <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 transition-all duration-300">
                 <AlignJustify className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent>
+            <SheetContent className="glass-dark border-white/10">
               <div className="flex flex-col gap-6 mt-8">
                 {navigation.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
                     onClick={(e) => handleSmoothScroll(e, item.href, item.name)}
-                    className="text-lg font-inter font-light tracking-wide hover:text-accent transition-colors leading-relaxed"
+                    className="text-lg font-inter font-light tracking-wide text-white/90 hover:text-gold transition-all duration-300 leading-relaxed"
                   >
                     {item.name}
                   </a>
