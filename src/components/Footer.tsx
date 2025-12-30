@@ -135,7 +135,7 @@ export const Footer = React.memo(() => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gradient-to-r from-transparent via-gold/30 to-transparent">
+      <div className="border-t border-gold/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-5 sm:py-7">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
             <p className="text-cream/60 text-sm sm:text-base font-inter font-light tracking-wide leading-relaxed">
