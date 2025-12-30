@@ -32,7 +32,7 @@ export const Footer = React.memo(() => {
           <div>
             <div className="mb-4 sm:mb-5">
               <img src={logo} alt="Michael Chandler Logo" className="h-12 w-auto mb-3" />
-              
+
               <p className="text-cream/80 text-sm sm:text-base font-inter mb-4 leading-relaxed">
                 Fine Construction & Design
               </p>
@@ -135,22 +135,22 @@ export const Footer = React.memo(() => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-cream/20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-4 sm:py-6">
+      <div className="border-t border-gradient-to-r from-transparent via-gold/30 to-transparent">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-5 sm:py-7">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
-            <p className="text-cream/60 text-sm sm:text-base font-inter leading-relaxed">
+            <p className="text-cream/60 text-sm sm:text-base font-inter font-light tracking-wide leading-relaxed">
               © {currentYear} Michael Chandler Fine Construction & Design. All rights reserved.
             </p>
-            
+
             <div className="flex items-center gap-4 sm:gap-6">
-              <nav className="flex gap-4 sm:gap-6">
+              <nav className="flex gap-5 sm:gap-7">
                 <a
                   href="#about"
                   onClick={e => {
                     e.preventDefault();
                     scrollToSection('about');
                   }}
-                  className="text-cream/70 hover:text-gold transition-colors text-sm sm:text-base font-inter leading-relaxed"
+                  className="text-cream/70 hover:text-gold transition-all duration-300 text-sm sm:text-base font-inter font-light tracking-wide leading-relaxed"
                 >
                   About
                 </a>
@@ -160,7 +160,7 @@ export const Footer = React.memo(() => {
                     e.preventDefault();
                     scrollToSection('services');
                   }}
-                  className="text-cream/70 hover:text-gold transition-colors text-sm sm:text-base font-inter leading-relaxed"
+                  className="text-cream/70 hover:text-gold transition-all duration-300 text-sm sm:text-base font-inter font-light tracking-wide leading-relaxed"
                 >
                   Services
                 </a>
@@ -170,7 +170,7 @@ export const Footer = React.memo(() => {
                     e.preventDefault();
                     scrollToSection('contact');
                   }}
-                  className="text-cream/70 hover:text-gold transition-colors text-sm sm:text-base font-inter leading-relaxed"
+                  className="text-cream/70 hover:text-gold transition-all duration-300 text-sm sm:text-base font-inter font-light tracking-wide leading-relaxed"
                 >
                   Contact
                 </a>
