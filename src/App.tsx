@@ -1,94 +1,50 @@
-import React, { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { AuthProvider } from "@/contexts/AuthContext";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { HelmetProvider } from 'react-helmet-async';
 
-// Lazy load all route components for better code splitting
 const Index = lazy(() => import("./pages/Index"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
-const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
-const Auth = lazy(() => import("./pages/Auth"));
-const Admin = lazy(() => import("./pages/Admin"));
-const AdminUsers = lazy(() => import("./pages/AdminUsers"));
-const Login = lazy(() => import("./pages/Login"));
 const Design = lazy(() => import("./pages/Design"));
+const Process = lazy(() => import("./pages/Process"));
+const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-// Loading fallback component
-const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center bg-cream/30">
-    <div className="text-charcoal font-light">Loading...</div>
-  </div>
-);
-
-const queryClient = new QueryClient();
-
-// Create router with future flag
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Index />,
-  },
-  {
-    path: "/portfolio",
-    element: <Portfolio />,
-  },
-  {
-    path: "/projects/:id",
-    element: <ProjectDetail />,
-  },
-  {
-    path: "/auth",
-    element: <Auth />,
-  },
-  {
-    path: "/admin",
-    element: <Admin />,
-  },
-  {
-    path: "/admin/users",
-    element: <AdminUsers />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/contact",
-    element: <Contact />,
-  },
-  {
-    path: "/design",
-    element: <Design />,
-  },
-  {
-    path: "*",
-    element: <NotFound />,
-  },
-], {
-  future: {
-    v7_relativeSplatPath: true,
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000,
+      retry: 1,
+    },
   },
 });
 
-const App: React.FC = () => {
-  return (
+const App = () => (
+  <HelmetProvider>
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <Suspense fallback={<PageLoader />}>
-            <RouterProvider router={router} future={{ v7_startTransition: true }} />
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-cream/30"><div className="text-charcoal font-light">Loading...</div></div>}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/design" element={<Design />} />
+              <Route path="/process" element={<Process />} />
+              <Route path="/projects/:id" element={<ProjectDetail />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </Suspense>
-        </TooltipProvider>
-      </AuthProvider>
+        </BrowserRouter>
+      </TooltipProvider>
     </QueryClientProvider>
-  );
-};
+  </HelmetProvider>
+);
 
 export default App;

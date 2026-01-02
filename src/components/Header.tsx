@@ -6,9 +6,9 @@ import { useNavigate, useLocation, Link } from "react-router-dom";
 import logo from "@/assets/mc-logo-new.png";
 
 const navigation = [
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Design", href: "/design" },
+  { name: "Our Work", href: "/design" },
   { name: "About", href: "#about" },
+  { name: "Process", href: "/process" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -21,17 +21,17 @@ export const Header = React.memo(({ onPortfolioClick }: HeaderProps) => {
   const location = useLocation();
 
   const handleSmoothScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string, itemName: string) => {
-    // If clicking Portfolio, navigate to portfolio page
-    if (itemName === "Portfolio") {
+    // If clicking Our Work, navigate to design page
+    if (itemName === "Our Work") {
       e.preventDefault();
-      navigate('/portfolio');
+      navigate('/design');
       return;
     }
 
-    // If clicking Design, navigate to design page
-    if (itemName === "Design") {
+    // If clicking Process, navigate to process page
+    if (itemName === "Process") {
       e.preventDefault();
-      navigate('/design');
+      navigate('/process');
       return;
     }
 

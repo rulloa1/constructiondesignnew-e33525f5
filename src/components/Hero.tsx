@@ -43,12 +43,13 @@ export const Hero = () => {
             <p className="font-inter text-xs tracking-[0.35em] text-white/70 uppercase mb-5 font-light">
               Design • Build • Develop
             </p>
-            <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight font-light" style={{ textShadow: '0 2px 30px rgba(0,0,0,0.5), 0 4px 60px rgba(0,0,0,0.3)' }}>
-              Michael Chandler
+            <h1 className="font-playfair text-4xl md:text-5xl lg:text-7xl text-white mb-6 leading-tight font-semibold" style={{ textShadow: '0 2px 30px rgba(0,0,0,0.5), 0 4px 60px rgba(0,0,0,0.3)' }}>
+              30+ Years. $500M+ Built. <br className="hidden lg:block" />
+              One Standard: <span className="text-gold">Exceptional.</span>
             </h1>
             <div className="w-20 h-[2px] bg-gradient-to-r from-gold to-gold/40 mb-7 shadow-gold-glow" />
-            <p className="font-inter text-lg text-white/90 leading-relaxed max-w-lg mb-10 font-light" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
-              37 years of creating exceptional residential environments through thoughtful design and meticulous craftsmanship.
+            <p className="font-inter text-lg text-white/90 leading-relaxed max-w-xl mb-10 font-light" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+              Michael Chandler Fine Construction & Design has delivered landmark projects across Texas, multiple U.S. states, and international destinations. From custom estates to boutique hotels, we bring vision to life.
             </p>
           </div>
 
@@ -61,12 +62,12 @@ export const Hero = () => {
                   portfolioSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="bg-gradient-to-r from-gold to-copper hover:from-gold/90 hover:to-copper/90 text-white px-10 py-6 text-base cursor-pointer shadow-premium hover:shadow-luxury transition-all duration-300 hover:-translate-y-1"
+              className="bg-gradient-to-r from-gold to-copper hover:from-gold/90 hover:to-copper/90 text-white px-10 py-6 text-base cursor-pointer shadow-premium hover:shadow-luxury transition-all duration-300 hover:-translate-y-1 rounded-none uppercase tracking-widest font-medium"
             >
               View Portfolio
             </Button>
-            <Button asChild variant="outline" className="border-white/40 bg-white/5 backdrop-blur-sm text-white hover:bg-white/15 hover:border-white/60 px-10 py-6 text-base shadow-elegant transition-all duration-300 hover:-translate-y-1">
-              <Link to="/contact">Get in Touch</Link>
+            <Button asChild variant="outline" className="border-white/40 bg-white/5 backdrop-blur-sm text-white hover:bg-white/15 hover:border-white/60 px-10 py-6 text-base shadow-elegant transition-all duration-300 hover:-translate-y-1 rounded-none uppercase tracking-widest font-medium">
+              <Link to="/contact">Start Your Project</Link>
             </Button>
           </div>
         </div>

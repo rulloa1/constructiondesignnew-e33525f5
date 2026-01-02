@@ -9,7 +9,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 
 type Category = "All" | ProjectCategory;
 
-const categories: Category[] = ["All", "Residential Construction", "Residential Development", "Civil", "Hospitality", "Design/Build"];
+const categories: Category[] = ["All", "Custom Residences", "Renovations & Additions", "Commercial & Hospitality", "Outdoor Living"];
 
 const categoryColors: Record<string, string> = {
   "Residential Construction": "bg-gold text-charcoal",
@@ -49,11 +49,11 @@ const Portfolio: React.FC = () => {
               <p className="font-inter text-xs tracking-[0.3em] text-cream/60 uppercase mb-3">
                 Our Work
               </p>
-              <h1 className="font-playfair text-4xl lg:text-5xl text-cream mb-4">
-                Portfolio
+              <h1 className="font-playfair text-4xl lg:text-5xl text-cream mb-6">
+                Our Work
               </h1>
-              <p className="font-inter text-cream/70 max-w-2xl mx-auto text-lg">
-                Explore {projects.length} exceptional projects across residential, commercial, civil, and hospitality sectors.
+              <p className="font-playfair text-cream/70 max-w-2xl mx-auto text-xl lg:text-2xl italic leading-relaxed">
+                Over 30 years and $500M+ built, each project represents a unique partnership and a commitment to excellence.
               </p>
             </div>
           </div>
@@ -85,11 +85,10 @@ const Portfolio: React.FC = () => {
                     <button
                       key={category}
                       onClick={() => setSelectedCategory(category)}
-                      className={`relative pb-3 transition-colors duration-200 ${
-                        isActive
+                      className={`relative pb-3 transition-colors duration-200 ${isActive
                           ? "text-gold"
                           : "text-charcoal/40 hover:text-charcoal/70"
-                      }`}
+                        }`}
                     >
                       <span className="whitespace-nowrap font-medium">
                         {category}{" "}

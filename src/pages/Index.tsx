@@ -6,13 +6,20 @@ import { About } from "@/components/About";
 import { BookCoverHero } from "@/components/BookCoverHero";
 import { PortfolioGrid } from "@/components/PortfolioGrid";
 import { Services } from "@/components/Services";
+import { CredibilityBar } from "@/components/CredibilityBar";
+import { ProcessSection } from "@/components/ProcessSection";
 import { Footer } from "@/components/Footer";
+import { Helmet } from "react-helmet-async";
 
 const Index: React.FC = () => {
   const location = useLocation();
   const [bookOpened, setBookOpened] = useState(false);
   const [animating, setAnimating] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (location.state?.openPortfolio) {
@@ -101,6 +108,10 @@ const Index: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-cream">
+      <Helmet>
+        <title>Michael Chandler | Design • Build • Luxury Construction</title>
+        <meta name="description" content="30+ Years. $500M+ Built. Luxury residential and commercial construction across 4 states and internationally. One standard: Exceptional." />
+      </Helmet>
       {/* Book animation overlay */}
       {animating && !prefersReducedMotion && (
         <div className="fixed inset-0 z-50 flex" role="presentation" aria-hidden="true">
@@ -113,8 +124,10 @@ const Index: React.FC = () => {
         <>
           <Header onPortfolioClick={handleOpenBook} />
           <Hero />
+          <CredibilityBar />
           <About onPortfolioClick={handleOpenBook} />
           <Services />
+          <ProcessSection />
           <BookCoverHero onOpenBook={handleOpenBook} />
           <Footer />
         </>
@@ -123,9 +136,9 @@ const Index: React.FC = () => {
           {/* Portfolio view header */}
           <div className="sticky top-0 z-30 bg-foreground/95 backdrop-blur-sm border-b border-white/10">
             <div className="container mx-auto px-4 sm:px-6 py-4">
-              <button 
-                onClick={handleCloseBook} 
-                disabled={animating} 
+              <button
+                onClick={handleCloseBook}
+                disabled={animating}
                 className="flex items-center gap-2 text-background bg-background/10 hover:bg-background/20 px-6 py-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed group font-inter text-sm"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:-translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">

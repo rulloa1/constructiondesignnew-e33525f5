@@ -25,6 +25,22 @@ export const Footer = React.memo(() => {
 
   return (
     <footer id="contact" className="bg-charcoal text-cream">
+      {/* Footer CTA Section */}
+      <div className="bg-white py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-playfair text-3xl lg:text-5xl text-charcoal mb-6">Ready to Start Your Project?</h2>
+          <p className="font-inter text-charcoal/70 mb-10 max-w-2xl mx-auto text-lg">
+            Whether you're envisioning a custom home, renovation, or commercial space, the first step is a conversation.
+          </p>
+          <Button
+            onClick={() => navigate("/contact")}
+            className="bg-gold hover:bg-gold/90 text-white px-12 py-7 text-base rounded-none uppercase tracking-widest font-medium shadow-premium hover:shadow-luxury transition-all duration-300"
+          >
+            Schedule a Consultation
+          </Button>
+        </div>
+      </div>
+
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-12 sm:py-16 md:py-20">
         <div className="grid md:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
