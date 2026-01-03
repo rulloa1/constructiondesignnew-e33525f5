@@ -427,7 +427,15 @@ import alpineRanch9 from "@/assets/projects/alpine-ranch-9.webp";
 import alpineRanch10 from "@/assets/projects/alpine-ranch-10.webp";
 import alpineRanch11 from "@/assets/projects/alpine-ranch-11.webp";
 import alpineRanch12 from "@/assets/projects/alpine-ranch-12.webp";
-export type ProjectCategory = "Residential Construction" | "Residential Development" | "Civil" | "Hospitality" | "Design/Build";
+export type ProjectCategory =
+  | "Residential Construction"
+  | "Residential Development"
+  | "Civil"
+  | "Hospitality"
+  | "Design/Build"
+  | "Renovations & Additions"
+  | "Outdoor Living"
+  | "Furniture";
 
 export interface Project {
   id: string;
@@ -784,6 +792,60 @@ export const projects: Project[] = [
     features: ["Spanish Colonial Revival", "Clay Roof Tiles", "Custom Ironwork", "Arched Colonnades"],
     roles: "OWNERS REPRESENTATIVE, DESIGNER, BUILDER, PERMIT PROCUREMENT",
   },
+  {
+    id: "bespoke-coffee-table",
+    title: "Bespoke Coffee Table",
+    subtitle: "Handcrafted Walnut",
+    location: "Private Residence",
+    additionalInfo: "Custom Furniture",
+    category: "Furniture",
+    description: "A centerpiece of the living room, this custom coffee table features live-edge walnut slab sourced locally, resting on a minimal steel base. The design highlights the natural grain and imperfections of the wood, celebrating its organic history.",
+    image: carmel2_3, // Using interior shot as placeholder
+    images: [carmel2_3],
+    coverRotation: 0,
+    sqft: 0,
+    bedrooms: 0,
+    baths: 0,
+    duration: "4 weeks",
+    features: ["Live Edge Walnut", "Blackened Steel Base", "Hand-Rubbed Oil Finish"],
+    roles: "Design/Fabrication",
+  },
+  {
+    id: "sculptural-console",
+    title: "Sculptural Console",
+    subtitle: "Entryway Statement",
+    location: "Carmel, CA",
+    additionalInfo: "Custom Furniture",
+    category: "Furniture",
+    description: "Designed to anchor the entryway, this floating console table combines architectural precision with organic warmth. Crafted from rift-sawn white oak with concealed drawer pulls.",
+    image: carmelValleyNew3, // Using interior shot as placeholder
+    images: [carmelValleyNew3],
+    coverRotation: 0,
+    sqft: 0,
+    bedrooms: 0,
+    baths: 0,
+    duration: "6 weeks",
+    features: ["Rift-Sawn White Oak", "Floating Installation", "Integrated Storage"],
+    roles: "Design/Fabrication",
+  },
+  {
+    id: "lounge-chair-prototype",
+    title: "Lounge Chair 01",
+    subtitle: "Prototype Series",
+    location: "Studio",
+    additionalInfo: "Custom Furniture",
+    category: "Furniture",
+    description: "An exploration of form and comfort. This lounge chair frames premium leather upholstery within a geometric solid wood structure, balancing visual weight with ergonomic support.",
+    image: southcoast10, // Using interior shot as placeholder
+    images: [southcoast10],
+    coverRotation: 0,
+    sqft: 0,
+    bedrooms: 0,
+    baths: 0,
+    duration: "8 weeks",
+    features: ["Solid Teak Frame", "Full Grain Leather", "Geometric Joinery"],
+    roles: "Design/Fabrication",
+  }
 ];
 
 export const getProjectById = (id: string): Project | undefined => {
