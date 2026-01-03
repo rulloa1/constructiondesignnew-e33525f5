@@ -1,0 +1,5 @@
+scanned_pages
+node_modules
+.git
+dist
+.env
