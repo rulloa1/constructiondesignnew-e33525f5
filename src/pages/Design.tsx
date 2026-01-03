@@ -11,21 +11,30 @@ const Design: React.FC = () => {
   }, []);
 
   // Fetch Projects by Category
-  const interiors = useMemo(() => getProjectsByCategory("Custom Residences"), []);
-  const architecture = useMemo(() => getProjectsByCategory("Residential Construction"), []);
-  const renovations = useMemo(() => getProjectsByCategory("Renovations & Additions"), []);
-  const outdoor = useMemo(() => getProjectsByCategory("Outdoor Living"), []);
-  const commercial = useMemo(() => getProjectsByCategory("Commercial & Hospitality"), []);
+  const interiors = useMemo(() => getProjectsByCategory("Residential Construction"), []);
+  const architecture = useMemo(() => getProjectsByCategory("Design/Build"), []);
+
+  // Filter for renovations specifically or fallback to related
+  const renovations = useMemo(() => projects.filter(p =>
+    p.title.toLowerCase().includes("renovation") ||
+    p.category === "Renovations & Additions"
+  ), []);
+
+  const outdoor = useMemo(() => getProjectsByCategory("Hospitality"), []);
+  const development = useMemo(() => getProjectsByCategory("Residential Development"), []);
+  const concepts = useMemo(() => getProjectsByCategory("Civil"), []);
 
   // Featured Highlights (Select specific projects for impact)
   const featuredShowcase = interiors[0]; // Main big image
-  const featuredInteriors = interiors.slice(1, 4); // 3 vertical images
+  const featuredInteriors = interiors.slice(1, 4);
 
-  const featuredArchitecture = architecture.slice(0, 4); // 4 vertical columns
+  const featuredArchitecture = architecture.slice(0, 4);
 
   // Split Feature: Reimagined (Left) & Pools (Right)
-  const featuredRenovations = renovations.slice(0, 2); // 2 Large Vertical
-  const featuredPools = outdoor.slice(0, 3); // 1 Vertical, 2 Horizontal grid typically, or just 3 tiles
+  const featuredRenovations = renovations.slice(0, 2);
+  const featuredPools = outdoor.slice(0, 3);
+
+  const featuredDevelopment = development.length > 0 ? development : concepts;
 
   return (
     <div className="min-h-screen bg-cream selection:bg-gold selection:text-white">
