@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Skeleton } from "@/components/ui/skeleton";
 import { ImageWithWatermark } from "@/components/ImageWithWatermark";
-import { ProgressiveImage } from "@/components/ProgressiveImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface ProjectCardProps {
@@ -18,6 +18,8 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, categoryColor, index }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   const {
     elementRef,
     isVisible
@@ -32,8 +34,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, ca
     .replace(" ", " • ")
     .replace("/", " • ");
 
-  const secondImage = project.images[1] || coverImage;
-
   return (
     <div
       ref={elementRef as React.RefObject<HTMLDivElement>}
@@ -42,47 +42,43 @@ export const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, ca
     >
       <Link
         to={`/projects/${project.id}`}
-        className="block hover-lift-premium rounded-none overflow-hidden"
+        className="block"
       >
         {/* Image Container */}
-        <div className="relative aspect-[4/5] overflow-hidden mb-6 bg-muted shadow-elegant group-hover:shadow-luxury transition-all duration-500">
+        <div className="relative aspect-[4/3] overflow-hidden mb-5 bg-muted transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-black/10">
           <ImageWithWatermark>
-            {/* Primary Image */}
-            <ProgressiveImage
+            {!imageLoaded && (
+              <Skeleton className="absolute inset-0" />
+            )}
+            <img
               src={coverImage}
               alt={project.title}
-              className="w-full h-full object-cover group-hover:opacity-0 transition-opacity duration-700 ease-in-out"
-            />
-            {/* Secondary Image (Hover) */}
-            <ProgressiveImage
-              src={secondImage}
-              alt={project.title}
-              className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out scale-105 group-hover:scale-110 transition-transform duration-1000"
+              className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-105 ${imageLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
+              onLoad={() => setImageLoaded(true)}
             />
           </ImageWithWatermark>
 
-          {/* Elegant overlay gradient on hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-            <span className="font-playfair text-white text-sm uppercase tracking-[0.3em] border-b border-white/40 pb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-              View Project
-            </span>
-          </div>
-
           {/* Category Badge - Bottom Left */}
-          <div className="absolute bottom-4 left-4 z-10 transition-opacity duration-300 group-hover:opacity-0">
-            <span className="glass-dark text-white/95 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.15em] border border-gold/30 shadow-elegant">
+          <div className="absolute bottom-4 left-4 z-10">
+            <span className="bg-background/90 text-foreground px-3 py-1.5 text-[10px] font-medium uppercase tracking-widest backdrop-blur-md border border-white/10 shadow-sm">
               {formattedCategory}
             </span>
           </div>
         </div>
 
-        {/* Project Info - Title, Location */}
-        <div className="space-y-2 px-1 text-center">
-          <h3 className="font-playfair text-xl lg:text-2xl font-semibold tracking-tight text-charcoal group-hover:text-gold transition-colors duration-300">
+        {/* Project Info - Title, Subtitle, Location */}
+        <div className="space-y-1">
+          <h3 className="text-xl text-foreground group-hover:text-gold transition-colors duration-300">
             {project.title}
           </h3>
+          {project.subtitle && (
+            <p className="font-inter text-sm uppercase tracking-wide text-foreground/80">
+              {project.subtitle}
+            </p>
+          )}
           {project.location && (
-            <p className="font-inter text-xs font-light text-charcoal/40 uppercase tracking-[0.2em] mt-1.5">
+            <p className="font-inter text-xs text-muted-foreground mt-1">
               {project.location}
             </p>
           )}

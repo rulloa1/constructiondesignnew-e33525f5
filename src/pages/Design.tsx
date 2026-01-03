@@ -1,114 +1,169 @@
-import React, { useState, useMemo, useCallback, useEffect } from "react";
+import React, { useMemo, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { projects, getProjectsByCategory, type ProjectCategory } from "@/data/projects";
+import { getProjectsByCategory } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Helmet } from "react-helmet-async";
 
-type Category = "All" | ProjectCategory;
-
-const categories: Category[] = ["All", "Custom Residences", "Renovations & Additions", "Commercial & Hospitality", "Outdoor Living"];
-
 const Design: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<Category>("All");
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Memoize filtered projects to prevent recalculation on every render
-  const filteredProjects = useMemo(() => {
-    return getProjectsByCategory(selectedCategory);
-  }, [selectedCategory]);
+  // Fetch Projects by Category
+  const interiors = useMemo(() => getProjectsByCategory("Custom Residences"), []);
+  const architecture = useMemo(() => getProjectsByCategory("Residential Construction"), []);
+  const renovations = useMemo(() => getProjectsByCategory("Renovations & Additions"), []);
+  const outdoor = useMemo(() => getProjectsByCategory("Outdoor Living"), []);
+  const commercial = useMemo(() => getProjectsByCategory("Commercial & Hospitality"), []);
 
-  // Memoize getCategoryCount to prevent recreation
-  const getCategoryCount = useCallback((category: Category) => {
-    if (category === "All") return projects.length;
-    return getProjectsByCategory(category).length;
-  }, []);
+  // Featured Highlights (Select specific projects for impact)
+  const featuredShowcase = interiors[0]; // Main big image
+  const featuredInteriors = interiors.slice(1, 4); // 3 vertical images
+
+  const featuredArchitecture = architecture.slice(0, 4); // 4 vertical columns
+
+  // Split Feature: Reimagined (Left) & Pools (Right)
+  const featuredRenovations = renovations.slice(0, 2); // 2 Large Vertical
+  const featuredPools = outdoor.slice(0, 3); // 1 Vertical, 2 Horizontal grid typically, or just 3 tiles
 
   return (
     <div className="min-h-screen bg-cream selection:bg-gold selection:text-white">
       <Helmet>
-        <title>Portfolio | Michael Chandler | Luxury Construction</title>
-        <meta name="description" content="Explore our portfolio of custom residences, luxury renovations, commercial spaces, and outdoor living environments." />
+        <title>Design Portfolio | Michael Chandler</title>
+        <meta name="description" content="Curated portfolio of custom residences, interiors, architecture, and luxury outdoor living spaces." />
       </Helmet>
       <Header />
 
-      <div className="pt-20">
-        {/* Hero Section */}
-        <section className="py-24 lg:py-32 bg-charcoal relative overflow-hidden">
-          {/* Subtle decorative background element */}
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-gold/5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2" />
+      <div className="pt-24 pb-24">
+        <div className="container mx-auto max-w-[1400px] px-6 lg:px-12">
 
-          <div className="container mx-auto max-w-7xl px-6 relative z-10">
-            <div className="text-center lg:text-left">
-              <span className="font-playfair text-7xl lg:text-9xl text-gold/10 font-light leading-none block -mb-4 lg:-mb-6">
-                Portfolio
-              </span>
-              <p className="font-inter text-xs tracking-[0.4em] text-gold uppercase mb-6 animate-fade-in">
-                Michael Chandler
-              </p>
-              <h1 className="font-playfair text-5xl lg:text-6xl text-white mb-8 animate-fade-in delay-100 uppercase tracking-tight">
-                Our Work
-              </h1>
-              <p className="font-playfair text-white/60 max-w-2xl text-xl lg:text-2xl italic leading-relaxed animate-fade-in delay-200">
-                "Each project is a testament to the belief that the best results grow from a deep respect for both design vision and construction excellence."
-              </p>
+          {/* Page Title */}
+          <div className="text-center mb-20 lg:mb-32">
+            <h1 className="font-playfair text-5xl lg:text-7xl tracking-[0.2em] text-charcoal uppercase border-b border-charcoal/10 pb-8 inline-block">
+              Design
+            </h1>
+          </div>
+
+          {/* Section 1: Showcase & Interiors */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-32">
+            {/* Featured Highlight - Left (Large) */}
+            <div className="lg:col-span-7 space-y-4">
+              {featuredShowcase && (
+                <ProjectCard project={featuredShowcase} index={0} categoryColor="text-gold" />
+              )}
+            </div>
+
+            {/* Interiors Column - Right */}
+            <div className="lg:col-span-5 flex flex-col gap-8">
+              <div className="text-center lg:text-left mb-4">
+                <h2 className="font-playfair text-2xl tracking-[0.2em] text-charcoal uppercase">
+                  Interiors
+                </h2>
+              </div>
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 h-full">
+                {featuredInteriors.map((p, i) => (
+                  <div key={p.id} className="h-full">
+                    <ProjectCard project={p} index={i} categoryColor="text-gold" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </section>
 
-        {/* Portfolio Grid Section */}
-        <section className="py-16 lg:py-24">
-          <div className="container mx-auto max-w-7xl px-6">
-
-            {/* Category filters */}
-            <div className="mb-16 md:mb-20">
-              <nav className="flex flex-wrap justify-center lg:justify-start gap-8 lg:gap-12 font-inter text-[10px] tracking-[0.25em] uppercase border-b border-charcoal/10 pb-6">
-                {categories.map((category) => {
-                  const isActive = selectedCategory === category;
-                  return (
-                    <button
-                      key={category}
-                      onClick={() => setSelectedCategory(category)}
-                      className={`relative pb-2 transition-all duration-300 group ${isActive
-                        ? "text-gold"
-                        : "text-charcoal/40 hover:text-charcoal/80"
-                        }`}
-                    >
-                      <span className="whitespace-nowrap font-medium flex items-center gap-2">
-                        {category}
-                        <span className={`text-[9px] opacity-50 ${isActive ? 'text-gold' : ''}`}>({getCategoryCount(category)})</span>
-                      </span>
-                      <span className={`absolute inset-x-0 -bottom-[1px] h-[1.5px] bg-gold transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
-                    </button>
-                  );
-                })}
-              </nav>
+          {/* Section 2: Architecture */}
+          <div className="mb-32">
+            <div className="text-center mb-12">
+              <h2 className="font-playfair text-2xl tracking-[0.2em] text-charcoal uppercase">
+                Architecture
+              </h2>
             </div>
-
-            {/* Projects grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-12 lg:gap-16">
-              {filteredProjects.map((project, index) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  index={index}
-                />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {featuredArchitecture.map((p, i) => (
+                <ProjectCard key={p.id} project={p} index={i} categoryColor="text-charcoal" />
               ))}
             </div>
+          </div>
 
-            {/* Results count */}
-            <div className="mt-24 text-center">
-              <div className="w-12 h-[1px] bg-gold/30 mx-auto mb-6" />
-              <p className="font-playfair italic text-charcoal/40 text-lg">
-                Showing {filteredProjects.length} {filteredProjects.length === 1 ? 'Legacy Project' : 'Legacy Projects'}
-                {selectedCategory !== "All" && ` in ${selectedCategory}`}
-              </p>
+          {/* Section 3: Reimagined & Pools */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mb-32">
+
+            {/* Reimagined (Renovations) */}
+            <div>
+              <div className="text-center mb-12">
+                <h2 className="font-playfair text-2xl tracking-[0.2em] text-charcoal uppercase">
+                  Reimagined
+                </h2>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {featuredRenovations.map((p, i) => (
+                  <ProjectCard key={p.id} project={p} index={i} categoryColor="text-charcoal" />
+                ))}
+              </div>
+            </div>
+
+            {/* Pools & Landscape */}
+            <div>
+              <div className="text-center mb-12">
+                <h2 className="font-playfair text-2xl tracking-[0.2em] text-charcoal uppercase">
+                  Pools & Landscape
+                </h2>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {featuredPools.map((p, i) => (
+                  <div key={p.id} className={i === 0 ? "md:col-span-2 md:row-span-2" : ""}>
+                    <ProjectCard project={p} index={i} categoryColor="text-charcoal" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </section>
+
+          {/* Section 4: Development & Concepts */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-24">
+            {/* Development */}
+            <div className="lg:col-span-4">
+              <div className="text-center mb-12">
+                <h2 className="font-playfair text-2xl tracking-[0.2em] text-charcoal uppercase">
+                  Development
+                </h2>
+              </div>
+              {commercial[0] && (
+                <ProjectCard project={commercial[0]} index={0} categoryColor="text-charcoal" />
+              )}
+            </div>
+
+            {/* Concepts */}
+            <div className="lg:col-span-8">
+              <div className="text-center mb-12">
+                <h2 className="font-playfair text-2xl tracking-[0.2em] text-charcoal uppercase">
+                  Concepts
+                </h2>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {commercial.slice(1, 3).map((p, i) => (
+                  <ProjectCard key={p.id} project={p} index={i} categoryColor="text-charcoal" />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* New Section: Custom Furniture (Placeholder using existing projects for now) */}
+          <div className="mb-24">
+            <div className="text-center mb-12">
+              <h2 className="font-playfair text-2xl tracking-[0.2em] text-charcoal uppercase">
+                Custom Furniture
+              </h2>
+            </div>
+            <div className="h-96 md:h-[500px] w-full bg-charcoal/5 flex items-center justify-center relative overflow-hidden group">
+              {/* Placeholder Content */}
+              <div className="text-center z-10 p-8">
+                <p className="font-playfair text-xl text-charcoal/60 italic">Bespoke furniture collection coming soon.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
 
       <Footer />
