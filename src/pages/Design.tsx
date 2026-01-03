@@ -23,6 +23,7 @@ const Design: React.FC = () => {
   const outdoor = useMemo(() => getProjectsByCategory("Hospitality"), []);
   const development = useMemo(() => getProjectsByCategory("Residential Development"), []);
   const concepts = useMemo(() => getProjectsByCategory("Civil"), []);
+  const furnitureProjects = useMemo(() => getProjectsByCategory("Furniture"), []);
 
   // Featured Highlights (Select specific projects for impact)
   const featuredShowcase = interiors[0]; // Main big image
@@ -157,20 +158,52 @@ const Design: React.FC = () => {
             </div>
           </div>
 
-          {/* New Section: Custom Furniture (Placeholder using existing projects for now) */}
-          <div className="mb-24">
-            <div className="text-center mb-12">
-              <h2 className="font-playfair text-2xl tracking-[0.2em] text-charcoal uppercase">
-                Custom Furniture
-              </h2>
-            </div>
-            <div className="h-96 md:h-[500px] w-full bg-charcoal/5 flex items-center justify-center relative overflow-hidden group">
-              {/* Placeholder Content */}
-              <div className="text-center z-10 p-8">
-                <p className="font-playfair text-xl text-charcoal/60 italic">Bespoke furniture collection coming soon.</p>
+          {/* New Section: Custom Furniture */}
+          <section className="mb-24 relative">
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-gold/5 blur-3xl -z-10" />
+
+            <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8 px-4">
+              <div className="max-w-xl">
+                <h2 className="font-playfair text-2xl tracking-[0.2em] text-charcoal uppercase mb-6">
+                  Custom Furniture
+                </h2>
+                <p className="font-inter text-charcoal/70 leading-relaxed">
+                  Bespoke pieces designed and fabricated in-house to complement our architectural vision.
+                  Where structure meets artistry.
+                </p>
               </div>
+              <div className="hidden lg:block h-[1px] flex-grow bg-gold/20 mx-12 mb-8" />
             </div>
-          </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {furnitureProjects.length > 0 ? (
+                furnitureProjects.map((project, index) => (
+                  <div key={project.id} className="group cursor-pointer">
+                    <div className="relative aspect-[3/4] overflow-hidden bg-zinc-900 mb-6">
+                      <div className="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <p className="font-inter text-xs tracking-widest text-gold uppercase">{project.subtitle}</p>
+                      <h3 className="font-playfair text-2xl text-charcoal group-hover:text-gold transition-colors duration-300">
+                        {project.title}
+                      </h3>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="col-span-full py-24 text-center border border-dashed border-charcoal/10 bg-white/50 rounded-lg">
+                  <p className="font-inter text-charcoal/50 italic mb-2">New collection pieces arriving soon.</p>
+                  <span className="text-gold text-sm uppercase tracking-widest">In Fabrication</span>
+                </div>
+              )}
+            </div>
+          </section>
 
         </div>
       </div>
