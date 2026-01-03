@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -17,6 +17,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Helmet } from "react-helmet-async";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -38,6 +39,10 @@ const Contact: React.FC = () => {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -51,18 +56,15 @@ const Contact: React.FC = () => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      // Here you would integrate with your email service (e.g., EmailJS, SendGrid, Supabase)
-      // Form submission - avoid logging PII in production
-      
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      
+
       setIsSubmitted(true);
       toast({
         title: "Message sent!",
         description: "Thank you for contacting us. We'll get back to you soon.",
       });
-      
+
       form.reset();
     } catch (error) {
       toast({
@@ -74,230 +76,263 @@ const Contact: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-cream selection:bg-gold selection:text-white">
+      <Helmet>
+        <title>Contact | Michael Chandler | Luxury Construction</title>
+        <meta name="description" content="Get in touch with Michael Chandler for your next custom residence, renovation, or commercial project." />
+      </Helmet>
       <Header />
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-16 sm:py-20 md:py-24">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-12 sm:mb-16">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-playfair font-semibold mb-4 sm:mb-6 text-foreground">
-              Get In Touch
-            </h1>
-            <p className="text-lg sm:text-xl font-inter text-foreground/70 max-w-3xl mx-auto">
-              Ready to start your next project? Contact us today for a consultation.
-            </p>
-          </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-playfair font-semibold mb-6 text-foreground">
-                  Contact Information
-                </h2>
-                <p className="text-base sm:text-lg font-inter text-foreground/80 leading-relaxed mb-8">
-                  With over 37 years of experience in construction and design, 
-                  we're ready to bring your vision to life. Whether it's a 
-                  residential renovation, commercial build, or landscape design, 
-                  we're here to help.
-                </p>
-              </div>
+      <div className="pt-20">
+        {/* Hero Section */}
+        <section className="py-24 lg:py-32 bg-charcoal relative overflow-hidden">
+          {/* Subtle decorative background element */}
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-gold/5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2" />
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-amber-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-playfair font-semibold text-lg mb-1 text-foreground">
-                      Phone
-                    </h3>
-                    <a 
-                      href="tel:+14352377373" 
-                      className="text-foreground/70 hover:text-amber-600 transition-colors font-inter"
-                    >
-                      +1 (435) 237-7373
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-amber-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-playfair font-semibold text-lg mb-1 text-foreground">
-                      Email
-                    </h3>
-                    <a 
-                      href="mailto:mike.rcccon@yahoo.com" 
-                      className="text-foreground/70 hover:text-amber-600 transition-colors font-inter break-all"
-                    >
-                      mike.rcccon@yahoo.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-amber-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-playfair font-semibold text-lg mb-1 text-foreground">
-                      Location
-                    </h3>
-                    <p className="text-foreground/70 font-inter">
-                      8215 Winding Hills Ln<br />
-                      Spring, Texas 77379
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-amber-500/5 border border-amber-500/20 rounded-lg p-6 sm:p-8">
-                <h3 className="font-playfair font-semibold text-xl mb-3 text-foreground">
-                  Business Hours
-                </h3>
-                <div className="space-y-2 font-inter text-foreground/70">
-                  <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-                  <p>Saturday: 9:00 AM - 4:00 PM</p>
-                  <p>Sunday: By Appointment</p>
-                </div>
-              </div>
+          <div className="container mx-auto max-w-7xl px-6 relative z-10">
+            <div className="text-center lg:text-left">
+              <span className="font-playfair text-7xl lg:text-9xl text-gold/10 font-light leading-none block -mb-4 lg:-mb-6">
+                Contact
+              </span>
+              <p className="font-inter text-xs tracking-[0.4em] text-gold uppercase mb-6 animate-fade-in">
+                Get In Touch
+              </p>
+              <h1 className="font-playfair text-5xl lg:text-6xl text-white mb-8 animate-fade-in delay-100">
+                Start Your Journey
+              </h1>
+              <p className="font-playfair text-white/60 max-w-2xl text-xl lg:text-2xl italic leading-relaxed animate-fade-in delay-200">
+                "We build more than just structures; we build lasting legacy relationships."
+              </p>
             </div>
+          </div>
+        </section>
 
-            {/* Contact Form */}
-            <div className="bg-card border border-border rounded-lg p-6 sm:p-8 shadow-lg">
-              {isSubmitted ? (
-                <div className="text-center py-8">
-                  <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
-                  <h3 className="text-2xl font-playfair font-semibold mb-2 text-foreground">
-                    Thank You!
-                  </h3>
-                  <p className="text-foreground/70 font-inter mb-6">
-                    Your message has been sent successfully. We'll be in touch soon.
-                  </p>
-                  <Button 
-                    onClick={() => setIsSubmitted(false)}
-                    className="bg-amber-600 hover:bg-amber-700 text-white"
-                  >
-                    Send Another Message
-                  </Button>
-                </div>
-              ) : (
-                <>
-                  <h2 className="text-2xl sm:text-3xl font-playfair font-semibold mb-6 text-foreground">
-                    Send Us a Message
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-16 sm:py-24">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
+
+              {/* Contact Information */}
+              <div className="space-y-12 animate-fade-in-up">
+                <div>
+                  <h2 className="text-3xl font-playfair text-charcoal mb-6 border-b border-gold/30 pb-4 inline-block">
+                    Contact Information
                   </h2>
+                  <p className="text-lg font-inter text-charcoal/70 leading-relaxed mb-8">
+                    With over 37 years of experience in construction and design,
+                    we're ready to bring your vision to life.
+                  </p>
+                </div>
 
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                      <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Name *</FormLabel>
-                            <FormControl>
-                              <Input placeholder="Your name" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Email *</FormLabel>
-                            <FormControl>
-                              <Input type="email" placeholder="your@email.com" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="phone"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Phone (Optional)</FormLabel>
-                            <FormControl>
-                              <Input type="tel" placeholder="(555) 123-4567" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="projectType"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Project Type *</FormLabel>
-                            <FormControl>
-                              <select
-                                {...field}
-                                className="w-full px-3 py-2 border border-input bg-background rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
-                              >
-                                <option value="">Select a project type</option>
-                                <option value="residential-construction">Residential Construction</option>
-                                <option value="residential-development">Residential Development</option>
-                                <option value="design-build">Design/Build</option>
-                                <option value="hospitality">Hospitality</option>
-                                <option value="civil">Civil</option>
-                                <option value="renovation">Renovation</option>
-                                <option value="consultation">Consultation</option>
-                                <option value="other">Other</option>
-                              </select>
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Message *</FormLabel>
-                            <FormControl>
-                              <Textarea
-                                placeholder="Tell us about your project..."
-                                className="min-h-[120px] resize-none"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <Button
-                        type="submit"
-                        className="w-full bg-amber-600 hover:bg-amber-700 text-white font-inter py-6 text-lg"
-                        disabled={form.formState.isSubmitting}
+                <div className="space-y-8">
+                  <div className="flex items-start gap-6 group">
+                    <div className="w-14 h-14 rounded-full bg-charcoal/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gold transition-colors duration-500">
+                      <Phone className="w-6 h-6 text-charcoal group-hover:text-white transition-colors duration-500" />
+                    </div>
+                    <div>
+                      <h3 className="font-playfair text-xl mb-1 text-charcoal">
+                        Phone
+                      </h3>
+                      <a
+                        href="tel:+14352377373"
+                        className="text-charcoal/60 hover:text-gold transition-colors font-inter block text-lg"
                       >
-                        {form.formState.isSubmitting ? (
-                          "Sending..."
-                        ) : (
-                          <>
-                            <Send className="w-5 h-5 mr-2" />
-                            Send Message
-                          </>
-                        )}
-                      </Button>
-                    </form>
-                  </Form>
-                </>
-              )}
+                        +1 (435) 237-7373
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-6 group">
+                    <div className="w-14 h-14 rounded-full bg-charcoal/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gold transition-colors duration-500">
+                      <Mail className="w-6 h-6 text-charcoal group-hover:text-white transition-colors duration-500" />
+                    </div>
+                    <div>
+                      <h3 className="font-playfair text-xl mb-1 text-charcoal">
+                        Email
+                      </h3>
+                      <a
+                        href="mailto:mike.rcccon@yahoo.com"
+                        className="text-charcoal/60 hover:text-gold transition-colors font-inter block text-lg break-all"
+                      >
+                        mike.rcccon@yahoo.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-6 group">
+                    <div className="w-14 h-14 rounded-full bg-charcoal/5 flex items-center justify-center flex-shrink-0 group-hover:bg-gold transition-colors duration-500">
+                      <MapPin className="w-6 h-6 text-charcoal group-hover:text-white transition-colors duration-500" />
+                    </div>
+                    <div>
+                      <h3 className="font-playfair text-xl mb-1 text-charcoal">
+                        Location
+                      </h3>
+                      <p className="text-charcoal/60 font-inter text-lg">
+                        8215 Winding Hills Ln<br />
+                        Spring, Texas 77379
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white p-8 shadow-luxury border-l-4 border-gold">
+                  <h3 className="font-playfair text-xl mb-4 text-charcoal">
+                    Business Hours
+                  </h3>
+                  <div className="space-y-2 font-inter text-charcoal/70">
+                    <div className="flex justify-between">
+                      <span>Monday - Friday</span>
+                      <span>8:00 AM - 6:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Saturday</span>
+                      <span>9:00 AM - 4:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Sunday</span>
+                      <span>Appointment Only</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Form */}
+              <div className="bg-white p-8 sm:p-10 shadow-2xl relative animate-fade-in-up delay-200">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gold/10 -mr-4 -mt-4 -z-10 rounded-tr-3xl" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-charcoal/5 -ml-4 -mb-4 -z-10 rounded-bl-3xl" />
+
+                {isSubmitted ? (
+                  <div className="text-center py-16">
+                    <div className="mb-6 inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-50 text-green-600">
+                      <CheckCircle className="w-10 h-10" />
+                    </div>
+                    <h3 className="text-3xl font-playfair mb-4 text-charcoal">
+                      Thank You!
+                    </h3>
+                    <p className="text-charcoal/60 font-inter mb-8 text-lg">
+                      Your message has been sent successfully. We'll be in touch soon.
+                    </p>
+                    <Button
+                      onClick={() => setIsSubmitted(false)}
+                      className="bg-charcoal hover:bg-gold text-white transition-colors duration-300 px-8 py-6"
+                    >
+                      Send Another Message
+                    </Button>
+                  </div>
+                ) : (
+                  <>
+                    <h2 className="text-3xl font-playfair mb-2 text-charcoal">
+                      Send Us a Message
+                    </h2>
+                    <p className="text-charcoal/50 mb-8 font-inter">We'd love to hear about your project.</p>
+
+                    <Form {...form}>
+                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                        <FormField
+                          control={form.control}
+                          name="name"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-charcoal/80">Name *</FormLabel>
+                              <FormControl>
+                                <Input placeholder="Your name" {...field} className="h-12 border-charcoal/10 focus:border-gold focus:ring-gold/20 bg-cream/50" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-charcoal/80">Email *</FormLabel>
+                              <FormControl>
+                                <Input type="email" placeholder="your@email.com" {...field} className="h-12 border-charcoal/10 focus:border-gold focus:ring-gold/20 bg-cream/50" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="phone"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-charcoal/80">Phone (Optional)</FormLabel>
+                              <FormControl>
+                                <Input type="tel" placeholder="(555) 123-4567" {...field} className="h-12 border-charcoal/10 focus:border-gold focus:ring-gold/20 bg-cream/50" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="projectType"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-charcoal/80">Project Type *</FormLabel>
+                              <FormControl>
+                                <select
+                                  {...field}
+                                  className="w-full px-3 py-3 border border-charcoal/10 bg-cream/50 rounded-md focus:outline-none focus:ring-2 focus:ring-gold/20 focus:border-gold h-12"
+                                >
+                                  <option value="">Select a project type</option>
+                                  <option value="residential-construction">Residential Construction</option>
+                                  <option value="residential-development">Residential Development</option>
+                                  <option value="design-build">Design/Build</option>
+                                  <option value="hospitality">Hospitality</option>
+                                  <option value="civil">Civil</option>
+                                  <option value="renovation">Renovation</option>
+                                  <option value="consultation">Consultation</option>
+                                  <option value="other">Other</option>
+                                </select>
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="message"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-charcoal/80">Message *</FormLabel>
+                              <FormControl>
+                                <Textarea
+                                  placeholder="Tell us about your project..."
+                                  className="min-h-[150px] resize-none border-charcoal/10 focus:border-gold focus:ring-gold/20 bg-cream/50"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <Button
+                          type="submit"
+                          className="w-full bg-charcoal hover:bg-gold text-white font-inter py-7 text-lg tracking-wide transition-all duration-300 shadow-lg hover:shadow-gold/20 mt-4"
+                          disabled={form.formState.isSubmitting}
+                        >
+                          {form.formState.isSubmitting ? (
+                            "Sending..."
+                          ) : (
+                            <>
+                              <Send className="w-5 h-5 mr-3" />
+                              Send Message
+                            </>
+                          )}
+                        </Button>
+                      </form>
+                    </Form>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>

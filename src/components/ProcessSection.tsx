@@ -36,35 +36,37 @@ export const ProcessSection: React.FC = () => {
         <section
             id="process"
             ref={elementRef as React.RefObject<HTMLElement>}
-            className="py-20 lg:py-32 bg-white overflow-hidden"
+            className="py-20 lg:py-32 bg-cream overflow-hidden selection:bg-gold selection:text-white"
         >
-            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className={`mb-16 lg:mb-24 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            <div className="container mx-auto max-w-7xl px-6 lg:px-8">
+                <div className={`mb-20 lg:mb-32 text-center lg:text-left transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                     }`}>
-                    <span className="font-playfair text-8xl lg:text-[10rem] text-gold/10 font-light leading-none block -mb-6 lg:-mb-12">
-                        04
+                    <span className="font-playfair text-9xl lg:text-[12rem] text-gold/5 font-light leading-none block -mb-8 lg:-mb-16 select-none">
+                        Process
                     </span>
-                    <p className="font-inter text-xs tracking-[0.3em] text-muted-foreground uppercase mb-3 text-center lg:text-left">The Journey</p>
-                    <h2 className="font-playfair text-4xl lg:text-5xl text-foreground text-center lg:text-left">How We Work</h2>
+                    <div className="relative z-10">
+                        <p className="font-inter text-xs tracking-[0.4em] text-gold uppercase mb-4 pl-1">The Journey</p>
+                        <h2 className="font-playfair text-5xl lg:text-6xl text-charcoal">How We Work</h2>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 relative">
                     {/* Vertical line connector for desktop */}
-                    <div className="hidden lg:block absolute top-12 left-0 right-0 h-[1px] bg-gold/20 -z-10" />
+                    <div className="hidden lg:block absolute top-[2.5rem] left-0 right-0 h-[1px] bg-charcoal/10 -z-10" />
 
                     {phases.map((phase, index) => (
                         <div
                             key={phase.num}
-                            className={`relative transition-all duration-700 delay-${index * 150} ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+                            className={`relative group bg-white/40 lg:bg-transparent p-6 lg:p-0 rounded-xl lg:rounded-none border border-charcoal/5 lg:border-none transition-all duration-700 delay-${index * 150} ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
                                 }`}
                         >
-                            <div className="mb-6 lg:mb-10 w-12 h-12 lg:w-16 lg:h-16 bg-foreground text-white flex items-center justify-center font-playfair text-xl lg:text-2xl rounded-full mx-auto lg:mx-0 shadow-premium border-2 border-gold/30">
+                            <div className="mb-6 lg:mb-10 w-16 h-16 bg-charcoal text-white flex items-center justify-center font-playfair text-2xl rounded-full mx-auto lg:mx-0 shadow-2xl group-hover:bg-gold group-hover:scale-110 transition-all duration-500 relative z-20 border-4 border-cream">
                                 {phase.num}
                             </div>
-                            <h3 className="font-playfair text-xl lg:text-2xl text-foreground mb-4 text-center lg:text-left">
+                            <h3 className="font-playfair text-2xl text-charcoal mb-4 text-center lg:text-left group-hover:text-gold transition-colors duration-300">
                                 {phase.title}
                             </h3>
-                            <p className="font-inter text-sm text-muted-foreground leading-relaxed text-center lg:text-left">
+                            <p className="font-inter text-sm text-charcoal/70 leading-relaxed text-center lg:text-left border-t lg:border-t-0 border-charcoal/10 pt-4 lg:pt-0">
                                 {phase.description}
                             </p>
                         </div>
