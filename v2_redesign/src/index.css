@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-concrete-50 text-concrete-900 antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .sticky-card {
+    @apply sticky top-24 h-[70vh] w-full flex items-center justify-center overflow-hidden;
+  }
+  
+  .brutalist-title {
+    @apply text-[15vw] font-bold leading-[0.8] tracking-tighter uppercase;
+  }
+}

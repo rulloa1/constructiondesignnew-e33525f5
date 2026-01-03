@@ -6,27 +6,36 @@ import { About } from "@/components/About";
 import { BookCoverHero } from "@/components/BookCoverHero";
 import { PortfolioGrid } from "@/components/PortfolioGrid";
 import { Services } from "@/components/Services";
-import { DesignConcepts } from "@/components/DesignConcepts";
-import { ArchitecturalRenderings } from "@/components/ArchitecturalRenderings";
-import { CustomFurniture } from "@/components/CustomFurniture";
-import { InteriorDesignShowcase } from "@/components/InteriorDesignShowcase";
+import { CredibilityBar } from "@/components/CredibilityBar";
+import { ProcessSection } from "@/components/ProcessSection";
 import { Footer } from "@/components/Footer";
+import { Helmet } from "react-helmet-async";
+
 const Index: React.FC = () => {
   const location = useLocation();
   const [bookOpened, setBookOpened] = useState(false);
   const [animating, setAnimating] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
-  // Check for navigation state to open portfolio
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     if (location.state?.openPortfolio) {
       setBookOpened(true);
-      // Clear the state after using it
+      window.history.replaceState(null, "", "#portfolio");
+    } else if (location.state?.scrollTo) {
+      setTimeout(() => {
+        const element = document.getElementById(location.state.scrollTo);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
       window.history.replaceState({}, document.title);
     }
   }, [location]);
 
-  // Check for reduced motion preference
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mediaQuery.matches);
@@ -36,12 +45,12 @@ const Index: React.FC = () => {
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
+
   const handleOpenBook = useCallback(() => {
-    if (animating) return; // Prevent double-clicks
-
+    if (animating || bookOpened) return;
     setAnimating(true);
+    window.history.pushState({ portfolio: true }, "", "#portfolio");
 
-    // Skip animation if user prefers reduced motion
     if (prefersReducedMotion) {
       setBookOpened(true);
       setAnimating(false);
@@ -51,79 +60,99 @@ const Index: React.FC = () => {
       setBookOpened(true);
       setAnimating(false);
     }, 1500);
-  }, [animating, prefersReducedMotion]);
+  }, [animating, bookOpened, prefersReducedMotion]);
+
   const handleCloseBook = useCallback(() => {
-    if (animating) return; // Prevent double-clicks
-
+    if (animating || !bookOpened) return;
     setAnimating(true);
+    window.history.back();
 
-    // Skip animation if user prefers reduced motion
     if (prefersReducedMotion) {
       setBookOpened(false);
       setAnimating(false);
       return;
     }
-
-    // Reverse animation for closing
     setTimeout(() => {
       setBookOpened(false);
       setAnimating(false);
     }, 1500);
-  }, [animating, prefersReducedMotion]);
+  }, [animating, bookOpened, prefersReducedMotion]);
 
-  // Handle escape key to close portfolio
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape" && bookOpened && !animating) {
         handleCloseBook();
       }
     };
+    const handlePopState = (e: PopStateEvent) => {
+      if (e.state?.portfolio) {
+        setBookOpened(true);
+      } else {
+        setBookOpened(false);
+      }
+    };
+
     window.addEventListener("keydown", handleEscape);
-    return () => window.removeEventListener("keydown", handleEscape);
+    window.addEventListener("popstate", handlePopState);
+    return () => {
+      window.removeEventListener("keydown", handleEscape);
+      window.removeEventListener("popstate", handlePopState);
+    };
   }, [bookOpened, animating, handleCloseBook]);
 
-  // Scroll to top when opening/closing portfolio
   useEffect(() => {
     if (!animating) {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [bookOpened, animating]);
-  return <div className="min-h-screen bg-background">
+
+  return (
+    <div className="min-h-screen bg-cream">
+      <Helmet>
+        <title>Michael Chandler | Design • Build • Luxury Construction</title>
+        <meta name="description" content="30+ Years. $500M+ Built. Luxury residential and commercial construction across 4 states and internationally. One standard: Exceptional." />
+      </Helmet>
       {/* Book animation overlay */}
-      {animating && !prefersReducedMotion && <div className="fixed inset-0 z-50 flex" role="presentation" aria-hidden="true">
+      {animating && !prefersReducedMotion && (
+        <div className="fixed inset-0 z-50 flex" role="presentation" aria-hidden="true">
           <div className={`w-1/2 h-full bg-charcoal origin-right transition-transform ${!bookOpened ? "animate-book-open-left" : "animate-book-close-left"}`} />
           <div className={`w-1/2 h-full bg-charcoal origin-left transition-transform ${!bookOpened ? "animate-book-open-right" : "animate-book-close-right"}`} />
-        </div>}
+        </div>
+      )}
 
-      {!bookOpened ? <>
+      {!bookOpened ? (
+        <>
           <Header onPortfolioClick={handleOpenBook} />
           <Hero />
+          <CredibilityBar />
           <About onPortfolioClick={handleOpenBook} />
-          
-          
-          
-          
           <Services />
+          <ProcessSection />
           <BookCoverHero onOpenBook={handleOpenBook} />
           <Footer />
-        </> : <>
-          {/* Portfolio view with navigation header */}
-          <div className="sticky top-0 z-30 bg-charcoal/95 backdrop-blur-sm border-b border-white/10">
-            <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
-              <button onClick={handleCloseBook} disabled={animating} className="flex items-center gap-2 text-cream bg-cream/10 hover:bg-cream/20 px-4 sm:px-6 py-3 sm:py-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed group font-medium shadow-lg hover:shadow-xl text-sm sm:text-base touch-manipulation" aria-label="Close portfolio and return to home">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 group-hover:-translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+        </>
+      ) : (
+        <>
+          {/* Portfolio view header */}
+          <div className="sticky top-0 z-30 bg-foreground/95 backdrop-blur-sm border-b border-white/10">
+            <div className="container mx-auto px-4 sm:px-6 py-4">
+              <button
+                onClick={handleCloseBook}
+                disabled={animating}
+                className="flex items-center gap-2 text-background bg-background/10 hover:bg-background/20 px-6 py-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed group font-inter text-sm"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:-translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
                 </svg>
-                <span>Back to Home</span>
+                Back to Home
               </button>
             </div>
           </div>
-
           <PortfolioGrid onClose={handleCloseBook} />
-        </>}
-    </div>;
+        </>
+      )}
+    </div>
+  );
 };
+
 export default Index;
