@@ -5,6 +5,12 @@ import { EmptyState } from "@/components/shared/EmptyState";
 
 export const ExteriorSpacesLandscape = () => {
   const { projects, loading } = useProjects({ category: "Pools" });
+import { Card, CardContent } from "@/components/ui/card";
+import { Loader2 } from "lucide-react";
+import { useProjectsByCategory } from "@/hooks/useProjects";
+
+export const ExteriorSpacesLandscape = () => {
+  const { projects, loading } = useProjectsByCategory("Pools");
 
   return (
     <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-background via-muted/20 to-background">

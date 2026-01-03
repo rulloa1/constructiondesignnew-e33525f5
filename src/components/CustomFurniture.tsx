@@ -1,10 +1,9 @@
-import { useProjects } from "@/hooks/useProjects";
-import { ProjectCard } from "@/components/shared/ProjectCard";
-import { LoadingState } from "@/components/shared/LoadingState";
-import { EmptyState } from "@/components/shared/EmptyState";
+import { Card, CardContent } from "@/components/ui/card";
+import { Loader2 } from "lucide-react";
+import { useProjectsByCategory } from "@/hooks/useProjects";
 
 export const CustomFurniture = () => {
-  const { projects, loading } = useProjects({ category: "Custom Furniture" });
+  const { projects, loading } = useProjectsByCategory("Custom Furniture");
 
   return (
     <section id="custom-furniture" className="relative py-16 sm:py-20 md:py-24 bg-muted/30">

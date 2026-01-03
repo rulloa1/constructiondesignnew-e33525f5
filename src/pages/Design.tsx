@@ -1,42 +1,119 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Construction } from "lucide-react";
+import React, { useState, useMemo, useCallback, useEffect } from "react";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { projects, getProjectsByCategory, type ProjectCategory } from "@/data/projects";
+import { ProjectCard } from "@/components/ProjectCard";
+import { Helmet } from "react-helmet-async";
 
-const Design = () => {
-  const navigate = useNavigate();
-  
-  return <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-cream via-white to-gold/10" />
-      <div className="absolute inset-0 opacity-[0.035]" style={{
-      backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='140' height='140' viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23888888' stroke-width='0.5'%3E%3Cpath d='M0 0h140v140H0z'/%3E%3Cpath d='M20 0v140M40 0v140M60 0v140M80 0v140M100 0v140M120 0v140M0 20h140M0 40h140M0 60h140M0 80h140M0 100h140M0 120h140'/%3E%3C/g%3E%3C/svg%3E\")"
-    }} />
+type Category = "All" | ProjectCategory;
 
-      <main className="relative z-10">
-        <section className="pt-24 pb-14 px-4 sm:px-6 lg:px-12">
-          <div className="container mx-auto max-w-7xl">
-            <div className="flex flex-wrap items-center gap-4 mb-8">
-              <Button variant="ghost" className="text-charcoal hover:text-gold hover:bg-white/70 border border-transparent hover:border-gold/30" onClick={() => navigate(-1)}>
-                Back
-              </Button>
-            </div>
-          </div>
-        </section>
+const categories: Category[] = ["All", "Custom Residences", "Renovations & Additions", "Commercial & Hospitality", "Outdoor Living"];
 
-        <section className="pb-20 px-4 sm:px-6 lg:px-12">
-          <div className="container mx-auto max-w-7xl">
-            <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
-              <Construction className="w-24 h-24 text-gold mb-8" strokeWidth={1.5} />
-              <h1 className="font-playfair text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6">
-                Under Construction
+const Design: React.FC = () => {
+  const [selectedCategory, setSelectedCategory] = useState<Category>("All");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Memoize filtered projects to prevent recalculation on every render
+  const filteredProjects = useMemo(() => {
+    return getProjectsByCategory(selectedCategory);
+  }, [selectedCategory]);
+
+  // Memoize getCategoryCount to prevent recreation
+  const getCategoryCount = useCallback((category: Category) => {
+    if (category === "All") return projects.length;
+    return getProjectsByCategory(category).length;
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-cream selection:bg-gold selection:text-white">
+      <Helmet>
+        <title>Portfolio | Michael Chandler | Luxury Construction</title>
+        <meta name="description" content="Explore our portfolio of custom residences, luxury renovations, commercial spaces, and outdoor living environments." />
+      </Helmet>
+      <Header />
+
+      <div className="pt-20">
+        {/* Hero Section */}
+        <section className="py-24 lg:py-32 bg-charcoal relative overflow-hidden">
+          {/* Subtle decorative background element */}
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-gold/5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2" />
+
+          <div className="container mx-auto max-w-7xl px-6 relative z-10">
+            <div className="text-center lg:text-left">
+              <span className="font-playfair text-7xl lg:text-9xl text-gold/10 font-light leading-none block -mb-4 lg:-mb-6">
+                Portfolio
+              </span>
+              <p className="font-inter text-xs tracking-[0.4em] text-gold uppercase mb-6 animate-fade-in">
+                Michael Chandler
+              </p>
+              <h1 className="font-playfair text-5xl lg:text-6xl text-white mb-8 animate-fade-in delay-100 uppercase tracking-tight">
+                Our Work
               </h1>
-              <p className="font-inter text-lg text-charcoal/80 max-w-2xl leading-relaxed">
-                Our Design Album is currently being curated. Check back soon to explore our collection of architectural designs, interior concepts, and custom furniture pieces.
+              <p className="font-playfair text-white/60 max-w-2xl text-xl lg:text-2xl italic leading-relaxed animate-fade-in delay-200">
+                "Each project is a testament to the belief that the best results grow from a deep respect for both design vision and construction excellence."
               </p>
             </div>
           </div>
         </section>
-      </main>
-    </div>;
+
+        {/* Portfolio Grid Section */}
+        <section className="py-16 lg:py-24">
+          <div className="container mx-auto max-w-7xl px-6">
+
+            {/* Category filters */}
+            <div className="mb-16 md:mb-20">
+              <nav className="flex flex-wrap justify-center lg:justify-start gap-8 lg:gap-12 font-inter text-[10px] tracking-[0.25em] uppercase border-b border-charcoal/10 pb-6">
+                {categories.map((category) => {
+                  const isActive = selectedCategory === category;
+                  return (
+                    <button
+                      key={category}
+                      onClick={() => setSelectedCategory(category)}
+                      className={`relative pb-2 transition-all duration-300 group ${isActive
+                        ? "text-gold"
+                        : "text-charcoal/40 hover:text-charcoal/80"
+                        }`}
+                    >
+                      <span className="whitespace-nowrap font-medium flex items-center gap-2">
+                        {category}
+                        <span className={`text-[9px] opacity-50 ${isActive ? 'text-gold' : ''}`}>({getCategoryCount(category)})</span>
+                      </span>
+                      <span className={`absolute inset-x-0 -bottom-[1px] h-[1.5px] bg-gold transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                    </button>
+                  );
+                })}
+              </nav>
+            </div>
+
+            {/* Projects grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-12 lg:gap-16">
+              {filteredProjects.map((project, index) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  index={index}
+                />
+              ))}
+            </div>
+
+            {/* Results count */}
+            <div className="mt-24 text-center">
+              <div className="w-12 h-[1px] bg-gold/30 mx-auto mb-6" />
+              <p className="font-playfair italic text-charcoal/40 text-lg">
+                Showing {filteredProjects.length} {filteredProjects.length === 1 ? 'Legacy Project' : 'Legacy Projects'}
+                {selectedCategory !== "All" && ` in ${selectedCategory}`}
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <Footer />
+    </div>
+  );
 };
+
 export default Design;

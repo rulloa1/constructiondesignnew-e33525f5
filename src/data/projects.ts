@@ -142,6 +142,8 @@ import northFlorida9 from "@/assets/projects/north-florida-9.webp";
 import northFlorida10 from "@/assets/projects/north-florida-10.webp";
 import northFlorida11 from "@/assets/projects/north-florida-11.webp";
 import northFlorida12 from "@/assets/projects/north-florida-12.webp";
+import northFlorida13 from "@/assets/projects/north-florida-13.webp";
+import northFlorida14 from "@/assets/projects/north-florida-14.webp";
 
 // Pacific Grove Design/Build album
 import pgCover from "@/assets/projects/pg-cover.webp";
@@ -394,6 +396,7 @@ import miamiBeach44 from "@/assets/projects/miami-beach-44.webp";
 import miamiBeach45 from "@/assets/projects/miami-beach-45.webp";
 import miamiBeach46 from "@/assets/projects/miami-beach-46.webp";
 import miamiBeach47 from "@/assets/projects/miami-beach-47.webp";
+import syracuseCover from "@/assets/projects/syracuse-1.webp";
 import syracuse1 from "@/assets/projects/syracuse-1.webp";
 import syracuse2 from "@/assets/projects/syracuse-2.webp";
 import syracuse3 from "@/assets/projects/syracuse-3.webp";
@@ -453,7 +456,7 @@ import alpineRanch9 from "@/assets/projects/alpine-ranch-9.webp";
 import alpineRanch10 from "@/assets/projects/alpine-ranch-10.webp";
 import alpineRanch11 from "@/assets/projects/alpine-ranch-11.webp";
 import alpineRanch12 from "@/assets/projects/alpine-ranch-12.webp";
-export type ProjectCategory = "Residential Construction" | "Residential Development" | "Civil" | "Hospitality" | "Design/Build";
+export type ProjectCategory = "Custom Residences" | "Renovations & Additions" | "Commercial & Hospitality" | "Outdoor Living";
 
 export interface Project {
   id: string;
@@ -475,6 +478,9 @@ export interface Project {
   features?: string[];
   duration?: string;
   roles?: string;
+  budget?: string;
+  vision?: string;
+  completedYear?: string;
 }
 
 // Projects are organized in the exact order they appear on the portfolio page
@@ -484,12 +490,13 @@ export const projects: Project[] = [
   // RESIDENTIAL CONSTRUCTION
   {
     id: "miami-beach-condo",
-    title: "S. Florida",
+    title: "The Coastal Reserve",
     subtitle: "High Rise Luxe Condo",
     location: "S. Florida",
     additionalInfo: "S. Florida",
-    category: "Residential Construction",
-    description: "Completed in just 5 months, this renovation installed cutting-edge Smart-Home Technology and rare South American solid wood paneling. Hand-picked craftsmen and world-class millworkers delivered a one-of-a-kind ocean-side residence, featuring specialty wall finishes and custom built-ins with bent wood panels. Despite global challenges during the pandemic, the project was delivered on time and on budget. The residence was transformed from a stark white space into a warm, sophisticated sanctuary, earning praise from a world-renowned Interior Designer for its flawless fit and finish.",
+    category: "Custom Residences",
+    vision: "The existing beautiful stone floors were the foundation from which color was added through the use of bespoke millwork. This incredible scalloped paneling and built-ins with 1/4-round wood ends added a softer feel and sense of warmth. This special residence was renovated using specially sourced wood, smart home technology, and a millwork company specializing in the most prestigious hotels & resorts in the world. Oversight, management, and budgets had to be on point, as all work was performed at the beginning of 2021 during the height of the pandemic, yet suffered no delays because of world events.",
+    description: "Oceanfront luxury residence featuring custom millwork and integrated smart home technology.",
     image: miamiBeachCover,
     images: [miamiBeachCover, miamiBeach1, miamiBeach2, miamiBeach3, miamiBeach4, miamiBeach5, miamiBeach6, miamiBeach7, miamiBeach8, miamiBeach9, miamiBeach10, miamiBeach11, miamiBeach12, miamiBeach13, miamiBeach14, miamiBeach15, miamiBeach16, miamiBeach17, miamiBeach18, miamiBeach19, miamiBeach20, miamiBeach21, miamiBeach22, miamiBeach23, miamiBeach24, miamiBeach25, miamiBeach26, miamiBeach27, miamiBeach28, miamiBeach29, miamiBeach30, miamiBeach31, miamiBeach32, miamiBeach33, miamiBeach34, miamiBeach35, miamiBeach36, miamiBeach37, miamiBeach38, miamiBeach39, miamiBeach40, miamiBeach41, miamiBeach42, miamiBeach43, miamiBeach44, miamiBeach45, miamiBeach46, miamiBeach47],
     coverRotation: 180,
@@ -497,24 +504,27 @@ export const projects: Project[] = [
     bedrooms: 4,
     baths: 4,
     duration: "5 months",
+    completedYear: "2021",
     features: ["Ocean Views", "Smart Home", "Chef's Kitchen", "Custom Millwork", "Italian Marble"],
     roles: "Contractor Identification/Contract Negotiation/Project Management, Owner Representation, Property Management, International Furniture/Material/Art Receiving, Vehicle/Management/Procurement/Shipping",
   },
   {
     id: "high-alpine-ranch",
-    title: "High Alpine Mtn.",
+    title: "Hill Country Modern",
     subtitle: "Ranch Luxe Retreat",
-    location: "Montana",
-    additionalInfo: "Montana",
-    category: "Residential Construction",
-    description: "Nestled in the high-alpine region of Montana, this 2,300 sq ft luxury ranch was brought to life over 24 months. The emergence of modern mountain architecture with rustic charm, using exposed timber and custom stone masonry to complement the panoramic landscape. The residence features high volume vaulted ceilings and floor-to-ceiling Custom Bronze Windows / Doors Crafted in Italy that dissolve the boundary between the interior and the breathtaking mountain views. A Mix of Radiant and forced air system to maximize all efficiencies, a gourmet kitchen with natural stone countertops, and custom millwork throughout ensure that a special comfort and elegance are felt in every corner.",
+    location: "Fredericksburg, TX",
+    additionalInfo: "Fredericksburg, TX",
+    category: "Custom Residences" as any,
+    vision: "This project began with the land itself—a 22-acre parcel with dramatic elevation changes and heritage oak trees that the owners wanted preserved at all costs. Rather than fight the terrain, we designed a home that steps down the hillside, with each level offering progressively more dramatic views of the surrounding Hill Country.\n\nThe clients wanted a modern aesthetic that still felt connected to the Texas landscape. We achieved this through a material palette of locally-sourced limestone, weathered steel, and reclaimed barn wood. The result is a home that feels both of-the-moment and deeply rooted in its place.\n\nA central courtyard with a 40-year-old transplanted oak serves as the heart of the home, visible from nearly every room.",
+    description: "A modern ranch retreat designed to harmonize with the dramatic Texas Hill Country terrain.",
     image: alpineRanchCover,
     images: [alpineRanchCover, alpineRanch1, alpineRanch2, alpineRanch3, alpineRanch4, alpineRanch5, alpineRanch6, alpineRanch7, alpineRanch8, alpineRanch9, alpineRanch10, alpineRanch11, alpineRanch12],
-    sqft: 2300,
-    bedrooms: 5,
-    baths: 6,
-    duration: "24 months",
-    features: ["Mountain Views", "Vaulted Ceilings", "Radiant Heating", "Stone Masonry", "Gourmet Kitchen"],
+    sqft: 6200,
+    bedrooms: 4,
+    baths: 5,
+    duration: "14-Month Build",
+    completedYear: "2023",
+    features: ["Stepped design following natural terrain", "Zero trees removed during construction", "Locally-sourced limestone exterior", "Central courtyard with heritage oak", "Wine cellar carved into hillside", "Outdoor living with pizza oven and fire pit"],
     roles: "OWNER REPRESENTATION, DESIGN OVERSIGHT, CONTRACTOR PROCUREMENT, CONTRACT NEGOTIATION, PROJECT MANAGEMENT, PROPERTY MANAGEMENT.",
   },
   // DESIGN/BUILD
@@ -524,9 +534,9 @@ export const projects: Project[] = [
     subtitle: "N. Utah Craftsman Estate",
     location: "N. Utah",
     additionalInfo: "N. Utah",
-    category: "Design/Build",
-    description: "This 6,200 sq ft craftsman-style estate is a testament to our integrated design-build approach. Over 18 months, we orchestrated in the creation of not just a home, but a complete two-acre landscape. The project’s exterior is defined by over 400 tons of decorative stone, professional hardscaping, and dramatic low-voltage evening lighting. The design embraced drought-tolerant native plantings and elegant water features, creating a seamless transition between the built and natural environments. The separate 6 car garage/workshop was for antique restoration, and the two horse stall horse barn + storage rounded out the perfect home/estate/equestrian property.",
-    image: syracuse1,
+    category: "Custom Residences",
+    description: "This 6,200 sq ft craftsman-style estate is a testament to our integrated design-build approach. Over 18 months, we were integral in the creation of not just a home, but a complete two-acre landscape. The project's exterior is defined by over 400 tons of decorative stone, professional hardscaping, and dramatic low-voltage evening lighting. The design embraced drought-tolerant native plantings and elegant water features, creating a seamless transition between the built and natural environments. The separate 6 car garage/workshop was for antique restoration, and the two horse stall horse barn + storage rounded out the perfect home/estate/equestrian property.",
+    image: syracuseCover,
     images: [
       syracuse1, syracuse2, syracuse3, syracuse4, syracuse5, syracuse6,
       syracuse7, syracuse8, syracuse9, syracuse10, syracuse11, syracuse12,
@@ -549,7 +559,7 @@ export const projects: Project[] = [
     subtitle: "Condo",
     location: "Montana",
     additionalInfo: "Montana",
-    category: "Residential Construction",
+    category: "Custom Residences",
     description: "In just eight months, this new 2,800 sq ft condo was completed as a new build, reimagined as a sophisticated mountain retreat. The new build focused on creating a sanctuary of modern comfort, featuring spa-inspired bathrooms with heated floors and contemporary finishes throughout. The selections were of a palette of Calacatta marble, and other fine marbles, many of which were installed as full slabs for floor to ceiling wall finishes, along with warm wood accents, and special hand-applied wall/ceiling finishes. The result is a space that perfectly balances modern living with the tranquility of a mountain setting.",
     image: montanaCover,
     images: [montanaCover, montana1, montana2, montana3, montana4, montana5, montana6, montana7, montana8, montana9, montana10, montana11],
@@ -562,17 +572,19 @@ export const projects: Project[] = [
   // HOSPITALITY
   {
     id: "hospitality-pool",
-    title: "Ultra Luxe Private Club",
+    title: "The Boutique Hotel",
     subtitle: "Resort Pool",
     location: "SE Texas",
     additionalInfo: "SE Texas",
-    category: "Hospitality",
-    description: "We orchestrated the creation of a 189,000 gallon ultra-luxury private club amenity, a project that demanded the coordination of over 15 specialty trades. The centerpiece is a 189,000 gallon free-form pool with a swim-up bar, complemented by two beautiful Int. Design 1,200 sq ft pool houses. The design, inspired by 1950s New York smoking clubs, features imported travertine and 10' high solid mahogany wood walls and doors. This 18-month project delivered a resort-style oasis with professional landscaping, fire pits, and an outdoor kitchen, setting a new standard for private club luxury.",
+    category: "Commercial & Hospitality",
+    vision: "Developing a boutique hotel requires balancing two competing demands: creating spaces that photograph beautifully and spaces that function flawlessly for daily operations. Our client, an experienced hotelier, had seen too many design-forward properties fail because the back-of-house was an afterthought.\n\nWe approached this project operations-first. Every design decision was stress-tested against real hospitality workflows—housekeeping routes, luggage handling, kitchen logistics, and guest flow. Only after the bones were right did we layer in the design elements that give the property its distinctive character.\n\nThe result is a hotel that delights guests while making staff jobs easier—a combination that shows in online reviews and occupancy rates.",
+    description: "An operations-first approach to boutique luxury hospitality design.",
     image: poolDesignCover,
     images: [poolDesignCover, poolDesign1, poolDesign2, poolDesign3, poolDesign4, poolDesign5, poolDesign6, poolDesign7, poolDesign8, poolDesign9, poolDesign10, poolDesign11, poolDesign12, poolDesign13, poolDesign14, poolDesign15, poolDesign16, poolDesign17, poolDesign18, poolDesign19, poolDesign20, poolDesign21, poolDesign22, poolDesign23, poolDesign24, poolDesign25, poolDesign26, poolDesign27, poolDesign28, poolDesign29, poolDesign30, poolDesign31, poolDesign32, poolDesign33, poolDesign34, poolDesign35, poolDesign36, poolDesign37],
-    sqft: 189000,
-    duration: "18 months",
-    features: ["3-Acre Amenity", "Swim-up Bar", "Pool Houses", "Imported Travertine"],
+    sqft: 28000,
+    duration: "30-Month Build",
+    completedYear: "2021",
+    features: ["24 individually designed guest rooms", "Rooftop bar with panoramic views", "Farm-to-table restaurant kitchen", "Spa with 4 treatment rooms", "Operations-optimized back-of-house", "LEED Silver certification"],
     roles: "OWNER REPRESENTATION, DAILY PROJECT MANAGEMENT, CO-DESIGN OF MANY ELEMENTS, PROPERTY MANAGEMENT",
     testimonial: "While this is my need to showcase my work, I do not want to take anything away from the extraordinary and beautiful work done by Michael and Robert Smelek. Truly gifted, always professionals, and absolute gentlemen!\n\nMichael and Robert designed all of the large element items on this pool, and surrounding structures, and I picked up and did all of the more finite detail work, including establishing the look and feel of the bathrooms, which were purposely patterned to have the look and design aesthetic of a 1950's NY Men's Smoking Club. While this was my initial idea, it was easily integrated into the project and plans, flawlessly by Smelek Design.\n\nI also designed the more finite details of this project, including making final decisions for all of the furniture and fabrics, pool plaster color, swim-up bar front design and back-bar layout and design and even including a custom 'blue' granite backsplash. Also included in this was the custom post and rail design for the railing, leading to the pool slides. The reason behind the meticulous design of these detail items is that with some forethought, subtle design elements make each of these items, extraordinary, and seamlessly blend with the surrounding Architecture and Landscaping, which all must be integral to the park-like setting, in which it sits.\n\nAt no time do I want to take away from the truly beautiful design work of Michael and Robert Smelek!\n\nThank you, both for your work!\n\n— Michael E. Chandler\n8215 Winding Hills Ln, Spring, Texas 77379\nCellular (435) 237-7373\nEmail mike.rcccon@yahoo.com",
   },
@@ -583,7 +595,7 @@ export const projects: Project[] = [
     subtitle: "Complete Remodel",
     location: "Big Sur, CA",
     additionalInfo: "Big Sur, CA",
-    category: "Design/Build",
+    category: "Renovations & Additions",
     description: "This 3,800 sq ft residence was completely reimagined through our design-build process. Over 16 months, we opened up the home to panoramic ocean views with new floor-to-ceiling windows and custom skylights. The interior transformation features white oak flooring, a gourmet kitchen with waterfall quartzite countertops, and spa-quality bathrooms with radiant heat. We undertook a complete structural renovation, culminating in a home that is as solid as it is beautiful, a true sanctuary on the Big Sur coast.",
     image: southcoastCover,
     images: [southcoastCover, southcoast2, southcoast3, southcoast4, southcoast5, southcoast6, southcoast7, southcoast8, southcoast9, southcoast10, southcoast11, southcoast12, southcoast13, southcoast14, southcoast15, southcoast16, southcoast17, southcoast18, southcoast19, southcoast20, southcoast21, southcoast22, southcoast23, southcoast24, southcoast25, southcoast26, southcoast27, southcoast28, southcoast29, southcoast30, southcoast31, southcoast32, southcoast33, southcoast34, southcoast35, southcoast36, southcoast37, southcoast38, southcoast39, southcoast40, southcoast41, southcoast42, southcoast43, southcoast44, southcoast45, southcoast46, southcoast47, southcoast48, southcoast49, southcoast50, southcoast51, southcoast52, southcoast53],
@@ -598,7 +610,7 @@ export const projects: Project[] = [
     subtitle: "Custom Residence",
     location: "Carmel Valley, CA",
     additionalInfo: "Carmel Valley, CA",
-    category: "Design/Build",
+    category: "Custom Residences",
     description: "In the heart of Carmel Valley, we crafted a 4,800 sq ft custom residence that is a dialogue between architecture and nature. This 20-month design-build project features exposed steel beams and floor-to-ceiling glass walls that frame the oak-studded landscape. We integrated the home with its surroundings through extensive site work and native habitat restoration, creating a dwelling that is both a part of and a tribute to the natural beauty of the valley.",
     image: carmelValleyNewCover,
     images: [carmelValleyNewCover, carmelValleyNew1, carmelValleyNew2, carmelValleyNew3, carmelValleyNew4],
@@ -613,13 +625,14 @@ export const projects: Project[] = [
     title: "North Florida Renovation/Addition",
     location: "N. Florida",
     additionalInfo: "N. Florida",
-    category: "Residential Construction",
+    category: "Renovations & Additions",
     description: "We revitalized this 3,600 sq ft home with a 1,200 sq ft addition over a 10-month period. Our comprehensive approach included a new roof, impact windows, and updated electrical and plumbing systems. The interior was completely refreshed, and our estate management services ensured a seamless coordination of all trades. The result is a home that is not only more spacious and modern but also fortified and meticulously detailed.",
-    image: northFloridaCover,
-    images: [northFloridaCover, northFlorida1, northFlorida2, northFlorida3, northFlorida4, northFlorida5, northFlorida6, northFlorida7, northFlorida8, northFlorida9, northFlorida10, northFlorida11, northFlorida12],
+    image: northFlorida14,
+    images: [northFlorida14, northFloridaCover, northFlorida1, northFlorida2, northFlorida3, northFlorida4, northFlorida5, northFlorida6, northFlorida7, northFlorida8, northFlorida9, northFlorida10, northFlorida11, northFlorida12, northFlorida13],
     sqft: 3600,
     duration: "10 months",
     features: ["1,200 sq ft Addition", "New Roof", "Impact Windows", "Estate Management"],
+    roles: "Design/Build, Estate Management",
   },
   {
     id: "bahamas-abaco-development",
@@ -627,7 +640,7 @@ export const projects: Project[] = [
     subtitle: "Construction",
     location: "Abaco, Bahamas",
     additionalInfo: "Abaco, Bahamas",
-    category: "Residential Construction",
+    category: "Outdoor Living",
     description: "On the pristine shores of the Abaco Islands, we constructed an 1,800 sq ft luxury boat house in just six months. Built to withstand the Caribbean climate, this waterfront structure features hurricane-resistant construction and premium marine-grade finishes. Custom mahogany millwork and covered dock access provide a touch of elegance, creating a functional and beautiful gateway to the open water.",
     image: abacoLuxeBoathouseCover,
     images: [abacoLuxeBoathouseCover, abacoLuxeBoathouse1],
@@ -642,7 +655,7 @@ export const projects: Project[] = [
     subtitle: "Custom Addition",
     location: "Carmel By the Sea, CA",
     additionalInfo: "Carmel By the Sea, CA",
-    category: "Residential Construction",
+    category: "Renovations & Additions",
     description: "This project is a celebration of its stunning location, a coastal home that harmonizes with the natural beauty of the Carmel coastline. Our focus was on refined craftsmanship and thoughtful design, creating a space that feels both luxurious and deeply connected to its environment. The result is a home that is more than a structure; it is a serene retreat.",
     image: carmel2Cover,
     images: [carmel2Cover, carmel2_1, carmel2_2, carmel2_3, carmel2_4, carmel2_5],
@@ -656,7 +669,7 @@ export const projects: Project[] = [
     subtitle: "Civil Site Work",
     location: "Big Sur, CA",
     additionalInfo: "Big Sur, CA",
-    category: "Civil",
+    category: "Renovations & Additions",
     description: "Over 11 months, we reshaped a 1.2-acre mountain site in Big Sur, a project that required both heavy machinery and a delicate touch. We moved over 3,000 cubic yards of earth, constructed 320 linear feet of retaining walls, and built a 900 sq ft custom garage and workshop. Our work focused on erosion control and drainage systems, all while preserving the property’s stunning ocean views and protecting the natural landscape.",
     image: bigsurCover,
     images: [bigsurCover, bigsur1, bigsur2, bigsur3, bigsur4, bigsur5, bigsur6, bigsur7, bigsur8, bigsur9, bigsur10, bigsur11, bigsur12, bigsur13, bigsur14, bigsur15],
@@ -670,7 +683,7 @@ export const projects: Project[] = [
     subtitle: "More Than Lipstick on an Old Lady!",
     location: "Carmel, CA",
     additionalInfo: "Carmel, CA",
-    category: "Civil",
+    category: "Renovations & Additions",
     description: "This was more than a remodel; it was a complete transformation. Over 12 months, we took a 2,200 sq ft house and revitalized it from the ground up. The project included a new roofline, foundation repairs, 18 energy-efficient windows, and 1,400 sq ft of new composite decking. We also undertook extensive site work, including 200 linear feet of retaining walls and a complete landscape renovation, proving that with the right vision, any property can be reborn.",
     image: carmelKnollsCover,
     images: [carmelKnollsCover, carmelKnolls1, carmelKnolls2, carmelKnolls3, carmelKnolls4, carmelKnolls5, carmelKnolls6, carmelKnolls7, carmelKnolls8, carmelKnolls9, carmelKnolls10, carmelKnolls11, carmelKnolls12, carmelKnolls13, carmelKnolls14, carmelKnolls15, carmelKnolls16, carmelKnolls17, carmelKnolls18, carmelKnolls19, carmelKnolls20, carmelKnolls21, carmelKnolls22, carmelKnolls23, carmelKnolls24, carmelKnolls25],
@@ -685,7 +698,7 @@ export const projects: Project[] = [
     subtitle: "Erosion Repair",
     location: "Monterey Peninsula, CA",
     additionalInfo: "Monterey Peninsula, CA",
-    category: "Civil",
+    category: "Outdoor Living",
     description: "Faced with a dramatically eroded coastal property, we undertook a nine-month restoration project to preserve this spectacular oceanfront site. We moved over 2,500 cubic yards of material, installed 180 linear feet of engineered retaining walls, and performed comprehensive foundation work. This project was a battle against the elements, a successful effort to stabilize and restore a piece of the California coastline for generations to come.",
     image: coastalRestorationCover,
     images: [coastalRestorationCover, coastalRestoration1, coastalRestoration2, coastalRestoration3, coastalRestoration4, coastalRestoration5, coastalRestoration6, coastalRestoration7, coastalRestoration8, coastalRestoration9, coastalRestoration10, coastalRestoration11, coastalRestoration12, coastalRestoration13, coastalRestoration14, coastalRestoration15],
@@ -699,7 +712,7 @@ export const projects: Project[] = [
     subtitle: "Infrastructure Projects",
     location: "CA, TX, NM, CO, MT",
     additionalInfo: "CA, TX, NM, CO, MT",
-    category: "Civil",
+    category: "Commercial & Hospitality",
     description: "Our civil engineering portfolio is a testament to our ability to tackle complex infrastructure challenges across five states. From 2015 to 2024, we have moved over 50,000 cubic yards of earth, installed more than 2,500 linear feet of retaining walls, and executed numerous coastal restoration and hillside stabilization projects. Our expertise in heavy construction and infrastructure development allows us to deliver exceptional results, even in the most challenging terrains.",
     image: civilCover,
     images: [civilCover, civil1, civil2, civil3, civil4, civil5, civil6, civil7, civil8, civil9, civil10, civil11, civil12, civil13, civil14, civil15, civil16, civil17, civil18, civil19, civil20, civil21],
@@ -710,16 +723,21 @@ export const projects: Project[] = [
   // RESIDENTIAL DEVELOPMENT
   {
     id: "bahamas-beachfront-estate",
-    title: "Beachfront Estate",
+    title: "The Waterfront Estate",
     subtitle: "Residence",
-    location: "Abaco, Bahamas",
-    additionalInfo: "Abaco, Bahamas",
-    category: "Residential Development",
-    description: "We developed a 2.5-acre beachfront estate, creating a 6,800 sq ft main residence that embodies luxury Caribbean living. This premier property features 180 feet of private beach frontage and is fortified with Category 5 hurricane-resistant construction. The estate is a self-sufficient oasis, with an infinity pool, guest cottage, dock facilities, solar power backup, and rainwater collection systems. This is more than a home; it is a legacy property on the shores of the Atlantic.",
+    location: "Clear Lake, TX",
+    additionalInfo: "Clear Lake, TX",
+    category: "Custom Residences",
+    vision: "When the owners approached us, they had a clear directive: create a home that celebrates the water from every room while maintaining complete privacy from neighboring properties. The challenge was a narrow lot with 180 feet of waterfront but significant setback restrictions.\n\nOur solution was a curved architectural footprint that maximized water views while creating private courtyard spaces shielded from sight lines. The home features a 60-foot lap pool that appears to merge with the lake beyond, floor-to-ceiling glass walls that retract completely, and a boat house designed as a natural extension of the main residence.\n\nEvery material was selected for both beauty and performance in the coastal environment—marine-grade stainless steel, ipe wood decking, and impact-rated glass throughout.",
+    description: "A curved architectural masterpiece that celebrates waterfront living with uncompromising privacy.",
     image: beachfront1,
     images: [beachfront1, beachfront2, beachfront3, beachfront4, beachfront5, beachfront6, beachfront7],
-    sqft: 6800,
-    features: ["2.5 Acres", "180ft Beach Frontage", "Solar Power", "Infinity Pool", "Guest Cottage"],
+    sqft: 12400,
+    bedrooms: 6,
+    baths: 7,
+    duration: "24-Month Build",
+    completedYear: "2022",
+    features: ["60-ft infinity-edge lap pool with lake views", "Fully retractable glass wall systems", "Integrated boat house and dock", "Hurricane-rated construction throughout", "Smart home automation with Crestron", "Chef's kitchen with dual islands"],
     roles: "PROJECT MANAGER IN A FOREIGN COUNTRY FOR US OWNERS.",
   },
   {
@@ -728,7 +746,7 @@ export const projects: Project[] = [
     subtitle: "Construction",
     location: "SE Texas",
     additionalInfo: "SE Texas",
-    category: "Residential Development",
+    category: "Commercial & Hospitality",
     description: "Over 36 months, we executed a 45-acre master-planned residential development, laying the groundwork for a new community. This comprehensive project included infrastructure for over 120 home sites, 3.2 miles of roads, and complete utility installation. We also created 2 miles of walking trails and community amenities, all while adhering to environmental compliance measures and coordinating with multiple municipal agencies. This project was about more than construction; it was about building a neighborhood.",
     image: development1,
     images: [
@@ -747,7 +765,7 @@ export const projects: Project[] = [
       development13,
     ],
     duration: "36 months",
-    features: ["45 Acres", "120 Home Sites", "3.2 Miles Roads", "Community Amenities"],
+    features: ["45 Acres", "120+ Home Sites", "3.2 Miles Roads", "Community Amenities"],
     roles: "PROJECT MANAGEMENT DEVELOPMENT / CIVIL ENGINEERING PROJECT",
   },
   // DESIGN/BUILD
@@ -757,7 +775,7 @@ export const projects: Project[] = [
     subtitle: "In Historic Neighborhood",
     location: "Central Coast, CA",
     additionalInfo: "Central Coast, CA",
-    category: "Design/Build",
+    category: "Custom Residences",
     description: "Building a new 2,600 sq ft home in a historic neighborhood required a delicate balance of tradition and modernity. Over 14 months, our design-build team navigated historic district guidelines to create a home that respects its context while offering contemporary comforts. The exterior features period-appropriate details like cedar shingle siding and covered porches, while the interior boasts an open floor plan and energy-efficient systems. This project is a bridge between past and present.",
     image: pgCover,
     images: [
@@ -786,7 +804,7 @@ export const projects: Project[] = [
     location: "Carmel, CA",
     additionalInfo: "Carmel, CA",
     category: "Civil",
-    description: "In just four months, we executed a critical environmental cleanup on a 1.5-acre hillside. We removed over 80 tons of debris, including abandoned vehicles and construction waste. But our work didn’t stop there. We implemented erosion control measures, restored the native plant life with over 200 new specimens, and improved drainage systems. This project was about more than just cleaning up; it was about healing a piece of the natural landscape.",
+    description: "In just four months, we executed a critical environmental cleanup on a 1.5-acre hillside. We removed over 80 tons of debris, including abandoned vehicles and construction waste. But our work didn't stop there. We implemented erosion control measures, restored the native plant life with over 200 new specimens, and improved drainage systems. This project was about more than just cleaning up; it was about healing a piece of the natural landscape.",
     image: cleanupCover,
     images: [cleanupCover, cleanup1, cleanup2, cleanup3, cleanup4, cleanup5, cleanup6, cleanup7, cleanup8, cleanup9, cleanup10, cleanup11, cleanup12, cleanup13, cleanup14, cleanup15],
     duration: "4 months",

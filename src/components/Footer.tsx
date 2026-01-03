@@ -1,21 +1,46 @@
 import React, { useMemo, useCallback } from "react";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { AtSign, Smartphone, Navigation } from "lucide-react";
 import logo from "@/assets/mc-logo-new.png";
 
 export const Footer = React.memo(() => {
   const currentYear = useMemo(() => new Date().getFullYear(), []);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToSection = useCallback((sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth'
-      });
+    // If on home page, scroll directly
+    if (location.pathname === "/") {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // Navigate to home with state to scroll after
+      navigate("/", { state: { scrollTo: sectionId } });
     }
-  }, []);
+  }, [location.pathname, navigate]);
 
   return (
     <footer id="contact" className="bg-charcoal text-cream">
+      {/* Footer CTA Section */}
+      <div className="bg-white py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-playfair text-3xl lg:text-5xl text-charcoal mb-6">Ready to Start Your Project?</h2>
+          <p className="font-inter text-charcoal/70 mb-10 max-w-2xl mx-auto text-lg">
+            Whether you're envisioning a custom home, renovation, or commercial space, the first step is a conversation.
+          </p>
+          <Button
+            onClick={() => navigate("/contact")}
+            className="bg-gold hover:bg-gold/90 text-white px-12 py-7 text-base rounded-none uppercase tracking-widest font-medium shadow-premium hover:shadow-luxury transition-all duration-300"
+          >
+            Schedule a Consultation
+          </Button>
+        </div>
+      </div>
+
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-12 sm:py-16 md:py-20">
         <div className="grid md:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
@@ -23,7 +48,7 @@ export const Footer = React.memo(() => {
           <div>
             <div className="mb-4 sm:mb-5">
               <img src={logo} alt="Michael Chandler Logo" className="h-12 w-auto mb-3" />
-              
+
               <p className="text-cream/80 text-sm sm:text-base font-inter mb-4 leading-relaxed">
                 Fine Construction & Design
               </p>
@@ -97,13 +122,13 @@ export const Footer = React.memo(() => {
             </h3>
             <div className="space-y-3 sm:space-y-4">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
+                <Navigation className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
                 <span className="text-cream/70 text-sm sm:text-base font-inter leading-relaxed">
                   Spring, Texas
                 </span>
               </div>
               <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
+                <Smartphone className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
                 <a
                   href="tel:+14352377373"
                   className="text-cream/70 hover:text-gold transition-colors text-sm sm:text-base font-inter leading-relaxed"
@@ -112,7 +137,7 @@ export const Footer = React.memo(() => {
                 </a>
               </div>
               <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
+                <AtSign className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
                 <a
                   href="mailto:mike.rcccon@yahoo.com"
                   className="text-cream/70 hover:text-gold transition-colors text-sm sm:text-base font-inter leading-relaxed break-all"
@@ -126,22 +151,22 @@ export const Footer = React.memo(() => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-cream/20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-4 sm:py-6">
+      <div className="border-t border-gold/20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-5 sm:py-7">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
-            <p className="text-cream/60 text-sm sm:text-base font-inter leading-relaxed">
+            <p className="text-cream/60 text-sm sm:text-base font-inter font-light tracking-wide leading-relaxed">
               © {currentYear} Michael Chandler Fine Construction & Design. All rights reserved.
             </p>
-            
+
             <div className="flex items-center gap-4 sm:gap-6">
-              <nav className="flex gap-4 sm:gap-6">
+              <nav className="flex gap-5 sm:gap-7">
                 <a
                   href="#about"
                   onClick={e => {
                     e.preventDefault();
                     scrollToSection('about');
                   }}
-                  className="text-cream/70 hover:text-gold transition-colors text-sm sm:text-base font-inter leading-relaxed"
+                  className="text-cream/70 hover:text-gold transition-all duration-300 text-sm sm:text-base font-inter font-light tracking-wide leading-relaxed"
                 >
                   About
                 </a>
@@ -151,7 +176,7 @@ export const Footer = React.memo(() => {
                     e.preventDefault();
                     scrollToSection('services');
                   }}
-                  className="text-cream/70 hover:text-gold transition-colors text-sm sm:text-base font-inter leading-relaxed"
+                  className="text-cream/70 hover:text-gold transition-all duration-300 text-sm sm:text-base font-inter font-light tracking-wide leading-relaxed"
                 >
                   Services
                 </a>
@@ -161,7 +186,7 @@ export const Footer = React.memo(() => {
                     e.preventDefault();
                     scrollToSection('contact');
                   }}
-                  className="text-cream/70 hover:text-gold transition-colors text-sm sm:text-base font-inter leading-relaxed"
+                  className="text-cream/70 hover:text-gold transition-all duration-300 text-sm sm:text-base font-inter font-light tracking-wide leading-relaxed"
                 >
                   Contact
                 </a>

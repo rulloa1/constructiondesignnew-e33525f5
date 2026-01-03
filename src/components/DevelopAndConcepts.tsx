@@ -5,6 +5,12 @@ import { EmptyState } from "@/components/shared/EmptyState";
 
 export const DevelopAndConcepts = () => {
   const { projects, loading } = useProjects({ categories: ["Development", "Concepts"] });
+import { Card, CardContent } from "@/components/ui/card";
+import { Loader2 } from "lucide-react";
+import { useProjectsByCategory } from "@/hooks/useProjects";
+
+export const DevelopAndConcepts = () => {
+  const { projects, loading } = useProjectsByCategory(["Development", "Concepts"]);
 
   return (
     <section className="py-16 sm:py-20 md:py-24 bg-muted/20">
