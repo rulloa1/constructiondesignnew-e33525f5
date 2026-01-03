@@ -1,7 +1,7 @@
 import React, { useMemo, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { getProjectsByCategory } from "@/data/projects";
+import { projects, getProjectsByCategory } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Helmet } from "react-helmet-async";
 
@@ -128,8 +128,8 @@ const Design: React.FC = () => {
                   Development
                 </h2>
               </div>
-              {commercial[0] && (
-                <ProjectCard project={commercial[0]} index={0} categoryColor="text-charcoal" />
+              {featuredDevelopment[0] && (
+                <ProjectCard project={featuredDevelopment[0]} index={0} categoryColor="text-charcoal" />
               )}
             </div>
 
@@ -141,7 +141,7 @@ const Design: React.FC = () => {
                 </h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {commercial.slice(1, 3).map((p, i) => (
+                {concepts.slice(0, 2).map((p, i) => (
                   <ProjectCard key={p.id} project={p} index={i} categoryColor="text-charcoal" />
                 ))}
               </div>
