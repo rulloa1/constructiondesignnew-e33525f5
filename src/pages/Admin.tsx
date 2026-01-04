@@ -16,7 +16,7 @@ export default function Admin() {
   const navigate = useNavigate();
   const { user, loading, isAdmin } = useAuth();
   const [selectedProjectId, setSelectedProjectId] = useState<string>("");
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<Array<{ id: string; title: string }>>([]);
   const [fixingCovers, setFixingCovers] = useState(false);
 
   useEffect(() => {

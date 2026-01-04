@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 export interface ProjectImage {
   id: string;
   image_url: string;
   rotation_angle: number;
 }
-import { toast } from "sonner";
 
 export interface Project {
   id: string;
@@ -107,19 +107,7 @@ export const useProjects = (options: UseProjectsOptions = {}) => {
   };
 
   return { projects, loading, error, refetch: fetchProjects };
-  image_url?: string;
-  rotation_angle?: number;
-}
-
-export interface Project {
-  id: string;
-  title: string;
-  description: string | null;
-  category?: string;
-  image_url?: string;
-  rotation_angle?: number;
-  images?: any[];
-}
+};
 
 export const useProjectsByCategory = (category: string | string[]) => {
   const [projects, setProjects] = useState<Project[]>([]);
