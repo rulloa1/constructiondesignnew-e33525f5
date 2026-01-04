@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
@@ -26,11 +26,7 @@ export const ImageManager = ({ projectId }: ImageManagerProps) => {
   const [uploading, setUploading] = useState(false);
   const { toast } = useToast();
 
-  useEffect(() => {
-    fetchImages();
-  }, [projectId]);
-
-  const fetchImages = async () => {
+  const fetchImages = useCallback(async () => {
     try {
       const { data, error } = await supabase
         .from("project_images")
@@ -40,16 +36,21 @@ export const ImageManager = ({ projectId }: ImageManagerProps) => {
 
       if (error) throw error;
       setImages(data || []);
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'An error occurred';
       toast({
         variant: "destructive",
         title: "Error",
-        description: error.message,
+        description: message,
       });
     } finally {
       setLoading(false);
     }
-  };
+  }, [projectId, toast]);
+
+  useEffect(() => {
+    fetchImages();
+  }, [fetchImages]);
 
   const handleRotate = async (imageId: string, currentRotation: number) => {
     const newRotation = (currentRotation + 90) % 360;
@@ -67,11 +68,12 @@ export const ImageManager = ({ projectId }: ImageManagerProps) => {
         description: "Image rotated",
       });
       fetchImages();
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'An error occurred';
       toast({
         variant: "destructive",
         title: "Error",
-        description: error.message,
+        description: message,
       });
     }
   };
@@ -111,11 +113,12 @@ export const ImageManager = ({ projectId }: ImageManagerProps) => {
         description: "Image uploaded",
       });
       fetchImages();
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'An error occurred';
       toast({
         variant: "destructive",
         title: "Error",
-        description: error.message,
+        description: message,
       });
     } finally {
       setUploading(false);
@@ -138,11 +141,12 @@ export const ImageManager = ({ projectId }: ImageManagerProps) => {
         description: "Image deleted",
       });
       fetchImages();
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'An error occurred';
       toast({
         variant: "destructive",
         title: "Error",
-        description: error.message,
+        description: message,
       });
     }
   };
