@@ -33,11 +33,6 @@ export const useProjects = (options: UseProjectsOptions = {}) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  useEffect(() => {
-    fetchProjects();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [options.category, options.categories?.join(','), options.includeAllImages]);
-
   const fetchProjects = async () => {
     try {
       setLoading(true);
@@ -106,6 +101,11 @@ export const useProjects = (options: UseProjectsOptions = {}) => {
     }
   };
 
+  useEffect(() => {
+    fetchProjects();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [options.category, options.categories?.join(','), options.includeAllImages]);
+
   return { projects, loading, error, refetch: fetchProjects };
 };
 
@@ -142,7 +142,7 @@ export const useProjectsByCategory = (category: string | string[]) => {
         const processedProjects = (data || []).map((project) => {
           const images = project.project_images as unknown as { image_url: string; rotation_angle: number; display_order: number }[];
           const firstImage = images && images.length > 0
-            ? images.sort((a, b) => a.display_order - b.display_order)[0]
+            ? [...images].sort((a, b) => a.display_order - b.display_order)[0]
             : null;
 
           return {
