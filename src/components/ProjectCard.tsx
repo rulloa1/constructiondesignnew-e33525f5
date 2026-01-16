@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ImageWithWatermark } from "@/components/ImageWithWatermark";
+import { PremiumImage } from "@/components/PremiumImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface ProjectCardProps {
@@ -13,11 +14,12 @@ interface ProjectCardProps {
     location?: string;
     images: string[];
   };
-  categoryColor: string;
+  categoryColor?: string;
   index: number;
+  aspectClassName?: string;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, categoryColor, index }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, categoryColor, index, aspectClassName }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const {
@@ -45,17 +47,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, ca
         className="block"
       >
         {/* Image Container */}
-        <div className="relative aspect-[4/3] overflow-hidden mb-5 bg-muted transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-black/10">
+        <div className={`relative ${aspectClassName || 'aspect-[4/3]'} overflow-hidden mb-5 bg-muted transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-black/10`}>
           <ImageWithWatermark>
-            {!imageLoaded && (
-              <Skeleton className="absolute inset-0" />
-            )}
-            <img
+            <PremiumImage
               src={coverImage}
               alt={project.title}
-              className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-105 ${imageLoaded ? 'opacity-100' : 'opacity-0'
-                }`}
-              onLoad={() => setImageLoaded(true)}
+              aspectRatio="h-full w-full"
+              priority={index < 2}
+              layoutId={`project-image-${project.id}`}
             />
           </ImageWithWatermark>
 

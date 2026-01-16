@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/michael-chandler-portfolio.png";
+import heroVideo from "@/assets/hero-video.mp4";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 export const Hero = () => {
@@ -21,11 +22,21 @@ export const Hero = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return <section ref={elementRef as React.RefObject<HTMLElement>} className="relative min-h-screen w-full overflow-hidden">
-    {/* Background Image */}
+    {/* Background Video/Image */}
     <div className="absolute inset-0">
-      <img src={heroImage} alt="Michael Chandler - 37 years of quality craftsmanship" width={1920} height={1080} className="w-full h-full object-cover object-center transition-transform duration-100 ease-out" style={{
-        transform: `translateY(${scrollY * 0.3}px)`
-      }} loading="eager" fetchPriority="high" />
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-full object-cover object-center transition-transform duration-100 ease-out"
+        style={{
+          transform: `translateY(${scrollY * 0.3}px)`
+        }}
+      >
+        <source src={heroVideo} type="video/mp4" />
+        <img src={heroImage} alt="Michael Chandler - 37 years of quality craftsmanship" width={1920} height={1080} className="w-full h-full object-cover object-center" />
+      </video>
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/20" />
     </div>
 

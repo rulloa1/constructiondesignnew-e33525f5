@@ -447,6 +447,7 @@ export interface Project {
   description: string;
   image: string;
   images: string[];
+  lightingTheme?: "sunset";
   testimonial?: string;
   testimonialImage?: string;
   coverRotation?: number;
@@ -552,6 +553,7 @@ export const projects: Project[] = [
     description: "This 189,000-gallon ultra-luxury pool amenity was coordinated across 15 specialty trades over 18 months. Inspired by 1950s NY smoking clubs, it features a swim-up bar, two 1,200 sq ft pool houses, and 10' solid mahogany walls. The resort-style oasis includes imported travertine, fire pits, and an outdoor kitchen, setting a new standard for private clubs.",
     image: poolDesignCover,
     images: [poolDesignCover, poolDesign1, poolDesign2, poolDesign3, poolDesign4, poolDesign5, poolDesign6, poolDesign7, poolDesign8, poolDesign9, poolDesign10, poolDesign11, poolDesign12, poolDesign13, poolDesign14, poolDesign15, poolDesign16, poolDesign17, poolDesign18, poolDesign19, poolDesign20, poolDesign21, poolDesign22, poolDesign23, poolDesign24, poolDesign25, poolDesign26, poolDesign27, poolDesign28, poolDesign29, poolDesign30, poolDesign31, poolDesign32, poolDesign33, poolDesign34, poolDesign35, poolDesign36, poolDesign37],
+    lightingTheme: "sunset",
     sqft: 189000,
     duration: "18 months",
     features: ["3-Acre Amenity", "Swim-up Bar", "Pool Houses", "Imported Travertine"],

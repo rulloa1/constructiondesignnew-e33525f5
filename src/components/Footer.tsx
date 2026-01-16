@@ -1,6 +1,7 @@
 import React, { useMemo, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { AtSign, Smartphone, Navigation } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import logo from "@/assets/mc-logo-new.png";
 
 export const Footer = React.memo(() => {
