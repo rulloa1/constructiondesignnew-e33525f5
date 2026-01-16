@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
@@ -26,11 +26,7 @@ export const ProjectsManager = () => {
   });
   const { toast } = useToast();
 
-  useEffect(() => {
-    fetchProjects();
-  }, []);
-
-  const fetchProjects = async () => {
+  const fetchProjects = useCallback(async () => {
     try {
       const { data, error } = await supabase
         .from("projects")
@@ -39,16 +35,21 @@ export const ProjectsManager = () => {
 
       if (error) throw error;
       setProjects(data || []);
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'An error occurred';
       toast({
         variant: "destructive",
         title: "Error",
-        description: error.message,
+        description: message,
       });
     } finally {
       setLoading(false);
     }
-  };
+  }, [toast]);
+
+  useEffect(() => {
+    fetchProjects();
+  }, [fetchProjects]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,11 +91,12 @@ export const ProjectsManager = () => {
         display_order: 0,
       });
       fetchProjects();
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'An error occurred';
       toast({
         variant: "destructive",
         title: "Error",
-        description: error.message,
+        description: message,
       });
     }
   };
@@ -127,11 +129,12 @@ export const ProjectsManager = () => {
         description: "Project deleted successfully",
       });
       fetchProjects();
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'An error occurred';
       toast({
         variant: "destructive",
         title: "Error",
-        description: error.message,
+        description: message,
       });
     }
   };

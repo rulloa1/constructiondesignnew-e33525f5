@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 export interface ProjectImage {
   id: string;
   image_url: string;
   rotation_angle: number;
 }
-import { toast } from "sonner";
 
 export interface Project {
   id: string;
@@ -32,11 +32,6 @@ export const useProjects = (options: UseProjectsOptions = {}) => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
-
-  useEffect(() => {
-    fetchProjects();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [options.category, options.categories?.join(','), options.includeAllImages]);
 
   const fetchProjects = async () => {
     try {
@@ -106,20 +101,13 @@ export const useProjects = (options: UseProjectsOptions = {}) => {
     }
   };
 
-  return { projects, loading, error, refetch: fetchProjects };
-  image_url?: string;
-  rotation_angle?: number;
-}
+  useEffect(() => {
+    fetchProjects();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [options.category, options.categories?.join(','), options.includeAllImages]);
 
-export interface Project {
-  id: string;
-  title: string;
-  description: string | null;
-  category?: string;
-  image_url?: string;
-  rotation_angle?: number;
-  images?: any[];
-}
+  return { projects, loading, error, refetch: fetchProjects };
+};
 
 export const useProjectsByCategory = (category: string | string[]) => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -154,7 +142,7 @@ export const useProjectsByCategory = (category: string | string[]) => {
         const processedProjects = (data || []).map((project) => {
           const images = project.project_images as unknown as { image_url: string; rotation_angle: number; display_order: number }[];
           const firstImage = images && images.length > 0
-            ? images.sort((a, b) => a.display_order - b.display_order)[0]
+            ? [...images].sort((a, b) => a.display_order - b.display_order)[0]
             : null;
 
           return {
