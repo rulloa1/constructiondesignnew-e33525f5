@@ -6,116 +6,183 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Portfolio Report</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #666;
+            --accent: #d4af37; /* Gold */
+            --bg: #f5f5f5;
+            --card-bg: #ffffff;
+            --border: #e5e5e5;
+        }
 
         body {
             font-family: 'Outfit', sans-serif;
             line-height: 1.6;
-            color: #333;
-            max-width: 900px;
+            color: var(--primary);
+            background: var(--bg);
+            margin: 0;
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 40px;
-            background: #fff;
         }
 
         h1.main-title {
             text-align: center;
-            font-size: 32px;
-            margin-bottom: 60px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--primary);
+            margin-bottom: 80px;
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        h1.main-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
         }
 
         .project-card {
-            margin-bottom: 40px;
+            background: var(--card-bg);
+            margin-bottom: 60px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
             page-break-inside: avoid;
-            border: 1px solid #eee;
-            padding: 30px;
-            border-radius: 8px;
-            background-color: #fcfcfc;
         }
 
         .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
+            padding: 40px 40px 30px;
+            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 20px;
+            align-items: start;
         }
 
         .project-titles h2 {
-            margin: 0;
-            font-size: 24px;
-            color: #222;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin: 0 0 5px;
+            color: var(--primary);
+            letter-spacing: -0.5px;
         }
 
         .project-titles h3 {
-            margin: 5px 0 0;
-            font-size: 16px;
-            font-weight: 400;
-            color: #666;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .project-roles {
-            margin: 10px 0 0;
-            font-size: 11px;
-            font-weight: 700;
-            color: #222;
-            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin: 0;
         }
 
         .project-meta {
             text-align: right;
-            font-size: 14px;
-            color: #888;
+            font-size: 13px;
+            color: var(--secondary);
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .project-meta div:first-child {
+            color: var(--primary);
+            font-weight: 600;
         }
 
         .project-content {
-            display: flex;
-            gap: 30px;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 0;
         }
 
         .project-image {
-            flex: 0 0 300px;
-            height: 200px;
-            background-color: #eee;
-            border-radius: 4px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: #f0f0f0;
+            height: 100%;
+            min-height: 400px;
         }
 
         .project-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .project-details {
-            flex: 1;
+            padding: 40px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: block;
         }
 
         .description {
-            margin-bottom: 20px;
-            font-size: 15px;
+            font-size: 16px;
             color: #444;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-weight: 300;
         }
 
-        .testimonial {
-            margin: 20px 0;
-            padding: 15px;
-            background: #f9f9f9;
-            border-left: 4px solid #ddd;
-            font-style: italic;
-            font-size: 14px;
+        .roles-section {
+            margin-bottom: 30px;
+        }
+
+        .project-roles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            /* Fallback for legacy text-only roles */
+            font-size: 11px;
+            font-weight: 700;
+            color: #222;
+            text-transform: uppercase;
+        }
+
+        .role-tag {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            background: #f5f5f5;
+            border-radius: 4px;
             color: #555;
-            white-space: pre-wrap;
+            letter-spacing: 0.5px;
+            /* Reset font weight for tags */
+            font-weight: 500;
+            color: #555;
         }
 
+        /* New Grid Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Legacy Stats Support */
         .stats {
             display: flex;
             flex-wrap: wrap;
@@ -133,37 +200,68 @@
         }
 
         .stat-label {
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
+            letter-spacing: 1.5px;
             color: #999;
-            margin-bottom: 2px;
+            margin-bottom: 8px;
         }
 
         .stat-value {
-            font-weight: 600;
-            color: #333;
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .testimonial {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f9f9f9;
+            border-left: 3px solid var(--accent);
+            font-style: italic;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .feature-list {
+            margin-top: 30px;
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .feature-item {
+            font-size: 13px;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-item::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
         }
 
         @media print {
-            body {
-                padding: 0;
-                max-width: 100%;
-            }
+            body { padding: 0; background: white; }
+            .project-card { box-shadow: none; border: 1px solid #eee; margin-bottom: 30px; }
+            .project-content { grid-template-columns: 1fr; }
+            .project-image { height: 300px; }
+            .no-print { display: none !important; }
+        }
 
-            .project-card {
-                break-inside: avoid;
-                border: none;
-                border-bottom: 1px solid #ccc;
-            }
-
-            .project-image {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .no-print {
-                display: none !important;
-            }
+        @media (max-width: 768px) {
+            .project-content { grid-template-columns: 1fr; }
+            .project-header { grid-template-columns: 1fr; gap: 10px; }
+            .project-meta { text-align: left; flex-direction: row; gap: 15px; }
+            .project-image { height: 250px; }
+            .stats-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -338,8 +436,6 @@
             <div class="project-titles">
                 <h2>Ultra Luxe Private Club</h2>
                 <h3>Resort Pool</h3>
-                <div class="project-roles">OWNER REPRESENTATION, DAILY PROJECT MANAGEMENT, CO-DESIGN OF MANY ELEMENTS,
-                    PROPERTY MANAGEMENT</div>
             </div>
             <div class="project-meta">
                 <div>SE Texas</div>
@@ -351,12 +447,46 @@
                 <img src="./src/assets/projects/pool-design-cover.webp" alt="Ultra Luxe Private Club">
             </div>
             <div class="project-details">
+                <span class="section-label">Overview</span>
                 <div class="description">
                     This 189,000-gallon ultra-luxury pool amenity was coordinated across 15 specialty trades over 18
                     months. Inspired by 1950s NY smoking clubs, it features a swim-up bar, two 1,200 sq ft pool houses,
                     and 10' solid mahogany walls. The resort-style oasis includes imported travertine, fire pits, and an
                     outdoor kitchen, setting a new standard for private clubs.
                 </div>
+
+                <div class="roles-section">
+                    <span class="section-label">My Role</span>
+                    <div class="project-roles">
+                        <span class="role-tag">Owner Representation</span>
+                        <span class="role-tag">Daily Project Management</span>
+                        <span class="role-tag">Co-Design</span>
+                        <span class="role-tag">Property Management</span>
+                    </div>
+                </div>
+
+                <span class="section-label">Project Details</span>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Duration</span>
+                        <span class="stat-value">18 months</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Size</span>
+                        <span class="stat-value">189,000 Gallon</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <span class="section-label">Feature Highlights</span>
+                    <ul class="feature-list">
+                        <li class="feature-item">3-Acre Amenity</li>
+                        <li class="feature-item">Swim-up Bar</li>
+                        <li class="feature-item">Pool Houses</li>
+                        <li class="feature-item">Imported Travertine</li>
+                    </ul>
+                </div>
+
                 <div class="testimonial">
                     "While this is my need to showcase my work, I do not want to take anything away from the
                     extraordinary and beautiful work done by Michael and Robert Smelek. Truly gifted, always
@@ -382,15 +512,6 @@
 
                     — Michael E. Chandler
                     8215 Winding Hills Ln, Spring, Texas 77379"
-                </div>
-                <div class="stats">
-                    <div class="stat-item"><span class="stat-label">Gallons</span><span
-                            class="stat-value">189,000</span>
-                    </div>
-                    <div class="stat-item"><span class="stat-label">Duration</span><span class="stat-value">18
-                            months</span></div>
-                    <div class="stat-item"><span class="stat-label">Features</span><span class="stat-value">3-Acre
-                            Amenity, Swim-up Bar, Pool Houses, Imported Travertine</span></div>
                 </div>
             </div>
         </div>
