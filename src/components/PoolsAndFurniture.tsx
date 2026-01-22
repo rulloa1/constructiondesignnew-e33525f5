@@ -38,7 +38,7 @@ export const PoolsAndFurniture = () => {
               {poolProjects.length === 0 ? <div className="text-center py-12 text-muted-foreground">
                 No pool projects available yet.
               </div> : poolProjects.slice(0, 1).map(project => <Card key={project.id} onClick={() => handleProjectClick(project)} className="overflow-hidden bg-card border-border hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer group">
-                {project.image_url && <div className="relative aspect-[3/4] overflow-hidden">
+                {project.image_url && <div className="relative aspect-[3/4] overflow-hidden sunset-glow">
                   <img src={project.image_url} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" style={{
                     transform: `rotate(${project.rotation_angle || 0}deg)`
                   }} />

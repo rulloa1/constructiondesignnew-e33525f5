@@ -260,14 +260,9 @@ const ProjectDetail = () => {
                           alt={`${project.title} gallery ${index}`}
                           className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
                           style={{
-                            filter: project.lightingTheme === "sunset" ? (() => {
-                              const p = actualIndex / (allImages.length - 1 || 1);
-                              if (p < 0.2) return `sepia(0.2) brightness(1.1) saturate(1.1) contrast(1.02)`;
-                              if (p < 0.4) return `sepia(0.4) hue-rotate(-5deg) brightness(1.08) saturate(1.3) contrast(1.05)`;
-                              if (p < 0.6) return `sepia(0.5) hue-rotate(-15deg) brightness(1.02) saturate(1.5) contrast(1.1) drop-shadow(0 0 15px rgba(255,180,0,0.2))`;
-                              if (p < 0.8) return `sepia(0.3) hue-rotate(-30deg) brightness(0.85) contrast(1.15) saturate(1.2) drop-shadow(0 0 20px rgba(255,100,0,0.1))`;
-                              return `brightness(0.65) contrast(1.2) saturate(1.1) hue-rotate(190deg) sepia(0.1) brightness(0.9)`;
-                            })() : undefined
+                            filter: project.lightingTheme === "sunset" ? 
+                              `contrast(1.1) brightness(1.05) sepia(0.3) saturate(1.3) hue-rotate(-5deg)` 
+                              : undefined
                           }}
                         />
                       </ImageWithWatermark>
@@ -276,25 +271,13 @@ const ProjectDetail = () => {
                           <div
                             className="absolute inset-0 pointer-events-none transition-all duration-1000 ease-in-out mix-blend-soft-light"
                             style={{
-                              background: (() => {
-                                const p = actualIndex / (allImages.length - 1 || 1);
-                                if (p < 0.2) return `radial-gradient(circle at 80% 20%, rgba(255, 240, 150, 0.15), transparent 70%)`;
-                                if (p < 0.4) return `radial-gradient(circle at 85% 25%, rgba(255, 200, 50, 0.25), transparent 60%)`;
-                                if (p < 0.6) return `linear-gradient(135deg, rgba(255, 120, 0, 0.2), transparent 50%), radial-gradient(circle at 90% 30%, rgba(255, 100, 0, 0.3), transparent 70%)`;
-                                if (p < 0.8) return `linear-gradient(to top, rgba(255, 50, 0, 0.15), rgba(120, 0, 255, 0.1)), radial-gradient(circle at 95% 40%, rgba(255, 50, 0, 0.2), transparent 80%)`;
-                                return `linear-gradient(to top, rgba(0, 30, 100, 0.4), rgba(50, 0, 120, 0.2))`;
-                              })()
+                              background: `radial-gradient(circle at 85% 20%, rgba(255, 200, 50, 0.2), transparent 60%)`
                             }}
                           />
                           <div
                             className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none transition-all duration-1000 ease-in-out opacity-40 mix-blend-overlay"
                             style={{
-                              background: (() => {
-                                const p = actualIndex / (allImages.length - 1 || 1);
-                                if (p < 0.5) return `linear-gradient(to top, rgba(255, 180, 0, 0.2), transparent)`;
-                                if (p < 0.8) return `linear-gradient(to top, rgba(255, 80, 0, 0.3), transparent)`;
-                                return `linear-gradient(to top, rgba(100, 0, 255, 0.2), transparent)`;
-                              })()
+                              background: `linear-gradient(to top, rgba(255, 100, 0, 0.2), transparent)`
                             }}
                           />
                         </>

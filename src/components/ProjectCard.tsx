@@ -31,6 +31,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, ca
 
   const coverImage = project.images[0];
 
+  // Check if the project is a pool project
+  const isPoolProject = project.category === "Pools" || project.id === "hospitality-pool";
+
   // Format category with bullet separator
   const formattedCategory = project.category
     .replace(" ", " • ")
@@ -47,7 +50,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, ca
         className="block"
       >
         {/* Image Container */}
-        <div className={`relative ${aspectClassName || 'aspect-[4/3]'} overflow-hidden mb-5 bg-muted transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-black/10`}>
+        <div className={`relative ${aspectClassName || 'aspect-[4/3]'} overflow-hidden mb-5 bg-muted transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-black/10 ${isPoolProject ? 'sunset-glow' : ''}`}>
           <ImageWithWatermark>
             <PremiumImage
               src={coverImage}
