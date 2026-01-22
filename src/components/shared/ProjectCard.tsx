@@ -49,6 +49,8 @@ export const ProjectCard = ({
     md: "text-sm sm:text-base",
   };
 
+  const isPoolProject = project.category === "Pools";
+
   return (
     <Card
       onClick={() => onClick?.(project)}
@@ -57,11 +59,11 @@ export const ProjectCard = ({
       }`}
     >
       {project.image_url && (
-        <div className={`relative ${aspectRatioClasses[aspectRatio]} overflow-hidden`}>
+        <div className={`relative ${aspectRatioClasses[aspectRatio]} overflow-hidden ${isPoolProject ? "sunset-glow" : ""}`}>
           <img
             src={project.image_url}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 professional-lighting"
             style={{ transform: `rotate(${project.rotation_angle || 0}deg)` }}
           />
           {showOverlay && (

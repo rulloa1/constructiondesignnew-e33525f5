@@ -41,7 +41,7 @@
   color: #888;
 }
 
-/* Sunset Glow Effect for Pool Photos */
+/* Sunset Glow Effect for Pool Photos (specific) */
 .sunset-glow img {
   filter: contrast(1.1) brightness(1.05) sepia(0.3) saturate(1.3) hue-rotate(-5deg) !important;
   transition: filter 0.5s ease;
@@ -49,4 +49,14 @@
 
 .sunset-glow:hover img {
   filter: contrast(1.15) brightness(1.1) sepia(0.2) saturate(1.4) hue-rotate(-5deg) !important;
+}
+
+/* Professional Lighting Standard (Global) */
+.professional-lighting {
+  filter: contrast(1.05) brightness(1.02) saturate(1.1) sepia(0.03);
+  transition: filter 0.5s ease;
+}
+
+.group:hover .professional-lighting {
+  filter: contrast(1.1) brightness(1.05) saturate(1.15) sepia(0.03);
 }

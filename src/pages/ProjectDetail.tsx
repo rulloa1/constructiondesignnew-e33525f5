@@ -141,7 +141,7 @@ const ProjectDetail = () => {
         </nav>
 
         {/* Immersive Hero Section */}
-        <section ref={heroRef} className="relative h-[85vh] w-full overflow-hidden bg-charcoal">
+        <section ref={heroRef} className={`relative h-[85vh] w-full overflow-hidden bg-charcoal ${project.lightingTheme === "sunset" ? "sunset-glow" : ""}`}>
           <PremiumImage
             src={heroImage}
             alt={project.title}
@@ -258,7 +258,7 @@ const ProjectDetail = () => {
                         <img
                           src={image}
                           alt={`${project.title} gallery ${index}`}
-                          className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
+                          className={`w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 ${project.lightingTheme !== "sunset" ? "professional-lighting" : ""}`}
                           style={{
                             filter: project.lightingTheme === "sunset" ? 
                               `contrast(1.1) brightness(1.05) sepia(0.3) saturate(1.3) hue-rotate(-5deg)` 

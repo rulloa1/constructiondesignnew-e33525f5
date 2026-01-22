@@ -44,7 +44,7 @@ export const PremiumImage: React.FC<PremiumImageProps> = ({
                 alt={alt}
                 loading={priority ? "eager" : "lazy"}
                 className={`
-          w-full h-full object-cover transition-all duration-1000 ease-out
+          w-full h-full object-cover transition-all duration-1000 ease-out professional-lighting
           ${isLoaded ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-110 blur-2xl'}
         `}
                 onLoad={() => setIsLoaded(true)}
