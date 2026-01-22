@@ -9,6 +9,7 @@ import { AnimatePresence } from "framer-motion";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { PageTransition } from "@/components/PageTransition";
 
+const Landing = lazy(() => import("./pages/Landing"));
 const Index = lazy(() => import("./pages/Index"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
 const Design = lazy(() => import("./pages/Design"));
@@ -33,7 +34,8 @@ const AnimatedRoutes = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><Index /></PageTransition>} />
+        <Route path="/" element={<PageTransition><Landing /></PageTransition>} />
+        <Route path="/home" element={<PageTransition><Index /></PageTransition>} />
         <Route path="/portfolio" element={<PageTransition><Portfolio /></PageTransition>} />
         <Route path="/design" element={<PageTransition><Design /></PageTransition>} />
         <Route path="/process" element={<PageTransition><Process /></PageTransition>} />

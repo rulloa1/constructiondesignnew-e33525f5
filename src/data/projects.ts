@@ -247,7 +247,7 @@ import siteMap from "@/assets/projects/site-map.webp";
 // Hospitality Pool
 import poolTestimonialImage from "@/assets/pool-testimonial.webp";
 import poolDesignCover from "@/assets/projects/pool-design-cover.webp";
-import poolDesign1 from "@/assets/projects/pool-design-1.webp";
+import poolDesign1 from "@/assets/projects/pool-design-2.webp";
 import poolDesign2 from "@/assets/projects/pool-design-2.webp";
 import poolDesign3 from "@/assets/projects/pool-design-3.webp";
 import poolDesign4 from "@/assets/projects/pool-design-4.webp";

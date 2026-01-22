@@ -42,10 +42,10 @@ export const Header = React.memo(({ onPortfolioClick }: HeaderProps) => {
       return;
     }
 
-    // If clicking About from non-home page, navigate home first
-    if (itemName === "About" && location.pathname !== "/") {
+    // If clicking About from non-home page, navigate to home first
+    if (itemName === "About" && location.pathname !== "/home") {
       e.preventDefault();
-      navigate("/", { state: { scrollTo: "about" } });
+      navigate("/home", { state: { scrollTo: "about" } });
       return;
     }
 
