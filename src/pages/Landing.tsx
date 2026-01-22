@@ -6,9 +6,19 @@ import heroImage from "@/assets/michael-chandler-portfolio.png";
 
 const Landing: React.FC = () => {
   const [loaded, setLoaded] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     setLoaded(true);
+
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth - 0.5) * 15,
+        y: (e.clientY / window.innerHeight - 0.5) * 15
+      });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   return (
@@ -19,37 +29,44 @@ const Landing: React.FC = () => {
       </Helmet>
 
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <img 
           src={heroImage} 
           alt="Michael Chandler Portfolio" 
-          className={`w-full h-full object-cover transition-transform duration-[20s] ease-out ${loaded ? 'scale-105' : 'scale-100'}`}
+          className={`w-full h-full object-cover transition-all duration-[2s] ease-out ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          style={{ 
+            transform: `scale(1.1) translate(${mousePosition.x * -1}px, ${mousePosition.y * -1}px)` 
+          }}
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/40 transition-opacity duration-[2s] ease-out" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className={`transition-all duration-1000 transform ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl text-white mb-6 tracking-tight">
+        <div className="flex flex-col items-center">
+          <h1 className={`font-playfair text-5xl md:text-7xl lg:text-8xl text-white mb-6 tracking-tight transition-all duration-1000 delay-300 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Michael Chandler
           </h1>
-          <div className="w-24 h-[1px] bg-gold mx-auto mb-8" />
-          <p className="font-inter text-lg md:text-xl text-white/80 tracking-[0.2em] uppercase mb-12 font-light">
+          <div className={`w-24 h-[1px] bg-gold mx-auto mb-8 transition-all duration-1000 delay-500 ${loaded ? 'opacity-100 w-24' : 'opacity-0 w-0'}`} />
+          <p className={`font-inter text-lg md:text-xl text-white/90 tracking-[0.2em] uppercase mb-12 font-light transition-all duration-1000 delay-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Fine Construction & Design
           </p>
           
-          <Button 
-            asChild 
-            className="bg-transparent border border-white/30 text-white hover:bg-white/10 hover:border-white/60 px-12 py-8 text-lg uppercase tracking-[0.2em] transition-all duration-500 rounded-none backdrop-blur-sm"
-          >
-            <Link to="/home">Enter Site</Link>
-          </Button>
+          <div className={`transition-all duration-1000 delay-1000 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <Button 
+              asChild 
+              className="bg-transparent border border-white/30 text-white hover:bg-white/10 hover:border-white/60 px-12 py-8 text-lg uppercase tracking-[0.2em] transition-all duration-500 rounded-none backdrop-blur-sm group"
+            >
+              <Link to="/home">
+                <span className="relative z-10">Enter Site</span>
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
 
       {/* Footer/Copyright */}
-      <div className="absolute bottom-8 left-0 right-0 text-center z-10">
+      <div className={`absolute bottom-8 left-0 right-0 text-center z-10 transition-all duration-1000 delay-[1200ms] ${loaded ? 'opacity-100' : 'opacity-0'}`}>
         <p className="text-white/40 text-xs font-inter tracking-widest uppercase">
           &copy; {new Date().getFullYear()} Michael Chandler
         </p>
