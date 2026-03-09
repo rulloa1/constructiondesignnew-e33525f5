@@ -156,54 +156,54 @@ export default function Admin() {
             <TabsTrigger value="projects">Projects</TabsTrigger>
             <TabsTrigger value="images">Images</TabsTrigger>
           </TabsList>
-160	
-161	          <TabsContent value="projects">
-162	            <ProjectsManager />
-163	          </TabsContent>
-164	
-165	          <TabsContent value="images">
-166	            <div className="space-y-6">
-167	              <div className="flex items-end gap-4">
-168	                <div className="max-w-xs flex-1">
-169	                  <Label className="mb-2 block">Select Project</Label>
-170	                  <Select value={selectedProjectId} onValueChange={setSelectedProjectId}>
-171	                    <SelectTrigger>
-172	                      <SelectValue placeholder="Choose a project" />
-173	                    </SelectTrigger>
-174	                    <SelectContent>
-175	                      {projects.map((project) => (
-176	                        <SelectItem key={project.id} value={project.id}>
-177	                          {project.title}
-178	                        </SelectItem>
-179	                      ))}
-180	                    </SelectContent>
-181	                  </Select>
-182	                </div>
-183	                <Button
-184	                  variant="outline"
-185	                  onClick={handleFixAllCoverPhotos}
-186	                  disabled={fixingCovers}
-187	                  className="mb-0"
-188	                >
-189	                  {fixingCovers ? (
-190	                    <>
-191	                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-192	                      Fixing...
-193	                    </>
-194	                  ) : (
-195	                    <>
-196	                      <RotateCw className="mr-2 h-4 w-4" />
-197	                      Fix All Cover Photos
-198	                    </>
-199	                  )}
-200	                </Button>
-201	              </div>
-202	
-203	              {selectedProjectId && <ImageManager projectId={selectedProjectId} />}
-204	            </div>
-205	          </TabsContent>
-206	        </Tabs>
-207	      </div>
-208	    </div>
-209	  );
-210	}
+
+          <TabsContent value="projects">
+            <ProjectsManager />
+          </TabsContent>
+
+          <TabsContent value="images">
+            <div className="space-y-6">
+              <div className="flex items-end gap-4">
+                <div className="max-w-xs flex-1">
+                  <Label className="mb-2 block">Select Project</Label>
+                  <Select value={selectedProjectId} onValueChange={setSelectedProjectId}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Choose a project" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {projects.map((project) => (
+                        <SelectItem key={project.id} value={project.id}>
+                          {project.title}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <Button
+                  variant="outline"
+                  onClick={handleFixAllCoverPhotos}
+                  disabled={fixingCovers}
+                  className="mb-0"
+                >
+                  {fixingCovers ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Fixing...
+                    </>
+                  ) : (
+                    <>
+                      <RotateCw className="mr-2 h-4 w-4" />
+                      Fix All Cover Photos
+                    </>
+                  )}
+                </Button>
+              </div>
+
+              {selectedProjectId && <ImageManager projectId={selectedProjectId} />}
+            </div>
+          </TabsContent>
+        </Tabs>
+      </div>
+    </div>
+  );
+}
