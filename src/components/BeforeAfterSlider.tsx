@@ -85,7 +85,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
 
             {/* Labels */}
             <div className="absolute bottom-4 left-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                <span className="bg-charcoal/80 text-white text-[10px] uppercase tracking-widest px-3 py-1 px-3 py-1 backdrop-blur-md">
+                <span className="bg-charcoal/80 text-white text-[10px] uppercase tracking-widest px-3 py-1 backdrop-blur-md">
                     {beforeLabel}
                 </span>
             </div>
