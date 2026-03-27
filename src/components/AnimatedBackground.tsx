@@ -1,10 +1,19 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const AnimatedBackground = () => {
   const canvasRef = useRef<HTMLDivElement>(null);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    if (!canvasRef.current) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  useEffect(() => {
+    if (!canvasRef.current || prefersReducedMotion) return;
 
     // Add random shimmer points to grid
     const shimmerPoints = Array.from({ length: 15 }, () => ({
@@ -13,15 +22,21 @@ export const AnimatedBackground = () => {
       delay: Math.random() * 8,
     }));
 
-    shimmerPoints.forEach((point, i) => {
+    const container = canvasRef.current;
+    shimmerPoints.forEach((point) => {
       const shimmer = document.createElement("div");
       shimmer.className = "absolute w-1 h-1 rounded-full animate-shimmer-pulse";
       shimmer.style.left = `${point.x}%`;
       shimmer.style.top = `${point.y}%`;
       shimmer.style.animationDelay = `${point.delay}s`;
-      canvasRef.current?.appendChild(shimmer);
+      container.appendChild(shimmer);
     });
-  }, []);
+
+    return () => {
+      // Clean up shimmer points on re-render or motion preference change
+      container.querySelectorAll(".animate-shimmer-pulse").forEach((el) => el.remove());
+    };
+  }, [prefersReducedMotion]);
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -39,7 +54,7 @@ export const AnimatedBackground = () => {
       />
 
       {/* Architectural lines with breathing animation */}
-      <svg
+      {!prefersReducedMotion && <svg
         className="absolute inset-0 w-full h-full"
         preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +175,7 @@ export const AnimatedBackground = () => {
           className="animate-breathe-line"
           style={{ animationDelay: '5.5s' }}
         />
-      </svg>
+      </svg>}
 
       <style>{`
         @keyframes breathe-line {

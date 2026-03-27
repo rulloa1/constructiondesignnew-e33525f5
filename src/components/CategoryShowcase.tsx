@@ -5,7 +5,6 @@ import residentialImg from "@/assets/category-residential.jpg";
 import commercialImg from "@/assets/category-commercial.jpg";
 import hospitalityImg from "@/assets/category-hospitality.jpg";
 import designBuildImg from "@/assets/category-design-build.jpg";
-import pacificGroveImg from "@/assets/category-pacific-grove.jpg";
 const categories = [{
   id: "residential",
   title: "Residential Construction",

@@ -12,6 +12,7 @@ interface ProjectImage {
 interface ProjectGalleryProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  projectTitle?: string;
   images: ProjectImage[];
   initialIndex?: number;
   lightingTheme?: "sunset";

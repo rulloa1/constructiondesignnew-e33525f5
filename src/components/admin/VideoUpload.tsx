@@ -17,8 +17,6 @@ export const VideoUpload = ({ projectId, onUploadComplete }: VideoUploadProps) =
   const [videoUrl, setVideoUrl] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [uploadProgress, setUploadProgress] = useState(0);
-
   const validateUrl = (url: string): boolean => {
     try {
       new URL(url);
@@ -40,7 +38,6 @@ export const VideoUpload = ({ projectId, onUploadComplete }: VideoUploadProps) =
     }
 
     setUploading(true);
-    setUploadProgress(0);
 
     try {
       const { data: { session }, error: sessionError } = await supabase.auth.getSession();
@@ -98,7 +95,6 @@ export const VideoUpload = ({ projectId, onUploadComplete }: VideoUploadProps) =
       toast.error(`Failed to upload: ${message}`);
     } finally {
       setUploading(false);
-      setUploadProgress(0);
       if (event.target) event.target.value = '';
     }
   };

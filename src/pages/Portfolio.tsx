@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useCallback } from "react";
+import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -36,6 +37,12 @@ const Portfolio: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-cream">
+      <Helmet>
+        <title>Our Work | Michael Chandler | Fine Construction & Design Portfolio</title>
+        <meta name="description" content="Browse 30+ years of luxury residential, commercial, and hospitality construction projects by Michael Chandler Fine Construction & Design." />
+        <meta property="og:title" content="Our Work | Michael Chandler | Fine Construction & Design Portfolio" />
+        <meta property="og:description" content="Browse 30+ years of luxury residential, commercial, and hospitality construction projects." />
+      </Helmet>
       <Header />
 
       <div className="pt-20">
