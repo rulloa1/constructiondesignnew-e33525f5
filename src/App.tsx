@@ -21,8 +21,6 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Admin = lazy(() => import("./pages/Admin"));
 const AdminUsers = lazy(() => import("./pages/AdminUsers"));
 const Auth = lazy(() => import("./pages/Auth"));
-const Login = lazy(() => import("./pages/Login"));
-const Signup = lazy(() => import("./pages/Signup"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 
@@ -51,8 +49,6 @@ const AnimatedRoutes = () => {
         <Route path="/admin" element={<ProtectedRoute requireAdmin><PageTransition><Admin /></PageTransition></ProtectedRoute>} />
         <Route path="/admin/users" element={<ProtectedRoute requireAdmin><PageTransition><AdminUsers /></PageTransition></ProtectedRoute>} />
         <Route path="/auth" element={<PageTransition><Auth /></PageTransition>} />
-        <Route path="/login" element={<PageTransition><Login /></PageTransition>} />
-        <Route path="/signup" element={<PageTransition><Signup /></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>

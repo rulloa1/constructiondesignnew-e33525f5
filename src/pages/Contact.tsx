@@ -14,6 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -56,8 +57,15 @@ const Contact: React.FC = () => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const { error } = await supabase.from("client_leads").insert({
+        name: values.name,
+        email: values.email,
+        phone: values.phone || null,
+        project_type: values.projectType,
+        message: values.message,
+      });
+
+      if (error) throw error;
 
       setIsSubmitted(true);
       toast({

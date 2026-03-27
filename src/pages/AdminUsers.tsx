@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Shield, ShieldOff } from "lucide-react";
 import { toast } from "sonner";
@@ -22,6 +23,7 @@ interface User {
 
 export default function AdminUsers() {
   const navigate = useNavigate();
+  const { session } = useAuth();
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [processingUserId, setProcessingUserId] = useState<string | null>(null);
@@ -29,8 +31,7 @@ export default function AdminUsers() {
   const fetchUsers = useCallback(async () => {
     try {
       setLoading(true);
-      const { data: { session } } = await supabase.auth.getSession();
-      
+
       const response = await fetch(
         `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/list-users`,
         {
@@ -51,34 +52,11 @@ export default function AdminUsers() {
     } finally {
       setLoading(false);
     }
-  }, []);
-
-  const checkAuthAndFetchUsers = useCallback(async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-      navigate("/login");
-      return;
-    }
-
-    const { data: roles, error } = await supabase
-      .from('user_roles')
-      .select('role')
-      .eq('user_id', session.user.id)
-      .eq('role', 'admin')
-      .maybeSingle();
-
-    if (error || !roles) {
-      toast.error("Unauthorized: Admin access required");
-      navigate("/admin");
-      return;
-    }
-
-    await fetchUsers();
-  }, [navigate, fetchUsers]);
+  }, [session]);
 
   useEffect(() => {
-    checkAuthAndFetchUsers();
-  }, [checkAuthAndFetchUsers]);
+    fetchUsers();
+  }, [fetchUsers]);
 
   const toggleAdminRole = async (userId: string, currentlyAdmin: boolean) => {
     setProcessingUserId(userId);

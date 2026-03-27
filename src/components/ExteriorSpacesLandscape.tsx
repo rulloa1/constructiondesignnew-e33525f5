@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
 import { useProjects } from "@/hooks/useProjects";
-import { ProjectCard } from "@/components/shared/ProjectCard";
+import { SupabaseProjectCard } from "@/components/shared/ProjectCard";
 import { LoadingState } from "@/components/shared/LoadingState";
 import { EmptyState } from "@/components/shared/EmptyState";
 
@@ -29,7 +29,7 @@ export const ExteriorSpacesLandscape = () => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               {projects.map((project) => (
-                <ProjectCard
+                <SupabaseProjectCard
                   key={project.id}
                   project={project}
                   aspectRatio="video"

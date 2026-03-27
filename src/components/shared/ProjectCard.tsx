@@ -14,7 +14,7 @@ interface ProjectCardProps {
  * Reusable project card component with consistent styling
  * Supports different aspect ratios and interactive overlays
  */
-export const ProjectCard = ({
+export const SupabaseProjectCard = ({
   project,
   aspectRatio = "video",
   showOverlay = false,
