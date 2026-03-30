@@ -7,12 +7,13 @@ import { ProjectCard } from "@/components/ProjectCard";
 
 type Category = "All" | ProjectCategory;
 
-const categories: Category[] = ["All", "Residential Construction", "Residential Development", "Civil", "Hospitality", "Design/Build"];
+const categories: Category[] = ["All", "Residential Construction", "Residential Development", "Civil", "residential * civil * design/build", "Hospitality", "Design/Build"];
 
 const categoryColors: Record<string, string> = {
   "Residential Construction": "bg-gold text-charcoal",
   "Residential Development": "bg-steelBlue text-white",
   Civil: "bg-steelBlue text-white",
+  "residential * civil * design/build": "bg-steelBlue text-white",
   Hospitality: "bg-burgundy text-white",
   "Design/Build": "bg-gold text-charcoal",
 };

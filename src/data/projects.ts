@@ -127,7 +127,7 @@ import carmelValleyNew2 from "@/assets/projects/carmel-valley-new-2.webp";
 import carmelValleyNew3 from "@/assets/projects/carmel-valley-new-3.webp";
 import carmelValleyNew4 from "@/assets/projects/carmel-valley-new-4.webp";
 
-// North Florida Renovation/Addition
+// Owners Rep * Estate Management
 import veroBeachCover from "@/assets/vero-beach-cover.webp";
 import northFloridaCover from "@/assets/projects/north-florida-cover.webp";
 import northFlorida1 from "@/assets/projects/north-florida-1.webp";
@@ -431,6 +431,7 @@ export type ProjectCategory =
   | "Residential Construction"
   | "Residential Development"
   | "Civil"
+  | "residential * civil * design/build"
   | "Hospitality"
   | "Design/Build"
   | "Renovations & Additions"
@@ -594,7 +595,7 @@ export const projects: Project[] = [
   // RESIDENTIAL CONSTRUCTION
   {
     id: "north-florida-renovation",
-    title: "North Florida Renovation/Addition",
+    title: "Owners Rep * Estate Management",
     subtitle: "Estate Renovation & Addition",
     location: "N. Florida",
     additionalInfo: "N. Florida",
@@ -638,7 +639,7 @@ export const projects: Project[] = [
   {
     id: "bigsur-mountain-remodel",
     title: "Coastal Mountain Residence",
-    subtitle: "Civil Site Work",
+    subtitle: "civil/resiential",
     location: "Big Sur, CA",
     additionalInfo: "Big Sur, CA",
     category: "Civil",
@@ -655,7 +656,7 @@ export const projects: Project[] = [
     subtitle: "More Than Lipstick on an Old Lady!",
     location: "Carmel, CA",
     additionalInfo: "Carmel, CA",
-    category: "Civil",
+    category: "residential * civil * design/build",
     description: "A complete 12-month transformation of a 2,200 sq ft home. The project layout included a new roofline, foundation repairs, energy-efficient windows, and 1,400 sq ft of composite decking. Extensive site work involved 200 linear feet of retaining walls and a full landscape renovation.",
     image: carmelKnollsCover,
     images: [carmelKnollsCover, carmelKnolls1, carmelKnolls2, carmelKnolls3, carmelKnolls4, carmelKnolls5, carmelKnolls6, carmelKnolls7, carmelKnolls8, carmelKnolls9, carmelKnolls10, carmelKnolls11, carmelKnolls12, carmelKnolls13, carmelKnolls14, carmelKnolls15, carmelKnolls16, carmelKnolls17, carmelKnolls18, carmelKnolls19, carmelKnolls20, carmelKnolls21, carmelKnolls22, carmelKnolls23, carmelKnolls24, carmelKnolls25],
