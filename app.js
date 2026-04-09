@@ -284,4 +284,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         specObserver.observe(document.getElementById('specs'));
     }
+
+    // -----------------------------------------
+    // 7. Portfolio Grids Animation
+    // -----------------------------------------
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+    if (portfolioCards.length > 0) {
+        const portfolioObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Slight delay based on element's DOM index relative to currently intersecting items
+                    setTimeout(() => {
+                        entry.target.classList.add('in-view');
+                    }, 100);
+                    portfolioObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        portfolioCards.forEach((card, index) => {
+            // Apply inline transition delay for a staggering effect
+            card.style.transitionDelay = `${(index % 3) * 0.15}s`;
+            portfolioObserver.observe(card);
+        });
+    }
 });
