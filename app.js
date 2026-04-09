@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sCtx.scale(dpr, dpr);
 
         stars = [];
-        for (let i = 0; i < 180; i++) {
+        for (let i = 0; i < 100; i++) {
             stars.push({
                 x: Math.random() * window.innerWidth,
                 y: Math.random() * window.innerHeight,
@@ -178,19 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const zone = SNAP_ZONES[i];
             const visible = progress >= zone.show && progress <= zone.hide;
             card.classList.toggle('visible', visible);
-
-            if (visible && !zone.snapped && !isSnapping) {
-                zone.snapped = true;
-                isSnapping = true;
-                document.body.style.overflow = 'hidden';
-                setTimeout(() => {
-                    document.body.style.overflow = '';
-                    isSnapping = false;
-                }, HOLD_DURATION);
-            }
-            if (!visible) {
-                zone.snapped = false;
-            }
         });
     }
 
