@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michael Chandler Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Archivo:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 1. Starscape Background -->
+  <canvas id="starscape"></canvas>
+
+  <!-- 3. Scroll Progress Bar -->
+  <div id="scrollProgress"></div>
+
+  <!-- 2. Loader -->
+  <div id="loader">
+    <div class="loader-content">
+      <div class="loader-logo">
+        <h2 style="font-family:'Space Grotesk', sans-serif; font-size:1.5rem; letter-spacing:3px; color:#D4AF37;">MC</h2>
+      </div>
+      <p class="loader-text">Loading</p>
+      <div class="loader-bar-track">
+        <div class="loader-bar-fill" id="loaderBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Navbar -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span style="font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:1.2rem; color:#fff;">MICHAEL CHANDLER</span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Capabilities</a>
+        <a href="#specs">Impact</a>
+        <a href="#cta" class="nav-cta">Discovery Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 5. Hero Section -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title">Mastering the Build.</h1>
+      <p class="hero-subtitle">Strategic Construction Executive overseeing $500M+ in luxury developments from California to the Bahamas.</p>
+      <div class="hero-buttons">
+        <a href="#cta" class="btn-primary">Request a Discovery Call</a>
+        <a href="#features" class="btn-secondary">View Capabilities</a>
+      </div>
+      <div class="scroll-hint">
+        <span>Scroll to explore</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Scroll Animation & 7. Annotation Cards -->
+  <section class="scroll-animation">
+    <div class="scroll-sticky">
+      <canvas id="frameCanvas"></canvas>
+      
+      <!-- Annotation 1 -->
+      <div class="annotation-card" data-show="0.10" data-hide="0.25">
+        <div class="card-number">01</div>
+        <div class="card-body">
+          <h3 class="card-title">Pre-Construction Phase</h3>
+          <p class="card-desc">Detailed site analysis, structural rough-in planning, and environmental diligence before ground break.</p>
+          <div class="card-stat">
+            <span class="card-stat-number">100%</span>
+            <span class="card-stat-label">Precision Analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Annotation 2 -->
+      <div class="annotation-card" data-show="0.45" data-hide="0.60" style="left: auto; right: 5vw;">
+        <div class="card-number">02</div>
+        <div class="card-body">
+          <h3 class="card-title">Structural Framing</h3>
+          <p class="card-desc">Advanced timber and steel execution engineered to withstand monumental loads and extreme coastal environments.</p>
+          <div class="card-stat">
+            <span class="card-stat-number">1/32"</span>
+            <span class="card-stat-label">Tolerance Standards</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Annotation 3 -->
+      <div class="annotation-card" data-show="0.80" data-hide="0.95">
+        <div class="card-number">03</div>
+        <div class="card-body">
+          <h3 class="card-title">Finish Phase</h3>
+          <p class="card-desc">Hand-picked craftsmen and world-class millworkers bringing microscopic attention to interior detailing.</p>
+          <div class="card-stat">
+            <span class="card-stat-number">5-Star</span>
+            <span class="card-stat-label">Luxury Finish</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Specs Section -->
+  <section id="specs">
+    <div class="specs-grid">
+      <div class="spec-item" data-target="37" data-suffix="+">
+        <span class="spec-number">0</span>
+        <span class="spec-label">Years Experience</span>
+      </div>
+      <div class="spec-item" data-target="500" data-suffix="M+">
+        <span class="spec-number">0</span>
+        <span class="spec-label">Portfolio Value ($)</span>
+      </div>
+      <div class="spec-item" data-target="500" data-suffix="+">
+        <span class="spec-number">0</span>
+        <span class="spec-label">Projects Completed</span>
+      </div>
+      <div class="spec-item" data-target="100" data-suffix="%">
+        <span class="spec-number">0</span>
+        <span class="spec-label">Client Satisfaction</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Features Grid -->
+  <section id="features">
+    <h2 class="section-title">Core Capabilities</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🏗️</div>
+        <h3>Ultra-Luxury Custom process</h3>
+        <p>From coastal high-rises to alpine retreats. Every environment built on time, on budget, to last generations.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏛️</div>
+        <h3>Historic & Coastal</h3>
+        <p>Deep expertise in complex environmental compliance, structural retrofits, and coastal preservation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚧</div>
+        <h3>Design-Build Mgmt</h3>
+        <p>Seamless orchestration of architects, engineers, and master craftsmen under a single visionary lead.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Portfolio Grid -->
+  <section id="portfolio">
+    <h2 class="section-title">Select Works</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/assets/miami-beach-cover.webp" alt="Miami Beach Condo" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">S. Florida</span>
+          <h3 class="portfolio-title">High Rise Luxe Condo</h3>
+          <p class="portfolio-subtitle">Oceanfront Luxury Renovation</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">4,200 sqft</span>
+            <span class="service-tag">5 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/assets/alpine-ranch-cover.webp" alt="High Alpine Ranch" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">Montana</span>
+          <h3 class="portfolio-title">High Alpine Mtn.</h3>
+          <p class="portfolio-subtitle">Ranch Luxe Retreat</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">2,300 sqft</span>
+            <span class="service-tag">24 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/syracuse-cover.png" alt="Syracuse House" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">N. Utah</span>
+          <h3 class="portfolio-title">Syracuse House</h3>
+          <p class="portfolio-subtitle">N. Utah Craftsman Estate</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">6,200 sqft</span>
+            <span class="service-tag">18 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/assets/montana-cover.webp" alt="Montana Condo" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">Montana</span>
+          <h3 class="portfolio-title">Mtn. Mid-Rise Luxe</h3>
+          <p class="portfolio-subtitle">Condo</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">2,800 sqft</span>
+            <span class="service-tag">8 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/hospitality-pool-cover-v2.jpg" alt="Ultra Luxe Private Club Resort Pool" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">SE Texas</span>
+          <h3 class="portfolio-title">Ultra Luxe Private Club</h3>
+          <p class="portfolio-subtitle">Resort Pool</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">189,000 gal</span>
+            <span class="service-tag">18 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/assets/southcoast-cover.webp" alt="South Coast Renovation" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">Big Sur, CA</span>
+          <h3 class="portfolio-title">South Coast Renovation</h3>
+          <p class="portfolio-subtitle">Complete Remodel</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">3,800 sqft</span>
+            <span class="service-tag">16 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/carmel-valley-new/carmel_valley_new1%20cover.png" alt="Carmel Valley New Custom Residence" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">Carmel Valley, CA</span>
+          <h3 class="portfolio-title">Carmel Valley New</h3>
+          <p class="portfolio-subtitle">Custom Residence</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">4,800 sqft</span>
+            <span class="service-tag">20 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/north-florida/NIMG_9178.jpg" alt="North Florida Renovation and Addition" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">N. Florida</span>
+          <h3 class="portfolio-title">North Florida Renovation</h3>
+          <p class="portfolio-subtitle">Addition</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">4,800 sqft total</span>
+            <span class="service-tag">10 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/assets/abaco-luxe-boathouse-cover.webp" alt="Abaco Luxe Boat House" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">Abaco, Bahamas</span>
+          <h3 class="portfolio-title">Abaco Luxe Boat House</h3>
+          <p class="portfolio-subtitle">Construction</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">1,800 sqft</span>
+            <span class="service-tag">6 months</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/assets/carmel-2-cover.webp" alt="Carmel Forest to Ocean View Custom Addition" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">Carmel By the Sea, CA</span>
+          <h3 class="portfolio-title">Carmel Forest to Ocean View</h3>
+          <p class="portfolio-subtitle">Custom Addition</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/assets/bigsur-cover.webp" alt="Coastal Mountain Residence Civil Site Work" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">Big Sur, CA</span>
+          <h3 class="portfolio-title">Coastal Mountain Residence</h3>
+          <p class="portfolio-subtitle">Civil Site Work</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">11 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/carmel-knolls/001.10%20COVER.jpg" alt="Carmel Knolls Remodel" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">Carmel, CA</span>
+          <h3 class="portfolio-title">Carmel Knolls</h3>
+          <p class="portfolio-subtitle">More Than Lipstick on an Old Lady!</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">2,200 sqft</span>
+            <span class="service-tag">12 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/coastal-restoration/001%20COVER.JPG" alt="Coastal Restoration Erosion Repair" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">Monterey Peninsula, CA</span>
+          <h3 class="portfolio-title">Coastal Restoration</h3>
+          <p class="portfolio-subtitle">Erosion Repair</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">9 months</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/assets/beachfront-1.webp" alt="Beachfront Estate Residence" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">Abaco, Bahamas</span>
+          <h3 class="portfolio-title">Beachfront Estate</h3>
+          <p class="portfolio-subtitle">Residence</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">6,800 sqft</span>
+            <span class="service-tag">2.5 Acres</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/development-civil/development%20(1).jpg" alt="Development Civil Construction" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">SE Texas</span>
+          <h3 class="portfolio-title">Development Civil</h3>
+          <p class="portfolio-subtitle">Construction</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">45 Acres</span>
+            <span class="service-tag">36 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/pacific-grove/001%20COVER.JPG" alt="New Residential Construction In Historic Neighborhood" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">Central Coast, CA</span>
+          <h3 class="portfolio-title">New Residential Construction</h3>
+          <p class="portfolio-subtitle">In Historic Neighborhood</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">2,600 sqft</span>
+            <span class="service-tag">14 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/hillside-cleanup/001%20COVER.jpg" alt="Hillside Restoration and Environmental Cleanup" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">Carmel, CA</span>
+          <h3 class="portfolio-title">Hillside Restoration</h3>
+          <p class="portfolio-subtitle">Environmental Cleanup</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">4 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/laguna-grande/6.0%20Laguna%20Grande%20Design%20Build_001_COVER.png" alt="Laguna Grande Spanish Revival Commercial" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">Seaside, CA</span>
+          <h3 class="portfolio-title">Laguna Grande</h3>
+          <p class="portfolio-subtitle">Spanish Revival Commercial</p>
+          <div class="portfolio-meta">
+            <span class="service-tag">12,000 sqft</span>
+            <span class="service-tag">22 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-img-wrap">
+          <img src="projects/assets/carmel-3-cover.webp" alt="Carmel House Remodel No.23" />
+        </div>
+        <div class="portfolio-body">
+          <span class="portfolio-location">Carmel By the Sea, CA</span>
+          <h3 class="portfolio-title">Carmel House Remodel No.23</h3>
+          <p class="portfolio-subtitle">Complete Renovation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. CTA Section -->
+  <section id="cta">
+    <div class="cta-content">
+      <h2>Ready to build your legacy?</h2>
+      <p>Let's map out the strategy for your next monumental construction project.</p>
+      <a href="#" class="btn-primary">Request a Discovery Call</a>
+    </div>
+  </section>
+
+  <!-- 13. Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">MICHAEL CHANDLER</div>
+      <div class="footer-regions">Regions Served: CA • Bahamas • TX • MT • UT • FL</div>
+      <div class="footer-copy">&copy; 2026 Michael Chandler Portfolio. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
