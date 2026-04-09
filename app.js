@@ -309,3 +309,140 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+/* =========================================================================
+   LIGHTBOX & GALLERY LOGIC
+========================================================================= */
+(function() {
+    const BASE = 'projects/assets/';
+
+    const GALLERIES = {
+        'miami-beach-condo': { title: 'S. Florida High Rise Luxe Condo', images: [BASE + 'miami-beach-cover.webp', ...Array.from({length:47}, (_,i) => BASE + 'miami-beach-' + (i+1) + '.webp'), BASE + 'detail-wood-paneling.png'] },
+        'high-alpine-ranch': { title: 'High Alpine Mtn. Ranch Luxe Retreat', images: [BASE + 'alpine-ranch-cover.webp', ...Array.from({length:12}, (_,i) => BASE + 'alpine-ranch-' + (i+1) + '.webp')] },
+        'syracuse-house': { title: 'Syracuse House', images: ['projects/syracuse-cover.png', ...Array.from({length:46}, (_,i) => BASE + 'syracuse-' + (i+1) + '.webp')] },
+        'montana-condo': { title: 'Mtn. Mid-Rise Luxe Condo', images: [BASE + 'montana-cover.webp', ...Array.from({length:10}, (_,i) => BASE + 'montana-' + (i+1) + '.webp'), BASE + 'montana-11.jpg'] },
+        'hospitality-pool': { title: 'Ultra Luxe Private Club Resort Pool', images: ['projects/hospitality-pool-cover-v2.jpg', BASE + 'pool-design-1.png', BASE + 'pool-design-2.png', BASE + 'pool-design-3.png', BASE + 'pool-design-4.png', BASE + 'pool-design-5.png', BASE + 'pool-design-6.png', BASE + 'pool-design-9.png', ...Array.from({length:28}, (_,i) => BASE + 'pool-design-' + (i+10) + '.webp'), BASE + 'hospitality-pool-1.webp'] },
+        'southcoast-remodel': { title: 'South Coast Renovation', images: [BASE + 'southcoast-cover.webp', ...Array.from({length:52}, (_,i) => BASE + 'southcoast-' + (i+2) + '.webp')] },
+        'carmel-valley-new': { title: 'Carmel Valley New Custom Residence', images: ['projects/carmel-valley-new/carmel_valley_new1 cover.png', ...Array.from({length:4}, (_,i) => BASE + 'carmel-valley-new-' + (i+1) + '.webp')] },
+        'north-florida-renovation': { title: 'North Florida Renovation & Addition', images: ['projects/north-florida/NIMG_9178.jpg', ...Array.from({length:14}, (_,i) => BASE + 'north-florida-' + (i+1) + '.webp')] },
+        'bahamas-abaco-development': { title: 'Abaco Luxe Boat House', images: [BASE + 'abaco-luxe-boathouse-cover.webp', BASE + 'abaco-luxe-boathouse-1.webp'] },
+        'carmel-house-2': { title: 'Carmel Forest to Ocean View Custom Addition', images: [BASE + 'carmel-2-cover.webp', ...Array.from({length:5}, (_,i) => BASE + 'carmel-2-' + (i+1) + '.webp')] },
+        'bigsur-mountain-remodel': { title: 'Coastal Mountain Residence', images: [BASE + 'bigsur-cover.webp', ...Array.from({length:15}, (_,i) => BASE + 'bigsur-' + (i+1) + '.webp')] },
+        'carmel-knolls': { title: 'Carmel Knolls Remodel', images: ['projects/carmel-knolls/001.10 COVER.jpg', ...Array.from({length:25}, (_,i) => BASE + 'carmel-knolls-' + (i+1) + '.webp')] },
+        'coastal-restoration': { title: 'Coastal Restoration', images: ['projects/coastal-restoration/001 COVER.JPG', ...Array.from({length:15}, (_,i) => BASE + 'coastal-restoration-' + (i+1) + '.webp')] },
+        'bahamas-beachfront-estate': { title: 'Beachfront Estate Residence', images: Array.from({length:7}, (_,i) => BASE + 'beachfront-' + (i+1) + '.webp') },
+        'development-civil': { title: 'Development Civil Construction', images: ['projects/development-civil/development (1).jpg', ...Array.from({length:21}, (_,i) => BASE + 'civil-' + (i+1) + '.webp')] },
+        'pacific-grove-design-build': { title: 'New Residential Construction', images: ['projects/pacific-grove/001 COVER.JPG', ...Array.from({length:10}, (_,i) => BASE + 'pg-' + (i+1) + '.webp')] },
+        'hillside-cleanup': { title: 'Hillside Restoration', images: ['projects/hillside-cleanup/001 COVER.jpg', ...Array.from({length:15}, (_,i) => BASE + 'hillside-cleanup-' + (i+1) + '.webp')] },
+        'laguna-grande-design-build': { title: 'Laguna Grande', images: [BASE + 'laguna-grande-cover.webp', ...Array.from({length:6}, (_,i) => BASE + 'laguna-grande-' + (i+1) + '.webp')] },
+        'carmel-house-3': { title: 'Carmel House Remodel No.23', images: [BASE + 'carmel-3-cover.webp', ...Array.from({length:25}, (_,i) => BASE + 'carmel-3-' + (i+1) + '.webp')] }
+    };
+
+    let currentImages = [];
+    let currentIndex  = 0;
+    let preloadImg    = new Image();
+
+    const lb       = document.getElementById('lightbox');
+    const lbImg    = document.getElementById('lb-img');
+    const lbTitle  = document.getElementById('lb-title');
+    const lbCtr    = document.getElementById('lb-counter');
+    const lbThumbs = document.getElementById('lb-thumbs');
+    const lbClose  = document.getElementById('lb-close');
+    const lbPrev   = document.getElementById('lb-prev');
+    const lbNext   = document.getElementById('lb-next');
+
+    // If lightbox isn't in DOM, skip logic
+    if (!lb) return;
+
+    function buildThumbs() {
+        lbThumbs.innerHTML = '';
+        currentImages.forEach((src, i) => {
+            const img = document.createElement('img');
+            img.className = 'lb-thumb';
+            img.src = src;
+            img.alt = 'Thumbnail ' + (i + 1);
+            img.addEventListener('click', () => showImage(i));
+            // Basic error handling for missing thumbnails
+            img.onerror = () => { img.style.display = 'none'; };
+            lbThumbs.appendChild(img);
+        });
+    }
+
+    function showImage(idx) {
+        idx = (idx + currentImages.length) % currentImages.length;
+        currentIndex = idx;
+        lbCtr.textContent = ' — ' + (idx + 1) + ' / ' + currentImages.length;
+
+        lbImg.classList.remove('loaded');
+        const src = currentImages[idx];
+        lbImg.alt = lbTitle.textContent + ' — image ' + (idx + 1);
+
+        const tmp = new Image();
+        tmp.onload = () => { lbImg.src = src; lbImg.classList.add('loaded'); };
+        tmp.onerror = () => { lbImg.src = src; lbImg.classList.add('loaded'); };
+        tmp.src = src;
+
+        if(currentImages.length > 1) {
+             preloadImg.src = currentImages[(idx + 1) % currentImages.length];
+        }
+
+        const thumbEls = lbThumbs.querySelectorAll('.lb-thumb');
+        thumbEls.forEach((t, i) => t.classList.toggle('active', i === idx));
+        if (thumbEls[idx] && typeof thumbEls[idx].scrollIntoView === 'function') {
+            thumbEls[idx].scrollIntoView({block:'nearest', inline:'center', behavior:'smooth'});
+        }
+    }
+
+    function navigate(dir) {
+        showImage(currentIndex + dir);
+    }
+
+    function openLightbox(projectId) {
+        const data = GALLERIES[projectId];
+        if (!data) return;
+        currentImages = data.images;
+        currentIndex  = 0;
+        lbTitle.textContent = data.title;
+        buildThumbs();
+        showImage(0);
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        lb.focus();
+    }
+
+    function closeLightbox() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+        lbImg.classList.remove('loaded');
+        lbImg.src = '';
+    }
+
+    // Bind to portfolio cards
+    document.querySelectorAll('.portfolio-card[data-project]').forEach(card => {
+        card.addEventListener('click', () => openLightbox(card.dataset.project));
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click',  (e) => { e.stopPropagation(); navigate(-1); });
+    lbNext.addEventListener('click',  (e) => { e.stopPropagation(); navigate(1);  });
+
+    lb.addEventListener('click', (e) => {
+        if (e.target === lb || e.target === document.getElementById('lb-img-wrap')) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'ArrowLeft')  navigate(-1);
+        if (e.key === 'ArrowRight') navigate(1);
+        if (e.key === 'Escape')     closeLightbox();
+    });
+
+    let touchStartX = 0;
+    lb.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, {passive:true});
+    lb.addEventListener('touchend',   (e) => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) navigate(dx < 0 ? 1 : -1);
+    }, {passive:true});
+
+})();
